@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us — NAFUME Artisan Luxe</title>
+  <meta name="description" content="Contact NAFUME — reach our support team for order queries, returns, product questions or any other help."/>
+  <!-- SEO: replace nafume.com with the final live domain before launch -->
+  <link rel="canonical" href="https://nafume.com/pages/support/contact.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="NAFUME Artisan Luxe"/>
+  <meta property="og:title" content="Contact Us — NAFUME Artisan Luxe"/>
+  <meta property="og:description" content="Reach NAFUME support for order queries, returns and product questions."/>
+  <meta property="og:url" content="https://nafume.com/pages/support/contact.html"/>
+  <!-- Organization + contact structured data (Upgrade 8) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "NAFUME Artisan Luxe",
+    "alternateName": "NAFUME",
+    "url": "https://nafume.com/",
+    "logo": "https://nafume.com/assets/images/products/Seduction/image%20(1).jpg",
+    "sameAs": ["https://www.instagram.com/nafume.official"],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "telephone": "+918595862227",
+      "areaServed": "IN",
+      "availableLanguage": ["en", "hi"]
+    }]
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/launch.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div id="launch-overlay" class="lp-overlay" onclick="closeCart()"></div>
+  <div id="launch-toast" class="lp-toast" role="alert" aria-live="polite"></div>
+  <div id="launch-cart-drawer" class="lp-cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+    <div class="cart-drawer-head">
+      <div>
+        <p class="cart-drawer-title">Your Cart</p>
+        <p class="cart-drawer-count" id="cart-drawer-count">0 items</p>
+      </div>
+      <button class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="cart-drawer-items no-scrollbar" id="launch-cart-items"></div>
+    <div class="cart-drawer-footer" id="launch-cart-footer"></div>
+  </div>
+
+  <div class="nf-mobile-drawer" id="nf-mobile-drawer">
+    <div class="nf-drawer-head">
+      <a href="../../index.html" class="nf-logo" style="font-size:16px;letter-spacing:0.22em;">NAFUME</a>
+      <button class="nf-icon-btn" onclick="nfMenuClose()" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="nf-drawer-nav">
+      <a href="../../index.html" class="nf-drawer-link">Home</a>
+      <a href="../collections/shop.html" class="nf-drawer-link">New Launches</a>
+      <a href="../products/seduction.html" class="nf-drawer-link">Seduction</a>
+      <a href="../products/dark-oud.html" class="nf-drawer-link">Dark Oud</a>
+      <a href="../products/red-spirit.html" class="nf-drawer-link">Red Spirit</a>
+      <a href="../products/aqua-manthan.html" class="nf-drawer-link">Aqua Manthan</a>
+      <a href="../products/all-day-misfit.html" class="nf-drawer-link">All Day Misfit</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram ↗</a>
+    </nav>
+  </div>
+  <div class="nf-drawer-overlay" id="nf-drawer-overlay" onclick="nfMenuClose()"></div>
+
+  <div class="nf-ann">
+    <div class="nf-ann-track">SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </div>
+
+  <header class="nf-header" id="main-header">
+    <div class="nf-logo-row">
+      <div class="nf-header-left">
+        <button class="nf-icon-btn nf-hamburger-btn" onclick="nfMenuOpen()" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <a href="../../index.html" class="nf-icon-btn nf-search-btn" aria-label="Browse website">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </a>
+      </div>
+      <a href="../../index.html" class="nf-logo">NAFUME</a>
+      <div class="nf-header-right">
+        <button class="nf-icon-btn" onclick="openCart()" aria-label="View cart">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="nf-cart-badge lp-cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+    <nav class="nf-nav-row" aria-label="Main navigation">
+      <a href="../../index.html" class="nf-nav-link">HOME</a>
+      <a href="../collections/shop.html" class="nf-nav-link">NEW LAUNCHES</a>
+      <a href="../products/seduction.html" class="nf-nav-link">SEDUCTION</a>
+      <a href="../products/dark-oud.html" class="nf-nav-link">DARK OUD</a>
+      <a href="../products/red-spirit.html" class="nf-nav-link">RED SPIRIT</a>
+      <a href="../products/aqua-manthan.html" class="nf-nav-link">AQUA MANTHAN</a>
+      <a href="../products/all-day-misfit.html" class="nf-nav-link">ALL DAY MISFIT</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="legal-page">
+
+      <div class="legal-hero">
+        <p class="legal-hero-eyebrow">Get in Touch</p>
+        <h1 class="legal-hero-title">Contact Us</h1>
+        <p class="legal-hero-sub">We're here to help with orders, products, or anything else</p>
+      </div>
+
+      <!-- TODO: Replace support@nafume.com and WhatsApp number placeholder with official contact details before launch -->
+      <div class="policy-note">
+        <strong>⚠ Pre-launch note:</strong> Replace contact email and phone number with official customer care details and business hours before going live.
+      </div>
+
+      <div class="legal-card">
+
+        <div class="legal-section">
+          <h2>Fastest Way to Reach Us</h2>
+          <p>The quickest way to get help is via <strong>WhatsApp</strong>. Send us a message with your Order ID and query and we'll respond as soon as possible.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Contact Channels</h2>
+
+          <h3>WhatsApp Support</h3>
+          <p>For order queries, returns, tracking, or any help — WhatsApp is the fastest channel.</p>
+          <p>
+            <a href="https://wa.me/918595862227?text=Hi+NAFUME+I+need+help+with+my+order" target="_blank" rel="noopener" class="legal-wa-btn" style="display:inline-flex;margin:0 0 16px;">
+              <span class="material-symbols-outlined">chat</span>
+              Chat on WhatsApp
+            </a>
+          </p>
+
+          <h3>Email</h3>
+          <!-- TODO: Replace with official customer care email before launch -->
+          <p>Email us at <a href="mailto:support@nafume.com" style="color:#111;font-weight:600;text-decoration:underline">support@nafume.com</a></p>
+
+          <h3>Business Hours</h3>
+          <!-- TODO: Replace with official business hours before launch -->
+          <p>Monday to Saturday: 10:00 AM – 7:00 PM IST<br/>
+          Sunday: Closed<br/>
+          Public Holidays: Closed</p>
+          <p style="font-size:13px;color:#888">We aim to respond to all queries within <strong>1–2 business days</strong>.</p>
+        </div>
+
+      </div>
+
+      <!-- Contact form — opens WhatsApp/email since there is no backend -->
+      <div class="legal-card" style="margin-top:0">
+        <div class="legal-section" style="margin-bottom:0">
+          <h2>Send a Message</h2>
+          <p style="color:#888;font-size:13px">This form does not have a backend connected yet. Clicking "Send on WhatsApp" will open WhatsApp with your message pre-filled. You can also email us directly.</p>
+
+          <div id="contact-form-wrap">
+            <div style="display:flex;flex-direction:column;gap:14px;margin-top:16px">
+              <div style="display:flex;flex-direction:column;gap:5px">
+                <label for="cf-name" style="font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#666">Your Name</label>
+                <input type="text" id="cf-name" placeholder="Full name" style="border:1px solid #ddd;padding:12px 14px;font-size:14px;border-radius:2px;font-family:inherit;outline:none;"/>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:5px">
+                <label for="cf-order" style="font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#666">Order ID (if applicable)</label>
+                <input type="text" id="cf-order" placeholder="e.g. NF-123456-789" style="border:1px solid #ddd;padding:12px 14px;font-size:14px;border-radius:2px;font-family:inherit;outline:none;"/>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:5px">
+                <label for="cf-msg" style="font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#666">Your Message <span style="color:#ba1a1a">*</span></label>
+                <textarea id="cf-msg" rows="4" placeholder="Describe your query or issue..." style="border:1px solid #ddd;padding:12px 14px;font-size:14px;border-radius:2px;font-family:inherit;outline:none;resize:vertical;"></textarea>
+              </div>
+              <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:4px">
+                <button onclick="sendContactWA()" style="display:inline-flex;align-items:center;gap:8px;background:#111;color:#fff;border:none;padding:14px 28px;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:2px;">
+                  <span class="material-symbols-outlined" style="font-size:18px">chat</span>
+                  Send on WhatsApp
+                </button>
+                <a href="mailto:support@nafume.com" style="display:inline-flex;align-items:center;gap:8px;border:1px solid #111;color:#111;padding:14px 28px;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;">
+                  <span class="material-symbols-outlined" style="font-size:18px">mail</span>
+                  Send via Email
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="legal-card" style="margin-top:0">
+        <div class="legal-section" style="margin-bottom:0">
+          <h2>Useful Links</h2>
+          <div class="legal-nav-links" style="margin:0">
+            <a href="../order/track-order.html" class="legal-nav-link">Track My Order</a>
+            <a href="../legal/shipping-policy.html" class="legal-nav-link">Shipping Policy</a>
+            <a href="../legal/return-refund-policy.html" class="legal-nav-link">Return &amp; Refund Policy</a>
+            <a href="../legal/privacy-policy.html" class="legal-nav-link">Privacy Policy</a>
+            <a href="grievance-officer.html" class="legal-nav-link">Grievance Officer</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+
+  <script src="../../js/commerce/customer-service.js"></script>
+  <script src="../../js/launch.js"></script>
+  <script>
+    function sendContactWA() {
+      var name = (document.getElementById('cf-name').value || '').trim();
+      var order = (document.getElementById('cf-order').value || '').trim();
+      var msg = (document.getElementById('cf-msg').value || '').trim();
+      if (!msg) { alert('Please enter your message before sending.'); return; }
+      var text = 'Hi NAFUME';
+      if (name) text += ', I am ' + name;
+      text += '.';
+      if (order) text += ' Order ID: ' + order + '.';
+      text += ' ' + msg;
+      window.open('https://wa.me/918595862227?text=' + encodeURIComponent(text), '_blank');
+    }
+  </script>
+</body>
+</html>
+

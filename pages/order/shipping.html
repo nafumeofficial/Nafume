@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout — NAFUME Artisan Luxe</title>
+  <meta name="description" content="Complete your NAFUME order. Fill in your shipping details and confirm on WhatsApp."/>
+  <link rel="stylesheet" href="../../css/launch.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div id="launch-overlay" class="lp-overlay" onclick="closeCart()"></div>
+  <div id="launch-toast" class="lp-toast" role="alert" aria-live="polite"></div>
+
+  <div id="launch-cart-drawer" class="lp-cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+    <div class="cart-drawer-head">
+      <div>
+        <p class="cart-drawer-title">Your Cart</p>
+        <p class="cart-drawer-count" id="cart-drawer-count">0 items</p>
+      </div>
+      <button class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="cart-drawer-items no-scrollbar" id="launch-cart-items"></div>
+    <div class="cart-drawer-footer" id="launch-cart-footer"></div>
+  </div>
+
+  <!-- Mobile nav drawer -->
+  <div class="nf-mobile-drawer" id="nf-mobile-drawer">
+    <div class="nf-drawer-head">
+      <a href="../../index.html" class="nf-logo" style="font-size:16px;letter-spacing:0.22em;">NAFUME</a>
+      <button class="nf-icon-btn" onclick="nfMenuClose()" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="nf-drawer-nav">
+      <a href="../../index.html" class="nf-drawer-link">Home</a>
+      <a href="../collections/shop.html" class="nf-drawer-link">New Launches</a>
+      <a href="../products/seduction.html" class="nf-drawer-link">Seduction</a>
+      <a href="../products/dark-oud.html" class="nf-drawer-link">Dark Oud</a>
+      <a href="../products/red-spirit.html" class="nf-drawer-link">Red Spirit</a>
+      <a href="../products/aqua-manthan.html" class="nf-drawer-link">Aqua Manthan</a>
+      <a href="../products/all-day-misfit.html" class="nf-drawer-link">All Day Misfit</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram ↗</a>
+    </nav>
+  </div>
+  <div class="nf-drawer-overlay" id="nf-drawer-overlay" onclick="nfMenuClose()"></div>
+
+  <div class="nf-ann">
+    <div class="nf-ann-track">SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </div>
+
+  <header class="nf-header" id="main-header">
+    <div class="nf-logo-row">
+      <div class="nf-header-left">
+        <button class="nf-icon-btn nf-hamburger-btn" onclick="nfMenuOpen()" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <a href="../../index.html" class="nf-icon-btn nf-search-btn" aria-label="Browse website">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </a>
+      </div>
+      <a href="../../index.html" class="nf-logo">NAFUME</a>
+      <div class="nf-header-right">
+        <button class="nf-icon-btn" onclick="openCart()" aria-label="View cart">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="nf-cart-badge lp-cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+    <nav class="nf-nav-row" aria-label="Main navigation">
+      <a href="../../index.html" class="nf-nav-link">HOME</a>
+      <a href="../collections/shop.html" class="nf-nav-link">NEW LAUNCHES</a>
+      <a href="../products/seduction.html" class="nf-nav-link">SEDUCTION</a>
+      <a href="../products/dark-oud.html" class="nf-nav-link">DARK OUD</a>
+      <a href="../products/red-spirit.html" class="nf-nav-link">RED SPIRIT</a>
+      <a href="../products/aqua-manthan.html" class="nf-nav-link">AQUA MANTHAN</a>
+      <a href="../products/all-day-misfit.html" class="nf-nav-link">ALL DAY MISFIT</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
+    </nav>
+  </header>
+
+  <!-- ── Shipping Page ──────────────────────────────────────────── -->
+  <main class="shipping-page">
+    <div class="shipping-inner">
+
+      <!-- Left: Form -->
+      <div class="shipping-form-col">
+        <h1 class="shipping-heading">Shipping Details</h1>
+        <p class="shipping-subhead">We'll confirm your order on WhatsApp after you submit.</p>
+
+        <form id="shipping-form" class="shipping-form" onsubmit="submitShippingForm(event)" novalidate>
+
+          <div class="form-section">
+            <h2 class="form-section-title">Contact</h2>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cust-name">Full Name <span class="req">*</span></label>
+                <input type="text" id="cust-name" name="name" placeholder="Your full name" required autocomplete="name"/>
+              </div>
+            </div>
+            <div class="form-row form-row-2">
+              <div class="form-field">
+                <label for="cust-phone">WhatsApp Number <span class="req">*</span></label>
+                <input type="tel" id="cust-phone" name="phone" placeholder="10-digit mobile number" required autocomplete="tel" maxlength="10" pattern="[6-9][0-9]{9}"/>
+                <p class="field-hint">Order confirmation will be sent here</p>
+              </div>
+              <div class="form-field">
+                <label for="cust-email">Email (optional)</label>
+                <input type="email" id="cust-email" name="email" placeholder="your@email.com" autocomplete="email"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h2 class="form-section-title">Shipping Address</h2>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cust-addr1">Address Line 1 <span class="req">*</span></label>
+                <input type="text" id="cust-addr1" name="addr1" placeholder="House / Flat no., Street, Locality" required autocomplete="address-line1"/>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cust-addr2">Address Line 2</label>
+                <input type="text" id="cust-addr2" name="addr2" placeholder="Area, Landmark (optional)" autocomplete="address-line2"/>
+              </div>
+            </div>
+            <div class="form-row form-row-3">
+              <div class="form-field">
+                <label for="cust-city">City <span class="req">*</span></label>
+                <input type="text" id="cust-city" name="city" placeholder="City" required autocomplete="address-level2"/>
+              </div>
+              <div class="form-field">
+                <label for="cust-state">State <span class="req">*</span></label>
+                <select id="cust-state" name="state" required autocomplete="address-level1">
+                  <option value="">Select State</option>
+                  <option>Andhra Pradesh</option>
+                  <option>Arunachal Pradesh</option>
+                  <option>Assam</option>
+                  <option>Bihar</option>
+                  <option>Chhattisgarh</option>
+                  <option>Goa</option>
+                  <option>Gujarat</option>
+                  <option>Haryana</option>
+                  <option>Himachal Pradesh</option>
+                  <option>Jharkhand</option>
+                  <option>Karnataka</option>
+                  <option>Kerala</option>
+                  <option>Madhya Pradesh</option>
+                  <option>Maharashtra</option>
+                  <option>Manipur</option>
+                  <option>Meghalaya</option>
+                  <option>Mizoram</option>
+                  <option>Nagaland</option>
+                  <option>Odisha</option>
+                  <option>Punjab</option>
+                  <option>Rajasthan</option>
+                  <option>Sikkim</option>
+                  <option>Tamil Nadu</option>
+                  <option>Telangana</option>
+                  <option>Tripura</option>
+                  <option>Uttar Pradesh</option>
+                  <option>Uttarakhand</option>
+                  <option>West Bengal</option>
+                  <option>Delhi</option>
+                  <option>Chandigarh</option>
+                  <option>Jammu &amp; Kashmir</option>
+                  <option>Ladakh</option>
+                  <option>Puducherry</option>
+                  <option>Andaman &amp; Nicobar Islands</option>
+                  <option>Dadra &amp; Nagar Haveli</option>
+                  <option>Daman &amp; Diu</option>
+                  <option>Lakshadweep</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="cust-pin">PIN Code <span class="req">*</span></label>
+                <input type="text" id="cust-pin" name="pin" placeholder="6-digit PIN" required autocomplete="postal-code" maxlength="6" pattern="[1-9][0-9]{5}"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h2 class="form-section-title">Payment Preference</h2>
+            <div class="payment-options">
+              <label class="payment-option">
+                <input type="radio" name="payment" value="COD" checked/>
+                <span class="payment-label">
+                  <span class="payment-name">Cash on Delivery</span>
+                  <span class="payment-desc">Pay when your order arrives</span>
+                </span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="Prepaid (UPI / Bank Transfer)"/>
+                <span class="payment-label">
+                  <span class="payment-name">Prepaid — UPI / Bank Transfer</span>
+                  <span class="payment-desc">We'll share payment details on WhatsApp</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <label for="cust-notes" class="form-notes-label">Special Instructions (optional)</label>
+            <textarea id="cust-notes" name="notes" rows="3" placeholder="Any special requests or instructions for your order..."></textarea>
+          </div>
+
+          <div class="form-actions">
+            <!-- Secure (Shopify) checkout — shown only when Shopify mode is on.
+                 Visibility + label are set by initCheckoutModeUI() in launch.js. -->
+            <button type="button" class="btn-secure-checkout" id="btn-secure-checkout" style="display:none;">
+              <span class="material-symbols-outlined" style="font-size:20px;">lock</span>
+              Proceed to Secure Checkout
+            </button>
+            <!-- Dev/fallback notice (e.g. "online checkout is being connected") -->
+            <p class="checkout-warning-note" id="checkout-warning-note" style="display:none;"></p>
+
+            <button type="submit" class="btn-place-order" id="btn-place-order">
+              <span class="material-symbols-outlined" style="font-size:20px;">whatsapp</span>
+              Confirm Order on WhatsApp
+            </button>
+            <!-- Trust line under the primary CTA (text set by initCheckoutModeUI) -->
+            <p class="checkout-trust-note" id="checkout-trust-note">Secure checkout powered by NAFUME commerce system.</p>
+            <!-- Policy consent (Upgrade 5) -->
+            <p class="checkout-policy-consent">
+              By placing this order, you agree to NAFUME's
+              <a href="../legal/terms-conditions.html" target="_blank">Terms &amp; Conditions</a>,
+              <a href="../legal/privacy-policy.html" target="_blank">Privacy Policy</a>, and
+              <a href="../legal/return-refund-policy.html" target="_blank">Return &amp; Refund Policy</a>.
+            </p>
+            <p class="order-notice">
+              Tapping the button will open WhatsApp with your complete order details pre-filled. We'll confirm and dispatch within 24 hours.
+            </p>
+          </div>
+
+        </form>
+
+        <div id="order-confirm-msg" class="order-confirm-msg" style="display:none;">
+          <span class="material-symbols-outlined order-confirm-icon">check_circle</span>
+          <h2 class="order-confirm-heading">Order Placed!</h2>
+          <p class="order-confirm-sub">Your WhatsApp has been opened with your order details. Just tap Send to confirm.</p>
+          <p class="order-confirm-orderid" id="confirm-order-id"></p>
+          <div class="order-confirm-actions">
+            <a href="#" id="confirm-view-link" class="order-confirm-cta">View Order Details</a>
+            <a href="../../index.html" class="order-confirm-cta-outline">Back to Home</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Order Summary -->
+      <div class="shipping-summary-col">
+        <div class="order-summary" id="order-summary">
+          <h2 class="order-summary-title">Order Summary</h2>
+          <div id="order-summary-items" class="order-summary-items"></div>
+          <div class="order-totals">
+            <div class="order-row">
+              <span>Subtotal</span>
+              <span id="order-subtotal">₹0</span>
+            </div>
+            <div class="order-row">
+              <span>Shipping</span>
+              <span id="order-shipping">—</span>
+            </div>
+            <div class="order-row order-row-total">
+              <span>Total</span>
+              <span id="order-total">₹0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="summary-trust">
+          <div class="trust-item">
+            <span class="material-symbols-outlined">verified</span>
+            <span>100% Genuine Fragrances</span>
+          </div>
+          <div class="trust-item">
+            <span class="material-symbols-outlined">local_shipping</span>
+            <span>Ships within 24 hrs</span>
+          </div>
+          <div class="trust-item">
+            <span class="material-symbols-outlined">lock</span>
+            <span>Secure WhatsApp Checkout</span>
+          </div>
+          <div class="trust-item">
+            <span class="material-symbols-outlined">replay</span>
+            <span>Easy Returns</span>
+          </div>
+        </div>
+
+        <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="summary-instagram">
+          <span class="material-symbols-outlined">photo_camera</span>
+          Follow us on Instagram
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+
+  <!-- Commerce foundation (Upgrade 1) + Shopify checkout (Upgrade 2) — load
+       before launch.js so window.Commerce / window.ShopifyService are ready. -->
+  <script src="../../js/commerce/config.js"></script>
+  <script src="../../js/commerce/shopify-service.js"></script>
+  <script src="../../js/commerce/commerce-service.js"></script>
+  <script src="../../js/commerce/customer-service.js"></script>
+  <script src="../../js/commerce/offer-service.js"></script>
+  <script src="../../js/launch.js"></script>
+  <script src="../../js/commerce/operations-service.js"></script>
+</body>
+</html>

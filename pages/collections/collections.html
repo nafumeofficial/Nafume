@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Perfume Collections — NAFUME Artisan Luxe</title>
+  <meta name="description" content="Explore NAFUME fragrance collections — best sellers, for him, for her, office wear, date night, fresh &amp; aquatic, oud, gifting and discovery sets."/>
+  <!-- SEO: replace nafume.com with the final live domain before launch -->
+  <link rel="canonical" href="https://nafume.com/pages/collections/collections.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="NAFUME Artisan Luxe"/>
+  <meta property="og:title" content="All Perfume Collections — NAFUME Artisan Luxe"/>
+  <meta property="og:description" content="Explore NAFUME fragrance collections by occasion, mood, gender, scent family and gifting."/>
+  <meta property="og:url" content="https://nafume.com/pages/collections/collections.html"/>
+  <meta property="og:image" content="https://nafume.com/assets/images/products/Seduction/image%20(1).jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="stylesheet" href="../../css/launch.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div id="launch-overlay" class="lp-overlay" onclick="closeCart()"></div>
+  <div id="launch-toast" class="lp-toast" role="alert" aria-live="polite"></div>
+  <div id="launch-cart-drawer" class="lp-cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+    <div class="cart-drawer-head">
+      <div>
+        <p class="cart-drawer-title">Your Cart</p>
+        <p class="cart-drawer-count" id="cart-drawer-count">0 items</p>
+      </div>
+      <button class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="cart-drawer-items no-scrollbar" id="launch-cart-items"></div>
+    <div class="cart-drawer-footer" id="launch-cart-footer"></div>
+  </div>
+
+  <div class="nf-mobile-drawer" id="nf-mobile-drawer">
+    <div class="nf-drawer-head">
+      <a href="../../index.html" class="nf-logo" style="font-size:16px;letter-spacing:0.22em;">NAFUME</a>
+      <button class="nf-icon-btn" onclick="nfMenuClose()" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="nf-drawer-nav">
+      <a href="../../index.html" class="nf-drawer-link">Home</a>
+      <a href="shop.html" class="nf-drawer-link">New Launches</a>
+      <a href="../products/seduction.html" class="nf-drawer-link">Seduction</a>
+      <a href="../products/dark-oud.html" class="nf-drawer-link">Dark Oud</a>
+      <a href="../products/red-spirit.html" class="nf-drawer-link">Red Spirit</a>
+      <a href="../products/aqua-manthan.html" class="nf-drawer-link">Aqua Manthan</a>
+      <a href="../products/all-day-misfit.html" class="nf-drawer-link">All Day Misfit</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram ↗</a>
+    </nav>
+  </div>
+  <div class="nf-drawer-overlay" id="nf-drawer-overlay" onclick="nfMenuClose()"></div>
+
+  <div class="nf-ann">
+    <div class="nf-ann-track">SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </div>
+
+  <header class="nf-header" id="main-header">
+    <div class="nf-logo-row">
+      <div class="nf-header-left">
+        <button class="nf-icon-btn nf-hamburger-btn" onclick="nfMenuOpen()" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <a href="../../index.html" class="nf-icon-btn nf-search-btn" aria-label="Browse website">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </a>
+      </div>
+      <a href="../../index.html" class="nf-logo">NAFUME</a>
+      <div class="nf-header-right">
+        <button class="nf-icon-btn" onclick="openCart()" aria-label="View cart">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="nf-cart-badge lp-cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+    <nav class="nf-nav-row" aria-label="Main navigation">
+      <a href="../../index.html" class="nf-nav-link">HOME</a>
+      <a href="shop.html" class="nf-nav-link">NEW LAUNCHES</a>
+      <a href="../products/seduction.html" class="nf-nav-link">SEDUCTION</a>
+      <a href="../products/dark-oud.html" class="nf-nav-link">DARK OUD</a>
+      <a href="../products/red-spirit.html" class="nf-nav-link">RED SPIRIT</a>
+      <a href="../products/aqua-manthan.html" class="nf-nav-link">AQUA MANTHAN</a>
+      <a href="../products/all-day-misfit.html" class="nf-nav-link">ALL DAY MISFIT</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="collection-page">
+
+      <div class="collection-page-hero">
+        <p class="collection-page-eyebrow">Collections</p>
+        <h1 class="collection-page-title">Browse All Collections</h1>
+        <p class="collection-page-subtitle">Find your perfect fragrance by mood, occasion, gender, or scent family.</p>
+      </div>
+
+      <div id="collections-root">
+        <!-- Rendered by JS below -->
+      </div>
+
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+
+  <script src="../../js/commerce/config.js"></script>
+  <script src="../../js/commerce/customer-service.js"></script>
+  <script src="../../js/commerce/collection-service.js"></script>
+  <script src="../../js/commerce/seo-service.js"></script>
+  <script src="../../js/commerce/offer-service.js"></script>
+  <script src="../../js/launch.js"></script>
+  <script src="../../js/commerce/operations-service.js"></script>
+  <script>
+  (function () {
+    var root = document.getElementById('collections-root');
+    if (!root || !window.CollectionService || !window.LAUNCH_PRODUCTS) return;
+
+    if (window.SEO) {
+      try {
+        SEO.updateDocumentSeo(SEO.getPageSeo("collections"));
+        SEO.injectJsonLd(SEO.createBreadcrumbSchema([
+          { name: "Home", url: "index.html" },
+          { name: "Collections", url: "collections.html" }
+        ]), "ld-breadcrumb");
+      } catch (e) {}
+    }
+
+    var cs = window.CollectionService;
+
+    // Representative product per collection card (mapping unchanged). The
+    // thumbnail VARIATION is picked per-card via pickThumb() below, so the same
+    // product looks different across sections — temporary visual variety, card
+    // images only. Each card still uses ONLY its mapped product's images.
+    var prods = window.LAUNCH_PRODUCTS;
+    function prodById(id) { return prods.find(function(x) { return x.id === id; }); }
+    var coverProductId = {
+      'new-launches':       'aqua-manthan',
+      'best-sellers':       'seduction',
+      'discovery-set':      'all-day-misfit',
+      'him':                'dark-oud',
+      'her':                'seduction',
+      'unisex':             'aqua-manthan',
+      'office-wear':        'red-spirit',
+      'date-night':         'seduction',
+      'fresh-aquatic':      'aqua-manthan',
+      'oud-intense':        'dark-oud',
+      'gifting':            'red-spirit',
+      'build-your-own-box': 'all-day-misfit'
+    };
+
+    // Per-product round-robin: repeated cards of the same product step through
+    // its thumbnails so they never match. Deterministic + stable across refreshes
+    // (render order is fixed); the per-id start offset keeps it "random-looking".
+    // Card images only; each card uses ONLY its mapped product's own thumbnails.
+    var thumbUsage = {};
+    function pickThumb(p) {
+      if (!p) return '';
+      var list = (p.thumbnails && p.thumbnails.length) ? p.thumbnails : null;
+      if (!list) return p.image;                       // safe fallback
+      var n = thumbUsage[p.id] || 0; thumbUsage[p.id] = n + 1;
+      var start = 0;
+      for (var k = 0; k < p.id.length; k++) start = (start + p.id.charCodeAt(k)) % list.length;
+      return list[(start + n) % list.length];
+    }
+
+    function renderCard(col) {
+      var href = col.linkTo || ('collection.html?collection=' + col.slug);
+      var coverSrc = pickThumb(prodById(coverProductId[col.slug]));
+      var count = cs.getProductsByCollection(col.slug).length;
+      var imgTag = coverSrc
+        ? '<img class="coll-card-img" src="' + coverSrc + '" alt="' + col.title + '" loading="lazy">'
+        : '';
+      return '<a href="' + href + '" class="coll-card">' +
+        '<div class="coll-card-img-wrap">' + imgTag + '</div>' +
+        '<div class="coll-card-info">' +
+          '<p class="coll-card-title">' + col.title + '</p>' +
+          '<p class="coll-card-subtitle">' + col.subtitle + '</p>' +
+          '<p class="coll-card-count">' + count + (count === 1 ? ' fragrance' : ' fragrances') + '</p>' +
+        '</div>' +
+      '</a>';
+    }
+
+    function renderGroup(title, collections) {
+      var valid = collections.filter(Boolean);
+      if (!valid.length) return '';
+      return '<div class="coll-group">' +
+        '<p class="coll-group-title">' + title + '</p>' +
+        '<div class="coll-grid">' + valid.map(renderCard).join('') + '</div>' +
+      '</div>';
+    }
+
+    var html = '';
+    html += renderGroup('Shop by Popularity', [
+      cs.getCollectionBySlug('new-launches'),
+      cs.getCollectionBySlug('best-sellers'),
+      cs.getCollectionBySlug('discovery-set')
+    ].filter(Boolean));
+    html += renderGroup('Shop by Gender', cs.getGenderCollections());
+    html += renderGroup('Shop by Occasion', cs.getOccasionCollections());
+    html += renderGroup('Shop by Scent Family', cs.getScentFamilyCollections());
+    html += renderGroup('Gifting & Bundles', [
+      cs.getCollectionBySlug('gifting'),
+      cs.getCollectionBySlug('build-your-own-box')
+    ].filter(Boolean));
+
+    root.innerHTML = html;
+  })();
+  </script>
+</body>
+</html>
+

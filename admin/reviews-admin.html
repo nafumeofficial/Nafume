@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reviews Admin (Local Demo) — NAFUME</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, Helvetica, sans-serif; background: #f5f3ef; color: #1a1a1a; padding: 24px; }
+    .wrap { max-width: 960px; margin: 0 auto; }
+    h1 { font-size: 20px; letter-spacing: 0.04em; }
+    .warn { background: #fdecea; border: 1px solid #f5c2bd; color: #8a1c10; padding: 12px 16px; border-radius: 6px; margin: 14px 0 20px; font-size: 13px; }
+    .bar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 18px; }
+    .bar button { border: 1px solid #ccc; background: #fff; padding: 8px 14px; border-radius: 20px; cursor: pointer; font-size: 12px; letter-spacing: 0.04em; }
+    .bar button.active { background: #111; color: #fff; border-color: #111; }
+    .count { margin-left: auto; font-size: 12px; color: #666; }
+    .rev { background: #fff; border: 1px solid #e7e7e7; border-radius: 8px; padding: 16px; margin-bottom: 12px; }
+    .rev-top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .rev-who { font-weight: 700; font-size: 14px; }
+    .rev-meta { font-size: 12px; color: #777; }
+    .stars { color: #C5A059; letter-spacing: 1px; }
+    .pill { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 8px; border-radius: 10px; font-weight: 700; }
+    .pill.published { background: #e7f6ea; color: #2e7d32; }
+    .pill.pending   { background: #fff4e0; color: #b06f00; }
+    .pill.hidden    { background: #eee; color: #777; }
+    .pill.verified  { background: #e9f3ff; color: #1565c0; }
+    .rev-title { font-weight: 700; margin: 10px 0 2px; font-size: 13px; }
+    .rev-body { font-size: 13px; color: #444; line-height: 1.55; }
+    .actions { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .actions button { border: none; border-radius: 6px; padding: 8px 14px; cursor: pointer; font-size: 12px; font-weight: 700; }
+    .b-pub { background: #2e7d32; color: #fff; }
+    .b-hide { background: #b0b0b0; color: #fff; }
+    .b-pend { background: #b06f00; color: #fff; }
+    .empty { text-align: center; color: #999; padding: 40px; font-size: 14px; }
+    a.back { font-size: 12px; color: #666; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="../index.html">← Back to site</a>
+    <h1 style="margin-top:8px;">NAFUME — Product Reviews Admin</h1>
+    <div class="warn">
+      ⚠️ <strong>Local demo admin only. Not secure for production.</strong>
+      Anyone who opens this page on this browser can moderate reviews. Replace with
+      a real, authenticated server dashboard before going live.
+    </div>
+
+    <div class="bar">
+      <button data-filter="all" class="active">All</button>
+      <button data-filter="pending">Pending</button>
+      <button data-filter="published">Published</button>
+      <button data-filter="hidden">Hidden</button>
+      <span class="count" id="count"></span>
+    </div>
+
+    <div id="list"></div>
+  </div>
+
+  <!-- Commerce + review service (Upgrade 4) -->
+  <script src="../js/commerce/config.js"></script>
+  <script src="../js/commerce/customer-service.js"></script>
+  <script src="../js/commerce/review-service.js"></script>
+  <script>
+    var RS = window.ReviewService;
+    var filter = "all";
+
+    function stars(n) { var s = ""; for (var i = 1; i <= 5; i++) s += (i <= n ? "★" : "☆"); return s; }
+    function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+      return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]; }); }
+    function fmt(iso) { try { return new Date(iso).toLocaleString("en-IN"); } catch (e) { return "—"; } }
+
+    function render() {
+      var listEl = document.getElementById("list");
+      if (!RS) { listEl.innerHTML = '<div class="empty">Review service not loaded.</div>'; return; }
+      // Seed so there is always something to show in the demo.
+      RS.seedInitialReviewsIfEmpty();
+      var all = RS.getAllReviews();
+      var rows = all.filter(function (r) { return filter === "all" ? true : r.status === filter; });
+      document.getElementById("count").textContent = rows.length + " of " + all.length + " review(s)";
+
+      if (!rows.length) { listEl.innerHTML = '<div class="empty">No reviews in this view.</div>'; return; }
+
+      listEl.innerHTML = rows.map(function (r) {
+        var who = esc(r.customerName) + (r.customerLocation ? " · " + esc(r.customerLocation) : "");
+        return '<div class="rev">' +
+          '<div class="rev-top">' +
+            '<div><div class="rev-who">' + who + ' <span class="stars">' + stars(r.rating) + '</span></div>' +
+              '<div class="rev-meta">' + esc(r.productId) + ' · ' + fmt(r.createdAt) + ' · ' + esc(r.source) + '</div></div>' +
+            '<div style="display:flex;gap:6px;align-items:flex-start;flex-wrap:wrap;">' +
+              '<span class="pill ' + r.status + '">' + r.status + '</span>' +
+              (r.verifiedBuyer ? '<span class="pill verified">verified</span>' : '') +
+            '</div>' +
+          '</div>' +
+          (r.title ? '<div class="rev-title">' + esc(r.title) + '</div>' : '') +
+          '<div class="rev-body">' + esc(r.body) + '</div>' +
+          '<div class="actions">' +
+            (r.status !== "published" ? '<button class="b-pub" data-id="' + r.reviewId + '" data-st="published">Approve / Publish</button>' : '') +
+            (r.status !== "hidden" ? '<button class="b-hide" data-id="' + r.reviewId + '" data-st="hidden">Hide</button>' : '') +
+            (r.status !== "pending" ? '<button class="b-pend" data-id="' + r.reviewId + '" data-st="pending">Mark Pending</button>' : '') +
+          '</div>' +
+        '</div>';
+      }).join("");
+
+      listEl.querySelectorAll("button[data-id]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          RS.updateReviewStatus(b.getAttribute("data-id"), b.getAttribute("data-st"));
+          render();
+        });
+      });
+    }
+
+    document.querySelectorAll(".bar button[data-filter]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        filter = b.getAttribute("data-filter");
+        document.querySelectorAll(".bar button[data-filter]").forEach(function (x) { x.classList.remove("active"); });
+        b.classList.add("active");
+        render();
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", render);
+  </script>
+</body>
+</html>

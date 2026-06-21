@@ -1,0 +1,557 @@
+﻿<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Track Your Order — NAFUME Artisan Luxe</title>
+    <meta name="description" content="Track your NAFUME order using your order ID, phone number or AWB number. Check your fragrance delivery status anytime."/>
+    <!-- SEO: replace nafume.com with the final live domain before launch -->
+    <link rel="canonical" href="https://nafume.com/pages/order/track-order.html"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="NAFUME Artisan Luxe"/>
+    <meta property="og:title" content="Track Your Order — NAFUME Artisan Luxe"/>
+    <meta property="og:description" content="Track your NAFUME order using your order ID, phone number or AWB number."/>
+    <meta property="og:url" content="https://nafume.com/pages/order/track-order.html"/>
+    <!-- Tailwind CSS v3 CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts -->
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Central Styles -->
+    <link href="../../css/style.css" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#F9F5F0",
+                        "accent-bronze": "#C5A059",
+                        "primary": "#000000",
+                        "text-secondary": "#666666",
+                        "border-muted": "#DEDEDE",
+                        "surface-container": "#f1edec",
+                        "surface-variant": "#e5e2e1"
+                    },
+                    borderRadius: {
+                        DEFAULT: "2px",
+                        lg: "4px",
+                        xl: "8px",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        xl: "32px",
+                        gutter: "24px",
+                        xxl: "48px",
+                        lg: "24px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "16px",
+                        display: "64px",
+                        md: "16px",
+                        sm: "8px",
+                        xs: "4px"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased min-h-screen flex flex-col bg-surface text-primary">
+
+    <!-- 1. DRAWER OVERLAYS -->
+    <div class="fixed inset-0 bg-black/40 z-[150] hidden opacity-0 drawer-overlay transition-opacity duration-300" id="search-overlay" onclick="toggleSearch(true)"></div>
+    <div class="fixed inset-0 bg-black/40 z-[150] hidden opacity-0 drawer-overlay transition-opacity duration-300" id="mobile-menu-overlay" onclick="toggleMobileMenu(true)"></div>
+    <div class="fixed inset-0 bg-black/40 z-[150] hidden opacity-0 drawer-overlay transition-opacity duration-300" id="cart-overlay" onclick="toggleCart(true)"></div>
+
+    <!-- 2. ANNOUNCEMENT BAR -->
+    <div class="nf-ann">
+      <div class="nf-ann-track">SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </div>
+
+    <!-- 3. HEADER (logo row + nav row) -->
+    <header class="nf-header" id="main-header">
+      <!-- Logo Row -->
+      <div class="nf-logo-row">
+        <div class="nf-header-left">
+          <button class="nf-icon-btn nf-hamburger-btn" onclick="toggleMobileMenu()" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <button class="nf-icon-btn nf-search-btn" onclick="toggleSearch()" aria-label="Search">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+        </div>
+        <a href="../../index.html" class="nf-logo">NAFUME</a>
+        <div class="nf-header-right">
+          <a href="../account/account.html" class="nf-icon-btn nf-account-btn" aria-label="Account">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/></svg>
+          </a>
+          <button class="nf-icon-btn" onclick="toggleCart()" aria-label="View cart">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            <span class="nf-cart-badge cart-count hidden">0</span>
+          </button>
+        </div>
+      </div>
+      <!-- Nav Row -->
+      <nav class="nf-nav-row" aria-label="Main navigation">
+        <a href="../../index.html" class="nf-nav-link">HOME</a>
+        <a href="../collections/shop.html" class="nf-nav-link">NEW LAUNCHES</a>
+        <a href="../products/seduction.html" class="nf-nav-link">SEDUCTION</a>
+        <a href="../products/dark-oud.html" class="nf-nav-link">DARK OUD</a>
+        <a href="../products/red-spirit.html" class="nf-nav-link">RED SPIRIT</a>
+        <a href="../products/aqua-manthan.html" class="nf-nav-link">AQUA MANTHAN</a>
+        <a href="../products/all-day-misfit.html" class="nf-nav-link">ALL DAY MISFIT</a>
+        <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
+      </nav>
+    </header>
+
+    <!-- 4. MOBILE MENU DRAWER (ids kept for app.js compatibility) -->
+    <div class="nf-mobile-drawer drawer-container -translate-x-full" id="mobile-drawer">
+      <div class="nf-drawer-head">
+        <a href="../../index.html" class="nf-logo" style="font-size:17px;letter-spacing:0.22em;">NAFUME</a>
+        <button class="nf-icon-btn" onclick="toggleMobileMenu(true)" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <nav class="nf-drawer-nav">
+        <a href="../../index.html" class="nf-drawer-link">Home</a>
+        <a href="../collections/shop.html" class="nf-drawer-link">New Launches</a>
+        <a href="../products/seduction.html" class="nf-drawer-link">Seduction</a>
+        <a href="../products/dark-oud.html" class="nf-drawer-link">Dark Oud</a>
+        <a href="../products/red-spirit.html" class="nf-drawer-link">Red Spirit</a>
+        <a href="../products/aqua-manthan.html" class="nf-drawer-link">Aqua Manthan</a>
+        <a href="../products/all-day-misfit.html" class="nf-drawer-link">All Day Misfit</a>
+        <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram &#8599;</a>
+      </nav>
+    </div>
+    <!-- 5. SEARCH DRAWER -->
+    <div class="fixed inset-y-0 right-0 w-full md:w-[420px] bg-surface z-[200] transform translate-x-full drawer-container border-l border-border-muted flex flex-col" id="search-drawer">
+        <div class="p-6 border-b border-border-muted flex justify-between items-center bg-surface-container/30">
+            <h2 class="text-headline-sm font-semibold text-primary">Search</h2>
+            <button class="text-text-secondary hover:text-accent-bronze p-2" onclick="toggleSearch(true)">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="p-6 flex-grow overflow-y-auto">
+            <div class="relative w-full mb-8">
+                <input class="w-full bg-transparent border-b border-border-muted py-3 pl-10 pr-4 text-[12px] font-semibold uppercase tracking-widest text-primary focus:outline-none focus:border-accent-bronze transition-colors placeholder:text-text-secondary/60" placeholder="SEARCH FRAGRANCES..." type="text"/>
+                <span class="material-symbols-outlined absolute left-0 top-3 text-text-secondary">search</span>
+            </div>
+            <h3 class="text-[11px] font-semibold text-text-secondary mb-4 tracking-widest uppercase">Suggested Scents</h3>
+            <div class="space-y-4"></div>
+        </div>
+    </div>
+
+    <!-- 6. CART DRAWER (Kept empty for consistency) -->
+    <div class="fixed inset-y-0 right-0 w-full md:w-[420px] bg-surface z-[200] transform translate-x-full drawer-container border-l border-border-muted flex flex-col" id="cart-drawer">
+        <div class="p-6 border-b border-border-muted flex justify-between items-center bg-surface-container/30">
+            <h2 class="text-headline-sm font-semibold text-primary">Your Cart</h2>
+            <button class="text-text-secondary p-2" onclick="toggleCart(true)">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="flex-grow overflow-y-auto px-6 py-4" id="cart-drawer-items"></div>
+    </div>
+
+    <!-- 7. MAIN TRACK CANVAS -->
+    <main class="flex-grow w-full max-w-[760px] mx-auto px-margin-mobile md:px-margin-desktop py-10 md:py-16 flex flex-col">
+
+        <!-- A. Tracking Hero -->
+        <div class="text-center mb-8 md:mb-10 max-w-lg mx-auto">
+            <span class="text-[10px] font-semibold text-accent-bronze uppercase tracking-[0.2em] mb-2 block">Order Tracking</span>
+            <h1 class="text-display-lg-mobile md:text-headline-md font-semibold text-primary mb-4 italic">Track Your NAFUME Order</h1>
+            <p class="text-body-md text-text-secondary font-light leading-relaxed">
+                Enter your order ID, phone number or AWB number to check your fragrance delivery status.
+            </p>
+        </div>
+
+        <!-- B. Search Box -->
+        <div class="w-full bg-white border border-border-muted p-5 md:p-7 rounded shadow-sm mb-4">
+            <form id="track-order-form" class="flex flex-col sm:flex-row gap-3 items-stretch">
+                <div class="relative w-full flex-grow">
+                    <input id="track-input" type="text" required autocomplete="off"
+                        class="w-full bg-surface/20 border border-border-muted p-4 pl-11 text-sm tracking-wide placeholder:text-text-secondary/50 placeholder:normal-case focus:ring-0 focus:border-accent-bronze rounded-sm"
+                        placeholder="Order ID, phone number or AWB number"/>
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary">search</span>
+                </div>
+                <button type="submit" class="w-full sm:w-auto px-8 py-4 bg-primary text-white text-label-sm font-semibold uppercase tracking-widest hover:bg-[#222] transition-colors whitespace-nowrap shadow rounded-sm">
+                    Track Order
+                </button>
+            </form>
+            <p id="track-input-error" class="hidden text-[12px] text-[#ba1a1a] mt-3"></p>
+            <p class="text-[11px] text-text-secondary/70 mt-3 leading-relaxed">
+                Tip: your Order ID looks like <strong class="text-primary font-semibold">NF-123456-789</strong>. Orders are saved on the device used at checkout.
+            </p>
+        </div>
+
+        <!-- C/D/E. Result / not-found / empty states (populated by JS) -->
+        <div id="track-results-box" class="w-full hidden"></div>
+
+        <!-- 16. Support & policy links -->
+        <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center mt-10 pt-6 border-t border-border-muted/60 text-[11px] text-text-secondary/70 w-full">
+            <a href="../legal/shipping-policy.html" class="hover:text-accent-bronze transition-colors underline">Shipping Policy</a>
+            <a href="../legal/return-refund-policy.html" class="hover:text-accent-bronze transition-colors underline">Return &amp; Refund Policy</a>
+            <a href="../support/contact.html" class="hover:text-accent-bronze transition-colors underline">Contact Support</a>
+            <button onclick="trackWhatsAppSupport()" class="hover:text-accent-bronze transition-colors underline">WhatsApp Support</button>
+            <a href="../support/grievance-officer.html" class="hover:text-accent-bronze transition-colors underline">Grievance Officer</a>
+        </div>
+
+    </main>
+
+    <!-- 8. FOOTER -->
+    <footer class="bg-surface-container w-full py-xxl border-t border-border-muted">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
+            <div class="col-span-1 pr-0 md:pr-8">
+                <h4 class="text-headline-sm font-bold text-primary mb-4">NAFUME</h4>
+                <p class="text-body-md text-text-secondary mb-6 text-sm font-light">Artisan fragrances crafted for the modern connoisseur. Minimalist luxury, maximum longevity.</p>
+                <div class="text-label-sm text-text-secondary/70 mt-8 uppercase tracking-widest text-[9px]">
+                    © 2026 NAFUME Fragrance House. All Rights Reserved.
+                </div>
+            </div>
+            <div class="col-span-1">
+                <h5 class="text-label-sm font-bold text-primary uppercase tracking-widest mb-6">Explore</h5>
+                <ul class="space-y-3">
+                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../brand/about.html">Our Craft</a></li>
+                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../collections/shop.html">Shop Catalog</a></li>
+                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../collections/build-your-own-box.html">Discovery Box</a></li>
+                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../brand/consultation.html">Bespoke Appointment</a></li>
+                </ul>
+            </div>
+            <div class="col-span-1">
+                <h5 class="text-label-sm font-bold text-primary uppercase tracking-widest mb-6">Support &amp; Legal</h5>
+                <ul class="space-y-3">
+                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../support/contact.html">Contact Us</a></li>
+                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../legal/shipping-policy.html">Shipping Policy</a></li>
+                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../legal/return-refund-policy.html">Return &amp; Refund Policy</a></li>
+                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../legal/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../legal/terms-conditions.html">Terms &amp; Conditions</a></li>
+                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../support/grievance-officer.html">Grievance Officer</a></li>
+                </ul>
+            </div>
+            <div class="col-span-1">
+                <h5 class="text-label-sm font-bold text-primary uppercase tracking-widest mb-6">The Nafume Club</h5>
+                <p class="text-body-md text-text-secondary text-sm mb-4 font-light">Subscribe for exclusive private vaults, secret batches, and VIP pre-launches.</p>
+                <form class="relative flex border-b border-primary group py-1">
+                    <input class="w-full bg-transparent border-none focus:ring-0 px-0 py-2 text-label-sm placeholder:text-text-secondary/50 placeholder:font-normal uppercase tracking-wider" placeholder="EMAIL ADDRESS" type="email" required/>
+                    <button class="p-2 text-primary hover:text-accent-bronze transition-transform hover:translate-x-1" type="submit">
+                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GLOBAL SCRIPTS (state.js + app.js power the shared header/drawers) -->
+    <script src="../../js/state.js"></script>
+    <script src="../../js/app.js"></script>
+
+    <!-- COMMERCE FOUNDATION (Upgrade 1) — local order lookup -->
+    <script src="../../js/commerce/config.js"></script>
+    <script src="../../js/commerce/commerce-service.js"></script>
+    <!-- Customer accounts (Upgrade 3) — header link + logged-in recent orders -->
+    <script src="../../js/commerce/customer-service.js"></script>
+    <!-- Order tracking (Upgrade 7) — Shiprocket-ready local tracking -->
+    <script src="../../js/commerce/tracking-service.js"></script>
+    <!-- Operations (Upgrade 10) — local analytics events -->
+    <script src="../../js/commerce/operations-service.js"></script>
+
+    <!-- ORDER TRACKING UI (Upgrade 7) -->
+    <script>
+        var TS = window.TrackingService;
+
+        function tCurr(n) { return "₹" + Number(n || 0).toLocaleString("en-IN"); }
+        function tEsc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+            return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]; }); }
+        function tTitle(s) { s = String(s || ""); return s ? s.charAt(0).toUpperCase() + s.slice(1) : "—"; }
+        function tDate(iso) { if (!iso) return "—"; try {
+            return new Date(iso).toLocaleDateString("en-IN", { year: "numeric", month: "short", day: "numeric" });
+        } catch (e) { return "—"; } }
+        function tDateTime(iso) { if (!iso) return ""; try {
+            return new Date(iso).toLocaleString("en-IN", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+        } catch (e) { return ""; } }
+        function maskPhone(p) {
+            var d = String(p || "").replace(/\D/g, "");
+            if (d.length < 4) return p ? "•••" : "—";
+            var last = d.slice(-4);
+            return "•••• •••• " + last;
+        }
+        function waNumber() {
+            return (window.COMMERCE_CONFIG && window.COMMERCE_CONFIG.whatsappNumber) || "918595862227";
+        }
+        function trackWhatsAppSupport() {
+            var msg = "Hello NAFUME, I need help tracking my order.";
+            window.open("https://wa.me/" + waNumber() + "?text=" + encodeURIComponent(msg), "_blank");
+        }
+
+        // Status → badge colours
+        function statusBadge(status) {
+            var label = TS ? TS.getTrackingStatusLabel(status) : status;
+            var cls = "bg-[#fff3e0] text-[#ef6c00]"; // default (in progress)
+            if (status === "delivered") cls = "bg-[#e7f6ea] text-[#2e7d32]";
+            else if (status === "cancelled" || status === "rto") cls = "bg-[#fdecea] text-[#b3261e]";
+            else if (status === "order_placed") cls = "bg-surface-variant text-text-secondary";
+            return '<span class="' + cls + ' px-3 py-1 text-[10px] uppercase tracking-widest font-bold whitespace-nowrap rounded-sm">' + tEsc(label) + '</span>';
+        }
+
+        // 6. Vertical timeline
+        function buildTimelineHtml(order) {
+            var tl = TS.buildTrackingTimeline(order);
+
+            if (tl.type === "cancelled" || tl.type === "rto") {
+                var altColor = tl.type === "cancelled" ? "#b3261e" : "#b06f00";
+                return '<div class="border rounded p-4 mb-5" style="border-color:' + altColor + '33;background:' + altColor + '0d;">' +
+                    '<div class="flex items-center gap-2 mb-2">' +
+                    '<span class="material-symbols-outlined" style="color:' + altColor + ';font-size:20px;">' +
+                    (tl.type === "cancelled" ? "cancel" : "assignment_return") + '</span>' +
+                    '<p class="text-sm font-semibold" style="color:' + altColor + ';">' + tEsc(tl.label) + '</p></div>' +
+                    '<p class="text-xs text-text-secondary leading-relaxed">' +
+                    (tl.type === "cancelled"
+                        ? "This order was cancelled. If this is unexpected, please contact support."
+                        : "This parcel is being returned to origin. Please contact support for help.") +
+                    '</p></div>';
+            }
+
+            var rows = tl.steps.map(function (step, i) {
+                var isLast = i === tl.steps.length - 1;
+                var dot, lineColor, labelColor, timeHtml = "";
+                if (step.state === "completed") {
+                    dot = '<span class="material-symbols-outlined text-white text-[15px]">check</span>';
+                    lineColor = "#C5A059";
+                    labelColor = "text-primary";
+                } else if (step.state === "current") {
+                    dot = '<span class="block w-2.5 h-2.5 bg-white rounded-full"></span>';
+                    lineColor = "#C5A059";
+                    labelColor = "text-primary font-semibold";
+                } else {
+                    dot = '<span class="block w-2 h-2 bg-text-secondary/30 rounded-full"></span>';
+                    lineColor = "#DEDEDE";
+                    labelColor = "text-text-secondary/60";
+                }
+                var dotBg = step.state === "completed" ? "#C5A059"
+                          : step.state === "current" ? "#C5A059" : "#fff";
+                var dotBorder = step.state === "upcoming" ? "border border-border-muted" : "";
+                if (step.timestamp) timeHtml = '<span class="text-[10px] text-text-secondary/60 whitespace-nowrap">' + tEsc(tDateTime(step.timestamp)) + '</span>';
+
+                return '<div class="flex gap-3">' +
+                    '<div class="flex flex-col items-center">' +
+                        '<span class="flex items-center justify-center w-6 h-6 rounded-full ' + dotBorder + '" style="background:' + dotBg + ';">' + dot + '</span>' +
+                        (isLast ? '' : '<span class="w-px flex-grow my-1" style="min-height:26px;background:' + lineColor + ';"></span>') +
+                    '</div>' +
+                    '<div class="flex-grow ' + (isLast ? '' : 'pb-5') + '">' +
+                        '<div class="flex justify-between items-center gap-2">' +
+                            '<p class="text-[13px] ' + labelColor + '">' + tEsc(step.label) + '</p>' + timeHtml +
+                        '</div>' +
+                        (step.state !== "upcoming" ? '<p class="text-[11px] text-text-secondary/70 mt-0.5">' + tEsc(step.description) + '</p>' : '') +
+                    '</div>' +
+                '</div>';
+            }).join("");
+
+            return '<div class="bg-white border border-border-muted rounded p-5 mb-5">' +
+                '<p class="text-[10px] uppercase tracking-widest text-text-secondary font-bold mb-4">Delivery Timeline</p>' +
+                rows + '</div>';
+        }
+
+        // C. Result card
+        function buildOrderCard(order) {
+            var t = TS.normalizeTracking(order);
+            var c = order.customer || {};
+            var totals = order.totals || {};
+
+            // Items
+            var items = (order.items || []).map(function (it) {
+                var qty = it.quantity || it.qty || 1;
+                return '<div class="flex justify-between text-xs py-1.5 text-text-secondary border-b border-border-muted/20">' +
+                    '<span class="font-medium text-primary truncate">' + tEsc(it.name) + ' × ' + qty + '</span>' +
+                    '<span class="font-semibold whitespace-nowrap">' + tCurr((it.price || 0) * qty) + '</span></div>';
+            }).join("");
+
+            // External courier tracking button (only when a tracking URL exists)
+            var trackingUrl = t.trackingUrl || (TS.getPublicTrackingUrl(t.awb, t.courierName));
+            var courierBtn;
+            if (trackingUrl) {
+                courierBtn = '<a href="' + tEsc(trackingUrl) + '" target="_blank" rel="noopener" ' +
+                    'class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 bg-primary text-white text-label-sm font-semibold uppercase tracking-widest hover:bg-[#222] transition-colors rounded-sm">' +
+                    '<span class="material-symbols-outlined text-[18px]">local_shipping</span> Open Courier Tracking</a>';
+            } else if (t.awb) {
+                courierBtn = '<p class="text-[11px] text-text-secondary">AWB <strong class="text-primary">' + tEsc(t.awb) + '</strong>' +
+                    (t.courierName ? ' · ' + tEsc(t.courierName) : '') +
+                    ' — open your courier\'s website and search this AWB to see live movement.</p>';
+            } else {
+                courierBtn = '<p class="text-[11px] text-text-secondary italic">Your tracking ID will appear here after dispatch.</p>';
+            }
+
+            var etaStr = t.estimatedDelivery ? tDate(t.estimatedDelivery)
+                       : (t.currentStatus === "delivered" ? "Delivered" : "Updated after dispatch");
+
+            return '<div class="border border-border-muted bg-white rounded p-5 md:p-6 text-left mb-6">' +
+                // Header
+                '<div class="flex justify-between items-start border-b border-border-muted pb-4 mb-5 gap-3">' +
+                    '<div>' +
+                        '<p class="text-[10px] text-text-secondary uppercase tracking-widest">Order</p>' +
+                        '<h3 class="text-headline-sm text-primary font-semibold">' + tEsc(order.orderId) + '</h3>' +
+                        '<p class="text-[11px] text-text-secondary mt-1">' + tDate(order.createdAt) + '</p>' +
+                    '</div>' + statusBadge(t.currentStatus) +
+                '</div>' +
+
+                // Timeline
+                buildTimelineHtml(order) +
+
+                // Tracking details grid
+                '<div class="bg-surface/40 border border-border-muted/40 rounded p-4 mb-5">' +
+                    '<p class="text-[10px] uppercase tracking-widest text-text-secondary font-bold mb-3">Shipment Details</p>' +
+                    '<div class="grid grid-cols-2 gap-x-4 gap-y-3 text-xs">' +
+                        detailCell("Courier Partner", t.courierName || "To be assigned") +
+                        detailCell("AWB / Tracking ID", t.awb || "Not dispatched yet") +
+                        detailCell("Fulfillment", tTitle(order.fulfillmentStatus)) +
+                        detailCell("Est. Delivery", etaStr) +
+                    '</div>' +
+                    '<div class="mt-4 pt-3 border-t border-border-muted/40">' + courierBtn + '</div>' +
+                '</div>' +
+
+                // Order summary
+                '<div class="mb-5">' +
+                    '<p class="text-[10px] uppercase tracking-widest text-text-secondary font-bold mb-2">Order Summary</p>' +
+                    items +
+                    '<div class="flex justify-between text-xs pt-3 font-semibold text-primary"><span>Total</span><span>' + tCurr(totals.total) + '</span></div>' +
+                '</div>' +
+
+                // Customer + payment
+                '<div class="grid grid-cols-2 gap-x-4 gap-y-3 text-xs border-t border-border-muted/40 pt-4">' +
+                    detailCell("Customer", c.name || "—") +
+                    detailCell("Phone", maskPhone(c.phone)) +
+                    detailCell("Order Total", tCurr(totals.total)) +
+                    detailCell("Payment", tTitle(order.paymentStatus) + " · " + (order.paymentMethod || "—")) +
+                '</div>' +
+
+                // Support CTA (Upgrade 10) — order-specific message
+                '<div class="mt-5 pt-4 border-t border-border-muted/40 flex flex-wrap gap-3 items-center">' +
+                    '<button onclick="contactSupportAboutOrder(\'' + tEsc(order.orderId) + '\')" class="inline-flex items-center gap-2 px-5 py-3 bg-transparent border border-primary text-primary text-label-sm font-semibold uppercase tracking-widest hover:bg-primary hover:text-white transition-all rounded-sm">' +
+                    '<span class="material-symbols-outlined text-[18px]">support_agent</span> Contact Support About This Order</button>' +
+                    '<a href="../support/contact.html" class="text-[11px] text-text-secondary underline hover:text-accent-bronze">Contact Support</a>' +
+                '</div>' +
+            '</div>';
+        }
+
+        // Upgrade 10: order-aware support message (WhatsApp, with email fallback).
+        function contactSupportAboutOrder(orderId) {
+            var o = (window.Commerce && window.Commerce.getOrderById) ? window.Commerce.getOrderById(orderId) : null;
+            var c = (o && o.customer) || {};
+            var t = (o && window.TrackingService) ? window.TrackingService.normalizeTracking(o) : (o && o.tracking) || {};
+            var statusLabel = (window.TrackingService && t.currentStatus) ? window.TrackingService.getTrackingStatusLabel(t.currentStatus) : (t.currentStatus || "—");
+            var lines = [
+                "Hello NAFUME, I need help with my order.",
+                "Order ID: " + (orderId || "—"),
+                "Name: " + (c.name || "—"),
+                "Phone: " + (c.phone || "—"),
+                "Tracking status: " + statusLabel
+            ];
+            var msg = lines.join("\n");
+            var num = waNumber();
+            if (num) {
+                window.open("https://wa.me/" + num + "?text=" + encodeURIComponent(msg), "_blank");
+            } else {
+                var email = (window.COMMERCE_CONFIG && window.COMMERCE_CONFIG.operations && window.COMMERCE_CONFIG.operations.supportEmail) || "support@nafume.com";
+                window.location.href = "mailto:" + email + "?subject=" + encodeURIComponent("Order help: " + (orderId || "")) + "&body=" + encodeURIComponent(msg);
+            }
+        }
+
+        function detailCell(label, value) {
+            return '<div><p class="text-[9px] uppercase tracking-widest text-text-secondary/70 mb-0.5">' + tEsc(label) + '</p>' +
+                '<p class="text-[12px] font-semibold text-primary break-words">' + tEsc(value) + '</p></div>';
+        }
+
+        function showBox(html) {
+            var box = document.getElementById("track-results-box");
+            if (!box) return;
+            box.classList.remove("hidden");
+            box.innerHTML = html;
+            box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+
+        // E. Not found state
+        function renderNotFound(query) {
+            showBox(
+                '<div class="border border-border-muted p-8 bg-white rounded text-center">' +
+                '<span class="material-symbols-outlined text-3xl text-[#ba1a1a] mb-3">search_off</span>' +
+                '<h3 class="text-headline-sm font-semibold text-primary mb-2">Order Not Found</h3>' +
+                '<p class="text-sm text-text-secondary font-light max-w-sm mx-auto mb-5">' +
+                'We could not find this order locally for <strong>' + tEsc(query) + '</strong>. ' +
+                'Please check your order ID or contact support on WhatsApp.</p>' +
+                '<button onclick="trackWhatsAppSupport()" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white text-label-sm font-semibold uppercase tracking-widest hover:bg-[#222] transition-colors rounded-sm">' +
+                '<span class="material-symbols-outlined text-[18px]">chat</span> Contact on WhatsApp</button></div>'
+            );
+        }
+
+        function setInputError(msg) {
+            var el = document.getElementById("track-input-error");
+            if (!el) return;
+            if (!msg) { el.classList.add("hidden"); el.textContent = ""; return; }
+            el.textContent = msg;
+            el.classList.remove("hidden");
+        }
+
+        function runSearch(query) {
+            query = (query || "").trim();
+            setInputError("");
+            if (!query) { setInputError("Please enter an order ID, phone number or AWB number."); return; }
+
+            // Analytics (Upgrade 10) — safe + guarded.
+            if (window.OperationsService) {
+                try { window.OperationsService.recordAnalyticsEvent("track_order_search", { query: query }); } catch (e) {}
+            }
+
+            if (!TS) { renderNotFound(query); return; }
+
+            // fetchLiveTrackingIfAvailable is safe: local-only unless a backend
+            // endpoint is configured. It never calls Shiprocket from the browser.
+            TS.fetchLiveTrackingIfAvailable(query).then(function (res) {
+                if (res && res.order) {
+                    // If phone matched multiple, show all of them.
+                    var found = TS.findOrderForTracking(query);
+                    var orders = (found.orders && found.orders.length) ? found.orders : [res.order];
+                    var intro = orders.length > 1
+                        ? '<p class="text-xs text-text-secondary font-light mb-4 text-center">Found ' + orders.length + ' orders for this search.</p>'
+                        : '';
+                    showBox(intro + orders.map(buildOrderCard).join(""));
+                } else {
+                    renderNotFound(query);
+                }
+            }).catch(function () { renderNotFound(query); });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Replace the form with a clean clone to drop app.js's legacy submit handler.
+            var oldForm = document.getElementById("track-order-form");
+            if (!oldForm) return;
+            var form = oldForm.cloneNode(true);
+            oldForm.parentNode.replaceChild(form, oldForm);
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                var input = document.getElementById("track-input");
+                runSearch(input ? input.value : "");
+            });
+
+            // Deep-link: ?order= or ?orderId= or ?awb=
+            var params = new URLSearchParams(window.location.search);
+            var deep = params.get("order") || params.get("orderId") || params.get("awb");
+            if (deep) {
+                var input = document.getElementById("track-input");
+                if (input) input.value = deep;
+                runSearch(deep);
+                return;
+            }
+
+            // If logged in, show the account's recent orders up front.
+            if (window.CustomerService && window.CustomerService.isCustomerLoggedIn()) {
+                var myOrders = window.CustomerService.getCustomerOrders();
+                if (myOrders && myOrders.length) {
+                    showBox(
+                        '<p class="text-sm text-text-secondary font-light mb-5 text-center">' +
+                        'You are logged in. Your recent orders are below — or search any order above.</p>' +
+                        myOrders.map(buildOrderCard).join("")
+                    );
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Operations Admin (Local Demo) — NAFUME</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, Helvetica, sans-serif; background: #f5f3ef; color: #1a1a1a; padding: 20px; }
+    .wrap { max-width: 1180px; margin: 0 auto; }
+    a.back { font-size: 12px; color: #666; text-decoration: none; }
+    h1 { font-size: 21px; letter-spacing: 0.04em; margin-top: 8px; }
+    h2 { font-size: 15px; letter-spacing: 0.04em; margin: 28px 0 12px; display: flex; align-items: center; gap: 8px; }
+    .warn { background: #fdecea; border: 1px solid #f5c2bd; color: #8a1c10; padding: 14px 16px; border-radius: 6px; margin: 14px 0 18px; font-size: 13px; line-height: 1.55; position: sticky; top: 0; z-index: 30; }
+    .note { background: #eef5ff; border: 1px solid #cfe0f5; color: #1c4e8a; padding: 10px 14px; border-radius: 6px; margin: 0 0 18px; font-size: 12px; line-height: 1.5; }
+    /* Overview cards */
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+    .card { background: #fff; border: 1px solid #e7e7e7; border-radius: 8px; padding: 14px 16px; }
+    .card-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
+    .card-value { font-size: 22px; font-weight: 700; margin-top: 4px; }
+    .card.alert .card-value { color: #b06f00; }
+    .card.good .card-value { color: #2e7d32; }
+    /* Tables */
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid #e7e7e7; border-radius: 8px; background: #fff; }
+    table { border-collapse: collapse; width: 100%; min-width: 720px; font-size: 12px; }
+    th, td { padding: 9px 11px; text-align: left; border-bottom: 1px solid #f0f0f0; white-space: nowrap; }
+    th { background: #faf8f5; font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; color: #888; position: sticky; top: 0; }
+    tr:last-child td { border-bottom: none; }
+    .pill { font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 3px 8px; border-radius: 10px; font-weight: 700; display: inline-block; }
+    .pill.green { background: #e7f6ea; color: #2e7d32; }
+    .pill.amber { background: #fff4e0; color: #b06f00; }
+    .pill.red { background: #fdecea; color: #b3261e; }
+    .pill.grey { background: #eee; color: #666; }
+    .btn { border: 1px solid #ccc; background: #fff; border-radius: 6px; padding: 6px 11px; cursor: pointer; font-size: 11px; font-weight: 700; }
+    .btn:hover { border-color: #111; }
+    .btn-dark { background: #111; color: #fff; border-color: #111; }
+    .btn-row { display: flex; gap: 6px; flex-wrap: wrap; }
+    .exports { display: flex; gap: 10px; flex-wrap: wrap; }
+    .inv-input { width: 70px; border: 1px solid #ccc; border-radius: 5px; padding: 6px 8px; font-size: 12px; }
+    .empty { text-align: center; color: #999; padding: 30px; font-size: 13px; }
+    /* Modal */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: none; z-index: 100; padding: 20px; overflow-y: auto; }
+    .modal-overlay.open { display: block; }
+    .modal { background: #fff; max-width: 640px; margin: 20px auto; border-radius: 10px; padding: 22px; }
+    .modal h3 { font-size: 17px; margin-bottom: 4px; }
+    .modal-close { float: right; cursor: pointer; border: none; background: none; font-size: 22px; line-height: 1; color: #888; }
+    .modal-sec { border-top: 1px solid #eee; margin-top: 16px; padding-top: 14px; }
+    .modal-sec h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin-bottom: 8px; }
+    .kv { font-size: 13px; line-height: 1.7; color: #333; }
+    .kv b { color: #111; }
+    .field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+    .field label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; color: #888; }
+    .field select, .field input, .field textarea { border: 1px solid #ccc; border-radius: 6px; padding: 8px 10px; font-size: 13px; font-family: inherit; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .saved-flash { color: #2e7d32; font-size: 12px; font-weight: 700; margin-left: 8px; }
+    .danger-zone { background: #fff; border: 1px solid #f5c2bd; border-radius: 8px; padding: 16px; }
+    .danger-zone input { border: 1px solid #ccc; border-radius: 6px; padding: 8px 10px; font-size: 13px; width: 100%; max-width: 320px; margin: 8px 0; }
+    .hist { font-size: 11px; color: #666; line-height: 1.6; max-height: 140px; overflow-y: auto; }
+    @media (max-width: 600px) {
+      body { padding: 12px; }
+      .grid2 { grid-template-columns: 1fr; }
+      .modal { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="../index.html">← Back to site</a>
+    <h1>NAFUME — Operations Admin</h1>
+
+    <div class="warn">
+      ⚠️ <strong>Local demo admin only. This page is not secure for production.</strong>
+      Use Shopify Admin or a protected backend dashboard before going live. There is no
+      login here — anyone who opens this page on this browser can read and edit local data.
+    </div>
+    <div class="note">
+      🔒 No private API keys are used or stored here. Data lives in this browser's
+      localStorage only. See <strong>docs/operational-scalability-system.md</strong> for the
+      production architecture. Focused tools: <a href="orders-admin.html">orders &amp; tracking admin</a> ·
+      <a href="reviews-admin.html">reviews admin</a>.
+    </div>
+
+    <!-- A. Overview -->
+    <h2><span class="material-symbols-outlined">dashboard</span> Overview</h2>
+    <div class="cards" id="cards"></div>
+
+    <!-- B. Recent orders -->
+    <h2><span class="material-symbols-outlined">receipt_long</span> Recent Orders</h2>
+    <div class="table-scroll"><table id="orders-table">
+      <thead><tr>
+        <th>Order ID</th><th>Date</th><th>Customer</th><th>Phone</th><th>Total</th>
+        <th>Payment</th><th>Fulfillment</th><th>Tracking</th><th>Checkout</th><th>Actions</th>
+      </tr></thead>
+      <tbody id="orders-body"></tbody>
+    </table></div>
+
+    <!-- C. Inventory -->
+    <h2><span class="material-symbols-outlined">inventory_2</span> Inventory</h2>
+    <div class="table-scroll"><table id="inv-table">
+      <thead><tr>
+        <th>Product</th><th>Quantity</th><th>Status</th><th>Warning</th><th>Update</th>
+      </tr></thead>
+      <tbody id="inv-body"></tbody>
+    </table></div>
+
+    <!-- D. Customers -->
+    <h2><span class="material-symbols-outlined">group</span> Customers</h2>
+    <div class="table-scroll"><table id="cust-table">
+      <thead><tr>
+        <th>Name</th><th>Phone / Email</th><th>Orders</th><th>Spent (local)</th><th>Last Order</th>
+      </tr></thead>
+      <tbody id="cust-body"></tbody>
+    </table></div>
+
+    <!-- E. Reviews moderation -->
+    <h2><span class="material-symbols-outlined">reviews</span> Pending Reviews</h2>
+    <div id="reviews-box"></div>
+
+    <!-- F. Exports -->
+    <h2><span class="material-symbols-outlined">download</span> Exports</h2>
+    <div class="exports">
+      <button class="btn btn-dark" onclick="doExport('orders')">Export Orders CSV</button>
+      <button class="btn btn-dark" onclick="doExport('customers')">Export Customers CSV</button>
+      <button class="btn btn-dark" onclick="doExport('reviews')">Export Reviews CSV</button>
+      <button class="btn btn-dark" onclick="doExport('inventory')">Export Inventory CSV</button>
+      <span class="saved-flash" id="export-flash"></span>
+    </div>
+
+    <!-- G. Danger zone -->
+    <h2><span class="material-symbols-outlined">warning</span> Local Data Safety</h2>
+    <div class="danger-zone">
+      <p style="font-size:13px;color:#8a1c10;">Type <strong>DELETE LOCAL DEMO DATA</strong> to clear all local demo data (orders, customers, reviews, inventory, analytics). This cannot be undone.</p>
+      <input type="text" id="clear-confirm" placeholder="Type the confirmation phrase exactly"/>
+      <div><button class="btn" style="border-color:#b3261e;color:#b3261e;" onclick="doClear()">Clear Demo Test Data</button>
+      <span class="saved-flash" id="clear-flash" style="color:#b3261e;"></span></div>
+    </div>
+
+    <p style="font-size:11px;color:#aaa;margin:24px 0;">Local analytics events recorded: <span id="analytics-count">0</span></p>
+  </div>
+
+  <!-- Order detail modal -->
+  <div class="modal-overlay" id="order-modal" onclick="if(event.target===this)closeModal()">
+    <div class="modal" id="order-modal-body"></div>
+  </div>
+
+  <!-- Services. launch.js provides LAUNCH_PRODUCTS for inventory. -->
+  <script src="../js/commerce/config.js"></script>
+  <script src="../js/commerce/customer-service.js"></script>
+  <script src="../js/commerce/review-service.js"></script>
+  <script src="../js/commerce/commerce-service.js"></script>
+  <script src="../js/commerce/tracking-service.js"></script>
+  <script src="../js/commerce/offer-service.js"></script>
+  <script src="../js/launch.js"></script>
+  <script src="../js/commerce/operations-service.js"></script>
+  <script>
+    var OS = window.OperationsService;
+    var CURR = (window.COMMERCE_CONFIG && window.COMMERCE_CONFIG.currencySymbol) || "₹";
+
+    function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c];}); }
+    function money(n){ return CURR + Number(n||0).toLocaleString("en-IN"); }
+    function fdate(iso){ if(!iso) return "—"; try { return new Date(iso).toLocaleDateString("en-IN",{year:"numeric",month:"short",day:"numeric"}); } catch(e){ return "—"; } }
+    function fdt(iso){ if(!iso) return ""; try { return new Date(iso).toLocaleString("en-IN",{month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"}); } catch(e){ return ""; } }
+
+    function payPill(s){ var m={paid:"green",refunded:"grey",failed:"red",pending:"amber",cod_pending:"amber"}; return '<span class="pill '+(m[s]||"grey")+'">'+esc(s||"—")+'</span>'; }
+    function fulPill(s){ var m={delivered:"green",shipped:"amber",packed:"amber",unfulfilled:"grey",returned:"red",rto:"red"}; return '<span class="pill '+(m[s]||"grey")+'">'+esc(s||"—")+'</span>'; }
+    function trkPill(o){ var t=(window.TrackingService?window.TrackingService.normalizeTracking(o):(o.tracking||{})); var s=t.currentStatus||"order_placed"; var m={delivered:"green",cancelled:"red",rto:"red",order_placed:"grey"}; var lbl=window.TrackingService?window.TrackingService.getTrackingStatusLabel(s):s; return '<span class="pill '+(m[s]||"amber")+'">'+esc(lbl)+'</span>'; }
+    function stockPill(s){ var m={in_stock:"green",low_stock:"amber",out_of_stock:"red",preorder:"grey"}; return '<span class="pill '+(m[s]||"grey")+'">'+esc((s||"").replace(/_/g," "))+'</span>'; }
+
+    // ── Overview cards ──
+    function renderCards(){
+      if(!OS) return;
+      var s = OS.getOperationsSummary();
+      var cards = [
+        ["Total Orders", s.totalOrders, ""],
+        ["Revenue (est.)", money(s.revenueEstimate), ""],
+        ["Pending WhatsApp", s.pendingWhatsapp, s.pendingWhatsapp?"alert":""],
+        ["Pending Payments", s.pendingPayments, s.pendingPayments?"alert":""],
+        ["Unfulfilled", s.unfulfilledOrders, s.unfulfilledOrders?"alert":""],
+        ["Low Stock", s.lowStockProducts, s.lowStockProducts?"alert":"good"],
+        ["Pending Reviews", s.pendingReviews, s.pendingReviews?"alert":""],
+        ["Customers", s.totalCustomers, ""]
+      ];
+      document.getElementById("cards").innerHTML = cards.map(function(c){
+        return '<div class="card '+c[2]+'"><div class="card-label">'+c[0]+'</div><div class="card-value">'+c[1]+'</div></div>';
+      }).join("");
+    }
+
+    // ── Orders table ──
+    function renderOrders(){
+      var body = document.getElementById("orders-body");
+      var orders = OS ? OS.getAllLocalOrders() : [];
+      if(!orders.length){ body.innerHTML = '<tr><td colspan="10"><div class="empty">No local orders yet. Place a test order from the website.</div></td></tr>'; return; }
+      body.innerHTML = orders.map(function(o){
+        var c = o.customer||{};
+        return '<tr>'+
+          '<td><b>'+esc(o.orderId)+'</b></td>'+
+          '<td>'+fdate(o.createdAt)+'</td>'+
+          '<td>'+esc(c.name||"—")+'</td>'+
+          '<td>'+esc(c.phone||"—")+'</td>'+
+          '<td>'+money(o.totals&&o.totals.total)+'</td>'+
+          '<td>'+payPill(o.paymentStatus)+'</td>'+
+          '<td>'+fulPill(o.fulfillmentStatus)+'</td>'+
+          '<td>'+trkPill(o)+'</td>'+
+          '<td>'+esc(o.checkoutType||"whatsapp")+'</td>'+
+          '<td><button class="btn" onclick="openOrder(\''+esc(o.orderId)+'\')">Manage</button></td>'+
+        '</tr>';
+      }).join("");
+    }
+
+    // ── Order detail modal ──
+    function openOrder(orderId){
+      var o = OS.getOrderById(orderId);
+      if(!o) return;
+      var c = o.customer||{}, t = o.totals||{}, tr = (window.TrackingService?window.TrackingService.normalizeTracking(o):(o.tracking||{}));
+      var items = (o.items||[]).map(function(it){ var q=it.quantity||it.qty||1; return '<div>'+esc(it.name)+' × '+q+' — '+money((it.price||0)*q)+'</div>'; }).join("") || "—";
+      var offers = (o.offers||[]).map(function(of){ return '<div>'+esc(of.label)+': '+(of.amount<0?"−":"+")+money(Math.abs(of.amount))+'</div>'; }).join("") || "None";
+      var notes = (o.internalNotes||[]).map(function(n){ return '<div>'+fdt(n.at)+' — '+esc(n.note)+'</div>'; }).join("") || "No notes yet.";
+      var hist = (o.statusHistory||[]).map(function(h){ return '<div>'+fdt(h.at)+' — '+esc(h.message)+'</div>'; }).join("") || "No history yet.";
+
+      function opts(list, sel){ return list.map(function(v){ return '<option value="'+v+'"'+(v===sel?" selected":"")+'>'+v+'</option>'; }).join(""); }
+
+      document.getElementById("order-modal-body").innerHTML =
+        '<button class="modal-close" onclick="closeModal()">×</button>'+
+        '<h3>'+esc(o.orderId)+'</h3>'+
+        '<p style="font-size:12px;color:#888;">'+fdate(o.createdAt)+' · '+esc(o.checkoutType||"whatsapp")+'</p>'+
+
+        '<div class="modal-sec"><h4>Customer</h4><div class="kv">'+
+          '<b>'+esc(c.name||"—")+'</b><br>'+esc(c.phone||"—")+' · '+esc(c.email||"—")+'<br>'+
+          esc((c.address||"")+", "+(c.city||"")+" "+(c.state||"")+" "+(c.pincode||""))+'</div></div>'+
+
+        '<div class="modal-sec"><h4>Items</h4><div class="kv">'+items+'</div>'+
+          '<div class="kv" style="margin-top:8px;"><b>Subtotal</b> '+money(t.subtotal)+' · <b>Shipping</b> '+money(t.shipping)+' · <b>Total</b> '+money(t.total)+'</div>'+
+          '<div class="kv" style="margin-top:6px;"><b>Offers:</b><br>'+offers+'</div></div>'+
+
+        '<div class="modal-sec"><h4>Status</h4>'+
+          '<div class="grid2">'+
+            '<div class="field"><label>Payment</label><select id="m-pay">'+opts(OS.PAYMENT_STATUSES,o.paymentStatus)+'</select></div>'+
+            '<div class="field"><label>Fulfillment</label><select id="m-ful">'+opts(OS.FULFILLMENT_STATUSES,o.fulfillmentStatus)+'</select></div>'+
+          '</div>'+
+          '<button class="btn btn-dark" onclick="saveOrderStatus(\''+esc(o.orderId)+'\')">Save Status</button>'+
+          '<span class="saved-flash" id="m-status-flash"></span></div>'+
+
+        '<div class="modal-sec"><h4>Tracking / Courier</h4>'+
+          '<div class="grid2">'+
+            '<div class="field"><label>Courier</label><input id="m-courier" value="'+esc(tr.courierName||"")+'"></div>'+
+            '<div class="field"><label>AWB</label><input id="m-awb" value="'+esc(tr.awb||"")+'"></div>'+
+          '</div>'+
+          '<div class="field"><label>Tracking URL</label><input id="m-url" value="'+esc(tr.trackingUrl||"")+'"></div>'+
+          '<div class="field"><label>Tracking Status</label><select id="m-trk">'+opts(OS.TRACKING_STATUSES,tr.currentStatus)+'</select></div>'+
+          '<button class="btn btn-dark" onclick="saveOrderTracking(\''+esc(o.orderId)+'\')">Save Tracking</button>'+
+          '<span class="saved-flash" id="m-track-flash"></span></div>'+
+
+        '<div class="modal-sec"><h4>Add Internal Note</h4>'+
+          '<div class="field"><textarea id="m-note" rows="2" placeholder="e.g. Customer requested gift wrap"></textarea></div>'+
+          '<button class="btn" onclick="saveOrderNote(\''+esc(o.orderId)+'\')">Add Note</button>'+
+          '<span class="saved-flash" id="m-note-flash"></span>'+
+          '<div style="margin-top:10px;"><h4>Notes</h4><div class="hist">'+notes+'</div></div>'+
+          '<div style="margin-top:10px;"><h4>Status History</h4><div class="hist">'+hist+'</div></div></div>'+
+
+        (o.whatsappMessage ? '<div class="modal-sec"><h4>WhatsApp Message</h4><div class="kv" style="white-space:pre-wrap;font-size:11px;color:#666;">'+esc(o.whatsappMessage)+'</div></div>' : '');
+
+      document.getElementById("order-modal").classList.add("open");
+    }
+    function closeModal(){ document.getElementById("order-modal").classList.remove("open"); }
+
+    function flash(id, msg){ var el=document.getElementById(id); if(el){ el.textContent=msg||"✓ Saved"; setTimeout(function(){ el.textContent=""; },1500); } }
+
+    function saveOrderStatus(orderId){
+      OS.updatePaymentStatus(orderId, document.getElementById("m-pay").value);
+      OS.updateFulfillmentStatus(orderId, document.getElementById("m-ful").value);
+      flash("m-status-flash"); renderAll();
+    }
+    function saveOrderTracking(orderId){
+      OS.updateOrderTracking(orderId, {
+        courierName: document.getElementById("m-courier").value.trim(),
+        awb: document.getElementById("m-awb").value.trim(),
+        trackingUrl: document.getElementById("m-url").value.trim(),
+        currentStatus: document.getElementById("m-trk").value
+      });
+      flash("m-track-flash"); renderOrders(); renderCards();
+    }
+    function saveOrderNote(orderId){
+      var v = document.getElementById("m-note").value.trim();
+      if(!v){ flash("m-note-flash","Enter a note"); return; }
+      OS.addOrderNote(orderId, v);
+      document.getElementById("m-note").value="";
+      flash("m-note-flash"); openOrder(orderId);
+    }
+
+    // ── Inventory ──
+    function renderInventory(){
+      var body = document.getElementById("inv-body");
+      var inv = OS ? OS.getInventorySummary() : [];
+      if(!inv.length){ body.innerHTML='<tr><td colspan="5"><div class="empty">No inventory data.</div></td></tr>'; return; }
+      body.innerHTML = inv.map(function(i){
+        return '<tr>'+
+          '<td><b>'+esc(i.name)+'</b></td>'+
+          '<td>'+i.inventoryQuantity+'</td>'+
+          '<td>'+stockPill(i.stockStatus)+'</td>'+
+          '<td>'+(i.lowStock?'<span class="pill amber">Low / Out</span>':'—')+'</td>'+
+          '<td><input class="inv-input" type="number" min="0" id="inv-'+esc(i.productId)+'" value="'+i.inventoryQuantity+'"> '+
+            '<button class="btn" onclick="saveInv(\''+esc(i.productId)+'\')">Set</button></td>'+
+        '</tr>';
+      }).join("");
+    }
+    function saveInv(pid){
+      var v = document.getElementById("inv-"+pid).value;
+      var res = OS.updateLocalInventory(pid, v);
+      if(!res){ alert("Invalid quantity. Enter a whole number ≥ 0."); return; }
+      renderInventory(); renderCards();
+    }
+
+    // ── Customers ──
+    function renderCustomers(){
+      var body = document.getElementById("cust-body");
+      var rows = OS ? OS.getCustomerTable() : [];
+      if(!rows.length){ body.innerHTML='<tr><td colspan="5"><div class="empty">No customers yet.</div></td></tr>'; return; }
+      body.innerHTML = rows.map(function(c){
+        return '<tr>'+
+          '<td><b>'+esc(c.name||"Guest")+'</b></td>'+
+          '<td>'+esc(c.phone||"—")+(c.email?'<br>'+esc(c.email):"")+'</td>'+
+          '<td>'+c.totalOrders+'</td>'+
+          '<td>'+money(c.totalSpent)+'</td>'+
+          '<td>'+fdate(c.lastOrderDate)+'</td>'+
+        '</tr>';
+      }).join("");
+    }
+
+    // ── Reviews moderation ──
+    function renderReviews(){
+      var box = document.getElementById("reviews-box");
+      var RS = window.ReviewService;
+      var pending = OS ? OS.getPendingReviews() : [];
+      if(!pending.length){ box.innerHTML='<div class="empty" style="background:#fff;border:1px solid #e7e7e7;border-radius:8px;">No pending reviews.</div>'; return; }
+      box.innerHTML = pending.map(function(r){
+        return '<div style="background:#fff;border:1px solid #e7e7e7;border-radius:8px;padding:14px;margin-bottom:10px;">'+
+          '<div style="font-size:13px;"><b>'+esc(r.customerName)+'</b> · '+esc(r.productId)+' · '+'★'.repeat(r.rating)+'</div>'+
+          (r.title?'<div style="font-size:13px;font-weight:700;margin-top:6px;">'+esc(r.title)+'</div>':'')+
+          '<div style="font-size:13px;color:#444;margin-top:4px;">'+esc(r.body)+'</div>'+
+          '<div class="btn-row" style="margin-top:10px;">'+
+            '<button class="btn btn-dark" onclick="modReview(\''+esc(r.reviewId)+'\',\'published\')">Approve / Publish</button>'+
+            '<button class="btn" onclick="modReview(\''+esc(r.reviewId)+'\',\'hidden\')">Hide</button>'+
+          '</div></div>';
+      }).join("");
+    }
+    function modReview(id, status){
+      if(window.ReviewService && window.ReviewService.updateReviewStatus){ window.ReviewService.updateReviewStatus(id, status); }
+      renderReviews(); renderCards();
+    }
+
+    // ── Exports ──
+    function doExport(kind){
+      if(!OS) return;
+      var map = {
+        orders:    ["nafume-orders.csv", OS.exportOrdersCsv],
+        customers: ["nafume-customers.csv", OS.exportCustomersCsv],
+        reviews:   ["nafume-reviews.csv", OS.exportReviewsCsv],
+        inventory: ["nafume-inventory.csv", OS.exportInventoryCsv]
+      };
+      var m = map[kind]; if(!m) return;
+      var csv = m[1]();
+      var rowCount = (csv.split("\n").length - 1);
+      if(rowCount <= 0){ flash("export-flash","No "+kind+" data to export"); return; }
+      var ok = OS.downloadCsv(m[0], csv);
+      flash("export-flash", ok ? ("Downloaded "+m[0]) : "Download failed");
+    }
+
+    // ── Clear demo data ──
+    function doClear(){
+      var phrase = document.getElementById("clear-confirm").value;
+      var res = OS.clearLocalDemoDataSafely({ confirmText: phrase });
+      if(!res.success){ document.getElementById("clear-flash").textContent = res.message; return; }
+      document.getElementById("clear-confirm").value = "";
+      document.getElementById("clear-flash").textContent = res.message;
+      renderAll();
+    }
+
+    function renderAll(){ renderCards(); renderOrders(); renderInventory(); renderCustomers(); renderReviews();
+      document.getElementById("analytics-count").textContent = OS ? OS.getAnalyticsEvents().length : 0; }
+
+    document.addEventListener("DOMContentLoaded", function(){
+      if(window.ReviewService && window.ReviewService.seedInitialReviewsIfEmpty){ try { window.ReviewService.seedInitialReviewsIfEmpty(); } catch(e){} }
+      if(!OS){ document.querySelector(".wrap").insertAdjacentHTML("beforeend","<div class=\"empty\">Operations service failed to load.</div>"); return; }
+      renderAll();
+    });
+  </script>
+</body>
+</html>

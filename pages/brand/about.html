@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>The Art of Scent | NAFUME Artisan Luxe</title>
+    <!-- Tailwind CSS v3 CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts -->
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Central Styles -->
+    <link href="../../css/style.css" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#F9F5F0",
+                        "accent-bronze": "#C5A059",
+                        "primary": "#000000",
+                        "text-secondary": "#666666",
+                        "border-muted": "#DEDEDE",
+                        "surface-container": "#f1edec",
+                        "surface-variant": "#e5e2e1"
+                    },
+                    borderRadius: {
+                        DEFAULT: "2px",
+                        lg: "4px",
+                        xl: "8px",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        xl: "32px",
+                        gutter: "24px",
+                        xxl: "48px",
+                        lg: "24px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "16px",
+                        display: "64px",
+                        md: "16px",
+                        sm: "8px",
+                        xs: "4px"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased min-h-screen flex flex-col bg-surface text-primary">
+
+    <!-- 1. DRAWER OVERLAYS -->
+    <div class="fixed inset-0 bg-black/40 z-[150] hidden opacity-0 drawer-overlay transition-opacity duration-300" id="search-overlay" onclick="toggleSearch(true)"></div>
+    <div class="fixed inset-0 bg-black/40 z-[150] hidden opacity-0 drawer-overlay transition-opacity duration-300" id="mobile-menu-overlay" onclick="toggleMobileMenu(true)"></div>
+    <div class="fixed inset-0 bg-black/40 z-[150] hidden opacity-0 drawer-overlay transition-opacity duration-300" id="cart-overlay" onclick="toggleCart(true)"></div>
+
+    <!-- 2. ANNOUNCEMENT BAR -->
+    <div class="nf-ann">
+      <div class="nf-ann-track">SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </div>
+
+    <!-- 3. HEADER (logo row + nav row) -->
+    <header class="nf-header" id="main-header">
+      <!-- Logo Row -->
+      <div class="nf-logo-row">
+        <div class="nf-header-left">
+          <button class="nf-icon-btn nf-hamburger-btn" onclick="toggleMobileMenu()" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <button class="nf-icon-btn nf-search-btn" onclick="toggleSearch()" aria-label="Search">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+        </div>
+        <a href="../../index.html" class="nf-logo">NAFUME</a>
+        <div class="nf-header-right">
+          <a href="../account/account.html" class="nf-icon-btn nf-account-btn" aria-label="Account">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/></svg>
+          </a>
+          <button class="nf-icon-btn" onclick="toggleCart()" aria-label="View cart">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            <span class="nf-cart-badge cart-count hidden">0</span>
+          </button>
+        </div>
+      </div>
+      <!-- Nav Row -->
+      <nav class="nf-nav-row" aria-label="Main navigation">
+        <a href="../../index.html" class="nf-nav-link">HOME</a>
+        <a href="../collections/shop.html" class="nf-nav-link">NEW LAUNCHES</a>
+        <a href="../products/seduction.html" class="nf-nav-link">SEDUCTION</a>
+        <a href="../products/dark-oud.html" class="nf-nav-link">DARK OUD</a>
+        <a href="../products/red-spirit.html" class="nf-nav-link">RED SPIRIT</a>
+        <a href="../products/aqua-manthan.html" class="nf-nav-link">AQUA MANTHAN</a>
+        <a href="../products/all-day-misfit.html" class="nf-nav-link">ALL DAY MISFIT</a>
+        <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
+      </nav>
+    </header>
+
+    <!-- 4. MOBILE MENU DRAWER (ids kept for app.js compatibility) -->
+    <div class="nf-mobile-drawer drawer-container -translate-x-full" id="mobile-drawer">
+      <div class="nf-drawer-head">
+        <a href="../../index.html" class="nf-logo" style="font-size:17px;letter-spacing:0.22em;">NAFUME</a>
+        <button class="nf-icon-btn" onclick="toggleMobileMenu(true)" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <nav class="nf-drawer-nav">
+        <a href="../../index.html" class="nf-drawer-link">Home</a>
+        <a href="../collections/shop.html" class="nf-drawer-link">New Launches</a>
+        <a href="../products/seduction.html" class="nf-drawer-link">Seduction</a>
+        <a href="../products/dark-oud.html" class="nf-drawer-link">Dark Oud</a>
+        <a href="../products/red-spirit.html" class="nf-drawer-link">Red Spirit</a>
+        <a href="../products/aqua-manthan.html" class="nf-drawer-link">Aqua Manthan</a>
+        <a href="../products/all-day-misfit.html" class="nf-drawer-link">All Day Misfit</a>
+        <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram &#8599;</a>
+      </nav>
+    </div>
+    <!-- 5. SEARCH DRAWER -->
+    <div class="fixed inset-y-0 right-0 w-full md:w-[420px] bg-surface z-[200] transform translate-x-full drawer-container border-l border-border-muted flex flex-col" id="search-drawer">
+        <div class="p-6 border-b border-border-muted flex justify-between items-center bg-surface-container/30">
+            <h2 class="text-headline-sm font-semibold text-primary">Search</h2>
+            <button class="text-text-secondary hover:text-accent-bronze p-2" onclick="toggleSearch(true)">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="p-6 flex-grow overflow-y-auto">
+            <div class="relative w-full mb-8">
+                <input class="w-full bg-transparent border-b border-border-muted py-3 pl-10 pr-4 text-[12px] font-semibold uppercase tracking-widest text-primary focus:outline-none focus:border-accent-bronze transition-colors placeholder:text-text-secondary/60" placeholder="SEARCH FRAGRANCES..." type="text"/>
+                <span class="material-symbols-outlined absolute left-0 top-3 text-text-secondary">search</span>
+            </div>
+            <h3 class="text-[11px] font-semibold text-text-secondary mb-4 tracking-widest uppercase">Suggested Scents</h3>
+            <div class="space-y-4"></div>
+        </div>
+    </div>
+
+    <!-- 6. CART DRAWER (Kept empty for consistency) -->
+    <div class="fixed inset-y-0 right-0 w-full md:w-[420px] bg-surface z-[200] transform translate-x-full drawer-container border-l border-border-muted flex flex-col" id="cart-drawer">
+        <div class="p-6 border-b border-border-muted flex justify-between items-center bg-surface-container/30">
+            <h2 class="text-headline-sm font-semibold text-primary">Your Cart</h2>
+            <button class="text-text-secondary p-2" onclick="toggleCart(true)">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="flex-grow overflow-y-auto px-6 py-4" id="cart-drawer-items"></div>
+    </div>
+
+    <!-- 7. ABOUT CONTENT CANVAS -->
+    <main class="flex-grow">
+        
+        <!-- Hero Story Banner -->
+        <section class="relative w-full h-[60vh] min-h-[420px] flex items-center justify-center overflow-hidden bg-black">
+            <div class="absolute inset-0 z-0">
+                <img alt="Artisan Blending Window" class="w-full h-full object-cover object-center opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtpM0w5Et7u1hLnvFXKdOh0p45AhLtWaCmCfU3mn5NpnujYQ9fScx5Ks9LONY653G_xduZf6JtTsSYulBSpTFWL3jvArFW-rj3lurA-gyjakJtPPA36y7llTfFwjiSX7WRvJz_PSD-WeOoBrztbJmfu1DjN4rGwupnmlIRGWGx_6JDf7AKcajOBYQL79tA5FLxemLpz8kqVYt3EJYmv0b9R60frgaTihcmkL7pqKwWIsyfrjEysE6VmXe-RcH3I6r5WARSJMfdUqDm">
+            </div>
+            <div class="relative z-10 text-center px-4 max-w-3xl mx-auto text-white flex flex-col items-center">
+                <span class="text-label-sm font-semibold text-accent-bronze uppercase tracking-[0.2em] mb-4">Slow Luxury Scent Philosophy</span>
+                <h1 class="text-display-lg-mobile md:text-display-lg font-bold tracking-tighter mb-4">The Art of Nafume</h1>
+                <p class="text-body-lg text-white/90 max-w-xl font-light leading-relaxed">A relentless pursuit of raw olfactory perfection, bridging rich Indian heritage with modern high-contrast digital craftsmanship.</p>
+            </div>
+        </section>
+
+        <!-- Our Philosophy section -->
+        <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-20 border-b border-border-muted">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+                <div class="md:col-span-5 md:col-start-2 order-2 md:order-1 flex flex-col gap-4">
+                    <span class="text-[10px] font-semibold text-accent-bronze uppercase tracking-widest">Our Ideology</span>
+                    <h2 class="text-headline-md font-semibold text-primary italic leading-tight">Understated Elegance</h2>
+                    <p class="text-body-md text-text-secondary leading-relaxed font-light">
+                        At NAFUME, we believe a fragrance is more than a scent; it is an invisible garment, a silent language that speaks volumes before a single word is uttered. Our philosophy is rooted in the meticulous balance of traditional craftsmanship and contemporary elegance.
+                    </p>
+                    <p class="text-body-md text-text-secondary leading-relaxed font-light">
+                        We eschew loud mass production in favor of carefully curated artisan batches, ensuring every single drop represents the pinnacle of premium perfumery. Our commitment is to absolute understatement—allowing the complexity of our botanical blends to command the room naturally.
+                    </p>
+                </div>
+                <div class="md:col-span-5 md:col-start-8 order-1 md:order-2 mb-8 md:mb-0">
+                    <div class="relative aspect-[4/5] bg-white border border-border-muted p-3 rounded shadow-md">
+                        <img alt="Copper Distillation" class="w-full h-full object-cover rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5aXzrTGVBpYe3iY7eVaTh58nl4H3l_kBKCYf8bl6Sg-LTBF4a3VjtENN_w24sPpDxQ6TaNf7r0I-z6Ao_FCsHqYchXIEJ99Wsw3-dia5IYlgGzqVttxnrYmRsHxEP2tiHeXRd3yAUKRbWEpv1H9IqkCTUeci3iOaSn_G9CJkMYxl8v26Ohn8H9ACBAn4yK_jIWUgkdZ2vVZM0UfmHa_FpEz-vPZGrvng1GAZ7fspVS1wLzvs40pVUpVyt8ZoUyeGtKUgBPwnc5g4I">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sourcing Rare Botanicals -->
+        <section class="bg-surface-container/20 py-20 border-b border-border-muted">
+            <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+                    <div class="md:col-span-6 mb-8 md:mb-0">
+                        <div class="relative aspect-video rounded overflow-hidden shadow border border-border-muted bg-white">
+                            <img alt="Rare Scent Ingredients" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7ZLUPSzbc5FS8PR7H3afTId80f1S1qxYx_qvfDoQwZDvnOYArq-VAQWsODuke2XJwIf2yKtA8SNu2McaDFAWF_nysINE5jTZgNgMM9Gae1ntoI4iZGnRrS4XxALTA6ZPNJojvULc2aoyaDq3XCc3URQhGSRGRGTcLsvibToUA6IYxP4dMPpfaO7xjG8hyx_K8E8Oy44FV-HsDICuc3Qlmxtp-iol_mC6x8Np0wrcoAoZyAx0EMN5CE3kn5lAgF4WdF3WQbrI4hf87">
+                        </div>
+                    </div>
+                    <div class="md:col-span-5 md:col-start-8 flex flex-col gap-4">
+                        <span class="text-[10px] font-semibold text-accent-bronze uppercase tracking-widest">Ethically Sourced Core</span>
+                        <h2 class="text-headline-md font-semibold text-primary italic leading-tight">Rare Botanicals</h2>
+                        <p class="text-body-md text-text-secondary leading-relaxed font-light">
+                            The soul of Nafume lies in our unwavering dedication to sourcing the world's most exquisite raw materials. We travel directly to origin hubs to hand-select ingredients of unparalleled purity and depth.
+                        </p>
+                        <p class="text-body-md text-text-secondary leading-relaxed font-light">
+                            From the deep, narcotic sweetness of Madagascan vanilla pods to the creamy, sacred warmth of ethically harvested Indian Mysore sandalwood, our palette is composed of nature's most precious offerings. Each note is chosen not just for its scent, but for its history and its ability to maturate.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blending Extraction steps -->
+        <section class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-20 border-b border-border-muted">
+            <div class="text-center mb-16 max-w-xl mx-auto">
+                <span class="text-[10px] font-semibold text-accent-bronze uppercase tracking-[0.2em] mb-2 block">Our Formulation Steps</span>
+                <h2 class="text-headline-md font-semibold text-primary italic">The Blending Cycle</h2>
+                <p class="text-body-md text-text-secondary font-light leading-relaxed">
+                    A meticulous process requiring extreme patience, shifting from raw earth concentrates into refined bottled luxury.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="border border-border-muted p-8 bg-white rounded shadow-sm flex flex-col items-center text-center">
+                    <div class="w-14 h-14 rounded-full border border-border-muted bg-surface flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-accent-bronze text-2xl">water_drop</span>
+                    </div>
+                    <h3 class="text-headline-sm font-bold text-primary mb-3 uppercase text-sm tracking-widest">1. Pure Extraction</h3>
+                    <p class="text-xs text-text-secondary font-light leading-relaxed">
+                        Utilizing cold-press enfleurage and critical CO2 extraction systems to capture the volatile structural elements of fragile blooms and sturdy woods.
+                    </p>
+                </div>
+                <!-- Step 2 -->
+                <div class="border border-border-muted p-8 bg-white rounded shadow-sm flex flex-col items-center text-center">
+                    <div class="w-14 h-14 rounded-full border border-border-muted bg-surface flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-accent-bronze text-2xl">science</span>
+                    </div>
+                    <h3 class="text-headline-sm font-bold text-primary mb-3 uppercase text-sm tracking-widest">2. Precise Harmony</h3>
+                    <p class="text-xs text-text-secondary font-light leading-relaxed">
+                        Our master perfumers precisely balance top, heart, and base notes. We allow the initial formula to breathe, coordinate, and mature over weeks.
+                    </p>
+                </div>
+                <!-- Step 3 -->
+                <div class="border border-border-muted p-8 bg-white rounded shadow-sm flex flex-col items-center text-center">
+                    <div class="w-14 h-14 rounded-full border border-border-muted bg-surface flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-accent-bronze text-2xl">hourglass_empty</span>
+                    </div>
+                    <h3 class="text-headline-sm font-bold text-primary mb-3 uppercase text-sm tracking-widest">3. Extended Rest</h3>
+                    <p class="text-xs text-text-secondary font-light leading-relaxed">
+                        Patience is our final ingredient. Every individual batch rests inside climate-regulated dark chambers, guaranteeing that molecules fully fuse into a cohesive scent.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand luxury quote block -->
+        <section class="max-w-3xl mx-auto px-margin-mobile py-20 text-center flex flex-col items-center">
+            <span class="material-symbols-outlined text-border-muted text-5xl mb-4">format_quote</span>
+            <p class="text-headline-sm md:text-headline-md text-primary italic leading-relaxed mb-6 font-medium">
+                "Fragrance is the invisible garment, the silent signature of your character. It heralds your arrival, commands your presence, and lingers beautifully in your wake."
+            </p>
+            <span class="text-label-sm font-semibold uppercase tracking-widest text-accent-bronze">— Master Perfumer, NAFUME Artisan Luxe</span>
+        </section>
+
+    </main>
+
+    <!-- 8. FOOTER -->
+    <footer class="bg-surface-container w-full py-xxl border-t border-border-muted">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
+            <div class="col-span-1 pr-0 md:pr-8">
+                <h4 class="text-headline-sm font-bold text-primary mb-4">NAFUME</h4>
+                <p class="text-body-md text-text-secondary mb-6 text-sm font-light">Artisan fragrances crafted for the modern connoisseur. Minimalist luxury, maximum longevity.</p>
+                <div class="text-label-sm text-text-secondary/70 mt-8 uppercase tracking-widest text-[9px]">
+                    © 2026 NAFUME Fragrance House. All Rights Reserved.
+                </div>
+            </div>
+            <div class="col-span-1">
+                <h5 class="text-label-sm font-bold text-primary uppercase tracking-widest mb-6">Explore</h5>
+                <ul class="space-y-3">
+                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="about.html">Our Craft</a></li>
+                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../collections/shop.html">Shop Catalog</a></li>
+                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../collections/build-your-own-box.html">Discovery Box</a></li>
+                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="consultation.html">Bespoke Appointment</a></li>
+                </ul>
+            </div>
+            <div class="col-span-1">
+                <h5 class="text-label-sm font-bold text-primary uppercase tracking-widest mb-6">Support</h5>
+                <ul class="space-y-3">
+                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../support/faq.html">Shipping & Returns</a></li>
+                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../order/track-order.html">Track Order Status</a></li>
+                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../support/faq.html">Fragrance Care FAQ</a></li>
+                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="404.html">Concierge Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-span-1">
+                <h5 class="text-label-sm font-bold text-primary uppercase tracking-widest mb-6">The Nafume Club</h5>
+                <p class="text-body-md text-text-secondary text-sm mb-4 font-light">Subscribe for exclusive private vaults, secret batches, and VIP pre-launches.</p>
+                <form class="relative flex border-b border-primary group py-1">
+                    <input class="w-full bg-transparent border-none focus:ring-0 px-0 py-2 text-label-sm placeholder:text-text-secondary/50 placeholder:font-normal uppercase tracking-wider" placeholder="EMAIL ADDRESS" type="email" required/>
+                    <button class="p-2 text-primary hover:text-accent-bronze transition-transform hover:translate-x-1" type="submit">
+                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GLOBAL SCRIPTS -->
+    <script src="../../js/state.js"></script>
+    <script src="../../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Collection — NAFUME Artisan Luxe</title>
+  <meta name="description" content="Browse NAFUME fragrances by collection."/>
+  <link rel="stylesheet" href="../../css/launch.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div id="launch-overlay" class="lp-overlay" onclick="closeCart()"></div>
+  <div id="launch-toast" class="lp-toast" role="alert" aria-live="polite"></div>
+  <div id="launch-cart-drawer" class="lp-cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+    <div class="cart-drawer-head">
+      <div>
+        <p class="cart-drawer-title">Your Cart</p>
+        <p class="cart-drawer-count" id="cart-drawer-count">0 items</p>
+      </div>
+      <button class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="cart-drawer-items no-scrollbar" id="launch-cart-items"></div>
+    <div class="cart-drawer-footer" id="launch-cart-footer"></div>
+  </div>
+
+  <div class="nf-mobile-drawer" id="nf-mobile-drawer">
+    <div class="nf-drawer-head">
+      <a href="../../index.html" class="nf-logo" style="font-size:16px;letter-spacing:0.22em;">NAFUME</a>
+      <button class="nf-icon-btn" onclick="nfMenuClose()" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="nf-drawer-nav">
+      <a href="../../index.html" class="nf-drawer-link">Home</a>
+      <a href="shop.html" class="nf-drawer-link">New Launches</a>
+      <a href="../products/seduction.html" class="nf-drawer-link">Seduction</a>
+      <a href="../products/dark-oud.html" class="nf-drawer-link">Dark Oud</a>
+      <a href="../products/red-spirit.html" class="nf-drawer-link">Red Spirit</a>
+      <a href="../products/aqua-manthan.html" class="nf-drawer-link">Aqua Manthan</a>
+      <a href="../products/all-day-misfit.html" class="nf-drawer-link">All Day Misfit</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram ↗</a>
+    </nav>
+  </div>
+  <div class="nf-drawer-overlay" id="nf-drawer-overlay" onclick="nfMenuClose()"></div>
+
+  <div class="nf-ann">
+    <div class="nf-ann-track">SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </div>
+
+  <header class="nf-header" id="main-header">
+    <div class="nf-logo-row">
+      <div class="nf-header-left">
+        <button class="nf-icon-btn nf-hamburger-btn" onclick="nfMenuOpen()" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <a href="../../index.html" class="nf-icon-btn nf-search-btn" aria-label="Browse website">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </a>
+      </div>
+      <a href="../../index.html" class="nf-logo">NAFUME</a>
+      <div class="nf-header-right">
+        <button class="nf-icon-btn" onclick="openCart()" aria-label="View cart">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="nf-cart-badge lp-cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+    <nav class="nf-nav-row" aria-label="Main navigation">
+      <a href="../../index.html" class="nf-nav-link">HOME</a>
+      <a href="shop.html" class="nf-nav-link">NEW LAUNCHES</a>
+      <a href="../products/seduction.html" class="nf-nav-link">SEDUCTION</a>
+      <a href="../products/dark-oud.html" class="nf-nav-link">DARK OUD</a>
+      <a href="../products/red-spirit.html" class="nf-nav-link">RED SPIRIT</a>
+      <a href="../products/aqua-manthan.html" class="nf-nav-link">AQUA MANTHAN</a>
+      <a href="../products/all-day-misfit.html" class="nf-nav-link">ALL DAY MISFIT</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="coll-page" id="collection-page-root">
+      <!-- Rendered by JS -->
+      <div style="text-align:center;padding:80px 20px;color:#aaa;font-size:14px;">Loading collection…</div>
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+
+  <script src="../../js/commerce/config.js"></script>
+  <script src="../../js/commerce/customer-service.js"></script>
+  <script src="../../js/commerce/review-service.js"></script>
+  <script src="../../js/commerce/collection-service.js"></script>
+  <script src="../../js/commerce/seo-service.js"></script>
+  <script src="../../js/commerce/offer-service.js"></script>
+  <script src="../../js/launch.js"></script>
+  <script src="../../js/commerce/operations-service.js"></script>
+  <script>
+  (function () {
+    var root = document.getElementById('collection-page-root');
+    if (!root || !window.CollectionService || !window.LAUNCH_PRODUCTS) return;
+
+    var cs = window.CollectionService;
+    var params = new URLSearchParams(window.location.search);
+    var slug = (params.get('collection') || '').toLowerCase().trim();
+
+    var col = cs.getCollectionBySlug(slug);
+
+    // If it's a bundle type, redirect to the dedicated page
+    if (col && col.linkTo) {
+      window.location.replace(nfPath(col.linkTo));
+      return;
+    }
+
+    if (!col) {
+      root.innerHTML =
+        '<div class="coll-page-empty">' +
+          '<p>Collection not found.</p>' +
+          '<a href="collections.html" style="color:#C5A059;text-decoration:underline">Browse all collections →</a>' +
+        '</div>';
+      return;
+    }
+
+    var products = cs.getProductsByCollection(slug);
+
+    // Update page meta + structured data (Upgrade 8)
+    if (window.SEO) {
+      SEO.updateDocumentSeo(SEO.getCollectionSeo(col));
+      SEO.injectJsonLd(SEO.createCollectionPageSchema(col, products), 'ld-collection');
+      SEO.injectJsonLd(SEO.createBreadcrumbSchema([
+        { name: 'Home', url: 'index.html' },
+        { name: 'Collections', url: 'collections.html' },
+        { name: col.title, url: 'collection.html?collection=' + col.slug }
+      ]), 'ld-breadcrumb');
+      var faqSchema = SEO.createFAQSchema(col.faqItems || []);
+      if (faqSchema) SEO.injectJsonLd(faqSchema, 'ld-faq');
+    } else {
+      document.title = col.seoTitle || (col.title + ' — NAFUME Artisan Luxe');
+      var metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', col.seoDescription || col.description);
+    }
+
+    // Product card HTML
+    function prodCard(p, i) {
+      var imgErr = 'onerror="this.style.visibility=\'hidden\'"';
+      return '<div class="prod-card">' +
+        '<a href="' + p.slug + '" class="prod-card-link" aria-label="View ' + p.name + '">' +
+          '<img class="prod-card-img" src="' + getProductThumbnail(p, 'collection', i) + '" alt="' + p.name + ' by NAFUME" loading="lazy" ' + imgErr + '>' +
+          '<div class="nl-badge-wrap">' + productBadgesHtml(p) + '</div>' +
+        '</a>' +
+        '<div class="prod-card-info">' +
+          '<a href="' + p.slug + '" class="prod-card-name">' + p.displayName + '</a>' +
+          '<p class="prod-card-family">' + p.family + '</p>' +
+          cardRatingHtml(p.id) +
+          '<div class="prod-card-price">' +
+            '<span class="price-sell">&#8377;' + LAUNCH_CONFIG.sellingPrice.toLocaleString('en-IN') + '</span>' +
+            '<span class="price-mrp">MRP &#8377;' + LAUNCH_CONFIG.mrp.toLocaleString('en-IN') + '</span>' +
+          '</div>' +
+          '<button class="prod-card-atc" onclick="handleGridAdd(\'' + p.id + '\',this)">Add to Cart</button>' +
+        '</div>' +
+      '</div>';
+    }
+
+    var gridHtml = products.length
+      ? '<div class="coll-page-grid">' + products.map(prodCard).join('') + '</div>'
+      : '<div class="coll-page-empty">No fragrances found in this collection yet.</div>';
+
+    // FAQ section
+    var faqItems = (col.faqItems || []).map(function (f) {
+      return '<div class="coll-faq-item">' +
+        '<p class="coll-faq-q">' + f.q + '</p>' +
+        '<p class="coll-faq-a">' + f.a + '</p>' +
+        '</div>';
+    }).join('');
+    var faqHtml = faqItems
+      ? '<div class="coll-faq-section"><h2 class="coll-faq-title">Frequently Asked Questions</h2>' + faqItems + '</div>'
+      : '';
+
+    // SEO buying-guide content (Upgrade 8)
+    var seoBodyHtml = col.seoContentBody
+      ? '<div class="coll-seo-block">' +
+          '<h2 class="coll-seo-title">' + (col.seoContentTitle || ('About ' + col.title)) + '</h2>' +
+          '<p class="coll-seo-text">' + col.seoContentBody + '</p>' +
+        '</div>'
+      : '';
+
+    // Related collections (Upgrade 8)
+    var related = (col.relatedCollections || [])
+      .map(function (rs) { return cs.getCollectionBySlug(rs); })
+      .filter(Boolean);
+    var relatedHtml = related.length
+      ? '<div class="coll-related"><h2 class="coll-seo-title">Related Collections</h2>' +
+        '<div class="coll-related-links">' +
+          related.map(function (r) {
+            var href = r.linkTo || ('collection.html?collection=' + r.slug);
+            return '<a href="' + href + '" class="coll-related-link"><span>' + r.icon + '</span>' + r.title + '</a>';
+          }).join('') +
+          '<a href="shop.html" class="coll-related-link"><span>🛍️</span>Shop All</a>' +
+        '</div></div>'
+      : '';
+
+    var sortBarHtml = products.length > 0
+      ? '<div class="coll-sort-bar">' +
+          '<span class="coll-sort-label">Featured ' +
+            '<svg class="coll-sort-chevron" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+              '<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+            '</svg>' +
+          '</span>' +
+        '</div>'
+      : '';
+
+    root.innerHTML =
+      '<p class="coll-breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="collections.html">Collections</a> &rsaquo; ' + col.title + '</p>' +
+      '<div class="coll-page-hero">' +
+        '<p class="coll-page-eyebrow">Collection</p>' +
+        '<h1 class="coll-page-title">' + col.title + '</h1>' +
+        '<p class="coll-page-subtitle">' + col.subtitle + '</p>' +
+        '<p class="coll-page-desc">' + col.description + '</p>' +
+      '</div>' +
+      sortBarHtml +
+      gridHtml +
+      seoBodyHtml +
+      faqHtml +
+      relatedHtml +
+      '<div class="other-launches-actions">' +
+        '<a href="collections.html" class="other-launches-browse">← Back to All Collections</a>' +
+      '</div>';
+  })();
+  </script>
+</body>
+</html>

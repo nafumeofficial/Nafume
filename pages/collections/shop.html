@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop All Perfumes Online — NAFUME Artisan Luxe</title>
+  <meta name="description" content="Browse all NAFUME Eau De Parfum fragrances by mood, scent family, gender and occasion. Fresh, oud, floral, spicy and gourmand perfumes at ₹799. Order online, confirm on WhatsApp."/>
+  <!-- SEO: replace nafume.com with the final live domain before launch -->
+  <link rel="canonical" href="https://nafume.com/pages/collections/shop.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="NAFUME Artisan Luxe"/>
+  <meta property="og:title" content="Shop All Perfumes Online — NAFUME Artisan Luxe"/>
+  <meta property="og:description" content="Browse all NAFUME Eau De Parfum fragrances by mood, scent family, gender and occasion."/>
+  <meta property="og:url" content="https://nafume.com/pages/collections/shop.html"/>
+  <meta property="og:image" content="https://nafume.com/assets/images/products/Seduction/image%20(1).jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="stylesheet" href="../../css/launch.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div id="launch-overlay" class="lp-overlay" onclick="closeCart()"></div>
+  <div id="launch-toast" class="lp-toast" role="alert" aria-live="polite"></div>
+  <div id="launch-cart-drawer" class="lp-cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+    <div class="cart-drawer-head">
+      <div>
+        <p class="cart-drawer-title">Your Cart</p>
+        <p class="cart-drawer-count" id="cart-drawer-count">0 items</p>
+      </div>
+      <button class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="cart-drawer-items no-scrollbar" id="launch-cart-items"></div>
+    <div class="cart-drawer-footer" id="launch-cart-footer"></div>
+  </div>
+
+  <div class="nf-mobile-drawer" id="nf-mobile-drawer">
+    <div class="nf-drawer-head">
+      <a href="../../index.html" class="nf-logo" style="font-size:16px;letter-spacing:0.22em;">NAFUME</a>
+      <button class="nf-icon-btn" onclick="nfMenuClose()" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="nf-drawer-nav">
+      <a href="../../index.html" class="nf-drawer-link">Home</a>
+      <a href="shop.html" class="nf-drawer-link">New Launches</a>
+      <a href="../products/seduction.html" class="nf-drawer-link">Seduction</a>
+      <a href="../products/dark-oud.html" class="nf-drawer-link">Dark Oud</a>
+      <a href="../products/red-spirit.html" class="nf-drawer-link">Red Spirit</a>
+      <a href="../products/aqua-manthan.html" class="nf-drawer-link">Aqua Manthan</a>
+      <a href="../products/all-day-misfit.html" class="nf-drawer-link">All Day Misfit</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram ↗</a>
+    </nav>
+  </div>
+  <div class="nf-drawer-overlay" id="nf-drawer-overlay" onclick="nfMenuClose()"></div>
+
+  <div class="nf-ann">
+    <div class="nf-ann-track">SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </div>
+
+  <header class="nf-header" id="main-header">
+    <div class="nf-logo-row">
+      <div class="nf-header-left">
+        <button class="nf-icon-btn nf-hamburger-btn" onclick="nfMenuOpen()" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <a href="../../index.html" class="nf-icon-btn nf-search-btn" aria-label="Browse website">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </a>
+      </div>
+      <a href="../../index.html" class="nf-logo">NAFUME</a>
+      <div class="nf-header-right">
+        <button class="nf-icon-btn" onclick="openCart()" aria-label="View cart">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="nf-cart-badge lp-cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+    <nav class="nf-nav-row" aria-label="Main navigation">
+      <a href="../../index.html" class="nf-nav-link">HOME</a>
+      <a href="shop.html" class="nf-nav-link">NEW LAUNCHES</a>
+      <a href="../products/seduction.html" class="nf-nav-link">SEDUCTION</a>
+      <a href="../products/dark-oud.html" class="nf-nav-link">DARK OUD</a>
+      <a href="../products/red-spirit.html" class="nf-nav-link">RED SPIRIT</a>
+      <a href="../products/aqua-manthan.html" class="nf-nav-link">AQUA MANTHAN</a>
+      <a href="../products/all-day-misfit.html" class="nf-nav-link">ALL DAY MISFIT</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
+    </nav>
+  </header>
+
+  <main>
+    <div style="max-width:1100px;margin:0 auto;padding:36px 24px 80px;">
+
+      <!-- Page heading -->
+      <div style="margin-bottom:28px;">
+        <p style="font-family:var(--font-body);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#C5A059;margin-bottom:6px;">Shop</p>
+        <h1 style="font-family:var(--font-head);font-size:clamp(22px,5vw,30px);letter-spacing:0.06em;color:#111;margin-bottom:6px;">All Fragrances</h1>
+        <p style="font-size:13px;color:#888;">5 Eau De Parfum blends — crafted for India, priced for everyone.</p>
+      </div>
+
+      <!-- Filter bar -->
+      <div class="shop6-filter-bar" id="shop-filters">
+        <button class="shop6-filter-btn active" data-filter="all">All (5)</button>
+        <button class="shop6-filter-btn" data-filter="best-sellers">Best Sellers</button>
+        <button class="shop6-filter-btn" data-filter="him">For Him</button>
+        <button class="shop6-filter-btn" data-filter="her">For Her</button>
+        <button class="shop6-filter-btn" data-filter="unisex">Unisex</button>
+        <button class="shop6-filter-btn" data-filter="office-wear">Office Wear</button>
+        <button class="shop6-filter-btn" data-filter="date-night">Date Night</button>
+        <button class="shop6-filter-btn" data-filter="fresh-aquatic">Fresh &amp; Aquatic</button>
+        <button class="shop6-filter-btn" data-filter="oud-intense">Oud Intense</button>
+        <button class="shop6-filter-btn" data-filter="gifting">Gifting</button>
+      </div>
+
+      <!-- Product count -->
+      <p class="shop6-count" id="shop-count">Showing 5 fragrances</p>
+
+      <!-- Product grid -->
+      <div class="launch-grid" id="shop-grid" style="margin-bottom:48px;"></div>
+
+      <!-- Empty state -->
+      <div class="shop6-empty" id="shop-empty" style="display:none;">
+        No fragrances match this filter. <a href="shop.html" style="color:#C5A059;text-decoration:underline">Show all →</a>
+      </div>
+
+      <!-- Browse Collections CTA -->
+      <div style="border-top:1px solid #e8e4e0;padding-top:32px;text-align:center;">
+        <p style="font-size:13px;color:#888;margin-bottom:16px;">Looking for something specific?</p>
+        <a href="collections.html" class="other-launches-browse" style="font-size:13px;">Browse All Collections →</a>
+      </div>
+
+      <!-- SEO content block (Upgrade 8) -->
+      <div class="coll-seo-block" style="margin-top:48px;">
+        <h2 class="coll-seo-title">Shop NAFUME Perfumes Online</h2>
+        <p class="coll-seo-text">
+          The easiest way to find your perfect fragrance is to shop by what matters to you. Browse by
+          <strong>mood</strong> — fresh and energising or deep and intense; by <strong>scent family</strong> —
+          aquatic, oud, floral, spicy or gourmand; by <strong>gender preference</strong> — for him, for her or
+          unisex; by <strong>occasion</strong> — office and daily wear or evenings and special moments; and by
+          <strong>intensity</strong>, from light everyday spritzes to bold statement scents. Every NAFUME perfume
+          is an Eau De Parfum crafted to last and to feel comfortable in Indian weather. Add your favourite to cart
+          and confirm your order on WhatsApp.
+        </p>
+        <div class="coll-related-links" style="margin-top:18px;">
+          <a href="collection.html?collection=fresh-aquatic" class="coll-related-link"><span>🌊</span>Fresh &amp; Aquatic</a>
+          <a href="collection.html?collection=oud-intense" class="coll-related-link"><span>🪵</span>Oud &amp; Intense</a>
+          <a href="collection.html?collection=office-wear" class="coll-related-link"><span>💼</span>Office Wear</a>
+          <a href="collection.html?collection=date-night" class="coll-related-link"><span>🌙</span>Date Night</a>
+          <a href="gifting.html" class="coll-related-link"><span>🎁</span>Gifting</a>
+          <a href="build-your-own-box.html" class="coll-related-link"><span>🎨</span>Build Your Own Box</a>
+        </div>
+      </div>
+
+      <!-- Shop FAQ (Upgrade 8) -->
+      <div class="coll-faq-section" id="shop-faq">
+        <h2 class="coll-faq-title">Shopping FAQs</h2>
+        <div class="coll-faq-item"><p class="coll-faq-q">How do I choose a perfume online?</p>
+          <p class="coll-faq-a">Start with the kind of scent you enjoy — fresh, woody, floral, spicy or sweet — and where you'll wear it most. Use the filters above to narrow by occasion and scent family, or try the fragrance finder for a guided pick.</p></div>
+        <div class="coll-faq-item"><p class="coll-faq-q">Which perfume is best for daily or office wear?</p>
+          <p class="coll-faq-a">Fresh, clean scents like Aqua Manthan work well for daily and office wear because they stay close and pleasant. See the Office &amp; Daily Wear collection above.</p></div>
+        <div class="coll-faq-item"><p class="coll-faq-q">Are NAFUME perfumes long-lasting?</p>
+          <p class="coll-faq-a">All NAFUME fragrances are Eau De Parfum (EDP) concentration, designed for a smooth, long-lasting wear. Applying to pulse points after a shower helps them last longer.</p></div>
+        <div class="coll-faq-item"><p class="coll-faq-q">How much is shipping and how do I pay?</p>
+          <p class="coll-faq-a">Shipping is free above ₹999 (₹99 below). Orders are confirmed and paid on WhatsApp for now, with COD and prepaid options.</p></div>
+        <div class="coll-faq-item"><p class="coll-faq-q">Can I buy more than one fragrance together?</p>
+          <p class="coll-faq-a">Yes. Add multiple fragrances to your cart, or use Build Your Own Box to create a custom set of up to three.</p></div>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+
+  <script src="../../js/commerce/config.js"></script>
+  <script src="../../js/commerce/customer-service.js"></script>
+  <script src="../../js/commerce/review-service.js"></script>
+  <script src="../../js/commerce/collection-service.js"></script>
+  <script src="../../js/commerce/seo-service.js"></script>
+  <script src="../../js/commerce/offer-service.js"></script>
+  <script src="../../js/launch.js"></script>
+  <script src="../../js/commerce/operations-service.js"></script>
+  <!-- Structured data (Upgrade 8): breadcrumb + shop FAQ -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (!window.SEO) return;
+      try {
+        SEO.updateDocumentSeo(SEO.getPageSeo("shop"));
+        SEO.injectJsonLd(SEO.createBreadcrumbSchema([
+          { name: "Home", url: "index.html" },
+          { name: "Shop", url: "shop.html" }
+        ]), "ld-breadcrumb");
+        var shopFaqs = [
+          { q: "How do I choose a perfume online?", a: "Start with the kind of scent you enjoy — fresh, woody, floral, spicy or sweet — and where you'll wear it most. Use the filters to narrow by occasion and scent family, or try the fragrance finder." },
+          { q: "Which perfume is best for daily or office wear?", a: "Fresh, clean scents like Aqua Manthan work well for daily and office wear because they stay close and pleasant." },
+          { q: "Are NAFUME perfumes long-lasting?", a: "All NAFUME fragrances are Eau De Parfum concentration, designed for a smooth, long-lasting wear. Apply to pulse points after a shower for the best results." },
+          { q: "How much is shipping and how do I pay?", a: "Shipping is free above ₹999 (₹99 below). Orders are confirmed and paid on WhatsApp for now, with COD and prepaid options." },
+          { q: "Can I buy more than one fragrance together?", a: "Yes. Add multiple fragrances to your cart, or use Build Your Own Box to create a custom set of up to three." }
+        ];
+        var faqSchema = SEO.createFAQSchema(shopFaqs);
+        if (faqSchema) SEO.injectJsonLd(faqSchema, "ld-faq");
+      } catch (e) {}
+    });
+  </script>
+  <script>
+  (function () {
+    var activeFilter = 'all';
+
+    function getFilteredProducts(filter) {
+      if (filter === 'all') return window.LAUNCH_PRODUCTS || [];
+      if (!window.CollectionService) return window.LAUNCH_PRODUCTS || [];
+      return window.CollectionService.getProductsByCollection(filter);
+    }
+
+    function renderShopGrid(filter) {
+      var products = getFilteredProducts(filter);
+      var grid = document.getElementById('shop-grid');
+      var empty = document.getElementById('shop-empty');
+      var count = document.getElementById('shop-count');
+
+      if (!grid) return;
+
+      if (!products.length) {
+        grid.innerHTML = '';
+        if (empty) empty.style.display = 'block';
+        if (count) count.textContent = '0 fragrances';
+        return;
+      }
+
+      if (empty) empty.style.display = 'none';
+      if (count) count.textContent = 'Showing ' + products.length + (products.length === 1 ? ' fragrance' : ' fragrances');
+
+      grid.innerHTML = products.map(function (p, i) {
+        var imgErr = 'onerror="this.style.visibility=\'hidden\'"';
+        return '<div class="prod-card">' +
+          '<a href="' + p.slug + '" class="prod-card-link" aria-label="View ' + p.name + '">' +
+            '<img class="prod-card-img" src="' + getProductThumbnail(p, 'shop', i) + '" alt="NAFUME ' + p.name + ' perfume bottle" loading="lazy" ' + imgErr + '>' +
+            '<div class="nl-badge-wrap">' + productBadgesHtml(p) + '</div>' +
+          '</a>' +
+          '<div class="prod-card-info">' +
+            '<a href="' + p.slug + '" class="prod-card-name">' + p.displayName + '</a>' +
+            '<p class="prod-card-family">' + p.family + '</p>' +
+            cardRatingHtml(p.id) +
+            '<div class="prod-card-price">' +
+              '<span class="price-sell">&#8377;' + LAUNCH_CONFIG.sellingPrice.toLocaleString('en-IN') + '</span>' +
+              '<span class="price-mrp">MRP &#8377;' + LAUNCH_CONFIG.mrp.toLocaleString('en-IN') + '</span>' +
+            '</div>' +
+            '<button class="prod-card-atc" onclick="handleGridAdd(\'' + p.id + '\',this)">Add to Cart</button>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    // Wire up filter buttons
+    var filterBar = document.getElementById('shop-filters');
+    if (filterBar) {
+      filterBar.addEventListener('click', function (e) {
+        var btn = e.target.closest('.shop6-filter-btn');
+        if (!btn) return;
+        var filter = btn.getAttribute('data-filter');
+        activeFilter = filter;
+        filterBar.querySelectorAll('.shop6-filter-btn').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        renderShopGrid(filter);
+      });
+    }
+
+    // Check for ?collection= in URL and pre-select filter
+    var params = new URLSearchParams(window.location.search);
+    var preFilter = params.get('collection');
+    if (preFilter) {
+      var preBtn = filterBar && filterBar.querySelector('[data-filter="' + preFilter + '"]');
+      if (preBtn) {
+        filterBar.querySelectorAll('.shop6-filter-btn').forEach(function (b) { b.classList.remove('active'); });
+        preBtn.classList.add('active');
+        activeFilter = preFilter;
+      }
+    }
+
+    renderShopGrid(activeFilter);
+  })();
+  </script>
+</body>
+</html>
+

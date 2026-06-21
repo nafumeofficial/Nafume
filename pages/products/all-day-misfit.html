@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Day Misfit — NAFUME Artisan Luxe</title>
+  <meta name="description" content="All Day Misfit EDP by NAFUME — Bold, unconventional fragrance for all-day wear. Summer Sale ₹799. Order on WhatsApp."/>
+  <link rel="stylesheet" href="../../css/launch.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>window.PRODUCT_PAGE_ID = "all-day-misfit";</script>
+</head>
+<body>
+
+  <div id="launch-overlay" class="lp-overlay" onclick="closeCart()"></div>
+  <div id="launch-toast" class="lp-toast" role="alert" aria-live="polite"></div>
+
+  <div id="launch-cart-drawer" class="lp-cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+    <div class="cart-drawer-head">
+      <div>
+        <p class="cart-drawer-title">Your Cart</p>
+        <p class="cart-drawer-count" id="cart-drawer-count">0 items</p>
+      </div>
+      <button class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="cart-drawer-items no-scrollbar" id="launch-cart-items"></div>
+    <div class="cart-drawer-footer" id="launch-cart-footer"></div>
+  </div>
+
+  <div class="lp-sticky-bar" id="launch-sticky-bar">
+    <div class="sticky-info">
+      <span class="sticky-count" id="sticky-count">0 items</span>
+      <span class="sticky-total" id="sticky-total">₹0</span>
+    </div>
+    <button class="sticky-view-btn" onclick="openCart()">View Cart</button>
+    <a href="../order/shipping.html" class="sticky-ship-btn">
+      <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+      Checkout
+    </a>
+  </div>
+
+  <!-- Mobile nav drawer -->
+  <div class="nf-mobile-drawer" id="nf-mobile-drawer">
+    <div class="nf-drawer-head">
+      <a href="../../index.html" class="nf-logo" style="font-size:16px;letter-spacing:0.22em;">NAFUME</a>
+      <button class="nf-icon-btn" onclick="nfMenuClose()" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="nf-drawer-nav">
+      <a href="../../index.html" class="nf-drawer-link">Home</a>
+      <a href="../collections/shop.html" class="nf-drawer-link">New Launches</a>
+      <a href="seduction.html" class="nf-drawer-link">Seduction</a>
+      <a href="dark-oud.html" class="nf-drawer-link">Dark Oud</a>
+      <a href="red-spirit.html" class="nf-drawer-link">Red Spirit</a>
+      <a href="aqua-manthan.html" class="nf-drawer-link">Aqua Manthan</a>
+      <a href="all-day-misfit.html" class="nf-drawer-link">All Day Misfit</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram ↗</a>
+    </nav>
+  </div>
+  <div class="nf-drawer-overlay" id="nf-drawer-overlay" onclick="nfMenuClose()"></div>
+
+  <div class="nf-ann">
+    <div class="nf-ann-track">SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </div>
+
+  <header class="nf-header" id="main-header">
+    <div class="nf-logo-row">
+      <div class="nf-header-left">
+        <button class="nf-icon-btn nf-hamburger-btn" onclick="nfMenuOpen()" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <a href="../../index.html" class="nf-icon-btn nf-search-btn" aria-label="Browse website">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </a>
+      </div>
+      <a href="../../index.html" class="nf-logo">NAFUME</a>
+      <div class="nf-header-right">
+        <button class="nf-icon-btn" onclick="openCart()" aria-label="View cart">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="nf-cart-badge lp-cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+    <nav class="nf-nav-row" aria-label="Main navigation">
+      <a href="../../index.html" class="nf-nav-link">HOME</a>
+      <a href="../collections/shop.html" class="nf-nav-link">NEW LAUNCHES</a>
+      <a href="seduction.html" class="nf-nav-link">SEDUCTION</a>
+      <a href="dark-oud.html" class="nf-nav-link">DARK OUD</a>
+      <a href="red-spirit.html" class="nf-nav-link">RED SPIRIT</a>
+      <a href="aqua-manthan.html" class="nf-nav-link">AQUA MANTHAN</a>
+      <a href="all-day-misfit.html" class="nf-nav-link nf-active">ALL DAY MISFIT</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
+    </nav>
+  </header>
+
+  <main class="pdp-main">
+    <nav class="pdp-breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a> /
+      <a href="../collections/shop.html">New Launches</a> /
+      <span id="pdp-bc-name" class="bc-current"></span>
+    </nav>
+    <div id="pdp-root"></div>
+    <div id="other-launches"></div>
+  </main>
+
+  <div id="global-footer"></div>
+
+  <script src="../../js/commerce/config.js"></script>
+  <script src="../../js/commerce/customer-service.js"></script>
+  <script src="../../js/commerce/review-service.js"></script>
+  <script src="../../js/commerce/seo-service.js"></script>
+  <script src="../../js/commerce/offer-service.js"></script>
+  <script src="../../js/launch.js"></script>
+  <script src="../../js/commerce/operations-service.js"></script>
+</body>
+</html>

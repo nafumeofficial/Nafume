@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Orders Tracking Admin (Local Demo) — NAFUME</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, Helvetica, sans-serif; background: #f5f3ef; color: #1a1a1a; padding: 24px; }
+    .wrap { max-width: 1000px; margin: 0 auto; }
+    h1 { font-size: 20px; letter-spacing: 0.04em; }
+    .warn { background: #fdecea; border: 1px solid #f5c2bd; color: #8a1c10; padding: 12px 16px; border-radius: 6px; margin: 14px 0 16px; font-size: 13px; line-height: 1.5; }
+    .note { background: #eef5ff; border: 1px solid #cfe0f5; color: #1c4e8a; padding: 10px 14px; border-radius: 6px; margin: 0 0 20px; font-size: 12px; line-height: 1.5; }
+    .bar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+    .bar input { border: 1px solid #ccc; padding: 9px 12px; border-radius: 6px; font-size: 13px; min-width: 220px; }
+    .count { margin-left: auto; font-size: 12px; color: #666; }
+    .ord { background: #fff; border: 1px solid #e7e7e7; border-radius: 8px; padding: 16px; margin-bottom: 14px; }
+    .ord-top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: flex-start; }
+    .ord-id { font-weight: 700; font-size: 15px; }
+    .ord-meta { font-size: 12px; color: #777; margin-top: 2px; }
+    .pill { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 9px; border-radius: 10px; font-weight: 700; white-space: nowrap; }
+    .pill.placed { background: #eee; color: #555; }
+    .pill.progress { background: #fff4e0; color: #b06f00; }
+    .pill.delivered { background: #e7f6ea; color: #2e7d32; }
+    .pill.bad { background: #fdecea; color: #b3261e; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 14px; }
+    .fld label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: #888; margin-bottom: 4px; }
+    .fld input, .fld select { width: 100%; border: 1px solid #ccc; padding: 9px 10px; border-radius: 6px; font-size: 13px; background: #fff; }
+    .acts { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .acts button { border: none; border-radius: 6px; padding: 9px 16px; cursor: pointer; font-size: 12px; font-weight: 700; }
+    .b-save { background: #2e7d32; color: #fff; }
+    .saved { font-size: 12px; color: #2e7d32; font-weight: 700; display: none; }
+    .empty { text-align: center; color: #999; padding: 40px; font-size: 14px; background: #fff; border: 1px solid #e7e7e7; border-radius: 8px; }
+    a.back { font-size: 12px; color: #666; text-decoration: none; }
+    .summary { font-size: 12px; color: #555; margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="../index.html">← Back to site</a>
+    <h1 style="margin-top:8px;">NAFUME — Orders &amp; Tracking Admin</h1>
+
+    <div class="warn">
+      ⚠️ <strong>Local demo admin only. Do not use as a production admin panel.</strong>
+      This page reads and edits orders stored in <em>this browser's</em> localStorage only.
+      It is NOT secure, has NO login, and does NOT connect to Shiprocket. Replace it with a
+      real, authenticated server dashboard before going live.
+    </div>
+    <div class="note">
+      🔒 No Shiprocket credentials are used or stored here. To attach a courier, paste the
+      AWB / courier / tracking URL you received from Shiprocket (or your courier) and save.
+      The customer's Track Order page will then reflect it. For live auto-tracking, a backend
+      is required — see <strong>docs/shiprocket-tracking-setup.md</strong>.
+    </div>
+
+    <div class="bar">
+      <input id="search" type="text" placeholder="Filter by order ID, name or phone…"/>
+      <span class="count" id="count"></span>
+    </div>
+
+    <div id="list"></div>
+  </div>
+
+  <!-- Commerce + tracking services (Upgrade 1 + 7). No launch.js needed:
+       this page only reads/writes orders, not products or the cart. -->
+  <script src="../js/commerce/config.js"></script>
+  <script src="../js/commerce/commerce-service.js"></script>
+  <script src="../js/commerce/tracking-service.js"></script>
+  <script>
+    var TS = window.TrackingService;
+    var filterText = "";
+
+    var STATUS_OPTIONS = [
+      "order_placed", "confirmed", "packed", "shipped",
+      "in_transit", "out_for_delivery", "delivered", "cancelled", "rto"
+    ];
+
+    function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+      return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]; }); }
+    function attr(s) { return esc(s).replace(/'/g, "&#39;"); }
+    function curr(n) { return "₹" + Number(n || 0).toLocaleString("en-IN"); }
+    function fmt(iso) { try { return new Date(iso).toLocaleString("en-IN"); } catch (e) { return "—"; } }
+
+    function pillClass(status) {
+      if (status === "delivered") return "delivered";
+      if (status === "cancelled" || status === "rto") return "bad";
+      if (status === "order_placed") return "placed";
+      return "progress";
+    }
+
+    function getOrders() {
+      if (window.Commerce && window.Commerce.getAllOrders) {
+        try { return window.Commerce.getAllOrders() || []; } catch (e) { return []; }
+      }
+      try { return JSON.parse(localStorage.getItem("nafume_orders_v2") || "[]"); }
+      catch (e) { return []; }
+    }
+
+    function render() {
+      var listEl = document.getElementById("list");
+      var all = getOrders();
+      var q = filterText.trim().toLowerCase();
+      var rows = !q ? all : all.filter(function (o) {
+        var c = o.customer || {};
+        return String(o.orderId).toLowerCase().indexOf(q) !== -1 ||
+               String(c.name || "").toLowerCase().indexOf(q) !== -1 ||
+               String(c.phone || "").toLowerCase().indexOf(q) !== -1;
+      });
+
+      document.getElementById("count").textContent = rows.length + " of " + all.length + " order(s)";
+
+      if (!all.length) {
+        listEl.innerHTML = '<div class="empty">No local orders found in this browser. ' +
+          'Place a test order from the website first, then refresh this page.</div>';
+        return;
+      }
+      if (!rows.length) { listEl.innerHTML = '<div class="empty">No orders match your filter.</div>'; return; }
+
+      listEl.innerHTML = rows.map(function (o) {
+        var t = TS ? TS.normalizeTracking(o) : (o.tracking || {});
+        var c = o.customer || {};
+        var totals = o.totals || {};
+        var statusOpts = STATUS_OPTIONS.map(function (s) {
+          return '<option value="' + s + '"' + (s === t.currentStatus ? ' selected' : '') + '>' +
+            (TS ? TS.getTrackingStatusLabel(s) : s) + '</option>';
+        }).join("");
+
+        return '<div class="ord" data-oid="' + attr(o.orderId) + '">' +
+          '<div class="ord-top">' +
+            '<div>' +
+              '<div class="ord-id">' + esc(o.orderId) + '</div>' +
+              '<div class="ord-meta">' + esc(c.name || "—") + ' · ' + esc(c.phone || "—") + ' · ' + fmt(o.createdAt) + '</div>' +
+              '<div class="summary">' + (o.items || []).length + ' item(s) · ' + curr(totals.total) +
+                ' · Pay: ' + esc(o.paymentStatus || "—") + '</div>' +
+            '</div>' +
+            '<span class="pill ' + pillClass(t.currentStatus) + '">' +
+              (TS ? TS.getTrackingStatusLabel(t.currentStatus) : t.currentStatus) + '</span>' +
+          '</div>' +
+
+          '<div class="grid">' +
+            fld("Courier Name", "courierName", t.courierName) +
+            fld("AWB Number", "awb", t.awb) +
+            fld("Tracking URL", "trackingUrl", t.trackingUrl) +
+            fld("Est. Delivery (date)", "estimatedDelivery", t.estimatedDelivery, "date") +
+            '<div class="fld"><label>Current Status</label><select data-f="currentStatus">' + statusOpts + '</select></div>' +
+            fld("Event Location (optional)", "eventLocation", "") +
+          '</div>' +
+
+          '<div class="acts">' +
+            '<button class="b-save" onclick="saveOrder(this)">Save Tracking</button>' +
+            '<a class="back" href="../pages/order/track-order.html?order=' + encodeURIComponent(o.orderId) + '" target="_blank">Open customer track page ↗</a>' +
+            '<span class="saved">✓ Saved</span>' +
+          '</div>' +
+        '</div>';
+      }).join("");
+    }
+
+    function fld(label, key, val, type) {
+      return '<div class="fld"><label>' + esc(label) + '</label>' +
+        '<input type="' + (type || "text") + '" data-f="' + key + '" value="' + attr(val || "") + '"/></div>';
+    }
+
+    window.saveOrder = function (btn) {
+      var card = btn.closest(".ord");
+      if (!card || !TS) return;
+      var orderId = card.getAttribute("data-oid");
+      var payload = {};
+      card.querySelectorAll("[data-f]").forEach(function (el) {
+        payload[el.getAttribute("data-f")] = el.value.trim();
+      });
+      // estimatedDelivery: store as ISO if a date was picked.
+      if (payload.estimatedDelivery) {
+        try { payload.estimatedDelivery = new Date(payload.estimatedDelivery).toISOString(); } catch (e) {}
+      }
+      var updated = TS.updateLocalTracking(orderId, payload);
+      var saved = card.querySelector(".saved");
+      if (updated && saved) {
+        saved.style.display = "inline";
+        setTimeout(function () { saved.style.display = "none"; render(); }, 900);
+      } else {
+        alert("Could not save. Order not found in this browser.");
+      }
+    };
+
+    document.getElementById("search").addEventListener("input", function (e) {
+      filterText = e.target.value || "";
+      render();
+    });
+
+    document.addEventListener("DOMContentLoaded", render);
+  </script>
+</body>
+</html>

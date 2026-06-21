@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Build Your Own Perfume Box — NAFUME Artisan Luxe</title>
+  <meta name="description" content="Build your own NAFUME fragrance box. Choose up to 3 Eau De Parfum perfumes and confirm your custom bundle on WhatsApp. Perfect for personal use or gifting."/>
+  <!-- SEO: replace nafume.com with the final live domain before launch -->
+  <link rel="canonical" href="https://nafume.com/pages/collections/build-your-own-box.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="NAFUME Artisan Luxe"/>
+  <meta property="og:title" content="Build Your Own Perfume Box — NAFUME Artisan Luxe"/>
+  <meta property="og:description" content="Choose up to 3 NAFUME Eau De Parfum perfumes and confirm your custom bundle on WhatsApp."/>
+  <meta property="og:url" content="https://nafume.com/pages/collections/build-your-own-box.html"/>
+  <meta property="og:image" content="https://nafume.com/assets/images/products/Seduction/image%20(1).jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="stylesheet" href="../../css/launch.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div id="launch-overlay" class="lp-overlay" onclick="closeCart()"></div>
+  <div id="launch-toast" class="lp-toast" role="alert" aria-live="polite"></div>
+  <div id="launch-cart-drawer" class="lp-cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+    <div class="cart-drawer-head">
+      <div>
+        <p class="cart-drawer-title">Your Cart</p>
+        <p class="cart-drawer-count" id="cart-drawer-count">0 items</p>
+      </div>
+      <button class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="cart-drawer-items no-scrollbar" id="launch-cart-items"></div>
+    <div class="cart-drawer-footer" id="launch-cart-footer"></div>
+  </div>
+
+  <div class="nf-mobile-drawer" id="nf-mobile-drawer">
+    <div class="nf-drawer-head">
+      <a href="../../index.html" class="nf-logo" style="font-size:16px;letter-spacing:0.22em;">NAFUME</a>
+      <button class="nf-icon-btn" onclick="nfMenuClose()" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="nf-drawer-nav">
+      <a href="../../index.html" class="nf-drawer-link">Home</a>
+      <a href="shop.html" class="nf-drawer-link">New Launches</a>
+      <a href="../products/seduction.html" class="nf-drawer-link">Seduction</a>
+      <a href="../products/dark-oud.html" class="nf-drawer-link">Dark Oud</a>
+      <a href="../products/red-spirit.html" class="nf-drawer-link">Red Spirit</a>
+      <a href="../products/aqua-manthan.html" class="nf-drawer-link">Aqua Manthan</a>
+      <a href="../products/all-day-misfit.html" class="nf-drawer-link">All Day Misfit</a>
+    </nav>
+  </div>
+  <div class="nf-drawer-overlay" id="nf-drawer-overlay" onclick="nfMenuClose()"></div>
+
+  <div class="nf-ann">
+    <div class="nf-ann-track">SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </div>
+
+  <header class="nf-header" id="main-header">
+    <div class="nf-logo-row">
+      <div class="nf-header-left">
+        <button class="nf-icon-btn nf-hamburger-btn" onclick="nfMenuOpen()" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <a href="../../index.html" class="nf-icon-btn nf-search-btn" aria-label="Browse website">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </a>
+      </div>
+      <a href="../../index.html" class="nf-logo">NAFUME</a>
+      <div class="nf-header-right">
+        <button class="nf-icon-btn" onclick="openCart()" aria-label="View cart">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="nf-cart-badge lp-cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+    <nav class="nf-nav-row" aria-label="Main navigation">
+      <a href="../../index.html" class="nf-nav-link">HOME</a>
+      <a href="shop.html" class="nf-nav-link">NEW LAUNCHES</a>
+      <a href="../products/seduction.html" class="nf-nav-link">SEDUCTION</a>
+      <a href="../products/dark-oud.html" class="nf-nav-link">DARK OUD</a>
+      <a href="../products/red-spirit.html" class="nf-nav-link">RED SPIRIT</a>
+      <a href="../products/aqua-manthan.html" class="nf-nav-link">AQUA MANTHAN</a>
+      <a href="../products/all-day-misfit.html" class="nf-nav-link">ALL DAY MISFIT</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="byob-page">
+
+      <!-- Breadcrumb (Upgrade 8) -->
+      <p class="coll-breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="collections.html">Collections</a> &rsaquo; Build Your Own Box</p>
+
+      <div class="byob-hero">
+        <p class="byob-eyebrow">Custom Bundle</p>
+        <h1 class="byob-title">Build Your Own Box</h1>
+        <p class="byob-sub">Choose up to 3 fragrances and confirm your custom bundle on WhatsApp.</p>
+      </div>
+
+      <!-- Step 1: Select fragrances -->
+      <p class="byob-step-label">Step 1 — Select your fragrances <span id="byob-count" style="color:#C5A059;font-weight:700;">0/3</span></p>
+      <div class="byob-product-grid" id="byob-product-grid">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Step 2: Summary -->
+      <p class="byob-step-label">Step 2 — Review your box</p>
+      <div class="byob-summary">
+        <p class="byob-summary-title">Your Box Summary</p>
+        <div class="byob-summary-items" id="byob-summary-items">
+          <span style="color:#bbb;font-style:italic;font-size:12px;">No fragrances selected yet. Choose above to get started.</span>
+        </div>
+        <div class="byob-summary-total" id="byob-summary-total" style="display:none;">
+          <span>Estimated Total</span>
+          <span id="byob-total-price"></span>
+        </div>
+        <p class="byob-summary-saving" id="byob-saving" style="display:none;"></p>
+      </div>
+
+      <!-- Step 3: Order CTAs -->
+      <p class="byob-step-label">Step 3 — Order your box</p>
+      <button class="byob-cta-btn" id="byob-wa-btn" disabled onclick="openByobWhatsApp()">
+        Select at least 1 fragrance to continue
+      </button>
+      <button class="byob-cta-btn byob-cta-cart" id="byob-cart-btn" style="display:none;margin-top:10px;background:#fff;color:#111;border:1px solid #111;" onclick="addByobToCart()">
+        Add Bundle to Cart
+      </button>
+      <p class="byob-note">
+        "Order Bundle on WhatsApp" opens a pre-filled message with your selected fragrances — we confirm
+        availability, pricing and shipping directly. "Add Bundle to Cart" adds your picks so any Buy Any 3
+        bundle offer is applied automatically at checkout.
+      </p>
+
+      <div style="margin-top:32px;text-align:center;border-top:1px solid #e8e4e0;padding-top:24px;">
+        <a href="gifting.html" style="font-size:12px;color:#888;text-decoration:underline;">Gifting someone? See our gifting page →</a>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+
+  <script src="../../js/commerce/config.js"></script>
+  <script src="../../js/commerce/customer-service.js"></script>
+  <script src="../../js/commerce/collection-service.js"></script>
+  <script src="../../js/commerce/seo-service.js"></script>
+  <script src="../../js/commerce/offer-service.js"></script>
+  <script src="../../js/launch.js"></script>
+  <script src="../../js/commerce/operations-service.js"></script>
+  <script>
+  (function () {
+    // Structured data (Upgrade 8): breadcrumb for the build-your-own-box page.
+    if (window.SEO) {
+      try {
+        SEO.updateDocumentSeo(SEO.getPageSeo("byob"));
+        SEO.injectJsonLd(SEO.createBreadcrumbSchema([
+          { name: "Home", url: "index.html" },
+          { name: "Collections", url: "collections.html" },
+          { name: "Build Your Own Box", url: "build-your-own-box.html" }
+        ]), "ld-breadcrumb");
+      } catch (e) {}
+    }
+
+    var selected = [];
+    var MAX_SELECT = 3;
+
+    function getSelected() { return selected; }
+
+    function renderGrid() {
+      var grid = document.getElementById('byob-product-grid');
+      if (!grid || !window.LAUNCH_PRODUCTS) return;
+
+      grid.innerHTML = window.LAUNCH_PRODUCTS.map(function (p) {
+        var isSelected = selected.indexOf(p.id) > -1;
+        var imgErr = 'onerror="this.style.visibility=\'hidden\'"';
+        return '<div class="byob-product-card' + (isSelected ? ' selected' : '') + '" id="byob-card-' + p.id + '" onclick="toggleByobProduct(\'' + p.id + '\')">' +
+          '<img class="byob-product-img" src="' + p.image + '" alt="' + p.name + '" loading="lazy" ' + imgErr + '>' +
+          '<div class="byob-product-info">' +
+            '<p class="byob-product-name">' + p.name + '</p>' +
+            '<p class="byob-product-family">' + p.family + '</p>' +
+            '<p class="byob-product-price">&#8377;' + LAUNCH_CONFIG.sellingPrice.toLocaleString('en-IN') + '</p>' +
+          '</div>' +
+          '<div class="byob-check">' + (isSelected ? '✓' : '') + '</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    // Bundle price cap from config (Buy Any 3). Customer never pays more than normal.
+    function bundleCfg() {
+      return (window.COMMERCE_CONFIG && window.COMMERCE_CONFIG.offers && window.COMMERCE_CONFIG.offers.buyAny3) || null;
+    }
+
+    function renderSummary() {
+      var summaryEl = document.getElementById('byob-summary-items');
+      var totalEl   = document.getElementById('byob-summary-total');
+      var priceEl   = document.getElementById('byob-total-price');
+      var savingEl  = document.getElementById('byob-saving');
+      var btn       = document.getElementById('byob-wa-btn');
+      var cartBtn   = document.getElementById('byob-cart-btn');
+      var countEl   = document.getElementById('byob-count');
+
+      if (countEl) countEl.textContent = selected.length + '/3';
+
+      var selectedProducts = selected.map(function (id) {
+        return window.LAUNCH_PRODUCTS.find(function (p) { return p.id === id; });
+      }).filter(Boolean);
+
+      if (!selected.length) {
+        summaryEl.innerHTML = '<span style="color:#bbb;font-style:italic;font-size:12px;">No fragrances selected yet. Choose above to get started.</span>';
+        if (totalEl) totalEl.style.display = 'none';
+        if (savingEl) savingEl.style.display = 'none';
+        if (btn) { btn.disabled = true; btn.textContent = 'Select at least 1 fragrance to continue'; }
+        if (cartBtn) cartBtn.style.display = 'none';
+        return;
+      }
+
+      summaryEl.innerHTML = selectedProducts.map(function (p, i) {
+        return (i + 1) + '. ' + p.displayName + ' — &#8377;' + LAUNCH_CONFIG.sellingPrice.toLocaleString('en-IN');
+      }).join('<br>');
+
+      var individualTotal = LAUNCH_CONFIG.sellingPrice * selected.length;
+      var mrpTotal = LAUNCH_CONFIG.mrp * selected.length;
+
+      // Bundle pricing kicks in at exactly 3 (cap = lower of items or bundlePrice).
+      var cfg = bundleCfg();
+      var payable = individualTotal;
+      var bundleNote = '';
+      if (cfg && cfg.enabled && selected.length === (cfg.requiredQuantity || 3)) {
+        payable = Math.min(individualTotal, cfg.bundlePrice);
+        var bundleSave = individualTotal - payable;
+        bundleNote = bundleSave > 0
+          ? '<p class="byob-bundle-note">Bundle price applied — you pay ₹' + payable.toLocaleString('en-IN') + ' (save ₹' + bundleSave.toLocaleString('en-IN') + ').</p>'
+          : '<p class="byob-bundle-note">3-fragrance box unlocked — your sale price already beats the ₹' + cfg.bundlePrice.toLocaleString('en-IN') + ' bundle.</p>';
+      }
+
+      if (priceEl) priceEl.textContent = '₹' + payable.toLocaleString('en-IN');
+      if (totalEl) totalEl.style.display = 'flex';
+      if (savingEl) {
+        savingEl.style.display = 'block';
+        savingEl.innerHTML = 'You save ₹' + (mrpTotal - payable).toLocaleString('en-IN') + ' vs. MRP' + bundleNote;
+      }
+
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = 'Order Bundle on WhatsApp (' + selected.length + (selected.length === 1 ? ' item' : ' items') + ')';
+      }
+      if (cartBtn) {
+        cartBtn.style.display = 'block';
+        cartBtn.textContent = 'Add Bundle to Cart (₹' + payable.toLocaleString('en-IN') + ')';
+      }
+    }
+
+    // Safe fallback: add the selected products to the live cart. Buy-Any-3 then
+    // applies automatically at checkout. No fake custom line items are created.
+    window.addByobToCart = function () {
+      if (!selected.length || typeof launchAddToCart !== 'function') return;
+      selected.forEach(function (id) { launchAddToCart(id, 1); });
+      if (window.OperationsService) {
+        try { window.OperationsService.recordAnalyticsEvent('bundle_completed', { source: 'byob_cart', count: selected.length }); } catch (e) {}
+      }
+      showLaunchToast('Bundle added to cart');
+      if (typeof openCart === 'function') openCart();
+    };
+
+    window.toggleByobProduct = function (productId) {
+      var idx = selected.indexOf(productId);
+      if (idx > -1) {
+        selected.splice(idx, 1);
+      } else {
+        if (selected.length >= MAX_SELECT) {
+          showLaunchToast('Maximum ' + MAX_SELECT + ' fragrances per box');
+          return;
+        }
+        // Analytics (Upgrade 10): first pick = bundle started.
+        if (selected.length === 0 && window.OperationsService) {
+          try { window.OperationsService.recordAnalyticsEvent('bundle_started', { source: 'byob' }); } catch (e) {}
+        }
+        selected.push(productId);
+      }
+      renderGrid();
+      renderSummary();
+    };
+
+    window.openByobWhatsApp = function () {
+      if (!selected.length) return;
+      var selectedProducts = selected.map(function (id) {
+        return window.LAUNCH_PRODUCTS.find(function (p) { return p.id === id; });
+      }).filter(Boolean);
+
+      var lines = ['Hi NAFUME, I want to build my own box:'];
+      selectedProducts.forEach(function (p, i) {
+        lines.push((i + 1) + '. ' + p.displayName + ' (EDP 50ml) — ₹' + LAUNCH_CONFIG.sellingPrice);
+      });
+      var individualTotal = LAUNCH_CONFIG.sellingPrice * selected.length;
+      var cfg = bundleCfg();
+      var payable = individualTotal;
+      if (cfg && cfg.enabled && selected.length === (cfg.requiredQuantity || 3)) {
+        payable = Math.min(individualTotal, cfg.bundlePrice);
+        if (payable < individualTotal) lines.push('Bundle offer: Buy Any 3 × 50ml');
+      }
+      lines.push('Total: ₹' + payable.toLocaleString('en-IN'));
+      lines.push('Please confirm availability and shipping details. Thank you!');
+
+      if (window.OperationsService) {
+        try { window.OperationsService.recordAnalyticsEvent('bundle_completed', { source: 'byob_whatsapp', count: selected.length }); } catch (e) {}
+      }
+
+      var msg = encodeURIComponent(lines.join('\n'));
+      window.open('https://wa.me/' + LAUNCH_CONFIG.whatsappNumber + '?text=' + msg, '_blank');
+    };
+
+    renderGrid();
+    renderSummary();
+  })();
+  </script>
+</body>
+</html>
+

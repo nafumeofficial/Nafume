@@ -1,0 +1,32 @@
+# Scope context to active source only — ignore noise
+node_modules/
+dist/
+build/
+.git/
+*.zip
+*.rar
+*.7z
+
+# Backups / archives / old exports
+_archive/
+_backup_original_stitch_export/
+_backup_before_structure_cleanup/
+**/backup*/
+**/old*/
+**/*-backup*
+
+# Heavy binary assets (keep paths referenced in code, skip scanning contents)
+assets/videos/
+assets/fonts/
+*.mp4
+*.otf
+*.ttf
+*.woff
+*.woff2
+
+# Screenshots / mockups
+*.psd
+*.ai
+*.sketch
+screenshots/
+mockups/

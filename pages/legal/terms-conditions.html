@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms &amp; Conditions — NAFUME Artisan Luxe</title>
+  <meta name="description" content="NAFUME Terms and Conditions — terms of website use, ordering, payments, cancellations, intellectual property and limitation of liability."/>
+  <!-- SEO: replace nafume.com with the final live domain before launch -->
+  <link rel="canonical" href="https://nafume.com/pages/legal/terms-conditions.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="NAFUME Artisan Luxe"/>
+  <meta property="og:title" content="Terms &amp; Conditions — NAFUME Artisan Luxe"/>
+  <meta property="og:description" content="Terms of website use, ordering, payments, cancellations and liability."/>
+  <meta property="og:url" content="https://nafume.com/pages/legal/terms-conditions.html"/>
+  <link rel="stylesheet" href="../../css/launch.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div id="launch-overlay" class="lp-overlay" onclick="closeCart()"></div>
+  <div id="launch-toast" class="lp-toast" role="alert" aria-live="polite"></div>
+  <div id="launch-cart-drawer" class="lp-cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+    <div class="cart-drawer-head">
+      <div>
+        <p class="cart-drawer-title">Your Cart</p>
+        <p class="cart-drawer-count" id="cart-drawer-count">0 items</p>
+      </div>
+      <button class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="cart-drawer-items no-scrollbar" id="launch-cart-items"></div>
+    <div class="cart-drawer-footer" id="launch-cart-footer"></div>
+  </div>
+
+  <div class="nf-mobile-drawer" id="nf-mobile-drawer">
+    <div class="nf-drawer-head">
+      <a href="../../index.html" class="nf-logo" style="font-size:16px;letter-spacing:0.22em;">NAFUME</a>
+      <button class="nf-icon-btn" onclick="nfMenuClose()" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="nf-drawer-nav">
+      <a href="../../index.html" class="nf-drawer-link">Home</a>
+      <a href="../collections/shop.html" class="nf-drawer-link">New Launches</a>
+      <a href="../products/seduction.html" class="nf-drawer-link">Seduction</a>
+      <a href="../products/dark-oud.html" class="nf-drawer-link">Dark Oud</a>
+      <a href="../products/red-spirit.html" class="nf-drawer-link">Red Spirit</a>
+      <a href="../products/aqua-manthan.html" class="nf-drawer-link">Aqua Manthan</a>
+      <a href="../products/all-day-misfit.html" class="nf-drawer-link">All Day Misfit</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram ↗</a>
+    </nav>
+  </div>
+  <div class="nf-drawer-overlay" id="nf-drawer-overlay" onclick="nfMenuClose()"></div>
+
+  <div class="nf-ann">
+    <div class="nf-ann-track">SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </div>
+
+  <header class="nf-header" id="main-header">
+    <div class="nf-logo-row">
+      <div class="nf-header-left">
+        <button class="nf-icon-btn nf-hamburger-btn" onclick="nfMenuOpen()" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <a href="../../index.html" class="nf-icon-btn nf-search-btn" aria-label="Browse website">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </a>
+      </div>
+      <a href="../../index.html" class="nf-logo">NAFUME</a>
+      <div class="nf-header-right">
+        <button class="nf-icon-btn" onclick="openCart()" aria-label="View cart">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="nf-cart-badge lp-cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+    <nav class="nf-nav-row" aria-label="Main navigation">
+      <a href="../../index.html" class="nf-nav-link">HOME</a>
+      <a href="../collections/shop.html" class="nf-nav-link">NEW LAUNCHES</a>
+      <a href="../products/seduction.html" class="nf-nav-link">SEDUCTION</a>
+      <a href="../products/dark-oud.html" class="nf-nav-link">DARK OUD</a>
+      <a href="../products/red-spirit.html" class="nf-nav-link">RED SPIRIT</a>
+      <a href="../products/aqua-manthan.html" class="nf-nav-link">AQUA MANTHAN</a>
+      <a href="../products/all-day-misfit.html" class="nf-nav-link">ALL DAY MISFIT</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="legal-page">
+
+      <div class="legal-hero">
+        <p class="legal-hero-eyebrow">Legal</p>
+        <h1 class="legal-hero-title">Terms &amp; Conditions</h1>
+        <p class="legal-hero-sub">Last updated: June 2026 &nbsp;·&nbsp; By using this website, you agree to these terms</p>
+      </div>
+
+      <!-- TODO: Replace placeholder business name/address/GSTIN with official details before launch -->
+      <div class="policy-note">
+        <strong>⚠ Pre-launch note:</strong> This document uses placeholder entity details. Replace the business name, registered address, and GSTIN with official information and have this reviewed by a legal advisor before going live.
+      </div>
+
+      <div class="legal-card">
+
+        <div class="legal-section">
+          <h2>1. Acceptance of Terms</h2>
+          <p>By accessing or using the NAFUME website (nafume.com or any associated domain), you agree to be bound by these Terms &amp; Conditions, our <a href="privacy-policy.html" style="color:#555;text-decoration:underline">Privacy Policy</a>, and our <a href="return-refund-policy.html" style="color:#555;text-decoration:underline">Return &amp; Refund Policy</a>.</p>
+          <p>If you do not agree with any part of these terms, please do not use our website or place an order with us.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>2. About NAFUME</h2>
+          <p>NAFUME Artisan Luxe is a premium fragrance brand based in India. We sell Eau De Parfum and related products directly to customers via this website and WhatsApp.</p>
+          <!-- TODO: Add registered business entity name, registered address, and GSTIN here before launch -->
+          <p>Registered Business Name: To be updated before launch<br/>
+          Registered Address: To be updated before launch<br/>
+          GSTIN: To be updated (if applicable)</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>3. Website Use</h2>
+          <ul class="legal-list">
+            <li>You must be 18 years or older to use this website and place an order</li>
+            <li>You agree to provide accurate information when placing an order</li>
+            <li>You must not misuse our website for fraudulent or illegal purposes</li>
+            <li>We reserve the right to refuse service to anyone at our discretion</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>4. Product Information</h2>
+          <p>We make every effort to accurately display product information, including fragrance descriptions, notes, images, and specifications. However:</p>
+          <ul class="legal-list">
+            <li>Fragrance experience varies from person to person based on skin chemistry, body temperature, and individual perception. We cannot guarantee that a fragrance will smell identical to you as it does to others</li>
+            <li>Product images are representative. Minor variations in packaging colour or print are possible and not considered defects</li>
+            <li>We reserve the right to update product formulations, packaging, or descriptions at any time</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>5. Pricing and Offers</h2>
+          <ul class="legal-list">
+            <li>All prices on our website are in Indian Rupees (₹) and include applicable taxes</li>
+            <li>Prices are subject to change without prior notice. The price at the time of your order placement applies</li>
+            <li>Offers, discounts, and promotional pricing are time-limited and may be withdrawn at any time</li>
+            <li>We reserve the right to correct pricing errors. If an order is placed at an incorrect price, we will notify you and may cancel or revise the order</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>6. Order Placement and Acceptance</h2>
+          <p>An order is considered placed when you submit the shipping form on our website. Your order is confirmed only when:</p>
+          <ul class="legal-list">
+            <li>You send the pre-filled WhatsApp confirmation message to NAFUME, and</li>
+            <li>We acknowledge the confirmation on WhatsApp</li>
+          </ul>
+          <p>We reserve the right to cancel or refuse any order due to unavailability, pricing errors, suspected fraud, or any other reason. If we cancel an order, we will notify you and process a full refund if payment was already collected.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>7. Payment</h2>
+          <ul class="legal-list">
+            <li><strong>Cash on Delivery (COD)</strong> — Pay in cash when your order is delivered. COD may not be available for all pin codes</li>
+            <li><strong>Prepaid (UPI / Bank Transfer)</strong> — We will share payment details on WhatsApp. Payment must be completed before dispatch</li>
+            <li>We do not accept card payments directly on the website at this time. If Shopify or a payment gateway is enabled in future, those terms will apply</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>8. Cancellation</h2>
+          <p>You may cancel your order before it is dispatched by contacting us on WhatsApp. Once the order has been handed to the courier, cancellation is not possible. In such cases, you may initiate a return after delivery if eligible. See our <a href="return-refund-policy.html" style="color:#555;text-decoration:underline">Return &amp; Refund Policy</a>.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>9. Shipping and Delivery</h2>
+          <p>Shipping is governed by our <a href="shipping-policy.html" style="color:#555;text-decoration:underline">Shipping Policy</a>, which is part of these Terms &amp; Conditions by reference.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>10. Intellectual Property</h2>
+          <p>All content on this website — including the NAFUME brand name, logo, fragrance names, product descriptions, images, and website design — is the intellectual property of NAFUME Artisan Luxe or its licensors.</p>
+          <p>You may not copy, reproduce, distribute, or use any content from this website without our prior written permission.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>11. Limitation of Liability</h2>
+          <p>To the maximum extent permitted by applicable Indian law, NAFUME is not liable for:</p>
+          <ul class="legal-list">
+            <li>Indirect or consequential losses arising from the use of our products</li>
+            <li>Delays caused by courier partners or force majeure events</li>
+            <li>Allergic reactions to fragrance ingredients (we recommend a patch test before use)</li>
+            <li>Data stored in browser localStorage being lost due to clearing of browser data</li>
+          </ul>
+          <p>Our total liability in any case is limited to the value of the order in question.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>12. Governing Law</h2>
+          <p>These Terms &amp; Conditions are governed by and construed in accordance with the laws of India. Any disputes shall be subject to the jurisdiction of courts at the registered business location.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>13. Changes to These Terms</h2>
+          <p>We may update these Terms &amp; Conditions at any time. The updated version will be published on this page with a revised date. Continued use of the website after changes constitutes acceptance of the revised terms.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>14. Contact</h2>
+          <p>For any questions about these Terms, please contact us at <a href="mailto:support@nafume.com" style="color:#555">support@nafume.com</a> or visit our <a href="../support/contact.html" style="color:#555;text-decoration:underline">Contact page</a>.</p>
+        </div>
+
+      </div>
+
+      <div class="legal-nav-links">
+        <a href="privacy-policy.html" class="legal-nav-link">Privacy Policy</a>
+        <a href="shipping-policy.html" class="legal-nav-link">Shipping Policy</a>
+        <a href="return-refund-policy.html" class="legal-nav-link">Return &amp; Refund Policy</a>
+        <a href="../support/grievance-officer.html" class="legal-nav-link">Grievance Officer</a>
+        <a href="../support/contact.html" class="legal-nav-link">Contact Us</a>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+
+  <script src="../../js/commerce/customer-service.js"></script>
+  <script src="../../js/launch.js"></script>
+</body>
+</html>

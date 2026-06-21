@@ -1,0 +1,19 @@
+# NAFUME — robots.txt
+# Update https://nafume.com to the final live domain before launch.
+
+User-agent: *
+Allow: /
+
+# Transactional and user-specific pages
+Disallow: /pages/account/account.html
+Disallow: /pages/order/confirmation.html
+Disallow: /pages/order/shipping.html
+
+# Admin pages
+Disallow: /admin/
+
+# Legacy redirect stubs (no content)
+Disallow: /checkout.html
+Disallow: /fragrance-finder.html
+
+Sitemap: https://nafume.com/sitemap.xml

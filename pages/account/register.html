@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register — NAFUME Artisan Luxe</title>
+  <meta name="description" content="Create a NAFUME account for early sale access, tailored new arrivals, and order updates."/>
+  <meta name="robots" content="noindex,follow"/>
+  <link rel="canonical" href="https://nafume.com/pages/account/register.html"/>
+  <!-- Tailwind CSS v3 CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <!-- Stylesheets -->
+  <link href="../../css/style.css" rel="stylesheet"/>
+  <link href="../../css/launch.css" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#F9F5F0",
+            "accent-bronze": "#C5A059",
+            "primary": "#000000",
+            "text-secondary": "#666666",
+            "border-muted": "#DEDEDE",
+            "surface-container": "#f1edec"
+          },
+          borderRadius: { DEFAULT: "2px", lg: "4px", xl: "8px", full: "9999px" },
+          spacing: {
+            xl: "32px", gutter: "24px", xxl: "48px", lg: "24px",
+            "margin-desktop": "80px", "margin-mobile": "16px",
+            display: "64px", md: "16px", sm: "8px", xs: "4px"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="antialiased min-h-screen flex flex-col bg-white text-primary">
+
+  <!-- ── System B: launch cart elements (launch.js) ────────────── -->
+  <div id="launch-overlay" class="lp-overlay" onclick="closeCart()"></div>
+  <div id="launch-toast" class="lp-toast" role="alert" aria-live="polite"></div>
+  <div id="launch-cart-drawer" class="lp-cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+    <div class="cart-drawer-head">
+      <div>
+        <p class="cart-drawer-title">Your Cart</p>
+        <p class="cart-drawer-count" id="cart-drawer-count">0 items</p>
+      </div>
+      <button class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="cart-drawer-items no-scrollbar" id="launch-cart-items"></div>
+    <div id="launch-cart-footer"></div>
+  </div>
+
+  <!-- ── System A: overlays for search / mobile menu (app.js) ──── -->
+  <div class="fixed inset-0 bg-black/40 z-[150] hidden opacity-0 drawer-overlay transition-opacity duration-300" id="search-overlay" onclick="toggleSearch(true)"></div>
+  <div class="fixed inset-0 bg-black/40 z-[150] hidden opacity-0 drawer-overlay transition-opacity duration-300" id="mobile-menu-overlay" onclick="toggleMobileMenu(true)"></div>
+
+  <!-- ── ANNOUNCEMENT BAR ────────────────────────────────────────── -->
+  <div class="nf-ann">
+    <div class="nf-ann-track">SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </div>
+
+  <!-- ── HEADER ─────────────────────────────────────────────────── -->
+  <header class="nf-header" id="main-header">
+    <div class="nf-logo-row">
+      <div class="nf-header-left">
+        <button class="nf-icon-btn nf-hamburger-btn" onclick="toggleMobileMenu()" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <button class="nf-icon-btn nf-search-btn" onclick="toggleSearch()" aria-label="Search">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
+      <a href="../../index.html" class="nf-logo">NAFUME</a>
+      <div class="nf-header-right">
+        <a href="account.html" class="nf-icon-btn nf-account-btn" aria-label="Account">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/></svg>
+        </a>
+        <button class="nf-icon-btn" onclick="openCart()" aria-label="View cart">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="nf-cart-badge lp-cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+    <nav class="nf-nav-row" aria-label="Main navigation">
+      <a href="../../index.html" class="nf-nav-link">HOME</a>
+      <a href="../collections/shop.html" class="nf-nav-link">NEW LAUNCHES</a>
+      <a href="../products/seduction.html" class="nf-nav-link">SEDUCTION</a>
+      <a href="../products/dark-oud.html" class="nf-nav-link">DARK OUD</a>
+      <a href="../products/red-spirit.html" class="nf-nav-link">RED SPIRIT</a>
+      <a href="../products/aqua-manthan.html" class="nf-nav-link">AQUA MANTHAN</a>
+      <a href="../products/all-day-misfit.html" class="nf-nav-link">ALL DAY MISFIT</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
+    </nav>
+  </header>
+
+  <!-- ── MOBILE DRAWER ──────────────────────────────────────────── -->
+  <div class="nf-mobile-drawer drawer-container -translate-x-full" id="mobile-drawer">
+    <div class="nf-drawer-head">
+      <a href="../../index.html" class="nf-logo" style="font-size:17px;letter-spacing:0.22em;">NAFUME</a>
+      <button class="nf-icon-btn" onclick="toggleMobileMenu(true)" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="nf-drawer-nav">
+      <a href="../../index.html" class="nf-drawer-link">Home</a>
+      <a href="../collections/shop.html" class="nf-drawer-link">New Launches</a>
+      <a href="../products/seduction.html" class="nf-drawer-link">Seduction</a>
+      <a href="../products/dark-oud.html" class="nf-drawer-link">Dark Oud</a>
+      <a href="../products/red-spirit.html" class="nf-drawer-link">Red Spirit</a>
+      <a href="../products/aqua-manthan.html" class="nf-drawer-link">Aqua Manthan</a>
+      <a href="../products/all-day-misfit.html" class="nf-drawer-link">All Day Misfit</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram &#8599;</a>
+    </nav>
+  </div>
+
+  <!-- ── SEARCH DRAWER (System A) ───────────────────────────────── -->
+  <div class="fixed inset-y-0 right-0 w-full md:w-[420px] bg-surface z-[200] transform translate-x-full drawer-container border-l border-border-muted flex flex-col" id="search-drawer">
+    <div class="p-6 border-b border-border-muted flex justify-between items-center bg-surface-container/30">
+      <h2 class="text-headline-sm font-semibold text-primary">Search</h2>
+      <button class="text-text-secondary hover:text-accent-bronze p-2 transition-colors" onclick="toggleSearch(true)">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="p-6 flex-grow overflow-y-auto">
+      <div class="relative w-full mb-8">
+        <input class="w-full bg-transparent border-b border-border-muted py-3 pl-10 pr-4 text-[12px] font-semibold uppercase tracking-widest text-primary focus:outline-none focus:border-accent-bronze transition-colors placeholder:text-text-secondary/60" placeholder="SEARCH FRAGRANCES..." type="text"/>
+        <span class="material-symbols-outlined absolute left-0 top-3 text-text-secondary">search</span>
+      </div>
+      <h3 class="text-[11px] font-semibold text-text-secondary mb-4 tracking-widest uppercase">Suggested Scents</h3>
+      <div class="space-y-4"></div>
+    </div>
+  </div>
+
+  <!-- ── MAIN CONTENT ───────────────────────────────────────────── -->
+  <main class="flex-grow">
+
+    <!-- Page title -->
+    <div class="acct-page-header">
+      <h1 class="acct-page-title">Register</h1>
+    </div>
+
+    <!-- Breadcrumb strip -->
+    <div class="acct-breadcrumb-wrap">
+      <nav class="acct-breadcrumb-nav" aria-label="Breadcrumb">
+        <a href="../../index.html" class="acct-bc-link">Home</a>
+        <span class="acct-bc-sep" aria-hidden="true">&#8250;</span>
+        <span class="acct-bc-current">Create Account</span>
+      </nav>
+    </div>
+
+    <!-- Register form -->
+    <div class="reg-form-section">
+      <h2 class="acct-col-heading">Register</h2>
+
+      <form id="reg-form" novalidate autocomplete="on">
+        <input
+          id="reg-first-name"
+          class="acct-input"
+          type="text"
+          placeholder="First Name"
+          autocomplete="given-name"
+        />
+        <input
+          id="reg-last-name"
+          class="acct-input"
+          type="text"
+          placeholder="Last Name"
+          autocomplete="family-name"
+        />
+        <input
+          id="reg-email"
+          class="acct-input"
+          type="email"
+          placeholder="Email"
+          autocomplete="email"
+        />
+        <input
+          id="reg-password"
+          class="acct-input"
+          type="password"
+          placeholder="Password"
+          autocomplete="new-password"
+        />
+
+        <p class="acct-register-desc" style="margin-top:20px;">
+          Sign up for early Sale access plus tailored new arrivals, trends and promotions. To opt out, click unsubscribe in our emails.
+        </p>
+
+        <div class="reg-checkbox-row">
+          <input
+            type="checkbox"
+            class="reg-checkbox"
+            id="reg-agree"
+          />
+          <label class="reg-checkbox-label" for="reg-agree">
+            I agree with the <a href="../legal/terms-conditions.html">Terms &amp; conditions</a>
+          </label>
+        </div>
+
+        <button
+          type="submit"
+          class="reg-submit-btn"
+          id="reg-submit"
+          disabled
+        >Register</button>
+
+        <p class="reg-success-msg" id="reg-success" role="status">
+          Thank you for registering. This feature will be available soon.
+        </p>
+      </form>
+
+      <p style="margin-top:32px;font-size:13px;color:#888;font-family:var(--font-body);">
+        Already have an account? <a href="account.html" style="color:#111;text-decoration:underline;">Sign In</a>
+      </p>
+    </div>
+
+  </main>
+
+  <!-- ── GLOBAL FOOTER (rendered by launch.js) ─────────────────── -->
+  <div id="global-footer"></div>
+
+  <!-- ── SCRIPTS ────────────────────────────────────────────────── -->
+  <script src="../../js/state.js"></script>
+  <script src="../../js/app.js"></script>
+  <script src="../../js/commerce/config.js"></script>
+  <script src="../../js/commerce/commerce-service.js"></script>
+  <script src="../../js/commerce/customer-service.js"></script>
+  <script src="../../js/commerce/offer-service.js"></script>
+  <script src="../../js/launch.js"></script>
+  <script src="../../js/commerce/operations-service.js"></script>
+
+  <script>
+    (function () {
+      var checkbox = document.getElementById('reg-agree');
+      var btn      = document.getElementById('reg-submit');
+      var form     = document.getElementById('reg-form');
+      var success  = document.getElementById('reg-success');
+
+      checkbox.addEventListener('change', function () {
+        btn.disabled = !this.checked;
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!checkbox.checked) return;
+        btn.disabled = true;
+        success.style.display = 'block';
+        success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    })();
+  </script>
+
+</body>
+</html>

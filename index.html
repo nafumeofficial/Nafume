@@ -1,0 +1,1173 @@
+﻿<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>NAFUME — Premium Long-Lasting Perfumes in India | Eau De Parfum</title>
+    <meta name="description" content="Shop NAFUME premium perfumes in India. Long-lasting Eau De Parfum in oud, fresh, floral, woody and sweet scents — for everyday wear, office, evenings and gifting."/>
+    <!-- SEO: replace nafume.com with the final live domain before launch -->
+    <link rel="canonical" href="https://nafume.com/index.html"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="NAFUME Artisan Luxe"/>
+    <meta property="og:title" content="NAFUME — Premium Long-Lasting Perfumes in India"/>
+    <meta property="og:description" content="Long-lasting Eau De Parfum in oud, fresh, floral, woody and sweet scents — for everyday wear, office, evenings and gifting."/>
+    <meta property="og:url" content="https://nafume.com/index.html"/>
+    <meta property="og:image" content="https://nafume.com/assets/images/products/Seduction/image%20(1).jpg"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="NAFUME — Premium Long-Lasting Perfumes in India"/>
+    <meta name="twitter:description" content="Long-lasting Eau De Parfum for everyday wear, office, evenings and gifting."/>
+    <meta name="twitter:image" content="https://nafume.com/assets/images/products/Seduction/image%20(1).jpg"/>
+    <!-- Tailwind CSS v3 CDN with standard e-commerce form plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Material Symbols Outlined Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Central Premium Stylesheet -->
+    <link href="css/style.css" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#F9F5F0",
+                        "accent-bronze": "#C5A059",
+                        "primary": "#000000",
+                        "text-secondary": "#666666",
+                        "border-muted": "#DEDEDE",
+                        "surface-container": "#f1edec",
+                        "surface-variant": "#e5e2e1"
+                    },
+                    borderRadius: {
+                        DEFAULT: "2px",
+                        lg: "4px",
+                        xl: "8px",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        xl: "32px",
+                        gutter: "24px",
+                        xxl: "48px",
+                        lg: "24px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "16px",
+                        display: "64px",
+                        md: "16px",
+                        sm: "8px",
+                        xs: "4px"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased min-h-screen flex flex-col selection:bg-accent-bronze selection:text-white relative bg-surface text-primary">
+
+    <!-- LAUNCH CART INTEGRATION -->
+    <div id="launch-overlay" class="lp-overlay" onclick="closeCart()"></div>
+    <div id="launch-toast" class="lp-toast" role="alert" aria-live="polite"></div>
+    <div id="launch-cart-drawer" class="lp-cart-drawer" role="dialog" aria-label="Shopping cart">
+      <div class="cart-drawer-head">
+        <div>
+          <div class="cart-drawer-title">Your Bag</div>
+          <div class="cart-drawer-count" id="cart-drawer-count">0 items</div>
+        </div>
+        <button class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="cart-drawer-items no-scrollbar" id="launch-cart-items">
+        <div class="cart-empty-state">
+          <span class="material-symbols-outlined">shopping_bag</span>
+          <p>Your cart is empty</p>
+          <p class="cart-empty-sub">Add a fragrance to get started</p>
+          <a href="/#new-launches" class="cart-browse-link" onclick="closeCart()">Shop New Launches &rarr;</a>
+        </div>
+      </div>
+      <div id="launch-cart-footer"></div>
+    </div>
+    <!-- MOBILE STICKY BAR -->
+    <div id="launch-sticky-bar" class="lp-sticky-bar">
+      <div class="sticky-info">
+        <span class="sticky-count" id="sticky-count">0 items</span>
+        <span class="sticky-total" id="sticky-total">&#8377;0</span>
+      </div>
+      <button class="sticky-view-btn" onclick="openCart()">View Cart</button>
+      <a href="pages/order/shipping.html" class="sticky-ship-btn">Checkout &rarr;</a>
+    </div>
+
+    <!-- 1. DRAWER OVERLAYS -->
+    <div class="fixed inset-0 bg-black/40 z-[150] hidden opacity-0 drawer-overlay transition-opacity duration-300" id="search-overlay" onclick="toggleSearch(true)"></div>
+    <div class="fixed inset-0 bg-black/40 z-[150] hidden opacity-0 drawer-overlay transition-opacity duration-300" id="mobile-menu-overlay" onclick="toggleMobileMenu(true)"></div>
+    <div class="fixed inset-0 bg-black/40 z-[150] hidden opacity-0 drawer-overlay transition-opacity duration-300" id="cart-overlay" onclick="toggleCart(true)"></div>
+
+    <!-- 2. ANNOUNCEMENT BAR -->
+    <div class="nf-ann">
+      <div class="nf-ann-track">SUMMER SALE &nbsp;•&nbsp; ₹799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE ₹999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUMMER SALE &nbsp;•&nbsp; ₹799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE ₹999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </div>
+
+    <!-- 3. HEADER (logo row + nav row) -->
+    <header class="nf-header" id="main-header">
+      <!-- Logo Row -->
+      <div class="nf-logo-row">
+        <div class="nf-header-left">
+          <button class="nf-icon-btn nf-hamburger-btn" onclick="toggleMobileMenu()" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <button class="nf-icon-btn nf-search-btn" onclick="toggleSearch()" aria-label="Search">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+        </div>
+        <a href="index.html" class="nf-logo">NAFUME</a>
+        <div class="nf-header-right">
+          <a href="pages/account/account.html" class="nf-icon-btn nf-account-btn" aria-label="Account">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/></svg>
+          </a>
+          <button class="nf-icon-btn" onclick="openCart()" aria-label="View cart">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            <span class="nf-cart-badge lp-cart-badge">0</span>
+          </button>
+        </div>
+      </div>
+      <!-- Nav Row -->
+      <nav class="nf-nav-row" aria-label="Main navigation">
+        <a href="index.html" class="nf-nav-link nf-active">HOME</a>
+        <a href="pages/collections/shop.html" class="nf-nav-link">NEW LAUNCHES</a>
+        <a href="pages/products/seduction.html" class="nf-nav-link">SEDUCTION</a>
+        <a href="pages/products/dark-oud.html" class="nf-nav-link">DARK OUD</a>
+        <a href="pages/products/red-spirit.html" class="nf-nav-link">RED SPIRIT</a>
+        <a href="pages/products/aqua-manthan.html" class="nf-nav-link">AQUA MANTHAN</a>
+        <a href="pages/products/all-day-misfit.html" class="nf-nav-link">ALL DAY MISFIT</a>
+        <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
+      </nav>
+    </header>
+
+    <!-- 4. MOBILE MENU DRAWER (ids kept for app.js compatibility) -->
+    <div class="nf-mobile-drawer drawer-container -translate-x-full" id="mobile-drawer">
+      <div class="nf-drawer-head">
+        <a href="index.html" class="nf-logo" style="font-size:17px;letter-spacing:0.22em;">NAFUME</a>
+        <button class="nf-icon-btn" onclick="toggleMobileMenu(true)" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <nav class="nf-drawer-nav">
+        <a href="index.html" class="nf-drawer-link">Home</a>
+        <a href="pages/collections/shop.html" class="nf-drawer-link">New Launches</a>
+        <a href="pages/products/seduction.html" class="nf-drawer-link">Seduction</a>
+        <a href="pages/products/dark-oud.html" class="nf-drawer-link">Dark Oud</a>
+        <a href="pages/products/red-spirit.html" class="nf-drawer-link">Red Spirit</a>
+        <a href="pages/products/aqua-manthan.html" class="nf-drawer-link">Aqua Manthan</a>
+        <a href="pages/products/all-day-misfit.html" class="nf-drawer-link">All Day Misfit</a>
+        <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram ↗</a>
+      </nav>
+    </div>
+
+    <!-- 5. SEARCH DRAWER -->
+    <div class="fixed inset-y-0 right-0 w-full md:w-[420px] bg-surface z-[200] transform translate-x-full drawer-container border-l border-border-muted flex flex-col" id="search-drawer">
+        <div class="p-6 border-b border-border-muted flex justify-between items-center bg-surface-container/30">
+            <h2 class="text-headline-sm font-semibold text-primary">Search</h2>
+            <button class="text-text-secondary hover:text-accent-bronze p-2 transition-colors" onclick="toggleSearch(true)">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="p-6 flex-grow overflow-y-auto">
+            <div class="relative w-full mb-8">
+                <input class="w-full bg-transparent border-b border-border-muted py-3 pl-10 pr-4 text-[12px] font-semibold uppercase tracking-widest text-primary focus:outline-none focus:border-accent-bronze transition-colors placeholder:text-text-secondary/60" placeholder="SEARCH FRAGRANCES..." type="text"/>
+                <span class="material-symbols-outlined absolute left-0 top-3 text-text-secondary">search</span>
+            </div>
+            <h3 class="text-[11px] font-semibold text-text-secondary mb-4 tracking-widest uppercase">Suggested Scents</h3>
+            <div class="space-y-4">
+                <!-- Suggested matches populated by js/app.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. CART DRAWER -->
+    <div class="fixed inset-y-0 right-0 w-full md:w-[420px] bg-surface z-[200] transform translate-x-full drawer-container border-l border-border-muted flex flex-col" id="cart-drawer">
+        <div class="p-6 border-b border-border-muted flex justify-between items-center bg-surface-container/30">
+            <h2 class="text-headline-sm font-semibold text-primary">Your Cart</h2>
+            <button class="text-text-secondary hover:text-accent-bronze p-2 transition-colors" onclick="toggleCart(true)">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        
+        <!-- Cart Items Scroll Area -->
+        <div class="flex-grow overflow-y-auto px-6 py-4" id="cart-drawer-items">
+            <!-- Dynamic Cart Items injected via js/app.js -->
+        </div>
+        
+        <!-- Cart Summary Footer -->
+        <div class="p-6 border-t border-border-muted bg-surface-container/20">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-body-md text-text-secondary">Subtotal</span>
+                <span class="text-body-md font-semibold text-primary" id="cart-drawer-subtotal">₹0</span>
+            </div>
+            <p class="text-[10px] text-text-secondary mb-6 leading-relaxed">Tax, packaging, and high-speed express courier shipping calculated at checkout.</p>
+            <div class="space-y-3">
+                <a href="pages/order/shipping.html" class="w-full inline-flex justify-center items-center py-4 bg-primary text-white text-label-md font-semibold uppercase tracking-widest hover:bg-[#222] transition-colors text-center" id="cart-drawer-checkout-btn">
+                    Continue to Shipping
+                </a>
+                <button class="w-full text-center text-label-sm font-semibold text-text-secondary uppercase tracking-widest hover:text-primary transition-colors py-2" onclick="toggleCart(true)">
+                    Continue Exploring
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. MAIN CANVAS -->
+    <main class="flex-grow">
+        
+        <!-- HERO BANNER SLIDER -->
+        <section class="hero-banner-slider hero-banner-slider--promo" id="hero-banner-slider" aria-label="Father's Day Sale highlights">
+
+            <div class="hero-slide active">
+                <a href="pages/products/seduction.html" class="hero-slide-link" aria-label="Shop the NAFUME Father's Day Sale">
+                    <img src="assets/images/banners/Hero%20(1).jpg" alt="NAFUME Father's Day Sale — flat 10% off plus 5% off prepaid, use code SUPERDAD" loading="eager"/>
+                </a>
+            </div>
+
+            <div class="hero-slide">
+                <a href="pages/products/dark-oud.html" class="hero-slide-link" aria-label="Shop the NAFUME Father's Day Sale">
+                    <img src="assets/images/banners/Hero%20(2).jpg" alt="NAFUME Father's Day Sale — flat 10% off plus 5% off prepaid, use code SUPERDAD" loading="lazy"/>
+                </a>
+            </div>
+
+            <div class="hero-slide">
+                <a href="pages/products/red-spirit.html" class="hero-slide-link" aria-label="Shop the NAFUME Father's Day Sale">
+                    <img src="assets/images/banners/Hero%20(3).jpg" alt="NAFUME Father's Day Sale — flat 10% off plus 5% off prepaid, use code SUPERDAD" loading="lazy"/>
+                </a>
+            </div>
+
+            <div class="hero-slide">
+                <a href="pages/products/aqua-manthan.html" class="hero-slide-link" aria-label="Shop the NAFUME Father's Day Sale">
+                    <img src="assets/images/banners/Hero%20(4).jpg" alt="NAFUME Father's Day Sale — flat 10% off plus 5% off prepaid, use code SUPERDAD" loading="lazy"/>
+                </a>
+            </div>
+
+            <div class="hero-slide">
+                <a href="pages/products/all-day-misfit.html" class="hero-slide-link" aria-label="Shop the NAFUME Father's Day Sale">
+                    <img src="assets/images/banners/Hero%20(5).jpg" alt="NAFUME Father's Day Sale — flat 10% off plus 5% off prepaid, use code SUPERDAD" loading="lazy"/>
+                </a>
+            </div>
+
+            <div class="hero-slide-dots" id="hero-dots">
+                <button class="hero-dot active" data-slide="0" aria-label="Slide 1 — Seduction"></button>
+                <button class="hero-dot" data-slide="1" aria-label="Slide 2 — Dark Oud"></button>
+                <button class="hero-dot" data-slide="2" aria-label="Slide 3 — Red Spirit"></button>
+                <button class="hero-dot" data-slide="3" aria-label="Slide 4 — Aqua Manthan"></button>
+                <button class="hero-dot" data-slide="4" aria-label="Slide 5 — All Day Misfit"></button>
+            </div>
+        </section>
+
+        <!-- WATCH AND BUY SECTION -->
+        <section class="watch-buy-section" id="watch-and-buy">
+            <div class="watch-buy-wrap">
+                <h2 class="watch-buy-heading">Watch and Buy</h2>
+                <div style="position:relative;">
+                    <button class="watch-carousel-arrow left" id="watchArrowLeft" onclick="watchCarouselMove(-1)" aria-label="Previous fragrance">
+                        <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"/></svg>
+                    </button>
+
+                    <div class="watch-buy-carousel" id="watchCarousel">
+
+                        <a class="watch-video-card" href="pages/products/seduction.html">
+                            <video class="watch-video" src="assets/videos/01%20(1).mp4"
+                                muted playsinline loop autoplay poster="assets/images/products/Seduction/image%20(0).jpg"
+                                loading="lazy" aria-label="Seduction fragrance video"></video>
+                            <div class="watch-product-mini">
+                                <img class="watch-product-mini-thumb" src="assets/images/products/Seduction/image%20(0).jpg" alt="Seduction" loading="lazy"/>
+                                <div class="watch-product-mini-info">
+                                    <span class="watch-product-name">Seduction</span>
+                                    <div class="watch-price-row">
+                                        <span class="watch-product-price">&#8377;799</span>
+                                        <span class="watch-product-mrp">&#8377;1299</span>
+                                    </div>
+                                    <span class="watch-product-badge">38% off</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="watch-video-card" href="pages/products/dark-oud.html">
+                            <video class="watch-video" src="assets/videos/01%20(2).mp4"
+                                muted playsinline loop autoplay poster="assets/images/products/Dark%20Oud/image%20(0).jpg"
+                                loading="lazy" aria-label="Dark Oud fragrance video"></video>
+                            <div class="watch-product-mini">
+                                <img class="watch-product-mini-thumb" src="assets/images/products/Dark%20Oud/image%20(0).jpg" alt="Dark Oud" loading="lazy"/>
+                                <div class="watch-product-mini-info">
+                                    <span class="watch-product-name">Dark Oud</span>
+                                    <div class="watch-price-row">
+                                        <span class="watch-product-price">&#8377;799</span>
+                                        <span class="watch-product-mrp">&#8377;1299</span>
+                                    </div>
+                                    <span class="watch-product-badge">38% off</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="watch-video-card" href="pages/products/red-spirit.html">
+                            <video class="watch-video" src="assets/videos/01%20(3).mp4"
+                                muted playsinline loop autoplay poster="assets/images/products/Red%20Spirit/image%20(0).jpg"
+                                loading="lazy" aria-label="Red Spirit fragrance video"></video>
+                            <div class="watch-product-mini">
+                                <img class="watch-product-mini-thumb" src="assets/images/products/Red%20Spirit/image%20(0).jpg" alt="Red Spirit" loading="lazy"/>
+                                <div class="watch-product-mini-info">
+                                    <span class="watch-product-name">Red Spirit</span>
+                                    <div class="watch-price-row">
+                                        <span class="watch-product-price">&#8377;799</span>
+                                        <span class="watch-product-mrp">&#8377;1299</span>
+                                    </div>
+                                    <span class="watch-product-badge">38% off</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="watch-video-card" href="pages/products/aqua-manthan.html">
+                            <video class="watch-video" src="assets/videos/01%20(4).mp4"
+                                muted playsinline loop autoplay poster="assets/images/products/Aqua%20Manthan/image%20(0).jpg"
+                                loading="lazy" aria-label="Aqua Manthan fragrance video"></video>
+                            <div class="watch-product-mini">
+                                <img class="watch-product-mini-thumb" src="assets/images/products/Aqua%20Manthan/image%20(0).jpg" alt="Aqua Manthan" loading="lazy"/>
+                                <div class="watch-product-mini-info">
+                                    <span class="watch-product-name">Aqua Manthan</span>
+                                    <div class="watch-price-row">
+                                        <span class="watch-product-price">&#8377;799</span>
+                                        <span class="watch-product-mrp">&#8377;1299</span>
+                                    </div>
+                                    <span class="watch-product-badge">38% off</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="watch-video-card" href="pages/products/all-day-misfit.html">
+                            <video class="watch-video" src="assets/videos/01%20(5).mp4"
+                                muted playsinline loop autoplay poster="assets/images/products/All%20Day%20Misfit/image%20(0).jpg"
+                                loading="lazy" aria-label="All Day Misfit fragrance video"></video>
+                            <div class="watch-product-mini">
+                                <img class="watch-product-mini-thumb" src="assets/images/products/All%20Day%20Misfit/image%20(0).jpg" alt="All Day Misfit" loading="lazy"/>
+                                <div class="watch-product-mini-info">
+                                    <span class="watch-product-name">All Day Misfit</span>
+                                    <div class="watch-price-row">
+                                        <span class="watch-product-price">&#8377;799</span>
+                                        <span class="watch-product-mrp">&#8377;1299</span>
+                                    </div>
+                                    <span class="watch-product-badge">38% off</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="watch-video-card" href="pages/products/dark-oud.html">
+                            <video class="watch-video" src="assets/videos/01%20(6).mp4"
+                                muted playsinline loop autoplay poster="assets/images/products/Dark%20Oud/image%20(0).jpg"
+                                loading="lazy" aria-label="Dark Oud fragrance video"></video>
+                            <div class="watch-product-mini">
+                                <img class="watch-product-mini-thumb" src="assets/images/products/Dark%20Oud/image%20(0).jpg" alt="Dark Oud" loading="lazy"/>
+                                <div class="watch-product-mini-info">
+                                    <span class="watch-product-name">Dark Oud</span>
+                                    <div class="watch-price-row">
+                                        <span class="watch-product-price">&#8377;799</span>
+                                        <span class="watch-product-mrp">&#8377;1299</span>
+                                    </div>
+                                    <span class="watch-product-badge">38% off</span>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+
+                    <button class="watch-carousel-arrow right" id="watchArrowRight" onclick="watchCarouselMove(1)" aria-label="Next fragrance">
+                        <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             HOW ORDERING WORKS
+        ════════════════════════════════════════════════════════════ -->
+        <section class="how-order-section">
+          <div class="how-order-inner">
+            <h2 class="how-order-title">How to Order</h2>
+            <div class="how-order-steps">
+              <div class="how-order-step">
+                <span class="how-order-num">01</span>
+                <span class="how-order-icon material-symbols-outlined">local_mall</span>
+                <p class="how-order-label">Choose Fragrance</p>
+                <p class="how-order-desc">Browse our curated EDP collection and pick your scent</p>
+              </div>
+              <div class="how-order-connector"><span class="how-order-arrow">&#8594;</span></div>
+              <div class="how-order-step">
+                <span class="how-order-num">02</span>
+                <span class="how-order-icon material-symbols-outlined">shopping_bag</span>
+                <p class="how-order-label">Add to Cart</p>
+                <p class="how-order-desc">Add fragrances to cart — free shipping above ₹999</p>
+              </div>
+              <div class="how-order-connector"><span class="how-order-arrow">&#8594;</span></div>
+              <div class="how-order-step">
+                <span class="how-order-num">03</span>
+                <span class="how-order-icon material-symbols-outlined">local_shipping</span>
+                <p class="how-order-label">Enter Shipping Details</p>
+                <p class="how-order-desc">Fill your delivery address on the next page</p>
+              </div>
+              <div class="how-order-connector"><span class="how-order-arrow">&#8594;</span></div>
+              <div class="how-order-step">
+                <span class="how-order-num">04</span>
+                <span class="how-order-icon material-symbols-outlined">chat</span>
+                <p class="how-order-label">Confirm on WhatsApp</p>
+                <p class="how-order-desc">Order details auto-fill on WhatsApp — just tap send</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             NEW LAUNCHES
+        ════════════════════════════════════════════════════════════ -->
+        <section class="home-product-section" id="new-launches">
+          <div class="home-section-head">
+            <h2 class="home-section-title">New Launches</h2>
+          </div>
+          <div class="home-product-grid cols-5">
+
+            <!-- Seduction -->
+            <div class="home-product-card">
+              <a href="pages/products/seduction.html" class="home-product-image-wrap">
+                <span class="home-product-badge">New Launch</span>
+                <img class="home-product-image" src="assets/images/products/Seduction/image%20(3).jpg" alt="Seduction EDP 50ml" loading="lazy">
+              </a>
+              <div class="home-product-info">
+                <a href="pages/products/seduction.html" class="home-product-title">Seduction 50ML</a>
+                <p class="home-product-family">Floral | Oriental</p>
+                <p class="home-product-price">&#8377;799 <span class="home-product-mrp">&#8377;1,299</span></p>
+                <button class="home-add-cart-btn" onclick="handleGridAdd('seduction',this)">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Dark Oud -->
+            <div class="home-product-card">
+              <a href="pages/products/dark-oud.html" class="home-product-image-wrap">
+                <span class="home-product-badge">New Launch</span>
+                <img class="home-product-image" src="assets/images/products/Dark%20Oud/image%20(2).jpg" alt="Dark Oud EDP 50ml" loading="lazy">
+              </a>
+              <div class="home-product-info">
+                <a href="pages/products/dark-oud.html" class="home-product-title">Dark Oud 50ML</a>
+                <p class="home-product-family">Woody | Oud</p>
+                <p class="home-product-price">&#8377;799 <span class="home-product-mrp">&#8377;1,299</span></p>
+                <button class="home-add-cart-btn" onclick="handleGridAdd('dark-oud',this)">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Red Spirit -->
+            <div class="home-product-card">
+              <a href="pages/products/red-spirit.html" class="home-product-image-wrap">
+                <span class="home-product-badge">New Launch</span>
+                <img class="home-product-image" src="assets/images/products/Red%20Spirit/image%20(3).jpg" alt="Red Spirit EDP 50ml" loading="lazy">
+              </a>
+              <div class="home-product-info">
+                <a href="pages/products/red-spirit.html" class="home-product-title">Red Spirit 50ML</a>
+                <p class="home-product-family">Spicy | Aromatic</p>
+                <p class="home-product-price">&#8377;799 <span class="home-product-mrp">&#8377;1,299</span></p>
+                <button class="home-add-cart-btn" onclick="handleGridAdd('red-spirit',this)">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Aqua Manthan -->
+            <div class="home-product-card">
+              <a href="pages/products/aqua-manthan.html" class="home-product-image-wrap">
+                <span class="home-product-badge">New Launch</span>
+                <img class="home-product-image" src="assets/images/products/Aqua%20Manthan/image%20(2).jpg" alt="Aqua Manthan EDP 50ml" loading="lazy">
+              </a>
+              <div class="home-product-info">
+                <a href="pages/products/aqua-manthan.html" class="home-product-title">Aqua Manthan 50ML</a>
+                <p class="home-product-family">Fresh | Aquatic</p>
+                <p class="home-product-price">&#8377;799 <span class="home-product-mrp">&#8377;1,299</span></p>
+                <button class="home-add-cart-btn" onclick="handleGridAdd('aqua-manthan',this)">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- All Day Misfit -->
+            <div class="home-product-card">
+              <a href="pages/products/all-day-misfit.html" class="home-product-image-wrap">
+                <span class="home-product-badge">New Launch</span>
+                <img class="home-product-image" src="assets/images/products/All%20Day%20Misfit/image%20(1).jpg" alt="All Day Misfit EDP 50ml" loading="lazy">
+              </a>
+              <div class="home-product-info">
+                <a href="pages/products/all-day-misfit.html" class="home-product-title">All Day Misfit 50ML</a>
+                <p class="home-product-family">Gourmand | Woody</p>
+                <p class="home-product-price">&#8377;799 <span class="home-product-mrp">&#8377;1,299</span></p>
+                <button class="home-add-cart-btn" onclick="handleGridAdd('all-day-misfit',this)">Add to Cart</button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             BEST SELLERS
+        ════════════════════════════════════════════════════════════ -->
+        <section class="home-product-section" id="best-sellers">
+          <div class="home-section-head">
+            <h2 class="home-section-title">Best Sellers</h2>
+          </div>
+          <div class="home-product-grid">
+
+            <!-- Seduction — BESTSELLER -->
+            <div class="home-product-card">
+              <a href="pages/products/seduction.html" class="home-product-image-wrap">
+                <span class="home-product-badge badge-dark">Bestseller</span>
+                <img class="home-product-image" src="assets/images/products/Seduction/image%20(3).jpg" alt="Seduction EDP 50ml" loading="lazy">
+              </a>
+              <div class="home-product-info">
+                <a href="pages/products/seduction.html" class="home-product-title">Seduction 50ML</a>
+                <p class="home-product-family">Floral | Oriental</p>
+                <p class="home-product-price">&#8377;799 <span class="home-product-mrp">&#8377;1,299</span></p>
+                <button class="home-add-cart-btn" onclick="handleGridAdd('seduction',this)">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Dark Oud — POPULAR CHOICE -->
+            <div class="home-product-card">
+              <a href="pages/products/dark-oud.html" class="home-product-image-wrap">
+                <span class="home-product-badge badge-gold">Popular Choice</span>
+                <img class="home-product-image" src="assets/images/products/Dark%20Oud/image%20(2).jpg" alt="Dark Oud EDP 50ml" loading="lazy">
+              </a>
+              <div class="home-product-info">
+                <a href="pages/products/dark-oud.html" class="home-product-title">Dark Oud 50ML</a>
+                <p class="home-product-family">Woody | Oud</p>
+                <p class="home-product-price">&#8377;799 <span class="home-product-mrp">&#8377;1,299</span></p>
+                <button class="home-add-cart-btn" onclick="handleGridAdd('dark-oud',this)">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Red Spirit — POPULAR CHOICE -->
+            <div class="home-product-card">
+              <a href="pages/products/red-spirit.html" class="home-product-image-wrap">
+                <span class="home-product-badge badge-gold">Popular Choice</span>
+                <img class="home-product-image" src="assets/images/products/Red%20Spirit/image%20(3).jpg" alt="Red Spirit EDP 50ml" loading="lazy">
+              </a>
+              <div class="home-product-info">
+                <a href="pages/products/red-spirit.html" class="home-product-title">Red Spirit 50ML</a>
+                <p class="home-product-family">Spicy | Aromatic</p>
+                <p class="home-product-price">&#8377;799 <span class="home-product-mrp">&#8377;1,299</span></p>
+                <button class="home-add-cart-btn" onclick="handleGridAdd('red-spirit',this)">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Aqua Manthan — HIGHLY RECOMMENDED -->
+            <div class="home-product-card">
+              <a href="pages/products/aqua-manthan.html" class="home-product-image-wrap">
+                <span class="home-product-badge">Highly Recommended</span>
+                <img class="home-product-image" src="assets/images/products/Aqua%20Manthan/image%20(2).jpg" alt="Aqua Manthan EDP 50ml" loading="lazy">
+              </a>
+              <div class="home-product-info">
+                <a href="pages/products/aqua-manthan.html" class="home-product-title">Aqua Manthan 50ML</a>
+                <p class="home-product-family">Fresh | Aquatic</p>
+                <p class="home-product-price">&#8377;799 <span class="home-product-mrp">&#8377;1,299</span></p>
+                <button class="home-add-cart-btn" onclick="handleGridAdd('aqua-manthan',this)">Add to Cart</button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             HIM
+        ════════════════════════════════════════════════════════════ -->
+        <section class="home-product-section" id="for-him">
+          <div class="home-section-head">
+            <h2 class="home-section-title">Him</h2>
+            <p class="home-section-subtitle">Discover your signature fragrance from our exclusive collection for Men</p>
+            <a href="pages/collections/shop.html" class="home-section-cta">Discover</a>
+          </div>
+          <div class="home-product-grid">
+
+            <!-- Dark Oud -->
+            <div class="home-product-card">
+              <a href="pages/products/dark-oud.html" class="home-product-image-wrap">
+                <span class="home-product-badge badge-gold">Popular Choice</span>
+                <img class="home-product-image" src="assets/images/products/Dark%20Oud/image%20(2).jpg" alt="Dark Oud EDP 50ml" loading="lazy">
+              </a>
+              <div class="home-product-info">
+                <a href="pages/products/dark-oud.html" class="home-product-title">Dark Oud 50ML</a>
+                <p class="home-product-family">Woody | Oud</p>
+                <p class="home-product-price">&#8377;799 <span class="home-product-mrp">&#8377;1,299</span></p>
+                <button class="home-add-cart-btn" onclick="handleGridAdd('dark-oud',this)">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Red Spirit -->
+            <div class="home-product-card">
+              <a href="pages/products/red-spirit.html" class="home-product-image-wrap">
+                <img class="home-product-image" src="assets/images/products/Red%20Spirit/image%20(3).jpg" alt="Red Spirit EDP 50ml" loading="lazy">
+              </a>
+              <div class="home-product-info">
+                <a href="pages/products/red-spirit.html" class="home-product-title">Red Spirit 50ML</a>
+                <p class="home-product-family">Spicy | Aromatic</p>
+                <p class="home-product-price">&#8377;799 <span class="home-product-mrp">&#8377;1,299</span></p>
+                <button class="home-add-cart-btn" onclick="handleGridAdd('red-spirit',this)">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Aqua Manthan -->
+            <div class="home-product-card">
+              <a href="pages/products/aqua-manthan.html" class="home-product-image-wrap">
+                <img class="home-product-image" src="assets/images/products/Aqua%20Manthan/image%20(2).jpg" alt="Aqua Manthan EDP 50ml" loading="lazy">
+              </a>
+              <div class="home-product-info">
+                <a href="pages/products/aqua-manthan.html" class="home-product-title">Aqua Manthan 50ML</a>
+                <p class="home-product-family">Fresh | Aquatic</p>
+                <p class="home-product-price">&#8377;799 <span class="home-product-mrp">&#8377;1,299</span></p>
+                <button class="home-add-cart-btn" onclick="handleGridAdd('aqua-manthan',this)">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- All Day Misfit -->
+            <div class="home-product-card">
+              <a href="pages/products/all-day-misfit.html" class="home-product-image-wrap">
+                <img class="home-product-image" src="assets/images/products/All%20Day%20Misfit/image%20(1).jpg" alt="All Day Misfit EDP 50ml" loading="lazy">
+              </a>
+              <div class="home-product-info">
+                <a href="pages/products/all-day-misfit.html" class="home-product-title">All Day Misfit 50ML</a>
+                <p class="home-product-family">Gourmand | Woody</p>
+                <p class="home-product-price">&#8377;799 <span class="home-product-mrp">&#8377;1,299</span></p>
+                <button class="home-add-cart-btn" onclick="handleGridAdd('all-day-misfit',this)">Add to Cart</button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             HER
+        ════════════════════════════════════════════════════════════ -->
+        <section class="home-product-section" id="for-her">
+          <div class="home-section-head">
+            <h2 class="home-section-title">Her</h2>
+            <p class="home-section-subtitle">Explore our curated collection of fragrances designed for the modern women</p>
+            <a href="pages/collections/shop.html" class="home-section-cta">Discover</a>
+          </div>
+          <div class="home-product-grid">
+
+            <!-- Seduction — TRENDING -->
+            <div class="home-product-card">
+              <a href="pages/products/seduction.html" class="home-product-image-wrap">
+                <span class="home-product-badge badge-gold">Trending</span>
+                <img class="home-product-image" src="assets/images/products/Seduction/image%20(3).jpg" alt="Seduction EDP 50ml" loading="lazy">
+              </a>
+              <div class="home-product-info">
+                <a href="pages/products/seduction.html" class="home-product-title">Seduction 50ML</a>
+                <p class="home-product-family">Floral | Oriental</p>
+                <p class="home-product-price">&#8377;799 <span class="home-product-mrp">&#8377;1,299</span></p>
+                <button class="home-add-cart-btn" onclick="handleGridAdd('seduction',this)">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Aqua Manthan — BESTSELLER -->
+            <div class="home-product-card">
+              <a href="pages/products/aqua-manthan.html" class="home-product-image-wrap">
+                <span class="home-product-badge badge-dark">Bestseller</span>
+                <img class="home-product-image" src="assets/images/products/Aqua%20Manthan/image%20(2).jpg" alt="Aqua Manthan EDP 50ml" loading="lazy">
+              </a>
+              <div class="home-product-info">
+                <a href="pages/products/aqua-manthan.html" class="home-product-title">Aqua Manthan 50ML</a>
+                <p class="home-product-family">Fresh | Aquatic</p>
+                <p class="home-product-price">&#8377;799 <span class="home-product-mrp">&#8377;1,299</span></p>
+                <button class="home-add-cart-btn" onclick="handleGridAdd('aqua-manthan',this)">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Red Spirit -->
+            <div class="home-product-card">
+              <a href="pages/products/red-spirit.html" class="home-product-image-wrap">
+                <img class="home-product-image" src="assets/images/products/Red%20Spirit/image%20(3).jpg" alt="Red Spirit EDP 50ml" loading="lazy">
+              </a>
+              <div class="home-product-info">
+                <a href="pages/products/red-spirit.html" class="home-product-title">Red Spirit 50ML</a>
+                <p class="home-product-family">Spicy | Aromatic</p>
+                <p class="home-product-price">&#8377;799 <span class="home-product-mrp">&#8377;1,299</span></p>
+                <button class="home-add-cart-btn" onclick="handleGridAdd('red-spirit',this)">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- All Day Misfit -->
+            <div class="home-product-card">
+              <a href="pages/products/all-day-misfit.html" class="home-product-image-wrap">
+                <img class="home-product-image" src="assets/images/products/All%20Day%20Misfit/image%20(1).jpg" alt="All Day Misfit EDP 50ml" loading="lazy">
+              </a>
+              <div class="home-product-info">
+                <a href="pages/products/all-day-misfit.html" class="home-product-title">All Day Misfit 50ML</a>
+                <p class="home-product-family">Gourmand | Woody</p>
+                <p class="home-product-price">&#8377;799 <span class="home-product-mrp">&#8377;1,299</span></p>
+                <button class="home-add-cart-btn" onclick="handleGridAdd('all-day-misfit',this)">Add to Cart</button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             TRUST MARQUEE + REVIEWS
+        ════════════════════════════════════════════════════════════ -->
+
+        <!-- TRUST ICONS MARQUEE -->
+        <section class="trust-marquee-section" aria-label="Quality certifications">
+          <div class="trust-marquee">
+            <div class="trust-marquee-track">
+
+              <!-- ── SET 1 ── -->
+              <div class="trust-item">
+                <svg class="trust-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 23C15 17 12 7 9 7C7 7 6 9 6 12C6 17 11 22 16 23Z"/>
+                  <path d="M32 23C33 17 36 7 39 7C41 7 42 9 42 12C42 17 37 22 32 23Z"/>
+                  <ellipse cx="24" cy="31" rx="11" ry="9"/>
+                  <circle cx="20" cy="29" r="1.4" fill="currentColor" stroke="none"/>
+                  <circle cx="28" cy="29" r="1.4" fill="currentColor" stroke="none"/>
+                  <path d="M22 34Q24 36 26 34" stroke-width="1.3"/>
+                  <path d="M22 39C21 37 19 36 19 38C19 40 22 42 24 43C26 42 29 40 29 38C29 36 27 37 26 39C25 40 24 42 22 39Z" fill="currentColor" stroke="none"/>
+                </svg>
+                <span class="trust-label">Animal Testing Free</span>
+              </div>
+
+              <div class="trust-item">
+                <svg class="trust-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="8" width="40" height="32" rx="2"/>
+                  <text x="24" y="29" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="15" fill="currentColor" stroke="none" letter-spacing="1">FDA</text>
+                  <line x1="12" y1="33" x2="36" y2="33" stroke-width="1"/>
+                  <text x="24" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-size="6.5" fill="currentColor" stroke="none" letter-spacing="1.5">APPROVED</text>
+                </svg>
+                <span class="trust-label">FDA Approved</span>
+              </div>
+
+              <div class="trust-item">
+                <svg class="trust-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg">
+                  <!-- left hand -->
+                  <path d="M8 40C8 36 10 30 14 27L17 25"/>
+                  <!-- right hand -->
+                  <path d="M40 40C40 36 38 30 34 27L31 25"/>
+                  <!-- palm arc -->
+                  <path d="M10 40Q24 46 38 40"/>
+                  <!-- fingers left side -->
+                  <path d="M17 25C17 21 15 17 17 16C19 15 19 19 19 23"/>
+                  <path d="M19 23C19 19 18 14 20 14C22 13 22 19 22 23"/>
+                  <!-- fingers right side -->
+                  <path d="M31 25C31 21 33 17 31 16C29 15 29 19 29 23"/>
+                  <path d="M29 23C29 19 30 14 28 14C26 13 26 19 26 23"/>
+                  <!-- leaf/sprig in centre -->
+                  <path d="M24 23C24 18 22 12 24 10C26 12 24 18 24 23Z" fill="currentColor" stroke="none" opacity="0.8"/>
+                  <line x1="24" y1="10" x2="24" y2="24" stroke="currentColor" stroke-width="1"/>
+                </svg>
+                <span class="trust-label">Gentle Formula</span>
+              </div>
+
+              <div class="trust-item">
+                <svg class="trust-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Benzene hexagon -->
+                  <polygon points="24,5 39,14 39,31 24,40 9,31 9,14"/>
+                  <!-- Alternating inner bonds -->
+                  <line x1="24" y1="9"  x2="24" y2="14"/>
+                  <line x1="36" y1="16" x2="32" y2="18"/>
+                  <line x1="36" y1="29" x2="32" y2="27"/>
+                  <line x1="24" y1="36" x2="24" y2="31"/>
+                  <line x1="12" y1="29" x2="16" y2="27"/>
+                  <line x1="12" y1="16" x2="16" y2="18"/>
+                  <!-- Slash = FREE -->
+                  <line x1="7" y1="41" x2="41" y2="7" stroke-width="1.8"/>
+                </svg>
+                <span class="trust-label">Phthalate Free</span>
+              </div>
+
+              <div class="trust-item">
+                <svg class="trust-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Molecule: 3 circles connected -->
+                  <circle cx="24" cy="14" r="5"/>
+                  <circle cx="14" cy="31" r="5"/>
+                  <circle cx="34" cy="31" r="5"/>
+                  <line x1="21" y1="18" x2="17" y2="27"/>
+                  <line x1="27" y1="18" x2="31" y2="27"/>
+                  <line x1="19" y1="31" x2="29" y2="31"/>
+                  <!-- Slash = FREE -->
+                  <line x1="7" y1="41" x2="41" y2="7" stroke-width="1.8"/>
+                </svg>
+                <span class="trust-label">Triclosan Free</span>
+              </div>
+
+              <div class="trust-item">
+                <svg class="trust-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Stem -->
+                  <line x1="24" y1="44" x2="24" y2="22"/>
+                  <!-- Left leaf -->
+                  <path d="M24 30C24 30 15 28 13 21C13 21 21 18 24 25"/>
+                  <!-- Right leaf -->
+                  <path d="M24 23C24 23 33 19 35 12C35 12 27 11 24 18"/>
+                  <!-- Roots -->
+                  <path d="M20 44C20 44 18 46 15 45"/>
+                  <path d="M24 44L24 46"/>
+                  <path d="M28 44C28 44 30 46 33 45"/>
+                  <!-- Water droplet top -->
+                  <path d="M24 14C24 14 20 8 20 6C20 4 22 3 24 3C26 3 28 4 28 6C28 8 24 14 24 14Z"/>
+                </svg>
+                <span class="trust-label">Vegetable Based Alcohol</span>
+              </div>
+
+              <!-- ── SET 2 (duplicate for seamless loop) ── -->
+              <div class="trust-item" aria-hidden="true">
+                <svg class="trust-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 23C15 17 12 7 9 7C7 7 6 9 6 12C6 17 11 22 16 23Z"/>
+                  <path d="M32 23C33 17 36 7 39 7C41 7 42 9 42 12C42 17 37 22 32 23Z"/>
+                  <ellipse cx="24" cy="31" rx="11" ry="9"/>
+                  <circle cx="20" cy="29" r="1.4" fill="currentColor" stroke="none"/>
+                  <circle cx="28" cy="29" r="1.4" fill="currentColor" stroke="none"/>
+                  <path d="M22 34Q24 36 26 34" stroke-width="1.3"/>
+                  <path d="M22 39C21 37 19 36 19 38C19 40 22 42 24 43C26 42 29 40 29 38C29 36 27 37 26 39C25 40 24 42 22 39Z" fill="currentColor" stroke="none"/>
+                </svg>
+                <span class="trust-label">Animal Testing Free</span>
+              </div>
+              <div class="trust-item" aria-hidden="true">
+                <svg class="trust-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="8" width="40" height="32" rx="2"/>
+                  <text x="24" y="29" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="15" fill="currentColor" stroke="none" letter-spacing="1">FDA</text>
+                  <line x1="12" y1="33" x2="36" y2="33" stroke-width="1"/>
+                  <text x="24" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-size="6.5" fill="currentColor" stroke="none" letter-spacing="1.5">APPROVED</text>
+                </svg>
+                <span class="trust-label">FDA Approved</span>
+              </div>
+              <div class="trust-item" aria-hidden="true">
+                <svg class="trust-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 40C8 36 10 30 14 27L17 25"/>
+                  <path d="M40 40C40 36 38 30 34 27L31 25"/>
+                  <path d="M10 40Q24 46 38 40"/>
+                  <path d="M17 25C17 21 15 17 17 16C19 15 19 19 19 23"/>
+                  <path d="M19 23C19 19 18 14 20 14C22 13 22 19 22 23"/>
+                  <path d="M31 25C31 21 33 17 31 16C29 15 29 19 29 23"/>
+                  <path d="M29 23C29 19 30 14 28 14C26 13 26 19 26 23"/>
+                  <path d="M24 23C24 18 22 12 24 10C26 12 24 18 24 23Z" fill="currentColor" stroke="none" opacity="0.8"/>
+                  <line x1="24" y1="10" x2="24" y2="24" stroke="currentColor" stroke-width="1"/>
+                </svg>
+                <span class="trust-label">Gentle Formula</span>
+              </div>
+              <div class="trust-item" aria-hidden="true">
+                <svg class="trust-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="24,5 39,14 39,31 24,40 9,31 9,14"/>
+                  <line x1="24" y1="9"  x2="24" y2="14"/>
+                  <line x1="36" y1="16" x2="32" y2="18"/>
+                  <line x1="36" y1="29" x2="32" y2="27"/>
+                  <line x1="24" y1="36" x2="24" y2="31"/>
+                  <line x1="12" y1="29" x2="16" y2="27"/>
+                  <line x1="12" y1="16" x2="16" y2="18"/>
+                  <line x1="7" y1="41" x2="41" y2="7" stroke-width="1.8"/>
+                </svg>
+                <span class="trust-label">Phthalate Free</span>
+              </div>
+              <div class="trust-item" aria-hidden="true">
+                <svg class="trust-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="14" r="5"/>
+                  <circle cx="14" cy="31" r="5"/>
+                  <circle cx="34" cy="31" r="5"/>
+                  <line x1="21" y1="18" x2="17" y2="27"/>
+                  <line x1="27" y1="18" x2="31" y2="27"/>
+                  <line x1="19" y1="31" x2="29" y2="31"/>
+                  <line x1="7" y1="41" x2="41" y2="7" stroke-width="1.8"/>
+                </svg>
+                <span class="trust-label">Triclosan Free</span>
+              </div>
+              <div class="trust-item" aria-hidden="true">
+                <svg class="trust-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="24" y1="44" x2="24" y2="22"/>
+                  <path d="M24 30C24 30 15 28 13 21C13 21 21 18 24 25"/>
+                  <path d="M24 23C24 23 33 19 35 12C35 12 27 11 24 18"/>
+                  <path d="M20 44C20 44 18 46 15 45"/>
+                  <path d="M24 44L24 46"/>
+                  <path d="M28 44C28 44 30 46 33 45"/>
+                  <path d="M24 14C24 14 20 8 20 6C20 4 22 3 24 3C26 3 28 4 28 6C28 8 24 14 24 14Z"/>
+                </svg>
+                <span class="trust-label">Vegetable Based Alcohol</span>
+              </div>
+
+            </div><!-- end .trust-marquee-track -->
+          </div><!-- end .trust-marquee -->
+        </section>
+
+        <!-- CUSTOMER REVIEWS -->
+        <section class="reviews-section">
+          <h2 class="reviews-heading">WHAT CUSTOMERS ARE SAYING</h2>
+          <div class="reviews-grid">
+
+            <!-- Review 1: Deeksha / Seduction -->
+            <div class="review-card">
+              <p class="review-name">Deeksha</p>
+              <p class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+              <p class="review-title">Just like the description</p>
+              <p class="review-text">This smells exactly like they have described. It smells so premium and beautifully balanced. Packaging is well-thought out and the spray quality is good.</p>
+              <hr class="review-divider">
+              <div class="review-product">
+                <img class="review-product-thumb" src="assets/images/products/Seduction/image%20(3).jpg" alt="Seduction EDP" loading="lazy">
+                <span class="review-product-name">Seduction 50ML</span>
+              </div>
+            </div>
+
+            <!-- Review 2: Aarohi Aggarwal / Dark Oud -->
+            <div class="review-card">
+              <p class="review-name">Aarohi Aggarwal</p>
+              <p class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+              <p class="review-title">Best</p>
+              <p class="review-text">The notes are mixed so well, and the fragrance settles beautifully after a few minutes. It feels premium and long lasting.</p>
+              <hr class="review-divider">
+              <div class="review-product">
+                <img class="review-product-thumb" src="assets/images/products/Dark%20Oud/image%20(2).jpg" alt="Dark Oud EDP" loading="lazy">
+                <span class="review-product-name">Dark Oud 50ML</span>
+              </div>
+            </div>
+
+            <!-- Review 3: Aditya / All Day Misfit -->
+            <div class="review-card">
+              <p class="review-name">Aditya</p>
+              <p class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+              <p class="review-title">Perfect Woody Perfume</p>
+              <p class="review-text">I am in love with this fragrance. It never fails to pick up a compliment or two. It is quite versatile and works well for both day and evening.</p>
+              <hr class="review-divider">
+              <div class="review-product">
+                <img class="review-product-thumb" src="assets/images/products/All%20Day%20Misfit/image%20(1).jpg" alt="All Day Misfit EDP" loading="lazy">
+                <span class="review-product-name">All Day Misfit 50ML</span>
+              </div>
+            </div>
+
+            <!-- Review 4: Naina / Aqua Manthan -->
+            <div class="review-card">
+              <p class="review-name">Naina</p>
+              <p class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+              <p class="review-title">Love it</p>
+              <p class="review-text">This is such a beautiful perfume. I bought it recently and the new branding looks very premium. The fragrance feels fresh, smooth and elegant.</p>
+              <hr class="review-divider">
+              <div class="review-product">
+                <img class="review-product-thumb" src="assets/images/products/Aqua%20Manthan/image%20(2).jpg" alt="Aqua Manthan EDP" loading="lazy">
+                <span class="review-product-name">Aqua Manthan 50ML</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- FAQ ACCORDION LIST -->
+        <section class="nf-faq-section">
+            <h2 class="nf-faq-title">Frequently Asked Questions</h2>
+            <div class="accordion-list nf-faq-list">
+                <div class="accordion-item nf-faq-item">
+                    <button class="accordion-trigger nf-faq-trigger" aria-expanded="false">
+                        Are NAFUME fragrances long-lasting?
+                        <span class="material-symbols-outlined accordion-icon nf-faq-icon">expand_more</span>
+                    </button>
+                    <div class="accordion-content nf-faq-answer">
+                        <p>Yes. NAFUME perfumes are designed as Eau De Parfum blends with long-lasting character, smooth dry-down, and performance suited for Indian weather.</p>
+                    </div>
+                </div>
+                <div class="accordion-item nf-faq-item">
+                    <button class="accordion-trigger nf-faq-trigger" aria-expanded="false">
+                        Which NAFUME perfume should I choose?
+                        <span class="material-symbols-outlined accordion-icon nf-faq-icon">expand_more</span>
+                    </button>
+                    <div class="accordion-content nf-faq-answer">
+                        <p>Choose based on your personality and occasion. Seduction is fruity and musky, Dark Oud is bold and woody, Red Spirit is energetic and spicy, Aqua Manthan is fresh and aquatic, and All Day Misfit is modern, bold, and versatile.</p>
+                    </div>
+                </div>
+                <div class="accordion-item nf-faq-item">
+                    <button class="accordion-trigger nf-faq-trigger" aria-expanded="false">
+                        Are NAFUME perfumes suitable for Indian weather?
+                        <span class="material-symbols-outlined accordion-icon nf-faq-icon">expand_more</span>
+                    </button>
+                    <div class="accordion-content nf-faq-answer">
+                        <p>Yes. NAFUME fragrances are created with Indian heat and humidity in mind, so they feel wearable, balanced, and present through the day.</p>
+                    </div>
+                </div>
+                <div class="accordion-item nf-faq-item">
+                    <button class="accordion-trigger nf-faq-trigger" aria-expanded="false">
+                        How do I order from NAFUME?
+                        <span class="material-symbols-outlined accordion-icon nf-faq-icon">expand_more</span>
+                    </button>
+                    <div class="accordion-content nf-faq-answer">
+                        <p>Select your fragrance, add it to cart, fill your shipping details, and confirm your order directly on WhatsApp.</p>
+                    </div>
+                </div>
+                <div class="accordion-item nf-faq-item">
+                    <button class="accordion-trigger nf-faq-trigger" aria-expanded="false">
+                        Is payment completed on the website?
+                        <span class="material-symbols-outlined accordion-icon nf-faq-icon">expand_more</span>
+                    </button>
+                    <div class="accordion-content nf-faq-answer">
+                        <p>No. Payment and final confirmation are handled on WhatsApp for now.</p>
+                    </div>
+                </div>
+                <div class="accordion-item nf-faq-item">
+                    <button class="accordion-trigger nf-faq-trigger" aria-expanded="false">
+                        Is NAFUME good for gifting?
+                        <span class="material-symbols-outlined accordion-icon nf-faq-icon">expand_more</span>
+                    </button>
+                    <div class="accordion-content nf-faq-answer">
+                        <p>Yes. NAFUME perfumes are suitable for gifting, special occasions, daily use, and personal signature fragrance choices. See our <a href="pages/collections/gifting.html" class="underline hover:text-accent-bronze">gifting page</a> for ideas.</p>
+                    </div>
+                </div>
+                <div class="accordion-item nf-faq-item">
+                    <button class="accordion-trigger nf-faq-trigger" aria-expanded="false">
+                        Which NAFUME perfume is best for daily use?
+                        <span class="material-symbols-outlined accordion-icon nf-faq-icon">expand_more</span>
+                    </button>
+                    <div class="accordion-content nf-faq-answer">
+                        <p>For everyday and office wear, Aqua Manthan is a fresh, clean choice that stays comfortable through the day. All Day Misfit is a great versatile option if you prefer something warmer. Browse our <a href="pages/collections/collection.html?collection=office-wear" class="underline hover:text-accent-bronze">office &amp; daily wear collection</a>.</p>
+                    </div>
+                </div>
+                <div class="accordion-item nf-faq-item">
+                    <button class="accordion-trigger nf-faq-trigger" aria-expanded="false">
+                        Do you offer discovery sets or samples?
+                        <span class="material-symbols-outlined accordion-icon nf-faq-icon">expand_more</span>
+                    </button>
+                    <div class="accordion-content nf-faq-answer">
+                        <p>You can explore the full range through our <a href="pages/collections/collection.html?collection=discovery-set" class="underline hover:text-accent-bronze">discovery set</a>, or create a custom <a href="pages/collections/build-your-own-box.html" class="underline hover:text-accent-bronze">build-your-own box</a> with up to three fragrances and confirm it on WhatsApp.</p>
+                    </div>
+                </div>
+                <div class="accordion-item nf-faq-item">
+                    <button class="accordion-trigger nf-faq-trigger" aria-expanded="false">
+                        How can I track my order?
+                        <span class="material-symbols-outlined accordion-icon nf-faq-icon">expand_more</span>
+                    </button>
+                    <div class="accordion-content nf-faq-answer">
+                        <p>Visit our <a href="pages/order/track-order.html" class="underline hover:text-accent-bronze">Track Order</a> page and enter your order ID, phone number or AWB number. Once your parcel is dispatched, your courier tracking details will appear there.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COLLAPSIBLE SEO CONTENT (Upgrade 8: page H1 + internal links) -->
+        <section class="py-xl px-margin-mobile md:px-margin-desktop max-w-[1000px] mx-auto text-center">
+            <div class="faq-content relative text-left md:text-center text-body-md text-text-secondary text-sm border-t border-border-muted/50 pt-8" id="seo-section" style="max-height: 150px; overflow: hidden; transition: max-height 0.5s ease;">
+                <h1 class="text-headline-sm font-semibold text-primary mb-4 text-center">NAFUME Perfumes — Everyday Luxury, Crafted for Indian Wear</h1>
+                <p class="mb-4 font-light">
+                    NAFUME is a premium perfume brand in India built for people who want fragrance that feels considered, performs well, and suits real life. Our Eau De Parfum blends are made with carefully chosen ingredients — rich oud, warm amber, fresh marine accords, soft florals and smooth, sweet musks — shaped into long-lasting perfumes that hold up in Indian heat and humidity.
+                </p>
+                <p class="mb-4 font-light">
+                    Whether you are looking for an easy everyday fragrance for the office, a fresh scent for warm afternoons, or a deeper oud or woody perfume for evenings and special occasions, there is a NAFUME for the moment. Explore the floral warmth of Seduction, the smoky intensity of Dark Oud, the fiery spice of Red Spirit, the crisp freshness of Aqua Manthan, or the sweet coffee-tobacco character of All Day Misfit. Each fragrance is its own personality, designed to become your signature.
+                </p>
+                <p class="mb-4 font-light">
+                    New to the brand? Start with our <a href="pages/collections/collection.html?collection=best-sellers" class="underline hover:text-accent-bronze">best sellers</a> or browse the latest <a href="pages/collections/collection.html?collection=new-launches" class="underline hover:text-accent-bronze">new launches</a>. Not sure which scent suits you? Browse <a href="pages/collections/collections.html" class="underline hover:text-accent-bronze">all collections</a> or explore the full range with our <a href="pages/collections/collection.html?collection=discovery-set" class="underline hover:text-accent-bronze">discovery set</a>. Shopping for someone else? Our <a href="pages/collections/gifting.html" class="underline hover:text-accent-bronze">gifting</a> options are beautifully packaged and ready to give.
+                </p>
+                <p class="font-light">
+                    <a href="pages/collections/shop.html" class="underline hover:text-accent-bronze">Shop all perfumes</a>, add your favourite to cart, and confirm your order directly on WhatsApp — a simple, trusted experience built for Indian customers. Delivery pan-India in 3–7 days. Free shipping above ₹999.
+                </p>
+            </div>
+            <button class="mt-6 text-label-sm font-semibold uppercase tracking-widest text-primary border-b border-primary hover:text-accent-bronze hover:border-accent-bronze transition-colors focus:outline-none" id="seo-toggle" onclick="toggleSeo()">Read More</button>
+        </section>
+
+    </main>
+
+    <div id="global-footer"></div>
+
+    <!-- GLOBAL SCRIPTS -->
+    <script src="js/state.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/commerce/config.js"></script>
+    <script src="js/commerce/customer-service.js"></script>
+    <script src="js/commerce/review-service.js"></script>
+    <script src="js/commerce/seo-service.js"></script>
+    <script src="js/commerce/offer-service.js"></script>
+    <script src="js/launch.js"></script>
+    <script src="js/commerce/operations-service.js"></script>
+    <!-- Structured data (Upgrade 8): Organization + Website + homepage FAQ -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (!window.SEO) return;
+            try {
+                SEO.injectJsonLd(SEO.createOrganizationSchema(), "ld-organization");
+                SEO.injectJsonLd(SEO.createWebsiteSchema(), "ld-website");
+                // Mirror the visible homepage FAQ as FAQ schema (honest, matches page).
+                var homeFaqs = [
+                    { q: "Are NAFUME fragrances long-lasting?", a: "Yes. NAFUME perfumes are Eau De Parfum blends with long-lasting character and a smooth dry-down, designed to perform in Indian weather." },
+                    { q: "Which NAFUME perfume should I choose?", a: "Choose based on your personality and occasion. Seduction is floral and musky, Dark Oud is bold and woody, Red Spirit is spicy, Aqua Manthan is fresh and aquatic, and All Day Misfit is sweet and versatile." },
+                    { q: "Are NAFUME perfumes suitable for Indian weather?", a: "Yes. NAFUME fragrances are created with Indian heat and humidity in mind, so they feel wearable and balanced through the day." },
+                    { q: "How do I order from NAFUME?", a: "Select your fragrance, add it to cart, fill your shipping details, and confirm your order directly on WhatsApp." },
+                    { q: "Which NAFUME perfume is best for daily use?", a: "Aqua Manthan is a fresh, clean choice for everyday and office wear. All Day Misfit is a warmer, versatile everyday option." },
+                    { q: "Do you offer discovery sets or samples?", a: "You can explore the full range through our discovery set, or build a custom box with up to three fragrances and confirm it on WhatsApp." },
+                    { q: "How can I track my order?", a: "Use the Track Order page and enter your order ID, phone number or AWB number. Courier tracking appears once your parcel is dispatched." }
+                ];
+                var faqSchema = SEO.createFAQSchema(homeFaqs);
+                if (faqSchema) SEO.injectJsonLd(faqSchema, "ld-faq");
+            } catch (e) {}
+        });
+    </script>
+    <script>
+        // Collapsible SEO Section logic
+        function toggleSeo() {
+            const section = document.getElementById('seo-section');
+            const button = document.getElementById('seo-toggle');
+            if (section.style.maxHeight === '150px') {
+                section.style.maxHeight = '1400px';
+                button.textContent = 'Read Less';
+            } else {
+                section.style.maxHeight = '150px';
+                button.textContent = 'Read More';
+            }
+        }
+
+        // ── Hero Banner Slider ────────────────────────────────
+        (function () {
+            var slides = document.querySelectorAll('#hero-banner-slider .hero-slide');
+            var dots   = document.querySelectorAll('#hero-dots .hero-dot');
+            var current = 0;
+            var timer;
+
+            function goTo(n) {
+                slides[current].classList.remove('active');
+                dots[current].classList.remove('active');
+                current = (n + slides.length) % slides.length;
+                slides[current].classList.add('active');
+                dots[current].classList.add('active');
+            }
+
+            function next() { goTo(current + 1); }
+
+            function start() { timer = setInterval(next, 4500); }
+            function stop()  { clearInterval(timer); }
+
+            dots.forEach(function (dot, i) {
+                dot.addEventListener('click', function () { stop(); goTo(i); start(); });
+            });
+
+            var slider = document.getElementById('hero-banner-slider');
+            if (slider) {
+                slider.addEventListener('mouseenter', stop);
+                slider.addEventListener('mouseleave', start);
+            }
+
+            if (slides.length > 1) start();
+        })();
+
+        // ── Watch and Buy Carousel ────────────────────────────
+        (function () {
+            var carousel = document.getElementById('watchCarousel');
+            if (!carousel) return;
+
+            function cardWidth() {
+                var card = carousel.querySelector('.watch-video-card');
+                if (!card) return 0;
+                var gap = 14;
+                return card.offsetWidth + gap;
+            }
+
+            window.watchCarouselMove = function (dir) {
+                carousel.scrollLeft += dir * cardWidth() * 2;
+            };
+
+            // Pause videos outside viewport (IntersectionObserver)
+            var videos = carousel.querySelectorAll('video');
+            if ('IntersectionObserver' in window) {
+                var obs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting) {
+                            e.target.play().catch(function(){});
+                        } else {
+                            e.target.pause();
+                        }
+                    });
+                }, { threshold: 0.3 });
+                videos.forEach(function (v) { obs.observe(v); });
+            }
+        })();
+    </script>
+</body>
+</html>
+
