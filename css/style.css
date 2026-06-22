@@ -935,7 +935,8 @@ label, li, small, td, th, caption,
 .cart-item-del:hover { color: #e44444; }
 
 .cart-drawer-footer {
-    border-top: 1px solid #DEDEDE; padding: 18px 20px; flex-shrink: 0;
+    border-top: 1px solid #DEDEDE; flex-shrink: 0;
+    padding: 18px 20px calc(18px + env(safe-area-inset-bottom, 0px));
 }
 .cart-totals  { display: flex; flex-direction: column; gap: 7px; margin-bottom: 14px; }
 .cart-row     { display: flex; justify-content: space-between; font-size: 13px; }
@@ -965,6 +966,48 @@ label, li, small, td, th, caption,
     color: #bbb; transition: color 0.2s; background: none; cursor: pointer;
 }
 .btn-clear-cart:hover { color: #e44444; }
+
+/* ── Cart upsells & bundles (Upgrade 9) ──────────────────────────────────────
+   Ported from launch.css so the homepage cart drawer matches the product-page
+   cart exactly. These classes (recommendation rows, bundle banner, discovery
+   link, offer row) were added to launch.css but were missing here, which left
+   the homepage cart's recommendation rows unstyled (huge image, merged text). */
+.cart-bundle-banner {
+  display: flex; align-items: center; gap: 8px;
+  background: #f9f5f0; border: 1px solid #e8e4e0; border-radius: 4px;
+  padding: 10px 12px; margin: 0 0 12px; font-size: 12px; color: #5d4037; line-height: 1.5;
+}
+.cart-bundle-banner .material-symbols-outlined { font-size: 18px; color: #C5A059; }
+.cart-bundle-banner.cart-bundle-on { background: #f1f8f2; border-color: #cfe8d4; color: #2e7d32; }
+.cart-bundle-banner.cart-bundle-on .material-symbols-outlined { color: #2e7d32; }
+.cart-row-offer { display: flex; justify-content: space-between; font-size: 12px; }
+.cart-offer-label { color: #2e7d32; }
+.cart-upsell-wrap { border-top: 1px solid #e8e4e0; margin-top: 14px; padding-top: 14px; }
+.cart-upsell-title {
+  font-family: var(--font-heading, var(--font-head)); font-size: 12px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: #111; margin: 0 0 10px;
+}
+.cart-upsell-card {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 0; border-bottom: 1px solid #f0ece8;
+}
+.cart-upsell-img { width: 44px; height: 56px; object-fit: cover; border-radius: 2px; flex-shrink: 0; }
+.cart-upsell-info { flex: 1; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.cart-upsell-name { font-size: 13px; font-weight: 600; color: #111; text-decoration: none; }
+.cart-upsell-name:hover { color: #C5A059; }
+.cart-upsell-reason { font-size: 11px; color: #999; }
+.cart-upsell-price { font-size: 12px; font-weight: 700; color: #111; }
+.cart-upsell-add {
+  width: 30px; height: 30px; border: 1px solid #111; background: #fff; color: #111;
+  border-radius: 50%; font-size: 18px; line-height: 1; cursor: pointer; flex-shrink: 0;
+  transition: background 0.15s, color 0.15s;
+}
+.cart-upsell-add:hover { background: #111; color: #fff; }
+.cart-discovery-cta {
+  display: block; margin-top: 12px; font-size: 12px; color: #555;
+  text-decoration: underline; text-align: center;
+}
+.cart-discovery-cta:hover { color: #C5A059; }
 
 .lp-toast {
     position: fixed; bottom: 24px; left: 50%;

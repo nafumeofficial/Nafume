@@ -9,6 +9,8 @@ build/
 .env.local
 *.log
 *.zip
+.claude/
+.vercel/
 ref/
 docs/
 assets/Screenshots/

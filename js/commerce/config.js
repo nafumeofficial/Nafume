@@ -146,8 +146,8 @@
       buyAny3: {
         enabled:          true,
         requiredQuantity: 3,
-        bundlePrice:      2799,    // price cap for any 3 eligible 50ml perfumes
-        label:            "Buy any 3 × 50ml at ₹2799"
+        bundlePrice:      2199,    // price cap for any 3 eligible 50ml perfumes
+        label:            "Buy any 3 × 50ml at ₹2199"
       },
       giftingAddOn: {
         enabled: true,

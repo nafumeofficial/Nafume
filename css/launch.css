@@ -320,7 +320,7 @@ h1, h2, h3, h4, h5, h6,
 .lp-overlay.active { opacity: 1; visibility: visible; }
 
 .lp-cart-drawer {
-  position: fixed; inset-y: 0; right: 0;
+  position: fixed; top: 0; bottom: 0; right: 0;
   width: 100%; max-width: 420px;
   background: #fff;
   z-index: 300;
@@ -429,8 +429,8 @@ h1, h2, h3, h4, h5, h6,
 .cart-item-del .material-symbols-outlined { font-size: 18px; }
 
 .cart-drawer-footer {
-  border-top: 1px solid var(--border);
-  padding: 18px 20px; flex-shrink: 0;
+  border-top: 1px solid var(--border); flex-shrink: 0;
+  padding: 18px 20px calc(18px + env(safe-area-inset-bottom, 0px));
 }
 .cart-totals { display: flex; flex-direction: column; gap: 7px; margin-bottom: 14px; }
 .cart-row { display: flex; justify-content: space-between; font-size: 13px; }

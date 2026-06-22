@@ -522,7 +522,7 @@ function renderCartDrawer() {
       '<div class="cart-row-total"><span>Total</span><span>' + curr + finalTotal.toLocaleString("en-IN") + '</span></div>' +
       '<p class="cart-gst-note">GST inclusive · offers applied at checkout</p>' +
     '</div>' +
-    '<a href="/pages/order/shipping.html" class="btn-to-shipping">Continue to Shipping →</a>' +
+    '<a href="/pages/order/shipping.html" class="btn-to-shipping">Proceed to Checkout →</a>' +
     '<button onclick="launchClearCart()" class="btn-clear-cart">Clear Cart</button>';
 }
 
