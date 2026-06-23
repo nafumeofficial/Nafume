@@ -51,10 +51,10 @@
       sortOrder:   3,
       icon:        "🕴️",
       seoTitle:    "Best Perfumes for Men — NAFUME Artisan Luxe",
-      seoDescription: "Shop the best men's perfumes from NAFUME. Bold, long-lasting Eau De Parfum fragrances — Dark Oud, Red Spirit, Aqua Manthan, All Day Misfit.",
+      seoDescription: "Shop the best men's perfumes from NAFUME. Bold, long-lasting Eau De Parfum fragrances — Dark Oud, Red Spirit, Aqua Manthan, All Day.",
       faqItems: [
         { q: "Which NAFUME perfume is best for men?", a: "Dark Oud is our most intense masculine fragrance. Red Spirit for bold spicy confidence. Aqua Manthan for fresh everyday wear." },
-        { q: "Are these men's fragrances suitable for office wear?", a: "Aqua Manthan is ideal for office. Red Spirit and All Day Misfit work well for casual daytime and evening." }
+        { q: "Are these men's fragrances suitable for office wear?", a: "Aqua Manthan is ideal for office. Red Spirit and All Day work well for casual daytime and evening." }
       ]
     },
     {
@@ -86,7 +86,7 @@
       seoDescription: "Explore NAFUME's unisex perfume collection. Versatile, gender-free fragrances that work beautifully for everyone.",
       faqItems: [
         { q: "What makes a perfume unisex?", a: "Unisex fragrances use scent profiles that feel balanced and expressive regardless of gender — think fresh, gourmand, and aromatic blends." },
-        { q: "Which NAFUME fragrances are best for couples?", a: "Aqua Manthan and All Day Misfit are popular couple choices. Both are versatile and work for different skin types." }
+        { q: "Which NAFUME fragrances are best for couples?", a: "Aqua Manthan and All Day are popular couple choices. Both are versatile and work for different skin types." }
       ]
     },
     {
@@ -353,7 +353,7 @@
     },
     "unisex": {
       seoContentTitle: "Fragrances That Suit Everyone",
-      seoContentBody: "Unisex fragrances are built around versatile scent profiles that feel balanced on any wearer. They are a smart choice if you like sharing, gifting without guessing preferences, or simply want a scent that adapts across moods and occasions. Aqua Manthan, Red Spirit and All Day Misfit are easy, expressive everyday options.",
+      seoContentBody: "Unisex fragrances are built around versatile scent profiles that feel balanced on any wearer. They are a smart choice if you like sharing, gifting without guessing preferences, or simply want a scent that adapts across moods and occasions. Aqua Manthan, Red Spirit and All Day are easy, expressive everyday options.",
       relatedCollections: ["office-wear", "fresh-aquatic", "best-sellers"]
     },
     "office-wear": {

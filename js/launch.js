@@ -84,23 +84,16 @@ const LAUNCH_PRODUCTS = [
     behindPerfume: "Crafted for those who believe fragrance is an invisible accessory. Seduction is the scent of anticipation — the quiet confidence before an evening that matters.",
     whyLove:     "Rich yet wearable, the rose-amber harmony feels both classic and modern. A true signature scent that people will ask about.",
     usage:       "Apply to pulse points — wrists, neck, and behind ears. Best applied right after showering on warm skin for maximum longevity.",
-    image:       "/assets/images/products/Seduction/image%20(3).jpg",
-    // Card-only thumbnail variations (square, bottle-centered) for listing
-    // sections. Used by getProductThumbnail(); does NOT affect the PDP gallery.
+    image:       "/assets/images/products/seduction/01.jpg",
     thumbnails: [
-      "/assets/images/products/thumbnails/Seduction/SEDUCTION%20(1).jpg",
-      "/assets/images/products/thumbnails/Seduction/SEDUCTION%20(2).jpg",
-      "/assets/images/products/thumbnails/Seduction/SEDUCTION%20(3).jpg",
-      "/assets/images/products/thumbnails/Seduction/SEDUCTION%20(6).jpg",
-      "/assets/images/products/thumbnails/Seduction/SEDUCTION%20(7).jpg",
-      "/assets/images/products/thumbnails/Seduction/SEDUCTION%20(8).jpg",
-      "/assets/images/products/thumbnails/Seduction/03%20(2).png"
+      "/assets/images/products/thumbnails/Seduction/SEDUCTION%20(1).jpg"
     ],
     gallery: [
-      "/assets/images/products/Seduction/image%20(1).jpg",
-      "/assets/images/products/Seduction/image%20(0).jpg",
-      "/assets/images/products/Seduction/image%20(3).jpg",
-      "/assets/images/products/Seduction/image%20(5).jpg"
+      "/assets/images/products/seduction/01.jpg",
+      "/assets/images/products/seduction/02.jpg",
+      "/assets/images/products/seduction/03.jpg",
+      "/assets/images/products/seduction/04.jpg",
+      "/assets/images/products/seduction/05.jpg"
     ],
     // ── Shopify checkout mapping (Upgrade 2) ──
     // Replace null with the real Shopify Product ID after the product is created in Shopify.
@@ -138,20 +131,16 @@ const LAUNCH_PRODUCTS = [
     behindPerfume: "Inspired by the ancient incense routes of Arabia and India, Dark Oud captures the soul of royal oud rituals in a modern bottle.",
     whyLove:     "Extrait-level richness at an accessible price. Dark Oud speaks before you do — intense, long-lasting, and unmistakably premium.",
     usage:       "2–3 sprays is all you need. Apply to chest and wrists. The concentration is powerful — less is more.",
-    image:       "/assets/images/products/Dark%20Oud/image%20(2).jpg",
+    image:       "/assets/images/products/dark-oud/01.jpg",
     thumbnails: [
-      "/assets/images/products/thumbnails/Dark%20Oud/DARK%20OUD%20(1).jpg",
-      "/assets/images/products/thumbnails/Dark%20Oud/DARK%20OUD%20(2).jpg",
-      "/assets/images/products/thumbnails/Dark%20Oud/DARK%20OUD%20(6).jpg",
-      "/assets/images/products/thumbnails/Dark%20Oud/DARK%20OUD%20(7).jpg",
-      "/assets/images/products/thumbnails/Dark%20Oud/DARK%20OUD%20(8).jpg",
-      "/assets/images/products/thumbnails/Dark%20Oud/DARK%20OUD%20(9).jpg"
+      "/assets/images/products/thumbnails/Dark%20Oud/DARK%20OUD%20(1).jpg"
     ],
     gallery: [
-      "/assets/images/products/Dark%20Oud/image%20(1).jpg",
-      "/assets/images/products/Dark%20Oud/image%20(0).jpg",
-      "/assets/images/products/Dark%20Oud/image%20(2).jpg",
-      "/assets/images/products/Dark%20Oud/image%20(5).jpg"
+      "/assets/images/products/dark-oud/01.jpg",
+      "/assets/images/products/dark-oud/02.jpg",
+      "/assets/images/products/dark-oud/03.jpg",
+      "/assets/images/products/dark-oud/04.jpg",
+      "/assets/images/products/dark-oud/05.jpg"
     ],
     shopifyProductId: null, // Replace null with real Shopify Product ID
     shopifyVariantId: null, // Replace null with real Shopify Variant / merchandise ID
@@ -184,18 +173,16 @@ const LAUNCH_PRODUCTS = [
     behindPerfume: "Born from the idea that confidence has a scent. Red Spirit is the fragrance of someone who walks into a room and owns it — before saying a word.",
     whyLove:     "Spicy without being harsh, warm without being sweet. Red Spirit wears close to the skin yet fills every room you walk into.",
     usage:       "Spray 2–3 times on the chest and wrists. The warmth of your pulse points amplifies the spice notes beautifully throughout the day.",
-    image:       "/assets/images/products/Red%20Spirit/image%20(3).jpg",
+    image:       "/assets/images/products/red-spirit/01.jpg",
     thumbnails: [
-      "/assets/images/products/thumbnails/Red%20Spirit/RED%20SPIRIT%20(2).jpg",
-      "/assets/images/products/thumbnails/Red%20Spirit/RED%20SPIRIT%20(3).jpg",
-      "/assets/images/products/thumbnails/Red%20Spirit/RED%20SPIRIT%20(4).jpg",
-      "/assets/images/products/thumbnails/Red%20Spirit/RED%20SPIRIT%20(5).jpg"
+      "/assets/images/products/thumbnails/Red%20Spirit/RED%20SPIRIT%20(1).jpg"
     ],
     gallery: [
-      "/assets/images/products/Red%20Spirit/image%20(1).jpg",
-      "/assets/images/products/Red%20Spirit/image%20(0).jpg",
-      "/assets/images/products/Red%20Spirit/image%20(3).jpg",
-      "/assets/images/products/Red%20Spirit/image%20(5).jpg"
+      "/assets/images/products/red-spirit/01.jpg",
+      "/assets/images/products/red-spirit/02.jpg",
+      "/assets/images/products/red-spirit/03.jpg",
+      "/assets/images/products/red-spirit/04.jpg",
+      "/assets/images/products/red-spirit/05.jpg"
     ],
     shopifyProductId: null, // Replace null with real Shopify Product ID
     shopifyVariantId: null, // Replace null with real Shopify Variant / merchandise ID
@@ -228,19 +215,16 @@ const LAUNCH_PRODUCTS = [
     behindPerfume: "Manthan means 'churning' in Sanskrit — a process of creation. Aqua Manthan is the result of churning the ocean for its purest essence, bottled for you.",
     whyLove:     "The perfect daily driver. Fresh yet distinctive, light yet lasting. The fragrance people notice without being able to place.",
     usage:       "Spray generously on chest and neck after a shower. The marine accord blooms even more refreshingly in heat.",
-    image:       "/assets/images/products/Aqua%20Manthan/image%20(2).jpg",
+    image:       "/assets/images/products/aqua-manthan/01.jpg",
     thumbnails: [
-      "/assets/images/products/thumbnails/Aqua%20Manthan/AQUA%20MANTHAN%20(3).jpg",
-      "/assets/images/products/thumbnails/Aqua%20Manthan/AQUA%20MANTHAN%20(4).jpg",
-      "/assets/images/products/thumbnails/Aqua%20Manthan/AQUA%20MANTHAN%20(5).jpg",
-      "/assets/images/products/thumbnails/Aqua%20Manthan/AQUA%20MANTHAN%20(6).jpg",
-      "/assets/images/products/thumbnails/Aqua%20Manthan/AQUA%20MANTHAN%20(7).jpg"
+      "/assets/images/products/thumbnails/Aqua%20Manthan/AQUA%20MANTHAN%20(1).jpg"
     ],
     gallery: [
-      "/assets/images/products/Aqua%20Manthan/image%20(3).jpg",
-      "/assets/images/products/Aqua%20Manthan/image%20(0).jpg",
-      "/assets/images/products/Aqua%20Manthan/image%20(2).jpg",
-      "/assets/images/products/Aqua%20Manthan/image%20(1).jpg"
+      "/assets/images/products/aqua-manthan/01.jpg",
+      "/assets/images/products/aqua-manthan/02.jpg",
+      "/assets/images/products/aqua-manthan/03.jpg",
+      "/assets/images/products/aqua-manthan/04.jpg",
+      "/assets/images/products/aqua-manthan/05.jpg"
     ],
     shopifyProductId: null, // Replace null with real Shopify Product ID
     shopifyVariantId: null, // Replace null with real Shopify Variant / merchandise ID
@@ -259,8 +243,8 @@ const LAUNCH_PRODUCTS = [
   {
     id:          "all-day-misfit",
     slug: "/pages/products/all-day-misfit.html",
-    name:        "All Day Misfit",
-    displayName: "ALL DAY MISFIT 50ML",
+    name:        "All Day",
+    displayName: "ALL DAY 50ML",
     edp:         "Eau De Parfum",
     family:      "Gourmand | Woody",
     notes:       ["Coffee", "Tobacco", "Vanilla"],
@@ -269,24 +253,20 @@ const LAUNCH_PRODUCTS = [
     baseNotes:   "Sandalwood, Patchouli, Warm Musk",
     feelings:    ["Carefree", "Warm", "Unique"],
     occasions:   ["Everyday", "Casual Hangouts", "Late Nights", "Travel"],
-    description: "All Day Misfit is for those who refuse to fit in. A rich blend of dark coffee and cacao on a base of tobacco leaf and warm musk — a fragrance as complex and unpredictable as you are.",
+    description: "All Day is for those who refuse to fit in. A rich blend of dark coffee and cacao on a base of tobacco leaf and warm musk — a fragrance as complex and unpredictable as you are.",
     behindPerfume: "Inspired by late-night coffee shops and creative misfits who live by their own rules. This is not a fragrance for everyone — it's a fragrance for you.",
     whyLove:     "A conversation-starter in a bottle. The coffee-tobacco accord is rare and uniquely addictive. Those who love it obsess over it.",
     usage:       "Apply on pulse points and the back of the neck. The gourmand notes develop beautifully over time — let it breathe and evolve on your skin.",
-    image:       "/assets/images/products/All%20Day%20Misfit/image%20(1).jpg",
+    image:       "/assets/images/products/all-day-misfit/01.jpg",
     thumbnails: [
-      "/assets/images/products/thumbnails/All%20Day%20Misfit/ALL%20DAY%20(3).jpg",
-      "/assets/images/products/thumbnails/All%20Day%20Misfit/ALL%20DAY%20(4).jpg",
-      "/assets/images/products/thumbnails/All%20Day%20Misfit/ALL%20DAY%20(6).jpg",
-      "/assets/images/products/thumbnails/All%20Day%20Misfit/ALL%20DAY%20(7).jpg",
-      "/assets/images/products/thumbnails/All%20Day%20Misfit/01%20(6).png"
+      "/assets/images/products/thumbnails/All%20Day%20Misfit/ALL%20DAY%20(1).jpg"
     ],
     gallery: [
-      "/assets/images/products/All%20Day%20Misfit/image%20(2).jpg",
-      "/assets/images/products/All%20Day%20Misfit/image%20(0).jpg",
-      "/assets/images/products/All%20Day%20Misfit/image%20(1).jpg",
-      "/assets/images/products/All%20Day%20Misfit/image%20(3).jpg",
-      "/assets/images/products/All%20Day%20Misfit/image%20(6).jpg"
+      "/assets/images/products/all-day-misfit/01.jpg",
+      "/assets/images/products/all-day-misfit/02.jpg",
+      "/assets/images/products/all-day-misfit/03.jpg",
+      "/assets/images/products/all-day-misfit/04.jpg",
+      "/assets/images/products/all-day-misfit/05.jpg"
     ],
     shopifyProductId: null, // Replace null with real Shopify Product ID
     shopifyVariantId: null, // Replace null with real Shopify Variant / merchandise ID
@@ -1913,11 +1893,11 @@ function renderGlobalFooter() {
 
   var igUrl = 'https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5';
   var igImages = [
-    '/assets/images/products/Seduction/image%20(0).jpg',
-    '/assets/images/products/Dark%20Oud/image%20(0).jpg',
-    '/assets/images/products/Red%20Spirit/image%20(0).jpg',
-    '/assets/images/products/Aqua%20Manthan/image%20(0).jpg',
-    '/assets/images/products/All%20Day%20Misfit/image%20(3).jpg'
+    '/assets/images/products/seduction/01.jpg',
+    '/assets/images/products/dark-oud/01.jpg',
+    '/assets/images/products/red-spirit/01.jpg',
+    '/assets/images/products/aqua-manthan/01.jpg',
+    '/assets/images/products/all-day-misfit/01.jpg'
   ];
 
   var igItems = igImages.map(function(src) {

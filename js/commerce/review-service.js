@@ -280,7 +280,7 @@
       ["aqua-manthan","Naina","Mumbai",5,"Fresh and clean","Bought it recently and the branding looks premium. Fresh, smooth and elegant — great for daily wear."],
       ["aqua-manthan","Aditya","Bengaluru",4,"Office friendly","Clean aquatic scent that lasts well for office wear. Subtle and pleasant in the heat."],
       ["aqua-manthan","Meera","Pune",5,"Easy to wear","Light and refreshing. Works well for everyday wear and the humidity here."],
-      // All Day Misfit
+      // All Day
       ["all-day-misfit","Aditya R.","Delhi",5,"Lovely woody scent","In love with this one. Versatile and works well for both day and evening. Picks up compliments."],
       ["all-day-misfit","Tarun","Bhopal",4,"Unique coffee note","The coffee and tobacco mix is different and pleasant. Settles nicely after a while."],
       ["all-day-misfit","Pooja","Jaipur",5,"Cozy and warm","Sweet but not too much. Noticeable yet comfortable for daily wear. Good for gifting too."]

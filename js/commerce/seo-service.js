@@ -37,7 +37,7 @@
     tagline:     "Premium Eau De Parfum, crafted for Indian wear",
     description: "NAFUME is a premium perfume brand in India offering long-lasting Eau De Parfum — oud, fresh, floral, woody and sweet scents for everyday wear, office, evenings and gifting.",
     // Replace with a dedicated 1200×630 social image before launch.
-    defaultImage: "https://nafume.com/assets/images/products/Seduction/image%20(1).jpg",
+    defaultImage: "https://nafume.com/assets/images/products/seduction/01.jpg",
     instagram:   (CFG.instagramUrl || "https://www.instagram.com/nafume.official"),
     whatsapp:    (CFG.whatsappNumber || "918595862227"),
     sellingPrice: CFG.sellingPrice || 799,

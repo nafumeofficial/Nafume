@@ -709,6 +709,9 @@ label, li, small, td, th, caption,
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
+.watch-buy-carousel.is-centered {
+    justify-content: center;
+}
 .watch-carousel-arrow {
     position: absolute;
     top: 40%;
