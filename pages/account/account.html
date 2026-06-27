@@ -8,7 +8,7 @@
   <title>Account — NAFUME Artisan Luxe</title>
   <meta name="description" content="Log in to your NAFUME account to view orders, track deliveries and manage your profile."/>
   <meta name="robots" content="noindex,follow"/>
-  <link rel="canonical" href="https://nafume.com/pages/account/account.html"/>
+  <link rel="canonical" href="https://www.nafume.com/pages/account/account.html"/>
   <!-- Tailwind CSS v3 CDN -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <!-- Material Icons -->
@@ -463,14 +463,14 @@
             '<div>' +
               '<p class="text-[10px] uppercase tracking-widest text-text-secondary">Order</p>' +
               '<p class="font-semibold text-primary text-sm">' + esc(o.orderId) + '</p>' +
-              '<p class="text-[11px] text-text-secondary mt-0.5">' + fmtDate(o.createdAt) + ' · ' + titleCase(o.checkoutType) + '</p>' +
+              '<p class="text-[11px] text-text-secondary mt-0.5">' + fmtDate(o.createdAt) + ' · ' + esc(titleCase(o.checkoutType)) + '</p>' +
             '</div>' +
             '<span class="text-sm font-bold text-primary whitespace-nowrap">' + curr(t.total) + '</span>' +
           '</div>' +
           '<div class="flex flex-wrap gap-2 mb-3">' +
-            '<span class="text-[10px] uppercase tracking-wider bg-surface border border-border-muted px-2 py-1">' + titleCase(o.status) + '</span>' +
-            '<span class="text-[10px] uppercase tracking-wider bg-surface border border-border-muted px-2 py-1">Pay: ' + titleCase(o.paymentStatus) + '</span>' +
-            '<span class="text-[10px] uppercase tracking-wider bg-surface border border-border-muted px-2 py-1">' + titleCase(o.fulfillmentStatus) + '</span>' +
+            '<span class="text-[10px] uppercase tracking-wider bg-surface border border-border-muted px-2 py-1">' + esc(titleCase(o.status)) + '</span>' +
+            '<span class="text-[10px] uppercase tracking-wider bg-surface border border-border-muted px-2 py-1">Pay: ' + esc(titleCase(o.paymentStatus)) + '</span>' +
+            '<span class="text-[10px] uppercase tracking-wider bg-surface border border-border-muted px-2 py-1">' + esc(titleCase(o.fulfillmentStatus)) + '</span>' +
           '</div>' +
           awbLine(o) +
           '<div class="flex gap-3">' +

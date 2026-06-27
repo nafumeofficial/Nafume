@@ -462,9 +462,9 @@ function renderCartDrawer() {
   // ── Item rows ──
   var itemsHTML = launchCart.map(function(item) {
     return '<div class="cart-item">' +
-      '<img class="cart-item-img" src="' + item.image + '" alt="' + item.name + '" onerror="this.style.visibility=\'hidden\'">' +
+      '<img class="cart-item-img" src="' + item.image + '" alt="' + escapeHtml(item.name) + '" onerror="this.style.visibility=\'hidden\'">' +
       '<div class="cart-item-info">' +
-        '<p class="cart-item-name">' + item.name + '</p>' +
+        '<p class="cart-item-name">' + escapeHtml(item.name) + '</p>' +
         '<p class="cart-item-sub">Eau De Parfum</p>' +
         '<div class="cart-qty-row">' +
           '<button class="cq-btn" onclick="launchChangeQty(\'' + item.id + '\',-1)">&#8722;</button>' +
@@ -551,13 +551,13 @@ function cartUpsellHtml() {
   var cards = recs.slice(0, 3).map(function (r) {
     var p = r.product;
     return '<div class="cart-upsell-card">' +
-      '<img class="cart-upsell-img" src="' + p.image + '" alt="NAFUME ' + p.name + ' perfume bottle" loading="lazy" onerror="this.style.visibility=\'hidden\'">' +
+      '<img class="cart-upsell-img" src="' + p.image + '" alt="NAFUME ' + escapeHtml(p.name) + ' perfume bottle" loading="lazy" onerror="this.style.visibility=\'hidden\'">' +
       '<div class="cart-upsell-info">' +
-        '<a href="' + p.slug + '" class="cart-upsell-name">' + p.name + '</a>' +
-        '<span class="cart-upsell-reason">' + r.reason + '</span>' +
+        '<a href="' + p.slug + '" class="cart-upsell-name">' + escapeHtml(p.name) + '</a>' +
+        '<span class="cart-upsell-reason">' + escapeHtml(r.reason) + '</span>' +
         '<span class="cart-upsell-price">' + LAUNCH_CONFIG.currency + LAUNCH_CONFIG.sellingPrice.toLocaleString("en-IN") + '</span>' +
       '</div>' +
-      '<button class="cart-upsell-add" onclick="handleUpsellAdd(\'' + p.id + '\',this)" aria-label="Add ' + p.name + '">+</button>' +
+      '<button class="cart-upsell-add" onclick="handleUpsellAdd(\'' + p.id + '\',this)" aria-label="Add ' + escapeHtml(p.name) + '">+</button>' +
     '</div>';
   }).join("");
 

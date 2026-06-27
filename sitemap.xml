@@ -1,40 +1,49 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Home -->
+  <!-- Homepage -->
   <url>
-    <loc>https://nafume.com/</loc>
-    <lastmod>2026-06-20</lastmod>
+    <loc>https://www.nafume.com/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Product pages -->
-  <url><loc>https://nafume.com/pages/products/seduction.html</loc><lastmod>2026-06-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://nafume.com/pages/products/dark-oud.html</loc><lastmod>2026-06-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://nafume.com/pages/products/red-spirit.html</loc><lastmod>2026-06-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://nafume.com/pages/products/aqua-manthan.html</loc><lastmod>2026-06-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://nafume.com/pages/products/all-day-misfit.html</loc><lastmod>2026-06-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.nafume.com/pages/products/seduction.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.nafume.com/pages/products/dark-oud.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.nafume.com/pages/products/red-spirit.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.nafume.com/pages/products/aqua-manthan.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.nafume.com/pages/products/all-day-misfit.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
-  <!-- Collections -->
-  <url><loc>https://nafume.com/pages/collections/collections.html</loc><lastmod>2026-06-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://nafume.com/pages/collections/shop.html</loc><lastmod>2026-06-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://nafume.com/pages/collections/gifting.html</loc><lastmod>2026-06-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://nafume.com/pages/collections/build-your-own-box.html</loc><lastmod>2026-06-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://nafume.com/pages/collections/collection.html?collection=best-sellers</loc><lastmod>2026-06-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://nafume.com/pages/collections/collection.html?collection=new-launches</loc><lastmod>2026-06-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <!-- Shop / Collections -->
+  <url><loc>https://www.nafume.com/pages/collections/shop.html</loc><lastmod>2026-06-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.nafume.com/pages/collections/collections.html</loc><lastmod>2026-06-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.nafume.com/pages/collections/gifting.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nafume.com/pages/collections/build-your-own-box.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Support -->
-  <url><loc>https://nafume.com/pages/support/contact.html</loc><lastmod>2026-06-20</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://nafume.com/pages/support/faq.html</loc><lastmod>2026-06-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-
-  <!-- Legal -->
-  <url><loc>https://nafume.com/pages/legal/privacy-policy.html</loc><lastmod>2026-06-20</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://nafume.com/pages/legal/shipping-policy.html</loc><lastmod>2026-06-20</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://nafume.com/pages/legal/return-refund-policy.html</loc><lastmod>2026-06-20</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://nafume.com/pages/legal/terms-conditions.html</loc><lastmod>2026-06-20</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.nafume.com/pages/support/contact.html</loc><lastmod>2026-06-27</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.nafume.com/pages/support/faq.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
   <!-- Brand -->
-  <url><loc>https://nafume.com/pages/brand/about.html</loc><lastmod>2026-06-20</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.nafume.com/pages/brand/about.html</loc><lastmod>2026-06-27</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+
+  <!-- Legal — only include finalized policies -->
+  <url><loc>https://www.nafume.com/pages/legal/privacy-policy.html</loc><lastmod>2026-06-27</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.nafume.com/pages/legal/shipping-policy.html</loc><lastmod>2026-06-27</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.nafume.com/pages/legal/return-refund-policy.html</loc><lastmod>2026-06-27</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <!-- terms-conditions.html has placeholder business/GSTIN details — add back once finalised -->
+  <!-- <url><loc>https://www.nafume.com/pages/legal/terms-conditions.html</loc><lastmod>2026-06-27</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url> -->
+
+  <!--
+    EXCLUDED FROM SITEMAP:
+    - /pages/order/* (confirmation, shipping, track-order) — transactional, noindex
+    - /pages/account/* — user-specific, noindex
+    - /admin/* — private
+    - /pages/collections/collection.html?collection=* — query-param template, noindex
+    - /pages/support/grievance-officer.html — contains placeholder data, noindex until details updated
+    - /checkout.html, /fragrance-finder.html — stub/utility pages
+  -->
 
 </urlset>
