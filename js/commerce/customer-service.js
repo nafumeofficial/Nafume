@@ -1,15 +1,9 @@
 ﻿/* ============================================================================
    NAFUME — Customer Account Service   (Upgrade 3)
    ----------------------------------------------------------------------------
-   A LOCAL, DEMO-ONLY customer account + order-history layer. It gives the site
-   a clean account UX and data shape that can later be swapped for a real
-   provider (Shopify Customer Accounts / Firebase / Supabase / custom backend).
-
-   ⚠️  THIS IS NOT SECURE AUTHENTICATION.
-       - No real OTP is sent. The demo OTP is "123456".
-       - Profiles live in localStorage (readable by anyone on the device).
-       - Never store real passwords here and never treat this as production auth.
-       See docs/customer-account-setup.md before going live.
+   Customer account + order-history layer. Phone OTP login is verified via
+   MSG91 SendOTP API through Vercel serverless endpoints (api/otp/).
+   Customer profiles are stored in localStorage on the user's device.
 
    Self-contained: depends on nothing. If window.Commerce is present it is used
    to read/attach orders; otherwise it falls back to direct localStorage.
@@ -17,8 +11,8 @@
    Public API (window.CustomerService):
      getCurrentCustomer()
      isCustomerLoggedIn()
-     startMockLogin(identifier)
-     verifyMockOtp(identifier, otp)
+     sendOtp(phone, callback)              // async — calls /api/otp/send
+     verifyOtp(phone, otp, callback)       // async — calls /api/otp/verify
      createOrUpdateCustomer(profileData)
      updateCustomerAddress(addressData)
      logoutCustomer()
@@ -26,14 +20,14 @@
      attachOrderToCustomer(orderId, customerIdentifier)
      getSavedCheckoutDetails()
      saveCheckoutDetailsFromCustomer(details)
-     renderAccountNav()                     // header "Account / My Account" link
+     renderAccountNav()                    // header "Account / My Account" link
    ========================================================================== */
 (function (global) {
   "use strict";
 
-  // Demo OTP — replace with a real OTP provider before production.
-  // TODO[auth]: integrate a real OTP/SMS/email provider + backend verification.
-  var DEMO_OTP = "123456";
+  // MSG91 proxy endpoints — Vercel serverless functions in api/otp/ (authkey never in frontend)
+  var OTP_SEND_URL   = "/api/otp/send";
+  var OTP_VERIFY_URL = "/api/otp/verify";
 
   var CFG  = global.COMMERCE_CONFIG || {};
   var KEYS = (CFG.storageKeys || {});
@@ -143,52 +137,124 @@
     return writeJSON(CURRENT_KEY, customer.customerId);
   }
 
-  // ── mock login (NO real OTP) ─────────────────────────────────────────────
-  function startMockLogin(identifier) {
-    if (!storageAvailable()) {
-      return { success: false, error: "storage_unavailable",
-        message: "Your browser is blocking local storage, so accounts can't be used right now." };
-    }
-    var id = classifyIdentifier(identifier);
-    if (!id.valid) {
-      return { success: false, error: "invalid_identifier",
-        message: "Please enter a valid phone number or email." };
-    }
-    setSession({ identifier: id.value, type: id.type, status: "otp_sent",
-                 startedAt: new Date().toISOString() });
-    // TODO[auth]: here you would call your OTP provider to actually send a code.
-    return { success: true, demo: true, otpHint: DEMO_OTP,
-      message: "For now, this is a local demo account. Real OTP will be connected later." };
+  // ── session-scoped rate-limit state (UI guard — real limiting is on MSG91) ──
+  function rlKey(phone) { return "nf_otp_rl_" + phone; }
+  function getRlState(phone) {
+    try {
+      var v = global.sessionStorage.getItem(rlKey(phone));
+      return v ? JSON.parse(v) : { sends: 0, firstSendAt: 0, lastSendAt: 0, attempts: 0 };
+    } catch (e) { return { sends: 0, firstSendAt: 0, lastSendAt: 0, attempts: 0 }; }
+  }
+  function setRlState(phone, state) {
+    try { global.sessionStorage.setItem(rlKey(phone), JSON.stringify(state)); } catch (e) {}
+  }
+  function clearRlState(phone) {
+    try { global.sessionStorage.removeItem(rlKey(phone)); } catch (e) {}
+  }
+  function resendCooldownSeconds(phone) {
+    var s = getRlState(phone);
+    if (!s.lastSendAt) return 0;
+    var elapsed = (Date.now() - s.lastSendAt) / 1000;
+    return elapsed < 30 ? Math.ceil(30 - elapsed) : 0;
   }
 
-  function verifyMockOtp(identifier, otp) {
-    var id = classifyIdentifier(identifier);
-    if (!id.valid) {
-      return { success: false, error: "invalid_identifier",
-        message: "Please enter a valid phone number or email." };
+  // ── real OTP send (async, uses MSG91 proxy) ──────────────────────────────
+  function sendOtp(phone, callback) {
+    var digits = last10(String(phone || "").replace(/\D/g, ""));
+    if (digits.length !== 10 || !/^[6-9]/.test(digits)) {
+      return callback({ success: false, error: "invalid_phone",
+        message: "Please enter a valid 10-digit mobile number." });
     }
-    if (String(otp || "").trim() !== DEMO_OTP) {
-      return { success: false, error: "invalid_otp",
-        message: "Invalid OTP. For this demo, use " + DEMO_OTP + "." };
+    var cd = resendCooldownSeconds(digits);
+    if (cd > 0) {
+      return callback({ success: false, error: "cooldown",
+        message: "Please wait " + cd + " seconds before requesting a new OTP.",
+        cooldownSeconds: cd });
     }
-    var customer = findCustomerByIdentifier(identifier);
-    if (!customer) {
-      customer = blankProfile(identifier);
-      var all = getAllCustomers();
-      all.push(customer);
-      if (!saveAllCustomers(all)) {
-        return { success: false, error: "save_failed",
-          message: "We couldn't create your account on this device. Please try again." };
+    var rl = getRlState(digits);
+    var windowMs = 10 * 60 * 1000;
+    if (Date.now() - rl.firstSendAt < windowMs && rl.sends >= 3) {
+      return callback({ success: false, error: "rate_limited",
+        message: "Too many OTP requests. Please try again after 10 minutes." });
+    }
+    global.fetch(OTP_SEND_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ phone: digits })
+    }).then(function (res) {
+      return res.json().then(function (data) { return { status: res.status, data: data }; });
+    }).then(function (r) {
+      if (r.data.success) {
+        var now = Date.now();
+        setRlState(digits, {
+          sends:       (rl.sends || 0) + 1,
+          firstSendAt: rl.firstSendAt || now,
+          lastSendAt:  now,
+          attempts:    0
+        });
+        setSession({ identifier: digits, type: "phone", status: "otp_sent",
+                     startedAt: new Date().toISOString() });
+        return callback({ success: true });
       }
+      return callback({ success: false, error: r.data.error || "otp_send_failed",
+        message: r.data.message || "Could not send OTP. Please try again." });
+    }).catch(function () {
+      callback({ success: false, error: "network_error",
+        message: "Network error. Please check your connection and try again." });
+    });
+  }
+
+  // ── real OTP verify (async, uses MSG91 proxy) ────────────────────────────
+  function verifyOtp(phone, otp, callback) {
+    var digits = last10(String(phone || "").replace(/\D/g, ""));
+    var otpStr = String(otp || "").replace(/\D/g, "");
+    if (digits.length !== 10) {
+      return callback({ success: false, error: "invalid_phone", message: "Invalid phone number." });
     }
-    setCurrent(customer);
-    setSession({ identifier: id.value, type: id.type, status: "logged_in",
-                 loggedInAt: new Date().toISOString() });
-    // Analytics (Upgrade 10) — safe + guarded.
-    if (global.OperationsService) {
-      try { global.OperationsService.recordAnalyticsEvent("account_login", { customerId: customer.customerId }); } catch (e) {}
+    if (otpStr.length !== 6) {
+      return callback({ success: false, error: "invalid_otp_format",
+        message: "Please enter the 6-digit OTP." });
     }
-    return { success: true, customer: customer };
+    var rl = getRlState(digits);
+    if ((rl.attempts || 0) >= 5) {
+      return callback({ success: false, error: "max_attempts",
+        message: "Too many incorrect attempts. Please request a new OTP." });
+    }
+    global.fetch(OTP_VERIFY_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ phone: digits, otp: otpStr })
+    }).then(function (res) {
+      return res.json().then(function (data) { return { status: res.status, data: data }; });
+    }).then(function (r) {
+      if (r.data.success) {
+        var customer = findCustomerByIdentifier(digits);
+        if (!customer) {
+          customer = blankProfile(digits);
+          var all = getAllCustomers();
+          all.push(customer);
+          if (!saveAllCustomers(all)) {
+            return callback({ success: false, error: "save_failed",
+              message: "We couldn't create your account on this device. Please try again." });
+          }
+        }
+        setCurrent(customer);
+        setSession({ identifier: digits, type: "phone", status: "logged_in",
+                     loggedInAt: new Date().toISOString() });
+        clearRlState(digits);
+        if (global.OperationsService) {
+          try { global.OperationsService.recordAnalyticsEvent("account_login",
+            { customerId: customer.customerId }); } catch (e) {}
+        }
+        return callback({ success: true, customer: customer });
+      }
+      setRlState(digits, Object.assign({}, rl, { attempts: (rl.attempts || 0) + 1 }));
+      return callback({ success: false, error: r.data.error || "verify_failed",
+        message: r.data.message || "Incorrect OTP. Please try again." });
+    }).catch(function () {
+      callback({ success: false, error: "network_error",
+        message: "Network error. Please check your connection and try again." });
+    });
   }
 
   // ── profile / address updates ────────────────────────────────────────────
@@ -366,19 +432,19 @@
 
   // ── expose ───────────────────────────────────────────────────────────────
   global.CustomerService = {
-    getCurrentCustomer:            getCurrentCustomer,
-    isCustomerLoggedIn:            isCustomerLoggedIn,
-    startMockLogin:                startMockLogin,
-    verifyMockOtp:                 verifyMockOtp,
-    createOrUpdateCustomer:        createOrUpdateCustomer,
-    updateCustomerAddress:         updateCustomerAddress,
-    logoutCustomer:                logoutCustomer,
-    getCustomerOrders:             getCustomerOrders,
-    getAllCustomers:               getAllCustomers,   // Upgrade 10: ops dashboard
-    attachOrderToCustomer:         attachOrderToCustomer,
-    getSavedCheckoutDetails:       getSavedCheckoutDetails,
+    getCurrentCustomer:              getCurrentCustomer,
+    isCustomerLoggedIn:              isCustomerLoggedIn,
+    sendOtp:                         sendOtp,
+    verifyOtp:                       verifyOtp,
+    createOrUpdateCustomer:          createOrUpdateCustomer,
+    updateCustomerAddress:           updateCustomerAddress,
+    logoutCustomer:                  logoutCustomer,
+    getCustomerOrders:               getCustomerOrders,
+    getAllCustomers:                  getAllCustomers,   // ops dashboard
+    attachOrderToCustomer:           attachOrderToCustomer,
+    getSavedCheckoutDetails:         getSavedCheckoutDetails,
     saveCheckoutDetailsFromCustomer: saveCheckoutDetailsFromCustomer,
-    renderAccountNav:              renderAccountNav
+    renderAccountNav:                renderAccountNav
   };
 
   // Inject the Account link on every page that includes this file.

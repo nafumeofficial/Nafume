@@ -214,21 +214,22 @@
           '<div class="acct-login-col">' +
             '<h2 class="acct-col-heading">Log In</h2>' +
 
-            /* Step 1: identifier + password */
+            /* Step 1: phone input */
             '<div id="acct-step-id">' +
-              '<input id="acct-identifier" class="acct-input" type="email" autocomplete="email" placeholder="Email" />' +
-              '<input id="acct-password"   class="acct-input" type="password" autocomplete="current-password" placeholder="Password" />' +
-              '<button class="acct-forgot" type="button" onclick="void(0)">Forgot your password?</button>' +
-              '<button id="acct-continue" class="acct-btn-signin" type="button">Sign In</button>' +
+              '<input id="acct-identifier" class="acct-input" type="tel" autocomplete="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" />' +
+              '<button id="acct-continue" class="acct-btn-signin" type="button">Send OTP</button>' +
             '</div>' +
 
-            /* Step 2: OTP (hidden initially) */
+            /* Step 2: OTP entry (hidden initially) */
             '<div id="acct-step-otp" class="acct-otp-step" style="display:none;">' +
               '<p class="acct-otp-note" id="acct-otp-target"></p>' +
               '<input id="acct-otp" class="acct-input" type="text" inputmode="numeric" maxlength="6" placeholder="Enter 6-digit OTP" style="letter-spacing:0.25em;text-align:center;" />' +
               '<button id="acct-verify" class="acct-btn-signin" type="button">Verify &amp; Sign In</button>' +
-              '<button id="acct-back" class="acct-back-btn" type="button">Use a different email</button>' +
-              '<p class="acct-demo-note">Demo mode: use OTP <strong>123456</strong> to sign in.</p>' +
+              '<div style="margin-top:10px;display:flex;align-items:center;gap:10px;">' +
+                '<button id="acct-resend" class="acct-back-btn" type="button" style="margin-top:0;">Resend OTP</button>' +
+                '<span id="acct-resend-cd" style="font-size:12px;color:#888;"></span>' +
+              '</div>' +
+              '<button id="acct-back" class="acct-back-btn" type="button">Use a different number</button>' +
             '</div>' +
 
             '<p id="acct-msg" class="acct-form-msg"></p>' +
@@ -245,10 +246,15 @@
         '</div>';
 
       /* Wire up events */
-      var identEl = document.getElementById("acct-identifier");
-      var stepId  = document.getElementById("acct-step-id");
-      var stepOtp = document.getElementById("acct-step-otp");
-      var msgEl   = document.getElementById("acct-msg");
+      var identEl     = document.getElementById("acct-identifier");
+      var stepId      = document.getElementById("acct-step-id");
+      var stepOtp     = document.getElementById("acct-step-otp");
+      var msgEl       = document.getElementById("acct-msg");
+      var continueBtn = document.getElementById("acct-continue");
+      var verifyBtn   = document.getElementById("acct-verify");
+      var resendBtn   = document.getElementById("acct-resend");
+      var resendCdEl  = document.getElementById("acct-resend-cd");
+      var resendTimer = null;
 
       function showMsg(text, kind) {
         msgEl.textContent = text;
@@ -258,44 +264,102 @@
         msgEl.className = "acct-form-msg";
         msgEl.textContent = "";
       }
-
-      /* Sign In */
-      document.getElementById("acct-continue").addEventListener("click", function () {
-        var id = (identEl.value || "").trim();
-        if (!id) { showMsg("Please enter your email or phone number.", "error"); return; }
-        var res = CS.startMockLogin(id);
-        if (!res.success) { showMsg(res.message, "error"); return; }
-        stepId.style.display = "none";
-        stepOtp.style.display = "";
-        document.getElementById("acct-otp-target").textContent =
-          "A verification code would be sent to " + id + ". " + (res.message || "");
+      function startResendTimer(secs) {
+        resendBtn.disabled = true;
+        clearInterval(resendTimer);
+        var remaining = secs;
+        resendCdEl.textContent = "(" + remaining + "s)";
+        resendTimer = setInterval(function () {
+          remaining--;
+          if (remaining <= 0) {
+            clearInterval(resendTimer);
+            resendBtn.disabled = false;
+            resendCdEl.textContent = "";
+          } else {
+            resendCdEl.textContent = "(" + remaining + "s)";
+          }
+        }, 1000);
+      }
+      function doSendOtp(phone) {
+        continueBtn.disabled = true;
+        continueBtn.textContent = "Sending OTP…";
         clearMsg();
-        document.getElementById("acct-otp").focus();
+        CS.sendOtp(phone, function (res) {
+          continueBtn.disabled = false;
+          continueBtn.textContent = "Send OTP";
+          if (!res.success) { showMsg(res.message, "error"); return; }
+          stepId.style.display = "none";
+          stepOtp.style.display = "";
+          document.getElementById("acct-otp-target").textContent =
+            "OTP sent to +91 " + phone + ". Valid for 10 minutes.";
+          startResendTimer(30);
+          clearMsg();
+          document.getElementById("acct-otp").focus();
+        });
+      }
+
+      /* Send OTP */
+      continueBtn.addEventListener("click", function () {
+        var phone = (identEl.value || "").replace(/\D/g, "").slice(-10);
+        if (phone.length !== 10 || !/^[6-9]/.test(phone)) {
+          showMsg("Please enter a valid 10-digit mobile number.", "error"); return;
+        }
+        doSendOtp(phone);
       });
 
       /* Verify OTP */
-      document.getElementById("acct-verify").addEventListener("click", function () {
-        var otp = (document.getElementById("acct-otp").value || "").trim();
-        var res = CS.verifyMockOtp((identEl.value || "").trim(), otp);
-        if (!res.success) { showMsg(res.message, "error"); return; }
-        renderAccount();
+      verifyBtn.addEventListener("click", function () {
+        var otp   = (document.getElementById("acct-otp").value || "").replace(/\D/g, "");
+        var phone = (identEl.value || "").replace(/\D/g, "").slice(-10);
+        verifyBtn.disabled = true;
+        verifyBtn.textContent = "Verifying…";
+        clearMsg();
+        CS.verifyOtp(phone, otp, function (res) {
+          verifyBtn.disabled = false;
+          verifyBtn.textContent = "Verify & Sign In";
+          if (!res.success) { showMsg(res.message, "error"); return; }
+          renderAccount();
+        });
+      });
+
+      /* Resend OTP */
+      resendBtn.addEventListener("click", function () {
+        var phone = (identEl.value || "").replace(/\D/g, "").slice(-10);
+        resendBtn.disabled = true;
+        resendBtn.textContent = "Resending…";
+        clearMsg();
+        CS.sendOtp(phone, function (res) {
+          resendBtn.textContent = "Resend OTP";
+          if (!res.success) {
+            resendBtn.disabled = false;
+            showMsg(res.message, "error"); return;
+          }
+          showMsg("New OTP sent.", "info");
+          startResendTimer(30);
+        });
       });
 
       /* Back */
       document.getElementById("acct-back").addEventListener("click", function () {
+        clearInterval(resendTimer);
         stepOtp.style.display = "none";
         stepId.style.display = "";
         clearMsg();
       });
 
-      /* Enter key on email */
+      /* Enter key on phone input */
       identEl.addEventListener("keydown", function (e) {
-        if (e.key === "Enter") document.getElementById("acct-continue").click();
+        if (e.key === "Enter") continueBtn.click();
+      });
+
+      /* Enter key on OTP input */
+      document.getElementById("acct-otp").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") verifyBtn.click();
       });
 
       /* Register */
       document.getElementById("acct-register-btn").addEventListener("click", function () {
-        window.location.href = 'register.html';
+        window.location.href = "register.html";
       });
     }
 

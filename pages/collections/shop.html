@@ -234,9 +234,13 @@
 
       grid.innerHTML = products.map(function (p, i) {
         var imgErr = 'onerror="this.style.visibility=\'hidden\'"';
+        var imgSrc = (p.thumbnails && p.thumbnails.length) ? p.thumbnails[0] : p.image;
+        var hoverSrc = getProductHoverThumbnail(p);
+        var hoverImg = hoverSrc ? '<img class="prod-card-img prod-card-img--hover" src="' + hoverSrc + '" alt="" loading="eager" aria-hidden="true">' : '';
         return '<div class="prod-card">' +
           '<a href="' + p.slug + '" class="prod-card-link" aria-label="View ' + p.name + '">' +
-            '<img class="prod-card-img" src="' + getProductThumbnail(p, 'shop', i) + '" alt="NAFUME ' + p.name + ' perfume bottle" loading="lazy" ' + imgErr + '>' +
+            '<img class="prod-card-img" src="' + imgSrc + '" alt="NAFUME ' + p.name + ' perfume bottle" loading="lazy" ' + imgErr + '>' +
+            hoverImg +
             '<div class="nl-badge-wrap">' + productBadgesHtml(p) + '</div>' +
           '</a>' +
           '<div class="prod-card-info">' +

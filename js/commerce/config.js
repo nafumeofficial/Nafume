@@ -179,7 +179,7 @@
       enableInventoryWarnings: true,
       lowStockThreshold:      5,
       defaultStockQuantity:   50,               // seeded for products with no stored stock
-      supportEmail:           "support@nafume.com",
+      supportEmail:           "nafume.official@gmail.com",
       supportWhatsApp:        "",               // optional; falls back to whatsappNumber
       adminWarning:           "Local demo admin only. Connect a secure backend before production."
     },

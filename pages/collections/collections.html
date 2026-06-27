@@ -171,13 +171,18 @@
 
     function renderCard(col) {
       var href = col.linkTo || ('collection.html?collection=' + col.slug);
-      var coverSrc = pickThumb(prodById(coverProductId[col.slug]));
+      var p = prodById(coverProductId[col.slug]);
+      var coverSrc = (p && p.thumbnails && p.thumbnails.length) ? p.thumbnails[0] : (p ? p.image : '');
+      var hoverSrc = (p && p.thumbnails && p.thumbnails.length > 1) ? p.thumbnails[1] : null;
       var count = cs.getProductsByCollection(col.slug).length;
       var imgTag = coverSrc
         ? '<img class="coll-card-img" src="' + coverSrc + '" alt="' + col.title + '" loading="lazy">'
         : '';
+      var hoverImg = hoverSrc
+        ? '<img class="coll-card-img--hover" src="' + hoverSrc + '" alt="" loading="eager" aria-hidden="true">'
+        : '';
       return '<a href="' + href + '" class="coll-card">' +
-        '<div class="coll-card-img-wrap">' + imgTag + '</div>' +
+        '<div class="coll-card-img-wrap">' + imgTag + hoverImg + '</div>' +
         '<div class="coll-card-info">' +
           '<p class="coll-card-title">' + col.title + '</p>' +
           '<p class="coll-card-subtitle">' + col.subtitle + '</p>' +

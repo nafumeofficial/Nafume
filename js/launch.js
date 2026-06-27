@@ -86,7 +86,9 @@ const LAUNCH_PRODUCTS = [
     usage:       "Apply to pulse points — wrists, neck, and behind ears. Best applied right after showering on warm skin for maximum longevity.",
     image:       "/assets/images/products/seduction/01.jpg",
     thumbnails: [
-      "/assets/images/products/thumbnails/Seduction/SEDUCTION%20(1).jpg"
+      "/assets/images/products/thumbnails/Seduction/image-1.jpg",
+      "/assets/images/products/thumbnails/Seduction/image-2.jpg",
+      "/assets/images/products/thumbnails/Seduction/image-3.jpg"
     ],
     gallery: [
       "/assets/images/products/seduction/01.jpg",
@@ -133,7 +135,10 @@ const LAUNCH_PRODUCTS = [
     usage:       "2–3 sprays is all you need. Apply to chest and wrists. The concentration is powerful — less is more.",
     image:       "/assets/images/products/dark-oud/01.jpg",
     thumbnails: [
-      "/assets/images/products/thumbnails/Dark%20Oud/DARK%20OUD%20(1).jpg"
+      "/assets/images/products/thumbnails/Dark%20Oud/image-1.jpg",
+      "/assets/images/products/thumbnails/Dark%20Oud/image-2.jpg",
+      "/assets/images/products/thumbnails/Dark%20Oud/image-3.jpg",
+      "/assets/images/products/thumbnails/Dark%20Oud/image-4.jpg"
     ],
     gallery: [
       "/assets/images/products/dark-oud/01.jpg",
@@ -175,7 +180,9 @@ const LAUNCH_PRODUCTS = [
     usage:       "Spray 2–3 times on the chest and wrists. The warmth of your pulse points amplifies the spice notes beautifully throughout the day.",
     image:       "/assets/images/products/red-spirit/01.jpg",
     thumbnails: [
-      "/assets/images/products/thumbnails/Red%20Spirit/RED%20SPIRIT%20(1).jpg"
+      "/assets/images/products/thumbnails/Red%20Spirit/image-1.jpg",
+      "/assets/images/products/thumbnails/Red%20Spirit/image-2.jpg",
+      "/assets/images/products/thumbnails/Red%20Spirit/image-3.jpg"
     ],
     gallery: [
       "/assets/images/products/red-spirit/01.jpg",
@@ -217,7 +224,9 @@ const LAUNCH_PRODUCTS = [
     usage:       "Spray generously on chest and neck after a shower. The marine accord blooms even more refreshingly in heat.",
     image:       "/assets/images/products/aqua-manthan/01.jpg",
     thumbnails: [
-      "/assets/images/products/thumbnails/Aqua%20Manthan/AQUA%20MANTHAN%20(1).jpg"
+      "/assets/images/products/thumbnails/Aqua%20Manthan/image-1.jpg",
+      "/assets/images/products/thumbnails/Aqua%20Manthan/image-2.jpg",
+      "/assets/images/products/thumbnails/Aqua%20Manthan/image-3.jpg"
     ],
     gallery: [
       "/assets/images/products/aqua-manthan/01.jpg",
@@ -259,7 +268,9 @@ const LAUNCH_PRODUCTS = [
     usage:       "Apply on pulse points and the back of the neck. The gourmand notes develop beautifully over time — let it breathe and evolve on your skin.",
     image:       "/assets/images/products/all-day-misfit/01.jpg",
     thumbnails: [
-      "/assets/images/products/thumbnails/All%20Day%20Misfit/ALL%20DAY%20(1).jpg"
+      "/assets/images/products/thumbnails/All%20Day%20Misfit/image-1.jpg",
+      "/assets/images/products/thumbnails/All%20Day%20Misfit/image-2.jpg",
+      "/assets/images/products/thumbnails/All%20Day%20Misfit/image-3.jpg"
     ],
     gallery: [
       "/assets/images/products/all-day-misfit/01.jpg",
@@ -623,17 +634,27 @@ function getProductThumbnail(product, context, index) {
   return list[h % list.length];
 }
 
+function getProductHoverThumbnail(product) {
+  if (!product || !product.thumbnails || product.thumbnails.length < 2) return null;
+  return product.thumbnails[1];
+}
+
 // ─── Product grid renderer (used by launch.html) ──────────────────
 function renderLaunchGrid(containerId, products, context) {
   var grid = document.getElementById(containerId);
   if (!grid) return;
 
   grid.innerHTML = products.map(function(p, i) {
-    var imgSrc = getProductThumbnail(p, context || "grid", i);
+    var imgSrc = (p.thumbnails && p.thumbnails.length) ? p.thumbnails[0] : p.image;
+    var hoverSrc = getProductHoverThumbnail(p);
     var imgErr = 'onerror="this.src=\'' + placeholderSrc(p.name) + '\'"';
+    var hoverImg = hoverSrc
+      ? '<img class="prod-card-img prod-card-img--hover" src="' + hoverSrc + '" alt="" loading="eager" aria-hidden="true">'
+      : '';
     return '<div class="prod-card">' +
       '<a href="' + p.slug + '" class="prod-card-link" aria-label="View ' + p.name + '">' +
         '<img class="prod-card-img" src="' + imgSrc + '" alt="' + p.name + ' by NAFUME" loading="lazy" ' + imgErr + '>' +
+        hoverImg +
         '<div class="nl-badge-wrap">' + productBadgesHtml(p) + '</div>' +
       '</a>' +
       '<div class="prod-card-info">' +
@@ -759,7 +780,7 @@ function initProductPage(productId) {
           '<div class="acc-legal-row"><span class="acc-legal-label">MRP (Incl. taxes)</span><span class="acc-legal-val">₹' + LAUNCH_CONFIG.mrp + '</span></div>' +
           '<div class="acc-legal-row"><span class="acc-legal-label">Country of Origin</span><span class="acc-legal-val">India</span></div>' +
           '<div class="acc-legal-row"><span class="acc-legal-label">Manufacturer / Marketer</span><span class="acc-legal-val">To be updated before launch</span></div>' +
-          '<div class="acc-legal-row"><span class="acc-legal-label">Customer Care</span><span class="acc-legal-val">support@nafume.com</span></div>' +
+          '<div class="acc-legal-row"><span class="acc-legal-label">Customer Care</span><span class="acc-legal-val">nafume.official@gmail.com</span></div>' +
         '</div>' +
         '<div class="acc-legal-row" style="margin-bottom:10px"><span class="acc-legal-label">Ingredients</span>' +
           '<span class="acc-legal-val">Alcohol Denat., Fragrance (Parfum), Aqua — <em style="color:#aaa;font-size:12px">Verify with supplier before launch</em></span>' +
@@ -976,9 +997,12 @@ function initProductPage(productId) {
         '<div class="other-grid">' +
           others.map(function(op, oi) {
             var oErr = 'onerror="this.src=\'' + placeholderSrc(op.name) + '\'"';
+            var oHoverSrc = getProductHoverThumbnail(op);
+            var oHoverImg = oHoverSrc ? '<img class="prod-card-img prod-card-img--hover" src="' + oHoverSrc + '" alt="" loading="eager" aria-hidden="true">' : '';
             return '<div class="prod-card">' +
               '<a href="' + op.slug + '" class="prod-card-link">' +
-                '<img class="prod-card-img" src="' + getProductThumbnail(op, "related", oi) + '" alt="NAFUME ' + op.name + ' perfume bottle" loading="lazy" ' + oErr + '>' +
+                '<img class="prod-card-img" src="' + ((op.thumbnails && op.thumbnails.length) ? op.thumbnails[0] : op.image) + '" alt="NAFUME ' + op.name + ' perfume bottle" loading="lazy" ' + oErr + '>' +
+                oHoverImg +
                 '<div class="nl-badge-wrap">' + productBadgesHtml(op) + '</div>' +
               '</a>' +
               '<div class="prod-card-info">' +
@@ -1134,9 +1158,12 @@ function renderProductPairings(p) {
   var cards = recs.map(function (r, ri) {
     var op = r.product;
     var oErr = 'onerror="this.src=\'' + placeholderSrc(op.name) + '\'"';
+    var pHoverSrc = getProductHoverThumbnail(op);
+    var pHoverImg = pHoverSrc ? '<img class="prod-card-img prod-card-img--hover" src="' + pHoverSrc + '" alt="" loading="eager" aria-hidden="true">' : '';
     return '<div class="prod-card">' +
       '<a href="' + op.slug + '" class="prod-card-link">' +
-        '<img class="prod-card-img" src="' + getProductThumbnail(op, "pairing", ri) + '" alt="NAFUME ' + op.name + ' perfume bottle" loading="lazy" ' + oErr + '>' +
+        '<img class="prod-card-img" src="' + ((op.thumbnails && op.thumbnails.length) ? op.thumbnails[0] : op.image) + '" alt="NAFUME ' + op.name + ' perfume bottle" loading="lazy" ' + oErr + '>' +
+        pHoverImg +
         '<span class="pairing-reason">' + r.reason + '</span>' +
       '</a>' +
       '<div class="prod-card-info">' +
@@ -1525,12 +1552,16 @@ function enhanceHomeProductCards() {
     //     LAUNCHES. nfPath() keeps it working on file:// and http://. Idempotent.
     var img = card.querySelector(".home-product-image");
     if (product && img && !img.getAttribute("data-thumb-set")) {
-      var sectionEl = card.closest(".home-product-section");
-      var ctx = (sectionEl && sectionEl.id) ? sectionEl.id : "home";
-      var thumb = getProductThumbnail(product, ctx, cardIndex);
-      if (thumb) {
-        img.src = nfPath(thumb);
-        img.setAttribute("data-thumb-set", "1");
+      // Skip src swap on cards that already have a hover image set up — those
+      // use thumbnails[0] as primary and overwriting would break the swap.
+      if (!card.querySelector(".home-product-image--hover")) {
+        var sectionEl = card.closest(".home-product-section");
+        var ctx = (sectionEl && sectionEl.id) ? sectionEl.id : "home";
+        var thumb = getProductThumbnail(product, ctx, cardIndex);
+        if (thumb) {
+          img.src = nfPath(thumb);
+          img.setAttribute("data-thumb-set", "1");
+        }
       }
     }
 
@@ -1999,7 +2030,7 @@ function renderGlobalFooter() {
     '      <p class="footer-subscribe-text" style="margin-bottom:12px">Premium fragrances crafted for everyday luxury.</p>',
     '      <p class="footer-subscribe-text" style="margin-bottom:4px"><strong>Customer Care</strong></p>',
     '      <a href="/pages/support/contact.html" class="footer-link">Contact Us</a>',
-    '      <a href="mailto:support@nafume.com" class="footer-link">support@nafume.com</a>',
+    '      <a href="mailto:nafume.official@gmail.com" class="footer-link">nafume.official@gmail.com</a>',
     /* PLACEHOLDER — replace with real details before launch */
     '      <!-- TODO: Replace with real registered business address before launch -->',
     '    </div>',
@@ -2340,4 +2371,31 @@ function initCheckoutAccountUI() {
   if (sub && sub.parentNode === col) col.insertBefore(note, sub.nextSibling);
   else col.insertBefore(note, form);
 }
+
+// ─── Sitewide: tap & hold to show hover image on touch devices ────────────────
+(function() {
+  var HOLD_MS = 350;
+  function findCard(el) {
+    return el.closest && (
+      el.closest('.home-product-card') ||
+      el.closest('.prod-card') ||
+      el.closest('.coll-card')
+    );
+  }
+  function hasHover(card) {
+    return !!(card.querySelector('.home-product-image--hover, .prod-card-img--hover, .coll-card-img--hover'));
+  }
+  document.addEventListener('touchstart', function(e) {
+    var card = findCard(e.target);
+    if (!card || !hasHover(card)) return;
+    card._holdTimer = setTimeout(function() { card.classList.add('touch-peek'); }, HOLD_MS);
+  }, { passive: true });
+  function clearHold(e) {
+    var card = findCard(e.target);
+    if (card) { clearTimeout(card._holdTimer); card.classList.remove('touch-peek'); }
+  }
+  document.addEventListener('touchend', clearHold, { passive: true });
+  document.addEventListener('touchmove', clearHold, { passive: true });
+  document.addEventListener('touchcancel', clearHold, { passive: true });
+})();
 

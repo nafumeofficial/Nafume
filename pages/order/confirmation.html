@@ -386,7 +386,7 @@
             if (num) {
                 window.open("https://wa.me/" + num + "?text=" + encodeURIComponent(msg), "_blank");
             } else {
-                var email = (window.COMMERCE_CONFIG && window.COMMERCE_CONFIG.operations && window.COMMERCE_CONFIG.operations.supportEmail) || "support@nafume.com";
+                var email = (window.COMMERCE_CONFIG && window.COMMERCE_CONFIG.operations && window.COMMERCE_CONFIG.operations.supportEmail) || "nafume.official@gmail.com";
                 window.location.href = "mailto:" + email + "?subject=" + encodeURIComponent("Order help: " + (o.orderId || "")) + "&body=" + encodeURIComponent(msg);
             }
         }
