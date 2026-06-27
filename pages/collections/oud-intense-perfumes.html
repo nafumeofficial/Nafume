@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="icon" type="image/png" href="/assets/logo/logo-mark.png"/>
+  <link rel="apple-touch-icon" href="/assets/logo/logo-mark.png"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oud Perfumes & Intense Fragrances in India at ₹799 | NAFUME</title>
+  <meta name="description" content="Shop oud and intense long-lasting perfumes from NAFUME — Dark Oud and Red Spirit. Rich, bold and powerful fragrances at ₹799. Pan-India delivery. Order on WhatsApp."/>
+  <link rel="canonical" href="https://www.nafume.com/pages/collections/oud-intense-perfumes.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="NAFUME Artisan Luxe"/>
+  <meta property="og:title" content="Oud Perfumes & Intense Fragrances in India at ₹799 | NAFUME"/>
+  <meta property="og:description" content="Rich, bold and intense oud-inspired premium perfumes from NAFUME — Dark Oud and Red Spirit at ₹799. Pan-India delivery."/>
+  <meta property="og:url" content="https://www.nafume.com/pages/collections/oud-intense-perfumes.html"/>
+  <meta property="og:image" content="https://www.nafume.com/assets/images/products/dark-oud/01.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Oud & Intense Perfumes — NAFUME",
+      "url": "https://www.nafume.com/pages/collections/oud-intense-perfumes.html",
+      "numberOfItems": 2,
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "url": "https://www.nafume.com/pages/products/dark-oud.html", "name": "NAFUME Dark Oud Premium Perfume 50ml — Oud & Intense"},
+        {"@type": "ListItem", "position": 2, "url": "https://www.nafume.com/pages/products/red-spirit.html", "name": "NAFUME Red Spirit Premium Perfume 50ml — Spicy Intense"}
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.nafume.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Shop", "item": "https://www.nafume.com/pages/collections/shop.html"},
+        {"@type": "ListItem", "position": 3, "name": "Oud & Intense Perfumes"}
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Which NAFUME perfume smells most like oud?", "acceptedAnswer": {"@type": "Answer", "text": "Dark Oud is NAFUME's purest oud fragrance — aged agarwood, dark leather and saffron form the core, with frankincense and vetiver anchoring a deep, resonant base. It is the most authentic oud experience in the collection."}},
+        {"@type": "Question", "name": "Is Dark Oud too intense for daily wear?", "acceptedAnswer": {"@type": "Answer", "text": "Dark Oud is bold and projects confidently. For most people, 1–2 sprays is enough for daily wear. It is best suited for evenings, formal events and celebrations. For daily office use, Aqua Manthan or Red Spirit would be more appropriate."}},
+        {"@type": "Question", "name": "What is an oud perfume?", "acceptedAnswer": {"@type": "Answer", "text": "Oud (also called agarwood) is a resinous wood that forms inside infected Aquilaria trees. It is one of the most prized and expensive fragrance ingredients in the world, known for its deep, smoky, woody and slightly sweet character. Oud-based fragrances are beloved across India, the Middle East and internationally."}},
+        {"@type": "Question", "name": "How many sprays of Dark Oud should I use?", "acceptedAnswer": {"@type": "Answer", "text": "1–2 sprays on pulse points (chest, wrist) is enough for Dark Oud — it is a highly concentrated, long-lasting fragrance that projects strongly. Less is more. Apply to the chest for a close-wearing intimate trail, or the wrist for a more noticeable projection."}},
+        {"@type": "Question", "name": "Can I gift Dark Oud or Red Spirit?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Dark Oud is NAFUME's most popular gifting choice for men and for those who appreciate bold, premium fragrances. Both come in premium packaging and can be shipped directly to the recipient across India. Visit the Gifting page for personalisation options."}}
+      ]
+    }
+  ]
+  </script>
+  <link rel="stylesheet" href="../../css/launch.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div id="launch-overlay" class="lp-overlay" onclick="closeCart()"></div>
+  <div id="launch-toast" class="lp-toast" role="alert" aria-live="polite"></div>
+  <div id="launch-cart-drawer" class="lp-cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+    <div class="cart-drawer-head">
+      <div>
+        <p class="cart-drawer-title">Your Cart</p>
+        <p class="cart-drawer-count" id="cart-drawer-count">0 items</p>
+      </div>
+      <button class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="cart-drawer-items no-scrollbar" id="launch-cart-items"></div>
+    <div class="cart-drawer-footer" id="launch-cart-footer"></div>
+  </div>
+
+  <div class="nf-mobile-drawer" id="nf-mobile-drawer">
+    <div class="nf-drawer-head">
+      <a href="../../index.html" class="nf-logo" style="font-size:16px;letter-spacing:0.22em;">NAFUME</a>
+      <button class="nf-icon-btn" onclick="nfMenuClose()" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="nf-drawer-nav">
+      <a href="../../index.html" class="nf-drawer-link">Home</a>
+      <a href="shop.html" class="nf-drawer-link">New Launches</a>
+      <a href="../products/seduction.html" class="nf-drawer-link">Seduction</a>
+      <a href="../products/dark-oud.html" class="nf-drawer-link">Dark Oud</a>
+      <a href="../products/red-spirit.html" class="nf-drawer-link">Red Spirit</a>
+      <a href="../products/aqua-manthan.html" class="nf-drawer-link">Aqua Manthan</a>
+      <a href="../products/all-day-misfit.html" class="nf-drawer-link">All Day</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram ↗</a>
+    </nav>
+  </div>
+  <div class="nf-drawer-overlay" id="nf-drawer-overlay" onclick="nfMenuClose()"></div>
+
+  <div class="nf-ann">
+    <div class="nf-ann-track">SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </div>
+
+  <header class="nf-header" id="main-header">
+    <div class="nf-logo-row">
+      <div class="nf-header-left">
+        <button class="nf-icon-btn nf-hamburger-btn" onclick="nfMenuOpen()" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <a href="../../index.html" class="nf-icon-btn nf-search-btn" aria-label="Browse website">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </a>
+      </div>
+      <a href="../../index.html" class="nf-logo">NAFUME</a>
+      <div class="nf-header-right">
+        <button class="nf-icon-btn" onclick="openCart()" aria-label="View cart">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="nf-cart-badge lp-cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+    <nav class="nf-nav-row" aria-label="Main navigation">
+      <a href="../../index.html" class="nf-nav-link">HOME</a>
+      <a href="shop.html" class="nf-nav-link">NEW LAUNCHES</a>
+      <a href="../products/seduction.html" class="nf-nav-link">SEDUCTION</a>
+      <a href="../products/dark-oud.html" class="nf-nav-link">DARK OUD</a>
+      <a href="../products/red-spirit.html" class="nf-nav-link">RED SPIRIT</a>
+      <a href="../products/aqua-manthan.html" class="nf-nav-link">AQUA MANTHAN</a>
+      <a href="../products/all-day-misfit.html" class="nf-nav-link">ALL DAY</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
+    </nav>
+  </header>
+
+  <main>
+    <div style="max-width:1100px;margin:0 auto;padding:36px 24px 80px;">
+
+      <!-- Breadcrumb -->
+      <p class="coll-breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="shop.html">Shop</a> &rsaquo; Oud &amp; Intense Perfumes</p>
+
+      <!-- Page heading -->
+      <div style="margin-bottom:28px;">
+        <p style="font-family:var(--font-body);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#C5A059;margin-bottom:6px;">Collection</p>
+        <h1 style="font-family:var(--font-head);font-size:clamp(22px,5vw,30px);letter-spacing:0.06em;color:#111;margin-bottom:10px;">Oud &amp; Intense Perfumes</h1>
+        <p style="font-size:14px;color:#555;line-height:1.8;max-width:720px;">For those who want their fragrance to speak first, NAFUME's oud and intense range delivers two of the boldest perfumes in the collection. Dark Oud opens with saffron, black pepper and cardamom, unfolds into aged agarwood and dark leather, and finishes with frankincense, patchouli and vetiver — a deep, commanding fragrance inspired by the ancient incense routes of Arabia and India. Red Spirit takes intensity in a different direction — cinnamon, ginger and clove bud light up the opening, cedarwood and Bulgarian rose develop in the heart, and tonka bean and dark musk anchor a warm, fiery base. Both are highly concentrated, long-lasting perfumes that project confidently and hold for hours. Priced at ₹799 each.</p>
+      </div>
+
+      <!-- Product grid -->
+      <div class="launch-grid" id="oud-product-grid" style="margin-bottom:48px;">
+        <div class="prod-card">
+          <a href="/pages/products/dark-oud.html" class="prod-card-link" aria-label="Shop Dark Oud — deep aged agarwood premium perfume">
+            <img class="prod-card-img" src="/assets/images/products/dark-oud/01.jpg" alt="NAFUME Dark Oud premium oud perfume 50ml bottle" loading="lazy" onerror="this.style.visibility='hidden'">
+            <div class="nl-badge-wrap"><span class="nl-badge--primary">Oud Intense</span></div>
+          </a>
+          <div class="prod-card-info">
+            <a href="/pages/products/dark-oud.html" class="prod-card-name">DARK OUD 50ML</a>
+            <p class="prod-card-family">Woody | Oud</p>
+            <div class="prod-card-price"><span class="price-sell">&#8377;799</span><span class="price-mrp">MRP &#8377;1,299</span></div>
+            <button class="prod-card-atc" onclick="handleGridAdd('dark-oud',this)">Add to Cart</button>
+          </div>
+        </div>
+        <div class="prod-card">
+          <a href="/pages/products/red-spirit.html" class="prod-card-link" aria-label="Shop Red Spirit — bold fiery spicy intense perfume">
+            <img class="prod-card-img" src="/assets/images/products/red-spirit/01.jpg" alt="NAFUME Red Spirit intense spicy perfume 50ml bottle" loading="lazy" onerror="this.style.visibility='hidden'">
+            <div class="nl-badge-wrap"><span class="nl-badge--primary">Bold Pick</span></div>
+          </a>
+          <div class="prod-card-info">
+            <a href="/pages/products/red-spirit.html" class="prod-card-name">RED SPIRIT 50ML</a>
+            <p class="prod-card-family">Spicy | Aromatic</p>
+            <div class="prod-card-price"><span class="price-sell">&#8377;799</span><span class="price-mrp">MRP &#8377;1,299</span></div>
+            <button class="prod-card-atc" onclick="handleGridAdd('red-spirit',this)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO content block -->
+      <div class="coll-seo-block">
+        <h2 class="coll-seo-title">About NAFUME Oud &amp; Intense Perfumes</h2>
+        <p class="coll-seo-text">Oud fragrances occupy a special place in Indian perfumery — deeply rooted in tradition, yet completely modern in appeal. NAFUME's Dark Oud honours this tradition with a formula built around aged agarwood and dark leather, anchored by frankincense and vetiver for extraordinary longevity. Red Spirit takes a different route to intensity — spice-forward and fiery, with cinnamon, ginger and dark musk creating a bold, energising statement. Both are highly concentrated, long-lasting perfumes priced at ₹799 for 50ml — bringing extrait-level character to an accessible price point. Apply sparingly and let the fragrance evolve naturally on warm skin.</p>
+      </div>
+
+      <!-- Related collections -->
+      <div class="coll-related-links" style="margin-top:18px;margin-bottom:36px;">
+        <a href="date-night-perfumes.html" class="coll-related-link"><span>🌙</span>Date Night</a>
+        <a href="perfumes-for-men.html" class="coll-related-link"><span>👔</span>For Him</a>
+        <a href="unisex-perfumes.html" class="coll-related-link"><span>✦</span>Unisex</a>
+        <a href="gifting.html" class="coll-related-link"><span>🎁</span>Gifting</a>
+        <a href="fresh-aquatic-perfumes.html" class="coll-related-link"><span>🌊</span>Fresh &amp; Aquatic</a>
+        <a href="shop.html" class="coll-related-link"><span>🛍️</span>Shop All</a>
+      </div>
+
+      <!-- FAQ section -->
+      <div class="coll-faq-section">
+        <h2 class="coll-faq-title">Oud Perfume FAQs</h2>
+        <div class="coll-faq-item">
+          <p class="coll-faq-q">Which NAFUME perfume smells most like oud?</p>
+          <p class="coll-faq-a">Dark Oud is NAFUME's purest oud fragrance — aged agarwood, dark leather and saffron form the core, with frankincense and vetiver anchoring a deep, resonant base. It is the most authentic oud experience in the collection.</p>
+        </div>
+        <div class="coll-faq-item">
+          <p class="coll-faq-q">Is Dark Oud too intense for daily wear?</p>
+          <p class="coll-faq-a">Dark Oud is bold and projects confidently. For most people, 1–2 sprays is enough for daily wear. It is best suited for evenings, formal events and celebrations. For daily office use, Aqua Manthan or Red Spirit would be more appropriate.</p>
+        </div>
+        <div class="coll-faq-item">
+          <p class="coll-faq-q">What is an oud perfume?</p>
+          <p class="coll-faq-a">Oud (also called agarwood) is a resinous wood formed inside infected Aquilaria trees. It is one of the most prized fragrance ingredients in the world — known for its deep, smoky, woody and slightly sweet character. Oud-based fragrances are beloved across India, the Middle East and internationally.</p>
+        </div>
+        <div class="coll-faq-item">
+          <p class="coll-faq-q">How many sprays of Dark Oud should I use?</p>
+          <p class="coll-faq-a">1–2 sprays on pulse points is enough for Dark Oud — it is a highly concentrated, long-lasting fragrance that projects strongly. Less is more. Apply to the chest for an intimate trail, or the wrist for more noticeable projection.</p>
+        </div>
+        <div class="coll-faq-item">
+          <p class="coll-faq-q">Can I gift Dark Oud or Red Spirit?</p>
+          <p class="coll-faq-a">Yes. Dark Oud is NAFUME's most popular gifting choice for those who appreciate bold, premium fragrances. Both come in premium packaging ready to gift and can be shipped directly to the recipient across India. See the <a href="gifting.html" style="color:#C5A059;">Gifting page</a> for details.</p>
+        </div>
+        <p style="font-size:12px;color:#aaa;margin-top:20px;">More questions? <a href="../support/contact.html" style="color:#C5A059;">Contact the NAFUME team</a> · <a href="../support/faq.html" style="color:#C5A059;">View all FAQs</a></p>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+
+  <script src="../../js/commerce/config.js"></script>
+  <script src="../../js/commerce/customer-service.js"></script>
+  <script src="../../js/commerce/review-service.js"></script>
+  <script src="../../js/commerce/collection-service.js"></script>
+  <script src="../../js/commerce/seo-service.js"></script>
+  <script src="../../js/commerce/offer-service.js"></script>
+  <script src="../../js/launch.js"></script>
+  <script src="../../js/commerce/operations-service.js"></script>
+</body>
+</html>
