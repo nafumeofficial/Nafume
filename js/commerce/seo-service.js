@@ -39,6 +39,7 @@
     // Replace with a dedicated 1200×630 social image before launch.
     defaultImage: "https://nafume.com/assets/images/products/seduction/01.jpg",
     instagram:   (CFG.instagramUrl || "https://www.instagram.com/nafume.official"),
+    facebook:    (CFG.facebookUrl  || "https://www.facebook.com/profile.php?id=61590903942862"),
     whatsapp:    (CFG.whatsappNumber || "918595862227"),
     sellingPrice: CFG.sellingPrice || 799,
     mrp:          CFG.mrp || 1299,
@@ -290,7 +291,7 @@
       "url": SITE.domain + "/",
       "logo": SITE.defaultImage,
       "description": SITE.description,
-      "sameAs": [SITE.instagram],
+      "sameAs": [SITE.instagram, SITE.facebook],
       "contactPoint": [{
         "@type": "ContactPoint",
         "contactType": "customer support",

@@ -2057,7 +2057,7 @@ function renderGlobalFooter() {
     '      </form>',
     '      <div class="subscribe-success" id="gf-subscribe-success">Thank you for subscribing.</div>',
     '      <div class="footer-socials">',
-    '        <a href="#" class="footer-social-btn" aria-label="Facebook">',
+    '        <a href="https://www.facebook.com/profile.php?id=61590903942862" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Facebook">',
     '          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>',
     '        </a>',
     '        <a href="' + igUrl + '" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram">',
