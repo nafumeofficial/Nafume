@@ -97,6 +97,13 @@ const LAUNCH_PRODUCTS = [
       "/assets/images/products/seduction/04.jpg",
       "/assets/images/products/seduction/05.jpg"
     ],
+    galleryAlt: [
+      "NAFUME Seduction 50ML perfume bottle",
+      "NAFUME Seduction romantic fragrance for evening wear",
+      "NAFUME Seduction perfume bottle and box",
+      "NAFUME Seduction premium floral oriental fragrance",
+      "NAFUME Seduction date night perfume set"
+    ],
     // ── Shopify checkout mapping (Upgrade 2) ──
     // Replace null with the real Shopify Product ID after the product is created in Shopify.
     shopifyProductId: null,
@@ -147,6 +154,13 @@ const LAUNCH_PRODUCTS = [
       "/assets/images/products/dark-oud/04.jpg",
       "/assets/images/products/dark-oud/05.jpg"
     ],
+    galleryAlt: [
+      "NAFUME Dark Oud 50ML perfume bottle",
+      "NAFUME Dark Oud oud-inspired perfume",
+      "NAFUME Dark Oud premium perfume bottle and box",
+      "NAFUME Dark Oud intense woody fragrance",
+      "NAFUME Dark Oud premium perfume gift set"
+    ],
     shopifyProductId: null, // Replace null with real Shopify Product ID
     shopifyVariantId: null, // Replace null with real Shopify Variant / merchandise ID
     fallbackRating: 4.8, fallbackReviewCount: 57,
@@ -190,6 +204,13 @@ const LAUNCH_PRODUCTS = [
       "/assets/images/products/red-spirit/03.jpg",
       "/assets/images/products/red-spirit/04.jpg",
       "/assets/images/products/red-spirit/05.jpg"
+    ],
+    galleryAlt: [
+      "NAFUME Red Spirit 50ML perfume bottle",
+      "NAFUME Red Spirit bold perfume for evening plans",
+      "NAFUME Red Spirit premium fragrance bottle",
+      "NAFUME Red Spirit spicy aromatic perfume",
+      "NAFUME Red Spirit perfume bottle and packaging"
     ],
     shopifyProductId: null, // Replace null with real Shopify Product ID
     shopifyVariantId: null, // Replace null with real Shopify Variant / merchandise ID
@@ -235,6 +256,13 @@ const LAUNCH_PRODUCTS = [
       "/assets/images/products/aqua-manthan/04.jpg",
       "/assets/images/products/aqua-manthan/05.jpg"
     ],
+    galleryAlt: [
+      "NAFUME Aqua Manthan 50ML perfume bottle",
+      "NAFUME Aqua Manthan fresh aquatic perfume",
+      "NAFUME Aqua Manthan fragrance for warm Indian weather",
+      "NAFUME Aqua Manthan ocean-inspired fresh perfume",
+      "NAFUME Aqua Manthan perfume bottle and box"
+    ],
     shopifyProductId: null, // Replace null with real Shopify Product ID
     shopifyVariantId: null, // Replace null with real Shopify Variant / merchandise ID
     fallbackRating: 4.7, fallbackReviewCount: 48,
@@ -278,6 +306,13 @@ const LAUNCH_PRODUCTS = [
       "/assets/images/products/all-day-misfit/03.jpg",
       "/assets/images/products/all-day-misfit/04.jpg",
       "/assets/images/products/all-day-misfit/05.jpg"
+    ],
+    galleryAlt: [
+      "NAFUME All Day 50ML perfume bottle",
+      "NAFUME All Day everyday office perfume",
+      "NAFUME All Day clean daily wear fragrance",
+      "NAFUME All Day gourmand woody perfume",
+      "NAFUME All Day coffee and vanilla perfume set"
     ],
     shopifyProductId: null, // Replace null with real Shopify Product ID
     shopifyVariantId: null, // Replace null with real Shopify Variant / merchandise ID
@@ -649,7 +684,7 @@ function renderLaunchGrid(containerId, products, context) {
     var hoverSrc = getProductHoverThumbnail(p);
     var imgErr = 'onerror="this.src=\'' + placeholderSrc(p.name) + '\'"';
     var hoverImg = hoverSrc
-      ? '<img class="prod-card-img prod-card-img--hover" src="' + hoverSrc + '" alt="" loading="eager" aria-hidden="true">'
+      ? '<img class="prod-card-img prod-card-img--hover" src="' + hoverSrc + '" alt="" loading="lazy" aria-hidden="true" decoding="async">'
       : '';
     return '<div class="prod-card">' +
       '<a href="' + p.slug + '" class="prod-card-link" aria-label="View ' + p.name + '">' +
@@ -706,14 +741,21 @@ function initProductPage(productId) {
 
   // Gallery — use p.gallery array if available, otherwise single product image
   var galleryImgs = (p.gallery && p.gallery.length) ? p.gallery : [p.image];
+  var galleryAltList = (p.galleryAlt && p.galleryAlt.length) ? p.galleryAlt : null;
 
   var galleryHtml = '<div class="product-gallery">' +
     galleryImgs.map(function(src, idx) {
       var isLast = idx === galleryImgs.length - 1;
       var isFull = isLast && (galleryImgs.length % 2 === 1);
+      var altText = galleryAltList && galleryAltList[idx] ? galleryAltList[idx] : 'NAFUME ' + p.name + ' perfume';
       return '<div class="product-gallery-item' + (isFull ? ' product-gallery-full' : '') + '">' +
-        '<img src="' + src + '" alt="NAFUME ' + p.name + ' perfume bottle"' +
-        ' class="product-gallery-img" loading="' + (idx === 0 ? 'eager' : 'lazy') + '">' +
+        '<img src="' + src + '" alt="' + altText + '"' +
+        ' class="product-gallery-img"' +
+        ' loading="' + (idx === 0 ? 'eager' : 'lazy') + '"' +
+        (idx === 0 ? ' fetchpriority="high"' : '') +
+        ' decoding="async"' +
+        ' width="1500" height="1500"' +
+      '>' +
       '</div>';
     }).join('') +
   '</div>';
@@ -998,7 +1040,7 @@ function initProductPage(productId) {
           others.map(function(op, oi) {
             var oErr = 'onerror="this.src=\'' + placeholderSrc(op.name) + '\'"';
             var oHoverSrc = getProductHoverThumbnail(op);
-            var oHoverImg = oHoverSrc ? '<img class="prod-card-img prod-card-img--hover" src="' + oHoverSrc + '" alt="" loading="eager" aria-hidden="true">' : '';
+            var oHoverImg = oHoverSrc ? '<img class="prod-card-img prod-card-img--hover" src="' + oHoverSrc + '" alt="" loading="lazy" aria-hidden="true" decoding="async">' : '';
             return '<div class="prod-card">' +
               '<a href="' + op.slug + '" class="prod-card-link">' +
                 '<img class="prod-card-img" src="' + ((op.thumbnails && op.thumbnails.length) ? op.thumbnails[0] : op.image) + '" alt="NAFUME ' + op.name + ' perfume bottle" loading="lazy" ' + oErr + '>' +
@@ -1063,8 +1105,8 @@ function buildPdpBuyBar(p) {
   bar.setAttribute("aria-hidden", "true");
   bar.innerHTML =
     '<div class="pdp-buy-bar-inner">' +
-      '<img class="pdp-buy-bar-thumb" src="' + p.image + '" alt="NAFUME ' + p.name + '" ' +
-        'onerror="this.src=\'' + placeholderSrc(p.name) + '\'">' +
+      '<img class="pdp-buy-bar-thumb" src="' + p.image + '" alt="NAFUME ' + p.name + ' perfume" ' +
+        'loading="lazy" decoding="async" onerror="this.src=\'' + placeholderSrc(p.name) + '\'">' +
       '<div class="pdp-buy-bar-info">' +
         '<span class="pdp-buy-bar-name">' + p.displayName + '</span>' +
         '<span class="pdp-buy-bar-price">' + curr + sell +
@@ -1159,7 +1201,7 @@ function renderProductPairings(p) {
     var op = r.product;
     var oErr = 'onerror="this.src=\'' + placeholderSrc(op.name) + '\'"';
     var pHoverSrc = getProductHoverThumbnail(op);
-    var pHoverImg = pHoverSrc ? '<img class="prod-card-img prod-card-img--hover" src="' + pHoverSrc + '" alt="" loading="eager" aria-hidden="true">' : '';
+    var pHoverImg = pHoverSrc ? '<img class="prod-card-img prod-card-img--hover" src="' + pHoverSrc + '" alt="" loading="lazy" aria-hidden="true" decoding="async">' : '';
     return '<div class="prod-card">' +
       '<a href="' + op.slug + '" class="prod-card-link">' +
         '<img class="prod-card-img" src="' + ((op.thumbnails && op.thumbnails.length) ? op.thumbnails[0] : op.image) + '" alt="NAFUME ' + op.name + ' perfume bottle" loading="lazy" ' + oErr + '>' +

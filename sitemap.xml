@@ -1,20 +1,108 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <!-- Homepage -->
   <url>
     <loc>https://www.nafume.com/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.nafume.com/assets/images/products/seduction/01.jpg</image:loc>
+      <image:title>NAFUME Seduction 50ML perfume bottle</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.nafume.com/assets/images/products/dark-oud/01.jpg</image:loc>
+      <image:title>NAFUME Dark Oud 50ML perfume bottle</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.nafume.com/assets/images/products/aqua-manthan/01.jpg</image:loc>
+      <image:title>NAFUME Aqua Manthan 50ML perfume bottle</image:title>
+    </image:image>
   </url>
 
   <!-- Product pages -->
-  <url><loc>https://www.nafume.com/pages/products/seduction</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.nafume.com/pages/products/dark-oud</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.nafume.com/pages/products/red-spirit</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.nafume.com/pages/products/aqua-manthan</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.nafume.com/pages/products/all-day-misfit</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url>
+    <loc>https://www.nafume.com/pages/products/seduction</loc>
+    <lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.nafume.com/assets/images/products/seduction/01.jpg</image:loc>
+      <image:title>NAFUME Seduction 50ML perfume bottle</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.nafume.com/assets/images/products/seduction/02.jpg</image:loc>
+      <image:title>NAFUME Seduction romantic fragrance for evening wear</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.nafume.com/assets/images/products/seduction/03.jpg</image:loc>
+      <image:title>NAFUME Seduction perfume bottle and box</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.nafume.com/pages/products/dark-oud</loc>
+    <lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.nafume.com/assets/images/products/dark-oud/01.jpg</image:loc>
+      <image:title>NAFUME Dark Oud 50ML perfume bottle</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.nafume.com/assets/images/products/dark-oud/02.jpg</image:loc>
+      <image:title>NAFUME Dark Oud oud-inspired perfume</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.nafume.com/assets/images/products/dark-oud/03.jpg</image:loc>
+      <image:title>NAFUME Dark Oud premium perfume bottle and box</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.nafume.com/pages/products/red-spirit</loc>
+    <lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.nafume.com/assets/images/products/red-spirit/01.jpg</image:loc>
+      <image:title>NAFUME Red Spirit 50ML perfume bottle</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.nafume.com/assets/images/products/red-spirit/02.jpg</image:loc>
+      <image:title>NAFUME Red Spirit bold perfume for evening plans</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.nafume.com/assets/images/products/red-spirit/03.jpg</image:loc>
+      <image:title>NAFUME Red Spirit premium fragrance bottle</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.nafume.com/pages/products/aqua-manthan</loc>
+    <lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.nafume.com/assets/images/products/aqua-manthan/01.jpg</image:loc>
+      <image:title>NAFUME Aqua Manthan 50ML perfume bottle</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.nafume.com/assets/images/products/aqua-manthan/02.jpg</image:loc>
+      <image:title>NAFUME Aqua Manthan fresh aquatic perfume</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.nafume.com/assets/images/products/aqua-manthan/03.jpg</image:loc>
+      <image:title>NAFUME Aqua Manthan fragrance for warm Indian weather</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.nafume.com/pages/products/all-day-misfit</loc>
+    <lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.nafume.com/assets/images/products/all-day-misfit/01.jpg</image:loc>
+      <image:title>NAFUME All Day 50ML perfume bottle</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.nafume.com/assets/images/products/all-day-misfit/02.jpg</image:loc>
+      <image:title>NAFUME All Day everyday office perfume</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.nafume.com/assets/images/products/all-day-misfit/03.jpg</image:loc>
+      <image:title>NAFUME All Day clean daily wear fragrance</image:title>
+    </image:image>
+  </url>
 
   <!-- Shop / Collections -->
   <url><loc>https://www.nafume.com/pages/collections/shop</loc><lastmod>2026-06-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
