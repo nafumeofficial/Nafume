@@ -2040,6 +2040,7 @@ function renderGlobalFooter() {
     '      <a href="/pages/collections/collections.html" class="footer-link">All Collections</a>',
     '      <a href="/pages/collections/gifting.html" class="footer-link">Gifting</a>',
     '      <a href="/pages/collections/build-your-own-box.html" class="footer-link">Build Your Box</a>',
+    '      <a href="/pages/guides/index.html" class="footer-link">Fragrance Guide</a>',
     '      <a href="/pages/brand/about.html" class="footer-link">About NAFUME</a>',
     '      <a href="/pages/legal/privacy-policy.html" class="footer-link">Privacy Policy</a>',
     '      <a href="/pages/legal/terms-conditions.html" class="footer-link">Terms &amp; Conditions</a>',
