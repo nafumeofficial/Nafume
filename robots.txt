@@ -3,18 +3,18 @@ Allow: /
 
 # Transactional / user-specific pages — not indexable
 Disallow: /pages/account/
-Disallow: /pages/order/shipping.html
-Disallow: /pages/order/confirmation.html
-Disallow: /pages/order/track-order.html
+Disallow: /pages/order/shipping
+Disallow: /pages/order/confirmation
+Disallow: /pages/order/track-order
 
 # Admin pages
 Disallow: /admin/
 
 # JS template page — content depends entirely on query params (noindex also set in HTML)
-Disallow: /pages/collections/collection.html
+Disallow: /pages/collections/collection
 
 # Utility stubs
-Disallow: /checkout.html
-Disallow: /fragrance-finder.html
+Disallow: /checkout
+Disallow: /fragrance-finder
 
 Sitemap: https://www.nafume.com/sitemap.xml
