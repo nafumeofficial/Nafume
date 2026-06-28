@@ -72,7 +72,7 @@ const LAUNCH_PRODUCTS = [
     slug: "/pages/products/seduction",
     name:        "Seduction",
     displayName: "SEDUCTION 50ML",
-    edp:         "Eau De Parfum",
+    edp:         "Long-lasting Perfume",
     family:      "Floral | Oriental",
     notes:       ["Rose", "Jasmine", "Amber"],
     topNotes:    "Bergamot, Pink Pepper, Red Berries",
@@ -128,7 +128,7 @@ const LAUNCH_PRODUCTS = [
     slug: "/pages/products/dark-oud",
     name:        "Dark Oud",
     displayName: "DARK OUD 50ML",
-    edp:         "Eau De Parfum",
+    edp:         "Long-lasting Perfume",
     family:      "Woody | Oud",
     notes:       ["Oud", "Leather", "Incense"],
     topNotes:    "Saffron, Black Pepper, Cardamom",
@@ -180,7 +180,7 @@ const LAUNCH_PRODUCTS = [
     slug: "/pages/products/red-spirit",
     name:        "Red Spirit",
     displayName: "RED SPIRIT 50ML",
-    edp:         "Eau De Parfum",
+    edp:         "Long-lasting Perfume",
     family:      "Spicy | Aromatic",
     notes:       ["Spice", "Cedar", "Tonka"],
     topNotes:    "Cinnamon, Ginger, Clove Bud",
@@ -231,7 +231,7 @@ const LAUNCH_PRODUCTS = [
     slug: "/pages/products/aqua-manthan",
     name:        "Aqua Manthan",
     displayName: "AQUA MANTHAN 50ML",
-    edp:         "Eau De Parfum",
+    edp:         "Long-lasting Perfume",
     family:      "Fresh | Aquatic",
     notes:       ["Marine", "Citrus", "Cedar"],
     topNotes:    "Sea Salt, Bergamot, Mandarin Orange",
@@ -282,7 +282,7 @@ const LAUNCH_PRODUCTS = [
     slug: "/pages/products/all-day-misfit",
     name:        "All Day",
     displayName: "ALL DAY 50ML",
-    edp:         "Eau De Parfum",
+    edp:         "Long-lasting Perfume",
     family:      "Gourmand | Woody",
     notes:       ["Coffee", "Tobacco", "Vanilla"],
     topNotes:    "Dark Coffee, Cacao, Bergamot",
@@ -500,7 +500,7 @@ function renderCartDrawer() {
       '<img class="cart-item-img" src="' + item.image + '" alt="' + escapeHtml(item.name) + '" onerror="this.style.visibility=\'hidden\'">' +
       '<div class="cart-item-info">' +
         '<p class="cart-item-name">' + escapeHtml(item.name) + '</p>' +
-        '<p class="cart-item-sub">Eau De Parfum</p>' +
+        '<p class="cart-item-sub">50ml Perfume</p>' +
         '<div class="cart-qty-row">' +
           '<button class="cq-btn" onclick="launchChangeQty(\'' + item.id + '\',-1)">&#8722;</button>' +
           '<span class="cq-val">' + item.qty + '</span>' +
@@ -729,7 +729,7 @@ function initProductPage(productId) {
   if (!p) return;
 
   // Meta
-  document.title = p.name + " — Eau De Parfum 50ml — NAFUME Artisan Luxe";
+  document.title = p.name + " — Premium Perfume 50ml — NAFUME Artisan Luxe";
 
   // Breadcrumb
   var bcEl = document.getElementById("pdp-bc-name");
@@ -817,7 +817,7 @@ function initProductPage(productId) {
          legal declarations with your formulation supplier before production launch. */
       title: 'Legal Information',
       body: '<div class="acc-legal-grid">' +
-          '<div class="acc-legal-row"><span class="acc-legal-label">Product Type</span><span class="acc-legal-val">Eau De Parfum (EDP)</span></div>' +
+          '<div class="acc-legal-row"><span class="acc-legal-label">Product Type</span><span class="acc-legal-val">Perfume</span></div>' +
           '<div class="acc-legal-row"><span class="acc-legal-label">Net Quantity</span><span class="acc-legal-val">50 ml</span></div>' +
           '<div class="acc-legal-row"><span class="acc-legal-label">MRP (Incl. taxes)</span><span class="acc-legal-val">₹' + LAUNCH_CONFIG.mrp + '</span></div>' +
           '<div class="acc-legal-row"><span class="acc-legal-label">Country of Origin</span><span class="acc-legal-val">India</span></div>' +
@@ -1252,9 +1252,9 @@ function buildProductFaqs(p) {
                  p.name + " is richer and more suited to evenings and special occasions, but you can wear it daily with a lighter application." },
     { q: "Is " + p.name + " better for day or evening?", a: dayOrEve },
     { q: "What kind of scent is " + p.name + "?",
-      a: p.name + " is a " + (p.family || "Eau De Parfum") + " fragrance. Top notes: " + (p.topNotes || "—") + "; heart: " + (p.heartNotes || "—") + "; base: " + (p.baseNotes || "—") + "." },
+      a: p.name + " is a " + (p.family || "Perfume") + " fragrance. Top notes: " + (p.topNotes || "—") + "; heart: " + (p.heartNotes || "—") + "; base: " + (p.baseNotes || "—") + "." },
     { q: "How strong is " + p.name + "?",
-      a: "It is an Eau De Parfum (EDP) concentration, so it is noticeable without being overwhelming. Two to three sprays on pulse points is usually enough; adjust to your preference." }
+      a: "It is a highly concentrated, long-lasting fragrance — noticeable without being overwhelming. Two to three sprays on pulse points is usually enough; adjust to your preference." }
   ];
   if (p.isGiftable) {
     faqs.push({ q: "Is " + p.name + " good for gifting?",
@@ -1295,9 +1295,9 @@ function renderProductSeoSections(p) {
         '<p class="pdp-seo-text">' + (p.description || '') + '</p>' +
         '<p class="pdp-seo-text">' + (p.whyLove || '') + '</p>' +
         '<ul class="pdp-seo-list">' +
-          '<li>Scent family: <strong>' + (p.family || 'Eau De Parfum') + '</strong></li>' +
+          '<li>Scent family: <strong>' + (p.family || 'Perfume') + '</strong></li>' +
           '<li>Notes: ' + (p.topNotes || '') + ' · ' + (p.heartNotes || '') + ' · ' + (p.baseNotes || '') + '</li>' +
-          '<li>Eau De Parfum (EDP) · 50ml · noticeable without being overwhelming</li>' +
+          '<li>Highly concentrated · 50ml · noticeable without being overwhelming</li>' +
           giftLine +
         '</ul>' +
       '</div>' +
@@ -1984,7 +1984,7 @@ function renderGlobalFooter() {
       ['Free Shipping Above ₹999', 'local_shipping'],
       ['Summer Sale ₹799', 'sell'],
       ['Secure Order Details', 'lock'],
-      ['Premium Eau De Parfum', 'water_drop'],
+      ['Premium Long-Lasting Perfume', 'water_drop'],
       ['Made for Indian Weather', 'wb_sunny'],
       ['Fast Dispatch Support', 'rocket_launch'],
       ['Instagram Updates', 'photo_camera']
@@ -2032,7 +2032,7 @@ function renderGlobalFooter() {
     '    <h2 class="read-more-heading">Luxury Perfume Brand for Long Lasting Fragrance</h2>',
     '    <h3 class="read-more-subheading">NAFUME Luxury Perfumes Crafted for Indian Conditions</h3>',
     '    <p>NAFUME is a premium perfume brand in India created for people who expect performance, quality, and refinement. When you buy perfume online in India, you are not just choosing a scent, you are choosing how you present yourself every day.</p>',
-    '    <p>Our fragrances are designed with smooth blends, memorable notes, and long-lasting character suited for Indian weather. Whether you prefer fresh, bold, woody, aquatic, fruity, or elegant scents, NAFUME offers premium Eau De Parfum blends for everyday confidence, gifting, and special occasions.</p>',
+    '    <p>Our fragrances are designed with smooth blends, memorable notes, and long-lasting character suited for Indian weather. Whether you prefer fresh, bold, woody, aquatic, fruity, or elegant scents, NAFUME offers premium long-lasting fragrances for everyday confidence, gifting, and special occasions.</p>',
     '    <h3 class="read-more-subheading">Why NAFUME is a Smart Place to Buy Perfumes Online in India</h3>',
     '    <ul class="read-more-list">',
     '      <li><strong>Long Lasting Performance That Works in Real Conditions</strong><br>NAFUME perfumes are created to offer a strong, lasting scent experience that feels smooth from the first spray to the final dry-down.</li>',

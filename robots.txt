@@ -16,5 +16,6 @@ Disallow: /pages/collections/collection
 # Utility stubs
 Disallow: /checkout
 Disallow: /fragrance-finder
+Disallow: /cart
 
 Sitemap: https://www.nafume.com/sitemap.xml
