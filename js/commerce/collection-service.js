@@ -194,7 +194,7 @@
       type:        "bundle",
       sortOrder:   12,
       icon:        "📦",
-      linkTo:      "/pages/collections/build-your-own-box.html",
+      linkTo:      "/pages/collections/build-your-own-box",
       seoTitle:    "Perfume Bundles — NAFUME Artisan Luxe",
       seoDescription: "Shop NAFUME perfume bundles and multi-packs. Save on premium EDP fragrances when you buy two or three together.",
       faqItems: [
@@ -210,7 +210,7 @@
       type:        "bundle",
       sortOrder:   13,
       icon:        "🎨",
-      linkTo:      "/pages/collections/build-your-own-box.html",
+      linkTo:      "/pages/collections/build-your-own-box",
       seoTitle:    "Build Your Own Perfume Box — NAFUME Artisan Luxe",
       seoDescription: "Build your own NAFUME fragrance box. Choose up to 3 EDP perfumes and get a custom bundle confirmed on WhatsApp.",
       faqItems: [

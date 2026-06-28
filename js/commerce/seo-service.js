@@ -63,37 +63,37 @@
       description: "Shop NAFUME premium perfumes in India. Long-lasting Eau De Parfum in oud, fresh, floral, woody and sweet scents — for everyday wear, office, evenings and gifting."
     },
     shop: {
-      path: "/pages/collections/shop.html",
+      path: "/pages/collections/shop",
       title: "Shop All Perfumes Online — NAFUME Artisan Luxe",
       description: "Browse all NAFUME Eau De Parfum fragrances by mood, scent family, gender and occasion. Fresh, oud, floral, spicy and gourmand perfumes at ₹799."
     },
     collections: {
-      path: "/pages/collections/collections.html",
+      path: "/pages/collections/collections",
       title: "All Perfume Collections — NAFUME Artisan Luxe",
       description: "Explore NAFUME fragrance collections — best sellers, for him, for her, office wear, date night, fresh & aquatic, oud, gifting and discovery sets."
     },
     gifting: {
-      path: "/pages/collections/gifting.html",
+      path: "/pages/collections/gifting",
       title: "Perfume Gifts Online in India — NAFUME Artisan Luxe",
       description: "Premium perfume gifts from NAFUME. Beautifully packaged Eau De Parfum, ideal for birthdays, anniversaries, Diwali, weddings and corporate gifting across India."
     },
     byob: {
-      path: "/pages/collections/build-your-own-box.html",
+      path: "/pages/collections/build-your-own-box",
       title: "Build Your Own Perfume Box — NAFUME Artisan Luxe",
       description: "Create a custom NAFUME fragrance box. Choose up to 3 Eau De Parfum perfumes and confirm your bundle on WhatsApp. Perfect for personal use or gifting."
     },
     fragranceFinder: {
-      path: "/pages/collections/shop.html",
+      path: "/pages/collections/shop",
       title: "Fragrance Finder — Find Your Perfect Perfume | NAFUME",
       description: "Answer a few quick questions and discover the NAFUME perfume that matches your style, mood and occasion."
     },
     trackOrder: {
-      path: "/pages/order/track-order.html",
+      path: "/pages/order/track-order",
       title: "Track Your Order — NAFUME Artisan Luxe",
       description: "Track your NAFUME order using your order ID, phone number or AWB number. Check your fragrance delivery status anytime."
     },
     account: {
-      path: "/pages/account/account.html",
+      path: "/pages/account/account",
       title: "My Account — NAFUME Artisan Luxe",
       description: "Manage your NAFUME account, saved address and order history."
     }
@@ -130,7 +130,7 @@
     product = product || {};
     var name   = product.name || product.displayName || "Perfume";
     var family = product.family || product.scentFamily || "Eau De Parfum";
-    var slug   = product.slug || ((product.id || "product") + ".html");
+    var slug   = product.slug || ((product.id || "product") + "");
     var price  = product.price || SITE.sellingPrice;
     var desc   = product.description ||
       (name + " by NAFUME — a premium " + family + " Eau De Parfum 50ml.");
@@ -150,7 +150,7 @@
     collection = collection || {};
     var title = collection.seoTitle || ((collection.title || "Collection") + " — NAFUME Artisan Luxe");
     var desc  = collection.seoDescription || collection.description || SITE.description;
-    var slug  = collection.slug ? ("/pages/collections/collection.html?collection=" + collection.slug) : "/pages/collections/collections.html";
+    var slug  = collection.slug ? ("/pages/collections/collection?collection=" + collection.slug) : "/pages/collections/collections";
     return {
       title:     title,
       description: clip(desc, 158),
@@ -227,7 +227,7 @@
     product = product || {};
     var name   = product.name || product.displayName || "Perfume";
     var price  = product.price || SITE.sellingPrice;
-    var slug   = product.slug || ((product.id || "product") + ".html");
+    var slug   = product.slug || ((product.id || "product") + "");
     var inStock = (product.stockStatus ? product.stockStatus === "in_stock" : true);
 
     var schema = {
@@ -336,7 +336,7 @@
   function createCollectionPageSchema(collection, products) {
     collection = collection || {};
     products = products || [];
-    var slug = collection.slug ? ("/pages/collections/collection.html?collection=" + collection.slug) : "/pages/collections/collections.html";
+    var slug = collection.slug ? ("/pages/collections/collection?collection=" + collection.slug) : "/pages/collections/collections";
     var schema = {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
@@ -352,7 +352,7 @@
           return {
             "@type": "ListItem",
             "position": i + 1,
-            "url": absUrl(p.slug || ((p.id || "product") + ".html")),
+            "url": absUrl(p.slug || ((p.id || "product") + "")),
             "name": "NAFUME " + (p.name || p.displayName || "Perfume")
           };
         })

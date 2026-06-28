@@ -1,4 +1,4 @@
-/* ============================================================================
+﻿/* ============================================================================
    NAFUME — Product Reviews Service   (Upgrade 4)
    ----------------------------------------------------------------------------
    A LOCAL reviews foundation. Stores customer reviews in localStorage and
@@ -196,7 +196,7 @@
     var review = {
       reviewId:         genReviewId(),
       productId:        productId,
-      productSlug:      (p && p.slug) || (productId + ".html"),
+      productSlug:      (p && p.slug) || (productId + ""),
       customerId:       customerId,
       customerName:     customerName,
       customerLocation: location || "",
@@ -292,7 +292,7 @@
       return {
         reviewId:        genReviewId() + "-S" + idx,
         productId:       s[0],
-        productSlug:     (p && p.slug) || (s[0] + ".html"),
+        productSlug:     (p && p.slug) || (s[0] + ""),
         customerId:      null,
         customerName:    s[1],
         customerLocation: s[2],

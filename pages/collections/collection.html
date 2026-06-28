@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
@@ -32,19 +32,19 @@
 
   <div class="nf-mobile-drawer" id="nf-mobile-drawer">
     <div class="nf-drawer-head">
-      <a href="../../index.html" class="nf-logo" style="font-size:16px;letter-spacing:0.22em;">NAFUME</a>
+      <a href="/" class="nf-logo" style="font-size:16px;letter-spacing:0.22em;">NAFUME</a>
       <button class="nf-icon-btn" onclick="nfMenuClose()" aria-label="Close menu">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
     <nav class="nf-drawer-nav">
-      <a href="../../index.html" class="nf-drawer-link">Home</a>
-      <a href="shop.html" class="nf-drawer-link">New Launches</a>
-      <a href="../products/seduction.html" class="nf-drawer-link">Seduction</a>
-      <a href="../products/dark-oud.html" class="nf-drawer-link">Dark Oud</a>
-      <a href="../products/red-spirit.html" class="nf-drawer-link">Red Spirit</a>
-      <a href="../products/aqua-manthan.html" class="nf-drawer-link">Aqua Manthan</a>
-      <a href="../products/all-day-misfit.html" class="nf-drawer-link">All Day</a>
+      <a href="/" class="nf-drawer-link">Home</a>
+      <a href="shop" class="nf-drawer-link">New Launches</a>
+      <a href="../products/seduction" class="nf-drawer-link">Seduction</a>
+      <a href="../products/dark-oud" class="nf-drawer-link">Dark Oud</a>
+      <a href="../products/red-spirit" class="nf-drawer-link">Red Spirit</a>
+      <a href="../products/aqua-manthan" class="nf-drawer-link">Aqua Manthan</a>
+      <a href="../products/all-day-misfit" class="nf-drawer-link">All Day</a>
       <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram ↗</a>
     </nav>
   </div>
@@ -60,11 +60,11 @@
         <button class="nf-icon-btn nf-hamburger-btn" onclick="nfMenuOpen()" aria-label="Open menu">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
-        <a href="../../index.html" class="nf-icon-btn nf-search-btn" aria-label="Browse website">
+        <a href="/" class="nf-icon-btn nf-search-btn" aria-label="Browse website">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </a>
       </div>
-      <a href="../../index.html" class="nf-logo">NAFUME</a>
+      <a href="/" class="nf-logo">NAFUME</a>
       <div class="nf-header-right">
         <button class="nf-icon-btn" onclick="openCart()" aria-label="View cart">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
@@ -73,13 +73,13 @@
       </div>
     </div>
     <nav class="nf-nav-row" aria-label="Main navigation">
-      <a href="../../index.html" class="nf-nav-link">HOME</a>
-      <a href="shop.html" class="nf-nav-link">NEW LAUNCHES</a>
-      <a href="../products/seduction.html" class="nf-nav-link">SEDUCTION</a>
-      <a href="../products/dark-oud.html" class="nf-nav-link">DARK OUD</a>
-      <a href="../products/red-spirit.html" class="nf-nav-link">RED SPIRIT</a>
-      <a href="../products/aqua-manthan.html" class="nf-nav-link">AQUA MANTHAN</a>
-      <a href="../products/all-day-misfit.html" class="nf-nav-link">ALL DAY</a>
+      <a href="/" class="nf-nav-link">HOME</a>
+      <a href="shop" class="nf-nav-link">NEW LAUNCHES</a>
+      <a href="../products/seduction" class="nf-nav-link">SEDUCTION</a>
+      <a href="../products/dark-oud" class="nf-nav-link">DARK OUD</a>
+      <a href="../products/red-spirit" class="nf-nav-link">RED SPIRIT</a>
+      <a href="../products/aqua-manthan" class="nf-nav-link">AQUA MANTHAN</a>
+      <a href="../products/all-day-misfit" class="nf-nav-link">ALL DAY</a>
       <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
     </nav>
   </header>
@@ -122,7 +122,7 @@
       root.innerHTML =
         '<div class="coll-page-empty">' +
           '<p>Collection not found.</p>' +
-          '<a href="collections.html" style="color:#C5A059;text-decoration:underline">Browse all collections →</a>' +
+          '<a href="collections" style="color:#C5A059;text-decoration:underline">Browse all collections →</a>' +
         '</div>';
       return;
     }
@@ -134,9 +134,9 @@
       SEO.updateDocumentSeo(SEO.getCollectionSeo(col));
       SEO.injectJsonLd(SEO.createCollectionPageSchema(col, products), 'ld-collection');
       SEO.injectJsonLd(SEO.createBreadcrumbSchema([
-        { name: 'Home', url: 'index.html' },
-        { name: 'Collections', url: 'collections.html' },
-        { name: col.title, url: 'collection.html?collection=' + col.slug }
+        { name: 'Home', url: 'index' },
+        { name: 'Collections', url: 'collections' },
+        { name: col.title, url: 'collection?collection=' + col.slug }
       ]), 'ld-breadcrumb');
       var faqSchema = SEO.createFAQSchema(col.faqItems || []);
       if (faqSchema) SEO.injectJsonLd(faqSchema, 'ld-faq');
@@ -202,10 +202,10 @@
       ? '<div class="coll-related"><h2 class="coll-seo-title">Related Collections</h2>' +
         '<div class="coll-related-links">' +
           related.map(function (r) {
-            var href = r.linkTo || ('collection.html?collection=' + r.slug);
+            var href = r.linkTo || ('collection?collection=' + r.slug);
             return '<a href="' + href + '" class="coll-related-link"><span>' + r.icon + '</span>' + r.title + '</a>';
           }).join('') +
-          '<a href="shop.html" class="coll-related-link"><span>🛍️</span>Shop All</a>' +
+          '<a href="shop" class="coll-related-link"><span>🛍️</span>Shop All</a>' +
         '</div></div>'
       : '';
 
@@ -220,7 +220,7 @@
       : '';
 
     root.innerHTML =
-      '<p class="coll-breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="collections.html">Collections</a> &rsaquo; ' + col.title + '</p>' +
+      '<p class="coll-breadcrumb"><a href="/">Home</a> &rsaquo; <a href="collections">Collections</a> &rsaquo; ' + col.title + '</p>' +
       '<div class="coll-page-hero">' +
         '<p class="coll-page-eyebrow">Collection</p>' +
         '<h1 class="coll-page-title">' + col.title + '</h1>' +
@@ -233,7 +233,7 @@
       faqHtml +
       relatedHtml +
       '<div class="other-launches-actions">' +
-        '<a href="collections.html" class="other-launches-browse">← Back to All Collections</a>' +
+        '<a href="collections" class="other-launches-browse">← Back to All Collections</a>' +
       '</div>';
   })();
   </script>

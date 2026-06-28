@@ -133,8 +133,8 @@ function updateCartUI() {
                     Begin your olfactory exploration by browsing our bestseller catalog or starting the interactive fragrance matchmaking quiz.
                 </p>
                 <div class="flex flex-col gap-3 w-full max-w-[240px]">
-                    <a href="/pages/collections/shop.html" class="w-full inline-flex justify-center items-center py-3 bg-primary text-white text-[10px] font-semibold uppercase tracking-widest hover:bg-[#222] transition-colors text-center" onclick="toggleCart(true)">Shop Bestsellers</a>
-                    <a href="/pages/collections/collections.html" class="w-full inline-flex justify-center items-center py-3 bg-transparent border border-primary text-primary text-[10px] font-semibold uppercase tracking-widest hover:bg-primary hover:text-white transition-all text-center" onclick="toggleCart(true)">Browse Collections</a>
+                    <a href="/pages/collections/shop" class="w-full inline-flex justify-center items-center py-3 bg-primary text-white text-[10px] font-semibold uppercase tracking-widest hover:bg-[#222] transition-colors text-center" onclick="toggleCart(true)">Shop Bestsellers</a>
+                    <a href="/pages/collections/collections" class="w-full inline-flex justify-center items-center py-3 bg-transparent border border-primary text-primary text-[10px] font-semibold uppercase tracking-widest hover:bg-primary hover:text-white transition-all text-center" onclick="toggleCart(true)">Browse Collections</a>
                 </div>
             </div>
         `;
@@ -186,7 +186,7 @@ function updateCartUI() {
                 <div class="flex-grow flex flex-col min-w-0">
                     <div class="flex justify-between items-start gap-2 mb-1">
                         <h4 class="font-body-md text-body-md font-semibold text-primary truncate leading-tight hover:text-accent-bronze transition-colors">
-                            <a href="/pages/products/${item.id}.html" onclick="toggleCart(true)">${item.name}</a>
+                            <a href="/pages/products/${item.id}" onclick="toggleCart(true)">${item.name}</a>
                         </h4>
                         <button class="text-on-surface-variant hover:text-error transition-colors flex p-1" onclick="window.stateManager.removeFromCart('${item.id}', '${item.size}')" aria-label="Remove item">
                             <span class="material-symbols-outlined text-[18px]">delete</span>
@@ -279,7 +279,7 @@ function initGlobalEventListeners() {
             if (query.length < 2) {
                 // Restore default suggestion items (Vanilla Wood standard)
                 searchResultsContainer.innerHTML = `
-                    <a class="flex gap-4 items-center group hover:bg-surface-variant p-2 rounded transition-colors -ml-2" href="/pages/collections/shop.html">
+                    <a class="flex gap-4 items-center group hover:bg-surface-variant p-2 rounded transition-colors -ml-2" href="/pages/collections/shop">
                         <div class="w-16 h-20 bg-surface-container rounded overflow-hidden flex-shrink-0">
                             <img alt="Vanilla Smoke" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEodOsItWYqQZbxIAZYjLEgWC7RCYEkMQp-beWTFnXha8tRyJp2MLkHFYFvhACsRFE9z3TnWzbg3rka-zFxL3wbvV0_IBZ8Z6DTdJopHr6erhjPn7vKqQrLC2X25Nxzg_mtzFdzNLVnSXyPQHjjcDjfyOxnDIE0hPi9BYoo9tvm-h6wXEzr_yEyaqRvksyPDC2YVqEvRPLkx-6OdUoqbOHoLro-3RrBOQP6GO3SG6ATn84Gzuypj-FfW4LedcKIgg6tqRJgO_Rj08y"/>
                         </div>
@@ -330,7 +330,7 @@ function initGlobalEventListeners() {
             let resultsHtml = "";
             matched.forEach(p => {
                 resultsHtml += `
-                    <a class="flex gap-4 items-center group hover:bg-surface-variant p-2 rounded transition-colors -ml-2" href="/pages/products/${p.id}.html" onclick="toggleSearch(true)">
+                    <a class="flex gap-4 items-center group hover:bg-surface-variant p-2 rounded transition-colors -ml-2" href="/pages/products/${p.id}" onclick="toggleSearch(true)">
                         <div class="w-16 h-20 bg-surface-container rounded border border-border-muted overflow-hidden flex-shrink-0">
                             <img alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="${p.image}"/>
                         </div>
@@ -606,7 +606,7 @@ function initBespokeForm() {
                 <p class="font-body-lg text-body-lg text-text-secondary max-w-md mx-auto mb-8 text-sm leading-relaxed">
                     Greetings ${name}. A luxury concierge expert from NAFUME Artisan Luxe will connect with you at <strong>${email}</strong> within 24 hours to coordinate your custom blending appointment.
                 </p>
-                <a href="/pages/collections/shop.html" class="inline-flex justify-center items-center px-8 py-4 bg-primary text-white text-label-md font-label-md uppercase tracking-widest hover:scale-[1.02] hover:bg-[#222] transition-all">Browse Existing Scents</a>
+                <a href="/pages/collections/shop" class="inline-flex justify-center items-center px-8 py-4 bg-primary text-white text-label-md font-label-md uppercase tracking-widest hover:scale-[1.02] hover:bg-[#222] transition-all">Browse Existing Scents</a>
             </div>
         `;
     });

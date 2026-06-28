@@ -1,4 +1,4 @@
-/* ============================================================================
+﻿/* ============================================================================
    NAFUME — Commerce Service Layer   (Upgrade 1: commerce foundation)
    ----------------------------------------------------------------------------
    A small, framework-free API over product data, the cart, and local orders.
@@ -60,7 +60,7 @@
     var discountPercent = MRP > 0 ? Math.round(((MRP - SELL) / MRP) * 100) : 0;
     return {
       id:             p.id,
-      slug:           p.slug || (p.id + ".html"),
+      slug:           p.slug || (p.id + ""),
       name:           p.name,
       subtitle:       p.edp || "Eau De Parfum",
       gender:         p.gender || "Unisex",

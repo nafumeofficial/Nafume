@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Homepage -->
@@ -10,57 +10,57 @@
   </url>
 
   <!-- Product pages -->
-  <url><loc>https://www.nafume.com/pages/products/seduction.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.nafume.com/pages/products/dark-oud.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.nafume.com/pages/products/red-spirit.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.nafume.com/pages/products/aqua-manthan.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.nafume.com/pages/products/all-day-misfit.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.nafume.com/pages/products/seduction</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.nafume.com/pages/products/dark-oud</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.nafume.com/pages/products/red-spirit</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.nafume.com/pages/products/aqua-manthan</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.nafume.com/pages/products/all-day-misfit</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
   <!-- Shop / Collections -->
-  <url><loc>https://www.nafume.com/pages/collections/shop.html</loc><lastmod>2026-06-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.nafume.com/pages/collections/collections.html</loc><lastmod>2026-06-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.nafume.com/pages/collections/gifting.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.nafume.com/pages/collections/build-your-own-box.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nafume.com/pages/collections/shop</loc><lastmod>2026-06-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.nafume.com/pages/collections/collections</loc><lastmod>2026-06-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.nafume.com/pages/collections/gifting</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nafume.com/pages/collections/build-your-own-box</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Collection SEO landing pages -->
-  <url><loc>https://www.nafume.com/pages/collections/perfumes-for-men.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.nafume.com/pages/collections/perfumes-for-women.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.nafume.com/pages/collections/unisex-perfumes.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.nafume.com/pages/collections/office-everyday-perfumes.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.nafume.com/pages/collections/date-night-perfumes.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.nafume.com/pages/collections/fresh-aquatic-perfumes.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.nafume.com/pages/collections/oud-intense-perfumes.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nafume.com/pages/collections/perfumes-for-men</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nafume.com/pages/collections/perfumes-for-women</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nafume.com/pages/collections/unisex-perfumes</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nafume.com/pages/collections/office-everyday-perfumes</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nafume.com/pages/collections/date-night-perfumes</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nafume.com/pages/collections/fresh-aquatic-perfumes</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.nafume.com/pages/collections/oud-intense-perfumes</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Fragrance Guides -->
-  <url><loc>https://www.nafume.com/pages/guides/index.html</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.nafume.com/pages/guides/perfume-for-indian-weather.html</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.nafume.com/pages/guides/best-perfume-for-office.html</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.nafume.com/pages/guides/fresh-perfume-for-summer.html</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.nafume.com/pages/guides/date-night-perfume-guide.html</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.nafume.com/pages/guides/oud-perfume-guide.html</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.nafume.com/pages/guides/how-to-choose-perfume.html</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.nafume.com/pages/guides/perfume-gifting-guide.html</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.nafume.com/pages/guides</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.nafume.com/pages/guides/perfume-for-indian-weather</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.nafume.com/pages/guides/best-perfume-for-office</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.nafume.com/pages/guides/fresh-perfume-for-summer</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.nafume.com/pages/guides/date-night-perfume-guide</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.nafume.com/pages/guides/oud-perfume-guide</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.nafume.com/pages/guides/how-to-choose-perfume</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.nafume.com/pages/guides/perfume-gifting-guide</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
   <!-- Support -->
-  <url><loc>https://www.nafume.com/pages/support/contact.html</loc><lastmod>2026-06-27</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://www.nafume.com/pages/support/faq.html</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.nafume.com/pages/support/contact</loc><lastmod>2026-06-27</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.nafume.com/pages/support/faq</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
   <!-- Brand -->
-  <url><loc>https://www.nafume.com/pages/brand/about.html</loc><lastmod>2026-06-27</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.nafume.com/pages/brand/about</loc><lastmod>2026-06-27</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
 
   <!-- Legal — only include finalized policies -->
-  <url><loc>https://www.nafume.com/pages/legal/privacy-policy.html</loc><lastmod>2026-06-27</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://www.nafume.com/pages/legal/shipping-policy.html</loc><lastmod>2026-06-27</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://www.nafume.com/pages/legal/return-refund-policy.html</loc><lastmod>2026-06-27</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.nafume.com/pages/legal/privacy-policy</loc><lastmod>2026-06-27</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.nafume.com/pages/legal/shipping-policy</loc><lastmod>2026-06-27</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.nafume.com/pages/legal/return-refund-policy</loc><lastmod>2026-06-27</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <!-- terms-conditions.html has placeholder business/GSTIN details — add back once finalised -->
-  <!-- <url><loc>https://www.nafume.com/pages/legal/terms-conditions.html</loc><lastmod>2026-06-27</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url> -->
+  <!-- <url><loc>https://www.nafume.com/pages/legal/terms-conditions</loc><lastmod>2026-06-27</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url> -->
 
   <!--
     EXCLUDED FROM SITEMAP:
     - /pages/order/* (confirmation, shipping, track-order) — transactional, noindex
     - /pages/account/* — user-specific, noindex
     - /admin/* — private
-    - /pages/collections/collection.html?collection=* — query-param template, noindex
+    - /pages/collections/collection?collection=* — query-param template, noindex
     - /pages/support/grievance-officer.html — contains placeholder data, noindex until details updated
     - /checkout.html, /fragrance-finder.html — stub/utility pages
   -->

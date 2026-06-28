@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
@@ -8,7 +8,7 @@
   <title>Account — NAFUME Artisan Luxe</title>
   <meta name="description" content="Log in to your NAFUME account to view orders, track deliveries and manage your profile."/>
   <meta name="robots" content="noindex,follow"/>
-  <link rel="canonical" href="https://www.nafume.com/pages/account/account.html"/>
+  <link rel="canonical" href="https://www.nafume.com/pages/account/account"/>
   <!-- Tailwind CSS v3 CDN -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <!-- Material Icons -->
@@ -78,9 +78,9 @@
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </button>
       </div>
-      <a href="../../index.html" class="nf-logo">NAFUME</a>
+      <a href="/" class="nf-logo">NAFUME</a>
       <div class="nf-header-right">
-        <a href="account.html" class="nf-icon-btn nf-account-btn" aria-label="Account" aria-current="page">
+        <a href="account" class="nf-icon-btn nf-account-btn" aria-label="Account" aria-current="page">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/></svg>
         </a>
         <button class="nf-icon-btn" onclick="openCart()" aria-label="View cart">
@@ -90,13 +90,13 @@
       </div>
     </div>
     <nav class="nf-nav-row" aria-label="Main navigation">
-      <a href="../../index.html" class="nf-nav-link">HOME</a>
-      <a href="../collections/shop.html" class="nf-nav-link">NEW LAUNCHES</a>
-      <a href="../products/seduction.html" class="nf-nav-link">SEDUCTION</a>
-      <a href="../products/dark-oud.html" class="nf-nav-link">DARK OUD</a>
-      <a href="../products/red-spirit.html" class="nf-nav-link">RED SPIRIT</a>
-      <a href="../products/aqua-manthan.html" class="nf-nav-link">AQUA MANTHAN</a>
-      <a href="../products/all-day-misfit.html" class="nf-nav-link">ALL DAY</a>
+      <a href="/" class="nf-nav-link">HOME</a>
+      <a href="../collections/shop" class="nf-nav-link">NEW LAUNCHES</a>
+      <a href="../products/seduction" class="nf-nav-link">SEDUCTION</a>
+      <a href="../products/dark-oud" class="nf-nav-link">DARK OUD</a>
+      <a href="../products/red-spirit" class="nf-nav-link">RED SPIRIT</a>
+      <a href="../products/aqua-manthan" class="nf-nav-link">AQUA MANTHAN</a>
+      <a href="../products/all-day-misfit" class="nf-nav-link">ALL DAY</a>
       <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
     </nav>
   </header>
@@ -104,19 +104,19 @@
   <!-- ── MOBILE DRAWER ──────────────────────────────────────────── -->
   <div class="nf-mobile-drawer drawer-container -translate-x-full" id="mobile-drawer">
     <div class="nf-drawer-head">
-      <a href="../../index.html" class="nf-logo" style="font-size:17px;letter-spacing:0.22em;">NAFUME</a>
+      <a href="/" class="nf-logo" style="font-size:17px;letter-spacing:0.22em;">NAFUME</a>
       <button class="nf-icon-btn" onclick="toggleMobileMenu(true)" aria-label="Close menu">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
     <nav class="nf-drawer-nav">
-      <a href="../../index.html" class="nf-drawer-link">Home</a>
-      <a href="../collections/shop.html" class="nf-drawer-link">New Launches</a>
-      <a href="../products/seduction.html" class="nf-drawer-link">Seduction</a>
-      <a href="../products/dark-oud.html" class="nf-drawer-link">Dark Oud</a>
-      <a href="../products/red-spirit.html" class="nf-drawer-link">Red Spirit</a>
-      <a href="../products/aqua-manthan.html" class="nf-drawer-link">Aqua Manthan</a>
-      <a href="../products/all-day-misfit.html" class="nf-drawer-link">All Day</a>
+      <a href="/" class="nf-drawer-link">Home</a>
+      <a href="../collections/shop" class="nf-drawer-link">New Launches</a>
+      <a href="../products/seduction" class="nf-drawer-link">Seduction</a>
+      <a href="../products/dark-oud" class="nf-drawer-link">Dark Oud</a>
+      <a href="../products/red-spirit" class="nf-drawer-link">Red Spirit</a>
+      <a href="../products/aqua-manthan" class="nf-drawer-link">Aqua Manthan</a>
+      <a href="../products/all-day-misfit" class="nf-drawer-link">All Day</a>
       <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram &#8599;</a>
     </nav>
   </div>
@@ -201,7 +201,7 @@
         /* Breadcrumb */
         '<div class="acct-breadcrumb-wrap">' +
           '<nav class="acct-breadcrumb-nav" aria-label="Breadcrumb">' +
-            '<a href="../../index.html" class="acct-bc-link">Home</a>' +
+            '<a href="/" class="acct-bc-link">Home</a>' +
             '<span class="acct-bc-sep" aria-hidden="true">&#8250;</span>' +
             '<span class="acct-bc-current">Account</span>' +
           '</nav>' +
@@ -359,7 +359,7 @@
 
       /* Register */
       document.getElementById("acct-register-btn").addEventListener("click", function () {
-        window.location.href = "register.html";
+        window.location.href = "register";
       });
     }
 
@@ -452,7 +452,7 @@
         box.innerHTML =
           '<div class="bg-white border border-border-muted p-6 text-center text-sm text-text-secondary">' +
           'No orders yet. Your past orders will appear here.' +
-          '<div class="mt-4"><a href="../collections/shop.html" class="inline-block bg-primary text-white px-6 py-3 text-[11px] font-semibold uppercase tracking-widest hover:bg-[#222]">Shop New Launches</a></div>' +
+          '<div class="mt-4"><a href="../collections/shop" class="inline-block bg-primary text-white px-6 py-3 text-[11px] font-semibold uppercase tracking-widest hover:bg-[#222]">Shop New Launches</a></div>' +
           '</div>';
         return;
       }
@@ -474,8 +474,8 @@
           '</div>' +
           awbLine(o) +
           '<div class="flex gap-3">' +
-            '<a href="../order/confirmation.html?orderId=' + encodeURIComponent(o.orderId) + '" class="text-[11px] font-semibold uppercase tracking-widest text-accent-bronze hover:text-primary">View</a>' +
-            '<a href="../order/track-order.html?order=' + encodeURIComponent(o.orderId) + '" class="text-[11px] font-semibold uppercase tracking-widest text-accent-bronze hover:text-primary">Track</a>' +
+            '<a href="../order/confirmation?orderId=' + encodeURIComponent(o.orderId) + '" class="text-[11px] font-semibold uppercase tracking-widest text-accent-bronze hover:text-primary">View</a>' +
+            '<a href="../order/track-order?order=' + encodeURIComponent(o.orderId) + '" class="text-[11px] font-semibold uppercase tracking-widest text-accent-bronze hover:text-primary">Track</a>' +
           '</div>' +
         '</div>';
       }).join("");

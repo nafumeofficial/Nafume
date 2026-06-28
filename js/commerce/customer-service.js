@@ -402,7 +402,7 @@
         link = document.createElement("a");
         link.className = "nf-nav-link";
         link.setAttribute("data-account-nav", "");
-        link.href = nfPath("/pages/account/account.html");
+        link.href = nfPath("/pages/account/account");
         navRow.appendChild(link);
       }
       link.textContent = deskLabel;
@@ -416,7 +416,7 @@
         dlink = document.createElement("a");
         dlink.className = "nf-drawer-link";
         dlink.setAttribute("data-account-drawer", "");
-        dlink.href = nfPath("/pages/account/account.html");
+        dlink.href = nfPath("/pages/account/account");
         drawer.appendChild(dlink);
       }
       dlink.textContent = mobLabel;
@@ -425,7 +425,7 @@
     // Repoint any existing person-icon button to the account page.
     var iconBtns = document.querySelectorAll(".nf-account-btn");
     for (var i = 0; i < iconBtns.length; i++) {
-      iconBtns[i].setAttribute("href", nfPath("/pages/account/account.html"));
+      iconBtns[i].setAttribute("href", nfPath("/pages/account/account"));
       iconBtns[i].setAttribute("aria-label", loggedIn ? "My Account" : "Account");
     }
   }

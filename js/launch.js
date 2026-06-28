@@ -8,9 +8,9 @@ function nfPath(path) {
   var loc = (window.location.pathname || '').replace(/\\/g, '/');
   var depth = loc.indexOf('/pages/') !== -1 ? '../../' :
               loc.indexOf('/admin/')  !== -1 ? '../'    : '';
-  if (path === '/' || path === '/index.html') return depth + 'index.html';
-  if (path.startsWith('/#') || path.startsWith('/index.html#')) {
-    return depth + 'index.html' + path.slice(path.indexOf('#'));
+  if (path === '/' || path === '/index') return depth + 'index';
+  if (path.startsWith('/#') || path.startsWith('/index#')) {
+    return depth + 'index' + path.slice(path.indexOf('#'));
   }
   return depth + path.replace(/^\/+/, '');
 }
@@ -69,7 +69,7 @@ window.LAUNCH_CONFIG = LAUNCH_CONFIG;
 const LAUNCH_PRODUCTS = [
   {
     id:          "seduction",
-    slug: "/pages/products/seduction.html",
+    slug: "/pages/products/seduction",
     name:        "Seduction",
     displayName: "SEDUCTION 50ML",
     edp:         "Eau De Parfum",
@@ -118,7 +118,7 @@ const LAUNCH_PRODUCTS = [
   },
   {
     id:          "dark-oud",
-    slug: "/pages/products/dark-oud.html",
+    slug: "/pages/products/dark-oud",
     name:        "Dark Oud",
     displayName: "DARK OUD 50ML",
     edp:         "Eau De Parfum",
@@ -163,7 +163,7 @@ const LAUNCH_PRODUCTS = [
   },
   {
     id:          "red-spirit",
-    slug: "/pages/products/red-spirit.html",
+    slug: "/pages/products/red-spirit",
     name:        "Red Spirit",
     displayName: "RED SPIRIT 50ML",
     edp:         "Eau De Parfum",
@@ -207,7 +207,7 @@ const LAUNCH_PRODUCTS = [
   },
   {
     id:          "aqua-manthan",
-    slug: "/pages/products/aqua-manthan.html",
+    slug: "/pages/products/aqua-manthan",
     name:        "Aqua Manthan",
     displayName: "AQUA MANTHAN 50ML",
     edp:         "Eau De Parfum",
@@ -251,7 +251,7 @@ const LAUNCH_PRODUCTS = [
   },
   {
     id:          "all-day-misfit",
-    slug: "/pages/products/all-day-misfit.html",
+    slug: "/pages/products/all-day-misfit",
     name:        "All Day",
     displayName: "ALL DAY 50ML",
     edp:         "Eau De Parfum",
@@ -513,7 +513,7 @@ function renderCartDrawer() {
       '<div class="cart-row-total"><span>Total</span><span>' + curr + finalTotal.toLocaleString("en-IN") + '</span></div>' +
       '<p class="cart-gst-note">GST inclusive · offers applied at checkout</p>' +
     '</div>' +
-    '<a href="/pages/order/shipping.html" class="btn-to-shipping">Proceed to Checkout →</a>' +
+    '<a href="/pages/order/shipping" class="btn-to-shipping">Proceed to Checkout →</a>' +
     '<button onclick="launchClearCart()" class="btn-clear-cart">Clear Cart</button>';
 }
 
@@ -564,7 +564,7 @@ function cartUpsellHtml() {
   return '<div class="cart-upsell-wrap">' +
     '<p class="cart-upsell-title">Complete Your Fragrance Wardrobe</p>' +
     cards +
-    '<a href="/pages/collections/collection.html?collection=discovery-set" class="cart-discovery-cta" onclick="closeCart()">Not sure? Try the Discovery Set first →</a>' +
+    '<a href="/pages/collections/collection?collection=discovery-set" class="cart-discovery-cta" onclick="closeCart()">Not sure? Try the Discovery Set first →</a>' +
   '</div>';
 }
 
@@ -765,9 +765,9 @@ function initProductPage(productId) {
           '<li>Unboxing photo/video required for return requests</li>' +
         '</ul>' +
         '<p class="acc-body-text" style="margin-top:10px">' +
-          '<a href="/pages/legal/shipping-policy.html" style="color:#555;text-decoration:underline">Read full Shipping Policy</a>' +
+          '<a href="/pages/legal/shipping-policy" style="color:#555;text-decoration:underline">Read full Shipping Policy</a>' +
           ' &nbsp;·&nbsp; ' +
-          '<a href="/pages/legal/return-refund-policy.html" style="color:#555;text-decoration:underline">Return &amp; Refund Policy</a>' +
+          '<a href="/pages/legal/return-refund-policy" style="color:#555;text-decoration:underline">Return &amp; Refund Policy</a>' +
         '</p>'
     },
     {
@@ -790,9 +790,9 @@ function initProductPage(productId) {
         '</div>' +
         '<p class="acc-legal-verify-note">⚠ Ingredients, batch details, MFG/EXP dates and manufacturer declaration must be verified and printed on packaging before launch.</p>' +
         '<div class="acc-legal-links">' +
-          '<a href="/pages/legal/privacy-policy.html">Privacy Policy</a>' +
-          '<a href="/pages/legal/terms-conditions.html">Terms &amp; Conditions</a>' +
-          '<a href="/pages/legal/return-refund-policy.html">Returns Policy</a>' +
+          '<a href="/pages/legal/privacy-policy">Privacy Policy</a>' +
+          '<a href="/pages/legal/terms-conditions">Terms &amp; Conditions</a>' +
+          '<a href="/pages/legal/return-refund-policy">Returns Policy</a>' +
         '</div>'
     }
   ];
@@ -861,7 +861,7 @@ function initProductPage(productId) {
     }
     if (buy3Off && buy3Off.enabled) {
       stripInner +=
-        '<a href="/pages/collections/build-your-own-box.html" class="pdp-offer-bundle-btn">' +
+        '<a href="/pages/collections/build-your-own-box" class="pdp-offer-bundle-btn">' +
           '<span>' + (buy3Off.label || 'Buy any 3 × 50ml') + '</span>' +
           '<span class="material-symbols-outlined">arrow_forward</span>' +
         '</a>';
@@ -896,7 +896,7 @@ function initProductPage(productId) {
           '</div>' +
           '<button class="product-btn-atc" id="pdp-btn-atc" onclick="pdpAddToCart()">Add to Cart</button>' +
         '</div>' +
-        '<a href="/pages/order/shipping.html" class="product-btn-ship">' +
+        '<a href="/pages/order/shipping" class="product-btn-ship">' +
           '<span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>' +
           'Continue to Shipping' +
         '</a>' +
@@ -1019,7 +1019,7 @@ function initProductPage(productId) {
           }).join("") +
         '</div>' +
         '<div class="other-launches-actions">' +
-          '<a href="/pages/collections/collections.html" class="other-launches-browse">Browse All Collections →</a>' +
+          '<a href="/pages/collections/collections" class="other-launches-browse">Browse All Collections →</a>' +
         '</div>' +
       '</div>';
   }
@@ -1189,7 +1189,7 @@ function renderProductPairings(p) {
       '<h2 class="pdp-pairings-title">Pairs Well With · Make It a Bundle</h2>' +
       '<p class="pdp-pairings-sub">Build your fragrance wardrobe — add any 3 × 50ml to unlock our bundle offer.</p>' +
       '<div class="other-grid">' + cards + '</div>' +
-      '<a href="/pages/collections/collection.html?collection=discovery-set" class="pdp-discovery-cta">Not sure? Try the Discovery Set first →</a>' +
+      '<a href="/pages/collections/collection?collection=discovery-set" class="pdp-discovery-cta">Not sure? Try the Discovery Set first →</a>' +
     '</div>';
   anchor.parentNode.insertBefore(section, anchor);
 }
@@ -1283,10 +1283,10 @@ function renderProductSeoSections(p) {
       '</div>' +
       // Internal links
       '<div class="pdp-seo-links">' +
-        '<a href="/pages/collections/collection.html?collection=' + (p.primaryCollection || 'best-sellers') + '">More like this</a>' +
-        '<a href="/pages/collections/shop.html">Shop all perfumes</a>' +
-        (p.isGiftable ? '<a href="/pages/collections/gifting.html">Gifting</a>' : '') +
-        '<a href="/pages/collections/collections.html">Explore Collections</a>' +
+        '<a href="/pages/collections/collection?collection=' + (p.primaryCollection || 'best-sellers') + '">More like this</a>' +
+        '<a href="/pages/collections/shop">Shop all perfumes</a>' +
+        (p.isGiftable ? '<a href="/pages/collections/gifting">Gifting</a>' : '') +
+        '<a href="/pages/collections/collections">Explore Collections</a>' +
       '</div>' +
     '</div>';
 
@@ -1317,7 +1317,7 @@ function applyProductSeo(p) {
     window.SEO.injectJsonLd(window.SEO.createProductSchema(productForSeo, summary), "ld-product");
     window.SEO.injectJsonLd(window.SEO.createBreadcrumbSchema([
       { name: "Home", url: "/" },
-      { name: "New Launches", url: "/pages/collections/shop.html" },
+      { name: "New Launches", url: "/pages/collections/shop" },
       { name: p.name, url: p.slug }
     ]), "ld-breadcrumb");
     var faqSchema = window.SEO.createFAQSchema(buildProductFaqs(p));
@@ -1904,7 +1904,7 @@ function submitShippingForm(event) {
     var idEl = document.getElementById("confirm-order-id");
     if (idEl) idEl.textContent = "Order ID: " + orderId;
     var viewEl = document.getElementById("confirm-view-link");
-    if (viewEl) viewEl.href = nfPath("/pages/order/confirmation.html") + "?orderId=" + encodeURIComponent(orderId);
+    if (viewEl) viewEl.href = nfPath("/pages/order/confirmation") + "?orderId=" + encodeURIComponent(orderId);
   }
 }
 
@@ -2029,7 +2029,7 @@ function renderGlobalFooter() {
     '      <h5 class="footer-title">NAFUME</h5>',
     '      <p class="footer-subscribe-text" style="margin-bottom:12px">Premium fragrances crafted for everyday luxury.</p>',
     '      <p class="footer-subscribe-text" style="margin-bottom:4px"><strong>Customer Care</strong></p>',
-    '      <a href="/pages/support/contact.html" class="footer-link">Contact Us</a>',
+    '      <a href="/pages/support/contact" class="footer-link">Contact Us</a>',
     '      <a href="mailto:nafume.official@gmail.com" class="footer-link">nafume.official@gmail.com</a>',
     /* PLACEHOLDER — replace with real details before launch */
     '      <!-- TODO: Replace with real registered business address before launch -->',
@@ -2037,13 +2037,13 @@ function renderGlobalFooter() {
     /* Column 2 — Explore + Support */
     '    <div class="footer-column">',
     '      <h5 class="footer-title">Explore</h5>',
-    '      <a href="/pages/collections/collections.html" class="footer-link">All Collections</a>',
-    '      <a href="/pages/collections/gifting.html" class="footer-link">Gifting</a>',
-    '      <a href="/pages/collections/build-your-own-box.html" class="footer-link">Build Your Box</a>',
-    '      <a href="/pages/guides/index.html" class="footer-link">Fragrance Guide</a>',
-    '      <a href="/pages/brand/about.html" class="footer-link">About NAFUME</a>',
-    '      <a href="/pages/legal/privacy-policy.html" class="footer-link">Privacy Policy</a>',
-    '      <a href="/pages/legal/terms-conditions.html" class="footer-link">Terms &amp; Conditions</a>',
+    '      <a href="/pages/collections/collections" class="footer-link">All Collections</a>',
+    '      <a href="/pages/collections/gifting" class="footer-link">Gifting</a>',
+    '      <a href="/pages/collections/build-your-own-box" class="footer-link">Build Your Box</a>',
+    '      <a href="/pages/guides" class="footer-link">Fragrance Guide</a>',
+    '      <a href="/pages/brand/about" class="footer-link">About NAFUME</a>',
+    '      <a href="/pages/legal/privacy-policy" class="footer-link">Privacy Policy</a>',
+    '      <a href="/pages/legal/terms-conditions" class="footer-link">Terms &amp; Conditions</a>',
     '    </div>',
     /* Column 3 — Subscribe + socials */
     '    <div class="footer-column">',
@@ -2069,17 +2069,17 @@ function renderGlobalFooter() {
     /* Column 4 — Orders & Shipping */
     '    <div class="footer-column">',
     '      <h5 class="footer-title">Orders &amp; Shipping</h5>',
-    '      <a href="/pages/legal/shipping-policy.html" class="footer-link">Shipping Policy</a>',
-    '      <a href="/pages/legal/return-refund-policy.html" class="footer-link">Return &amp; Refund Policy</a>',
-    '      <a href="/pages/order/track-order.html" class="footer-link">Track My Order</a>',
-    '      <a href="/pages/support/contact.html" class="footer-link">Contact Support</a>',
+    '      <a href="/pages/legal/shipping-policy" class="footer-link">Shipping Policy</a>',
+    '      <a href="/pages/legal/return-refund-policy" class="footer-link">Return &amp; Refund Policy</a>',
+    '      <a href="/pages/order/track-order" class="footer-link">Track My Order</a>',
+    '      <a href="/pages/support/contact" class="footer-link">Contact Support</a>',
     '    </div>',
     '  </div>',
     '  <div class="footer-bottom">',
     '    <p class="footer-copy">&copy; 2026 NAFUME Artisan Luxe. All rights reserved. &nbsp;|&nbsp;',
-    '      <a href="/pages/legal/privacy-policy.html" style="color:inherit;opacity:0.7;text-decoration:underline">Privacy</a> &nbsp;',
-    '      <a href="/pages/legal/terms-conditions.html" style="color:inherit;opacity:0.7;text-decoration:underline">Terms</a> &nbsp;',
-    '      <a href="/pages/legal/return-refund-policy.html" style="color:inherit;opacity:0.7;text-decoration:underline">Returns</a>',
+    '      <a href="/pages/legal/privacy-policy" style="color:inherit;opacity:0.7;text-decoration:underline">Privacy</a> &nbsp;',
+    '      <a href="/pages/legal/terms-conditions" style="color:inherit;opacity:0.7;text-decoration:underline">Terms</a> &nbsp;',
+    '      <a href="/pages/legal/return-refund-policy" style="color:inherit;opacity:0.7;text-decoration:underline">Returns</a>',
     '    </p>',
     '  </div>',
     '</footer>'
@@ -2109,8 +2109,8 @@ function renderGlobalFooter() {
 // ─── Collection nav injection (Upgrade 6) ─────────────────────────
 function injectCollectionNav() {
   var collectionLinks = [
-    { href: '/pages/collections/collections.html', label: 'COLLECTIONS' },
-    { href: '/pages/collections/gifting.html',     label: 'GIFTING' }
+    { href: '/pages/collections/collections', label: 'COLLECTIONS' },
+    { href: '/pages/collections/gifting',     label: 'GIFTING' }
   ];
   // Desktop nav row
   var navRow = document.querySelector('.nf-nav-row');
@@ -2365,7 +2365,7 @@ function initCheckoutAccountUI() {
     note.style.background = "#faf6ef";
     note.style.color = "#7a5b1e";
     note.innerHTML = 'Login to save your address and view order history. ' +
-      '<a href="/pages/account/account.html" style="color:#111;text-decoration:underline;">Login to your account</a> ' +
+      '<a href="/pages/account/account" style="color:#111;text-decoration:underline;">Login to your account</a> ' +
       '(optional — you can still check out as a guest).';
   }
 
