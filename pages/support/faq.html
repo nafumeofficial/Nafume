@@ -1,297 +1,235 @@
-﻿<!DOCTYPE html>
-<html class="scroll-smooth" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <link rel="icon" type="image/png" href="/assets/logo/logo-mark.png"/>
-    <link rel="apple-touch-icon" href="/assets/logo/logo-mark.png"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Perfume FAQ — Shipping, Returns & Orders | NAFUME India</title>
-    <meta name="description" content="Frequently asked questions about NAFUME perfumes — ordering on WhatsApp, delivery timelines, returns, product care and more. Get answers to your queries."/>
-    <link rel="canonical" href="https://www.nafume.com/pages/support/faq"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:site_name" content="NAFUME Artisan Luxe"/>
-    <meta property="og:title" content="Perfume FAQ — Shipping, Returns &amp; Orders | NAFUME India"/>
-    <meta property="og:description" content="Answers to common questions about NAFUME orders, delivery, returns and fragrance care."/>
-    <meta property="og:url" content="https://www.nafume.com/pages/support/faq"/>
-    <meta property="og:image" content="https://www.nafume.com/assets/images/products/seduction/01.jpg"/>
-    <meta name="twitter:card" content="summary_large_image"/>
-    <!-- Tailwind CSS v3 CDN -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <!-- Google Fonts -->
-    <!-- Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <!-- Central Styles -->
-    <link href="../../css/style.css" rel="stylesheet"/>
-    <script id="tailwind-config">
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        "surface": "#F9F5F0",
-                        "accent-bronze": "#C5A059",
-                        "primary": "#000000",
-                        "text-secondary": "#666666",
-                        "border-muted": "#DEDEDE",
-                        "surface-container": "#f1edec",
-                        "surface-variant": "#e5e2e1"
-                    },
-                    borderRadius: {
-                        DEFAULT: "2px",
-                        lg: "4px",
-                        xl: "8px",
-                        full: "9999px"
-                    },
-                    spacing: {
-                        xl: "32px",
-                        gutter: "24px",
-                        xxl: "48px",
-                        lg: "24px",
-                        "margin-desktop": "80px",
-                        "margin-mobile": "16px",
-                        display: "64px",
-                        md: "16px",
-                        sm: "8px",
-                        xs: "4px"
-                    }
-                }
-            }
-        }
-    </script>
+  <meta charset="UTF-8"/>
+  <link rel="icon" type="image/png" href="/assets/logo/logo-mark.png"/>
+  <link rel="apple-touch-icon" href="/assets/logo/logo-mark.png"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ — NAFUME Artisan Luxe</title>
+  <meta name="description" content="Answers to common NAFUME questions — WhatsApp order confirmation, ₹799 pricing, free shipping above ₹999, delivery timelines, returns, and fragrance care."/>
+  <link rel="canonical" href="https://www.nafume.com/pages/support/faq"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="NAFUME Artisan Luxe"/>
+  <meta property="og:title" content="FAQ — NAFUME Artisan Luxe"/>
+  <meta property="og:description" content="Common questions about NAFUME orders, pricing, shipping, returns and fragrance care."/>
+  <meta property="og:url" content="https://www.nafume.com/pages/support/faq"/>
+  <meta property="og:image" content="https://www.nafume.com/assets/images/products/seduction/01.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "How do I place an order?", "acceptedAnswer": {"@type": "Answer", "text": "Add your fragrance to cart, fill in your shipping details, and confirm your order on WhatsApp. We dispatch after WhatsApp confirmation."}},
+      {"@type": "Question", "name": "How much does a NAFUME perfume cost?", "acceptedAnswer": {"@type": "Answer", "text": "Each NAFUME 50ml perfume is ₹799 during our current sale."}},
+      {"@type": "Question", "name": "What are the shipping charges?", "acceptedAnswer": {"@type": "Answer", "text": "Shipping is free on all orders above ₹999. Orders are delivered across India, usually within 3 to 7 days."}},
+      {"@type": "Question", "name": "What is your return policy?", "acceptedAnswer": {"@type": "Answer", "text": "For hygiene and safety reasons we cannot accept returns on opened bottles. Please see our Return & Refund Policy for full details and how to report damaged or wrong items."}}
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/launch.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── FAQ page (scoped) ── */
+    .fq-hero { text-align: center; max-width: 640px; margin: 0 auto; padding: 8px 0 40px; }
+    .fq-eyebrow { display: inline-flex; align-items: center; gap: 14px; font-family: var(--font-heading); font-size: 11px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: #C5A059; margin-bottom: 16px; }
+    .fq-eyebrow::before, .fq-eyebrow::after { content: ""; width: 26px; height: 1px; background: #C5A059; display: inline-block; }
+    .fq-h1 { font-family: var(--font-heading); font-size: clamp(26px, 4.2vw, 42px); letter-spacing: 0.07em; text-transform: uppercase; color: #141414; line-height: 1.12; margin-bottom: 16px; }
+    .fq-lead { font-size: 15px; line-height: 1.9; color: #5a5550; font-weight: 300; }
+
+    .fq-cat { margin-bottom: 38px; }
+    .fq-cat-title { font-family: var(--font-heading); font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #1a1a1a; border-bottom: 1px solid #E5DED2; padding-bottom: 12px; margin-bottom: 8px; }
+
+    .fq-item { border-bottom: 1px solid #EEE9E1; }
+    .fq-item > summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 4px; font-family: var(--font-heading); font-size: 13.5px; letter-spacing: 0.04em; color: #1a1a1a; transition: color 0.2s ease; }
+    .fq-item > summary::-webkit-details-marker { display: none; }
+    .fq-item > summary:hover { color: #C5A059; }
+    .fq-icon { flex-shrink: 0; width: 18px; height: 18px; position: relative; transition: transform 0.3s cubic-bezier(0.22,0.61,0.36,1); }
+    .fq-icon::before, .fq-icon::after { content: ""; position: absolute; background: #C5A059; border-radius: 1px; }
+    .fq-icon::before { top: 8px; left: 0; width: 18px; height: 2px; }
+    .fq-icon::after { left: 8px; top: 0; width: 2px; height: 18px; transition: opacity 0.3s ease; }
+    .fq-item[open] .fq-icon::after { opacity: 0; }
+    .fq-item[open] .fq-icon { transform: rotate(180deg); }
+    .fq-answer { padding: 0 4px 20px; font-size: 13.5px; line-height: 1.8; color: #6b665f; font-weight: 300; max-width: 660px; }
+    .fq-answer a { color: #111; font-weight: 600; text-decoration: underline; }
+    .fq-answer a:hover { color: #C5A059; }
+
+    .fq-cta { text-align: center; border-top: 1px solid #e8e4e0; padding-top: 40px; margin-top: 24px; }
+    .fq-cta-text { font-size: 14px; color: #5a5550; margin-bottom: 20px; font-weight: 300; }
+    .fq-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .fq-btn { display: inline-flex; align-items: center; gap: 9px; padding: 13px 28px; font-family: var(--font-heading); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.25s ease, color 0.25s ease; }
+    .fq-btn--dark { background: #111; color: #fff; border: 1px solid #111; }
+    .fq-btn--dark:hover { background: #C5A059; border-color: #C5A059; }
+    .fq-btn--wa { background: #fff; color: #111; border: 1px solid #111; }
+    .fq-btn--wa:hover { background: #111; color: #fff; }
+    .fq-btn .material-symbols-outlined { font-size: 18px; }
+  </style>
 </head>
-<body class="antialiased min-h-screen flex flex-col bg-surface text-primary">
+<body>
 
-    <!-- 1. DRAWER OVERLAYS -->
-    <div class="fixed inset-0 bg-black/40 z-[150] hidden opacity-0 drawer-overlay transition-opacity duration-300" id="search-overlay" onclick="toggleSearch(true)"></div>
-    <div class="fixed inset-0 bg-black/40 z-[150] hidden opacity-0 drawer-overlay transition-opacity duration-300" id="mobile-menu-overlay" onclick="toggleMobileMenu(true)"></div>
-    <div class="fixed inset-0 bg-black/40 z-[150] hidden opacity-0 drawer-overlay transition-opacity duration-300" id="cart-overlay" onclick="toggleCart(true)"></div>
-
-    <!-- 2. ANNOUNCEMENT BAR -->
-    <div class="nf-ann">
-      <div class="nf-ann-track">SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-    </div>
-
-    <!-- 3. HEADER (logo row + nav row) -->
-    <header class="nf-header" id="main-header">
-      <!-- Logo Row -->
-      <div class="nf-logo-row">
-        <div class="nf-header-left">
-          <button class="nf-icon-btn nf-hamburger-btn" onclick="toggleMobileMenu()" aria-label="Open menu">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-          </button>
-          <button class="nf-icon-btn nf-search-btn" onclick="toggleSearch()" aria-label="Search">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          </button>
-        </div>
-        <a href="/" class="nf-logo">NAFUME</a>
-        <div class="nf-header-right">
-          <a href="../account/account" class="nf-icon-btn nf-account-btn" aria-label="Account">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/></svg>
-          </a>
-          <button class="nf-icon-btn" onclick="toggleCart()" aria-label="View cart">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-            <span class="nf-cart-badge cart-count hidden">0</span>
-          </button>
-        </div>
+  <div id="launch-overlay" class="lp-overlay" onclick="closeCart()"></div>
+  <div id="launch-toast" class="lp-toast" role="alert" aria-live="polite"></div>
+  <div id="launch-cart-drawer" class="lp-cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+    <div class="cart-drawer-head">
+      <div>
+        <p class="cart-drawer-title">Your Cart</p>
+        <p class="cart-drawer-count" id="cart-drawer-count">0 items</p>
       </div>
-      <!-- Nav Row -->
-      <nav class="nf-nav-row" aria-label="Main navigation">
-        <a href="/" class="nf-nav-link">HOME</a>
-        <a href="../collections/shop" class="nf-nav-link">NEW LAUNCHES</a>
-        <a href="../products/seduction" class="nf-nav-link">SEDUCTION</a>
-        <a href="../products/dark-oud" class="nf-nav-link">DARK OUD</a>
-        <a href="../products/red-spirit" class="nf-nav-link">RED SPIRIT</a>
-        <a href="../products/aqua-manthan" class="nf-nav-link">AQUA MANTHAN</a>
-        <a href="../products/all-day-misfit" class="nf-nav-link">ALL DAY</a>
-        <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
-      </nav>
-    </header>
+      <button class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="cart-drawer-items no-scrollbar" id="launch-cart-items"></div>
+    <div class="cart-drawer-footer" id="launch-cart-footer"></div>
+  </div>
 
-    <!-- 4. MOBILE MENU DRAWER (ids kept for app.js compatibility) -->
-    <div class="nf-mobile-drawer drawer-container -translate-x-full" id="mobile-drawer">
-      <div class="nf-drawer-head">
-        <a href="/" class="nf-logo" style="font-size:17px;letter-spacing:0.22em;">NAFUME</a>
-        <button class="nf-icon-btn" onclick="toggleMobileMenu(true)" aria-label="Close menu">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  <div class="nf-mobile-drawer" id="nf-mobile-drawer">
+    <div class="nf-drawer-head">
+      <a href="/" class="nf-logo" style="font-size:16px;letter-spacing:0.22em;">NAFUME</a>
+      <button class="nf-icon-btn" onclick="nfMenuClose()" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="nf-drawer-nav">
+      <a href="/" class="nf-drawer-link">Home</a>
+      <a href="../collections/shop.html" class="nf-drawer-link">New Launches</a>
+      <a href="../products/seduction.html" class="nf-drawer-link">Seduction</a>
+      <a href="../products/dark-oud.html" class="nf-drawer-link">Dark Oud</a>
+      <a href="../products/red-spirit.html" class="nf-drawer-link">Red Spirit</a>
+      <a href="../products/aqua-manthan.html" class="nf-drawer-link">Aqua Manthan</a>
+      <a href="../products/all-day-misfit.html" class="nf-drawer-link">All Day</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram &#8599;</a>
+    </nav>
+  </div>
+  <div class="nf-drawer-overlay" id="nf-drawer-overlay" onclick="nfMenuClose()"></div>
+
+  <div class="nf-ann">
+    <div class="nf-ann-track">SUMMER SALE &nbsp;&bull;&nbsp; &#8377;799 EACH &nbsp;&bull;&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;&bull;&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;&bull;&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUMMER SALE &nbsp;&bull;&nbsp; &#8377;799 EACH &nbsp;&bull;&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;&bull;&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;&bull;&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </div>
+
+  <header class="nf-header" id="main-header">
+    <div class="nf-logo-row">
+      <div class="nf-header-left">
+        <button class="nf-icon-btn nf-hamburger-btn" onclick="nfMenuOpen()" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <a href="/" class="nf-icon-btn nf-search-btn" aria-label="Browse website">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </a>
+      </div>
+      <a href="/" class="nf-logo">NAFUME</a>
+      <div class="nf-header-right">
+        <button class="nf-icon-btn" onclick="openCart()" aria-label="View cart">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="nf-cart-badge lp-cart-badge">0</span>
         </button>
       </div>
-      <nav class="nf-drawer-nav">
-        <a href="/" class="nf-drawer-link">Home</a>
-        <a href="../collections/shop" class="nf-drawer-link">New Launches</a>
-        <a href="../products/seduction" class="nf-drawer-link">Seduction</a>
-        <a href="../products/dark-oud" class="nf-drawer-link">Dark Oud</a>
-        <a href="../products/red-spirit" class="nf-drawer-link">Red Spirit</a>
-        <a href="../products/aqua-manthan" class="nf-drawer-link">Aqua Manthan</a>
-        <a href="../products/all-day-misfit" class="nf-drawer-link">All Day</a>
-        <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram &#8599;</a>
-      </nav>
     </div>
-    <!-- 5. SEARCH DRAWER -->
-    <div class="fixed inset-y-0 right-0 w-full md:w-[420px] bg-surface z-[200] transform translate-x-full drawer-container border-l border-border-muted flex flex-col" id="search-drawer">
-        <div class="p-6 border-b border-border-muted flex justify-between items-center bg-surface-container/30">
-            <h2 class="text-headline-sm font-semibold text-primary">Search</h2>
-            <button class="text-text-secondary hover:text-accent-bronze p-2" onclick="toggleSearch(true)">
-                <span class="material-symbols-outlined">close</span>
-            </button>
+    <nav class="nf-nav-row" aria-label="Main navigation">
+      <a href="/" class="nf-nav-link">HOME</a>
+      <a href="../collections/shop.html" class="nf-nav-link">NEW LAUNCHES</a>
+      <a href="../products/seduction.html" class="nf-nav-link">SEDUCTION</a>
+      <a href="../products/dark-oud.html" class="nf-nav-link">DARK OUD</a>
+      <a href="../products/red-spirit.html" class="nf-nav-link">RED SPIRIT</a>
+      <a href="../products/aqua-manthan.html" class="nf-nav-link">AQUA MANTHAN</a>
+      <a href="../products/all-day-misfit.html" class="nf-nav-link">ALL DAY</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="legal-page">
+
+      <p class="coll-breadcrumb"><a href="/">Home</a> &rsaquo; FAQ</p>
+
+      <!-- Hero -->
+      <section class="fq-hero">
+        <p class="fq-eyebrow">Help Centre</p>
+        <h1 class="fq-h1">Frequently Asked Questions</h1>
+        <p class="fq-lead">Everything you need to know about ordering, pricing, shipping, returns and caring for your NAFUME fragrance.</p>
+      </section>
+
+      <!-- Category: Orders & WhatsApp -->
+      <section class="fq-cat">
+        <h2 class="fq-cat-title">Orders &amp; WhatsApp</h2>
+        <details class="fq-item">
+          <summary>How do I place an order? <span class="fq-icon" aria-hidden="true"></span></summary>
+          <div class="fq-answer">Add your fragrance to the cart, fill in your shipping details, and confirm your order on WhatsApp. Once you send the pre-filled WhatsApp message, our team confirms and dispatches your order.</div>
+        </details>
+        <details class="fq-item">
+          <summary>Why is my order confirmed on WhatsApp? <span class="fq-icon" aria-hidden="true"></span></summary>
+          <div class="fq-answer">WhatsApp keeps ordering simple and personal. It lets us confirm your address, answer any questions, and share updates directly — without you needing to create an account or complete an online payment if you prefer not to.</div>
+        </details>
+        <details class="fq-item">
+          <summary>Can I order more than one fragrance together? <span class="fq-icon" aria-hidden="true"></span></summary>
+          <div class="fq-answer">Yes. Add multiple fragrances to your cart, or use <a href="../collections/build-your-own-box.html">Build Your Own Box</a> to create a custom set. Your cart total updates automatically.</div>
+        </details>
+      </section>
+
+      <!-- Category: Pricing & Shipping -->
+      <section class="fq-cat">
+        <h2 class="fq-cat-title">Pricing &amp; Shipping</h2>
+        <details class="fq-item">
+          <summary>How much does a NAFUME perfume cost? <span class="fq-icon" aria-hidden="true"></span></summary>
+          <div class="fq-answer">Each NAFUME 50ml perfume is <strong>&#8377;799</strong> during our current sale — a highly concentrated, long-lasting Parfum at accessible pricing.</div>
+        </details>
+        <details class="fq-item">
+          <summary>What are the shipping charges? <span class="fq-icon" aria-hidden="true"></span></summary>
+          <div class="fq-answer">Shipping is <strong>free on all orders above &#8377;999</strong>. For orders below that, a small shipping fee may apply, shown before you confirm. See our <a href="../legal/shipping-policy.html">Shipping Policy</a> for details.</div>
+        </details>
+        <details class="fq-item">
+          <summary>How long does delivery take? <span class="fq-icon" aria-hidden="true"></span></summary>
+          <div class="fq-answer">We deliver across India, usually within <strong>3 to 7 days</strong> after your order is confirmed. You can follow your order any time on the <a href="../order/track-order.html">Track Order</a> page.</div>
+        </details>
+      </section>
+
+      <!-- Category: Product & Fragrance -->
+      <section class="fq-cat">
+        <h2 class="fq-cat-title">Product &amp; Fragrance</h2>
+        <details class="fq-item">
+          <summary>Are NAFUME perfumes long-lasting? <span class="fq-icon" aria-hidden="true"></span></summary>
+          <div class="fq-answer">Yes. NAFUME fragrances are highly concentrated Parfums, designed to stay present and balanced through a full day — and tuned to perform in Indian heat and humidity.</div>
+        </details>
+        <details class="fq-item">
+          <summary>Are the ingredients skin-friendly? <span class="fq-icon" aria-hidden="true"></span></summary>
+          <div class="fq-answer">Our fragrances are phthalate-free, triclosan-free, and never tested on animals. As with any perfume, spray onto skin or clothing and discontinue use if irritation occurs.</div>
+        </details>
+        <details class="fq-item">
+          <summary>How should I store my perfume? <span class="fq-icon" aria-hidden="true"></span></summary>
+          <div class="fq-answer">Keep your bottle away from direct sunlight, heat and high-humidity areas like bathrooms. Storing it in a cool, dry drawer or cabinet helps preserve the scent over time.</div>
+        </details>
+      </section>
+
+      <!-- Category: Returns & Support -->
+      <section class="fq-cat">
+        <h2 class="fq-cat-title">Returns &amp; Support</h2>
+        <details class="fq-item">
+          <summary>What is your return policy? <span class="fq-icon" aria-hidden="true"></span></summary>
+          <div class="fq-answer">For hygiene and safety reasons we cannot accept returns on opened bottles. If your item arrives damaged or you received the wrong product, contact us promptly. Full details are in our <a href="../legal/return-refund-policy.html">Return &amp; Refund Policy</a>.</div>
+        </details>
+        <details class="fq-item">
+          <summary>How do I track or get help with my order? <span class="fq-icon" aria-hidden="true"></span></summary>
+          <div class="fq-answer">Use the <a href="../order/track-order.html">Track Order</a> page, or share your order details on WhatsApp for tracking support. For anything else, our <a href="contact.html">Contact</a> page lists every way to reach us.</div>
+        </details>
+      </section>
+
+      <!-- CTA -->
+      <div class="fq-cta">
+        <p class="fq-cta-text">Still have a question? We're happy to help.</p>
+        <div class="fq-cta-row">
+          <a href="contact.html" class="fq-btn fq-btn--dark">Contact Support</a>
+          <a href="https://wa.me/918595862227?text=Hi+NAFUME+I+have+a+question" target="_blank" rel="noopener" class="fq-btn fq-btn--wa">
+            <span class="material-symbols-outlined">chat</span> Ask on WhatsApp
+          </a>
         </div>
-        <div class="p-6 flex-grow overflow-y-auto">
-            <div class="relative w-full mb-8">
-                <input class="w-full bg-transparent border-b border-border-muted py-3 pl-10 pr-4 text-[12px] font-semibold uppercase tracking-widest text-primary focus:outline-none focus:border-accent-bronze transition-colors placeholder:text-text-secondary/60" placeholder="SEARCH FRAGRANCES..." type="text"/>
-                <span class="material-symbols-outlined absolute left-0 top-3 text-text-secondary">search</span>
-            </div>
-            <h3 class="text-[11px] font-semibold text-text-secondary mb-4 tracking-widest uppercase">Suggested Scents</h3>
-            <div class="space-y-4"></div>
-        </div>
+      </div>
+
     </div>
+  </main>
 
-    <!-- 6. CART DRAWER (Kept empty for consistency) -->
-    <div class="fixed inset-y-0 right-0 w-full md:w-[420px] bg-surface z-[200] transform translate-x-full drawer-container border-l border-border-muted flex flex-col" id="cart-drawer">
-        <div class="p-6 border-b border-border-muted flex justify-between items-center bg-surface-container/30">
-            <h2 class="text-headline-sm font-semibold text-primary">Your Cart</h2>
-            <button class="text-text-secondary p-2" onclick="toggleCart(true)">
-                <span class="material-symbols-outlined">close</span>
-            </button>
-        </div>
-        <div class="flex-grow overflow-y-auto px-6 py-4" id="cart-drawer-items"></div>
-    </div>
+  <div id="global-footer"></div>
 
-    <!-- 7. MAIN FAQ ACCORDIONS CANVAS -->
-    <main class="flex-grow max-w-[800px] mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-20 w-full">
-        
-        <!-- Header details -->
-        <div class="text-center mb-16 max-w-md mx-auto">
-            <span class="text-[10px] font-semibold text-accent-bronze uppercase tracking-[0.2em] mb-2 block">Support Concierge</span>
-            <h1 class="text-display-lg-mobile md:text-headline-md font-semibold text-primary mb-4 italic">Concierge FAQ</h1>
-            <p class="text-body-md text-text-secondary font-light leading-relaxed">
-                Review verified details regarding our premium express logistics, returns, bespoke sessions, and raw botanical maturations.
-            </p>
-        </div>
-
-        <!-- FAQ Categories and Accordions -->
-        <div class="space-y-12">
-            
-            <!-- Category 1: Logistics -->
-            <div class="space-y-4">
-                <h3 class="text-label-sm font-bold uppercase tracking-widest text-primary border-b border-border-muted pb-2 mb-4">Express Logistics & Shipping</h3>
-                <div class="space-y-3 accordion-list">
-                    <div class="border border-border-muted bg-white rounded accordion-item p-4">
-                        <button class="w-full text-left py-2 flex justify-between items-center text-sm font-semibold text-primary focus:outline-none accordion-trigger uppercase tracking-wide">
-                            How fast is delivery?
-                            <span class="material-symbols-outlined accordion-icon transition-transform">expand_more</span>
-                        </button>
-                        <div class="accordion-content">
-                            <p class="text-xs text-text-secondary leading-relaxed font-light">
-                                We ship all Indian orders via BlueDart Express Premium. Domestic shipments to metro hubs arrive within 2 to 4 business days. Regional areas can take up to 6 business days. Express shipping is completely free on all transactions above ₹1,500.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="border border-border-muted bg-white rounded accordion-item p-4">
-                        <button class="w-full text-left py-2 flex justify-between items-center text-sm font-semibold text-primary focus:outline-none accordion-trigger uppercase tracking-wide">
-                            Do you ship international orders?
-                            <span class="material-symbols-outlined accordion-icon transition-transform">expand_more</span>
-                        </button>
-                        <div class="accordion-content">
-                            <p class="text-xs text-text-secondary leading-relaxed font-light">
-                                Yes. We ship internationally via DHL Express Priority. Standard international delivery times are 5 to 10 business days depending on customs clearings. Please connect with our concierge email to calculate precise shipping values.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Category 2: Returns -->
-            <div class="space-y-4">
-                <h3 class="text-label-sm font-bold uppercase tracking-widest text-primary border-b border-border-muted pb-2 mb-4">Returns & Concierge Exchanges</h3>
-                <div class="space-y-3 accordion-list">
-                    <div class="border border-border-muted bg-white rounded accordion-item p-4">
-                        <button class="w-full text-left py-2 flex justify-between items-center text-sm font-semibold text-primary focus:outline-none accordion-trigger uppercase tracking-wide">
-                            What is your return policy?
-                            <span class="material-symbols-outlined accordion-icon transition-transform">expand_more</span>
-                        </button>
-                        <div class="accordion-content">
-                            <p class="text-xs text-text-secondary leading-relaxed font-light">
-                                Due to the strict hygiene and transport safety classifications of high-concentration alcohol-based fine perfumery, we are unable to accept returns or offer refunds on opened full bottles. We strongly encourage securing our Discovery Box first.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Category 3: Scent Care -->
-            <div class="space-y-4">
-                <h3 class="text-label-sm font-bold uppercase tracking-widest text-primary border-b border-border-muted pb-2 mb-4">Fragrance Care & Performance</h3>
-                <div class="space-y-3 accordion-list">
-                    <div class="border border-border-muted bg-white rounded accordion-item p-4">
-                        <button class="w-full text-left py-2 flex justify-between items-center text-sm font-semibold text-primary focus:outline-none accordion-trigger uppercase tracking-wide">
-                            How should I store my perfume?
-                            <span class="material-symbols-outlined accordion-icon transition-transform">expand_more</span>
-                        </button>
-                        <div class="accordion-content">
-                            <p class="text-xs text-text-secondary leading-relaxed font-light">
-                                Keep your NAFUME vessels away from heat, high-humidity areas (like bathrooms), and direct sunlight. Store them inside dry, cool cabinets or drawers. This preserves the delicate top notes of saffron and citrus orchards from oxidizing.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="border border-border-muted bg-white rounded accordion-item p-4">
-                        <button class="w-full text-left py-2 flex justify-between items-center text-sm font-semibold text-primary focus:outline-none accordion-trigger uppercase tracking-wide">
-                            Why does my perfume smell slightly different over time?
-                            <span class="material-symbols-outlined accordion-icon transition-transform">expand_more</span>
-                        </button>
-                        <div class="accordion-content">
-                            <p class="text-xs text-text-secondary leading-relaxed font-light">
-                                High-maturation botanical concentrations (like real Mysore Sandalwood and aged Oud) continue to mature and maturate inside the glass vessel over months. Exposure to oxygen slightly blooms the heavier resins, deepening sillage and longevity.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </main>
-
-    <!-- 8. FOOTER -->
-    <footer class="bg-surface-container w-full py-xxl border-t border-border-muted">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
-            <div class="col-span-1 pr-0 md:pr-8">
-                <h4 class="text-headline-sm font-bold text-primary mb-4">NAFUME</h4>
-                <p class="text-body-md text-text-secondary mb-6 text-sm font-light">Artisan fragrances crafted for the modern connoisseur. Minimalist luxury, maximum longevity.</p>
-                <div class="text-label-sm text-text-secondary/70 mt-8 uppercase tracking-widest text-[9px]">
-                    © 2026 NAFUME Fragrance House. All Rights Reserved.
-                </div>
-            </div>
-            <div class="col-span-1">
-                <h5 class="text-label-sm font-bold text-primary uppercase tracking-widest mb-6">Explore</h5>
-                <ul class="space-y-3">
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../brand/about">Our Craft</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../collections/shop">Shop Catalog</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../collections/build-your-own-box">Discovery Box</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../brand/consultation">Bespoke Appointment</a></li>
-                </ul>
-            </div>
-            <div class="col-span-1">
-                <h5 class="text-label-sm font-bold text-primary uppercase tracking-widest mb-6">Support</h5>
-                <ul class="space-y-3">
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="faq">Shipping & Returns</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../order/track-order">Track Order Status</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="faq">Fragrance Care FAQ</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="404">Concierge Contact</a></li>
-                </ul>
-            </div>
-            <div class="col-span-1">
-                <h5 class="text-label-sm font-bold text-primary uppercase tracking-widest mb-6">The Nafume Club</h5>
-                <p class="text-body-md text-text-secondary text-sm mb-4 font-light">Subscribe for exclusive private vaults, secret batches, and VIP pre-launches.</p>
-                <form class="relative flex border-b border-primary group py-1">
-                    <input class="w-full bg-transparent border-none focus:ring-0 px-0 py-2 text-label-sm placeholder:text-text-secondary/50 placeholder:font-normal uppercase tracking-wider" placeholder="EMAIL ADDRESS" type="email" required/>
-                    <button class="p-2 text-primary hover:text-accent-bronze transition-transform hover:translate-x-1" type="submit">
-                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </footer>
-
-    <!-- GLOBAL SCRIPTS -->
-    <script src="../../js/state.js"></script>
-    <script src="../../js/app.js"></script>
+  <script src="../../js/commerce/customer-service.js"></script>
+  <script src="../../js/launch.js"></script>
 </body>
 </html>

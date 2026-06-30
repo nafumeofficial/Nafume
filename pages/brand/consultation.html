@@ -1,297 +1,259 @@
-﻿<!DOCTYPE html>
-<html class="scroll-smooth" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <link rel="icon" type="image/png" href="/assets/logo/logo-mark.png"/>
-    <link rel="apple-touch-icon" href="/assets/logo/logo-mark.png"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Bespoke Blending Consultations | NAFUME Artisan Luxe</title>
-    <meta name="robots" content="noindex, nofollow"/>
-    <!-- Tailwind CSS v3 CDN -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <!-- Google Fonts -->
-    <!-- Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <!-- Central Styles -->
-    <link href="../../css/style.css" rel="stylesheet"/>
-    <script id="tailwind-config">
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        "surface": "#F9F5F0",
-                        "accent-bronze": "#C5A059",
-                        "primary": "#000000",
-                        "text-secondary": "#666666",
-                        "border-muted": "#DEDEDE",
-                        "surface-container": "#f1edec",
-                        "surface-variant": "#e5e2e1"
-                    },
-                    borderRadius: {
-                        DEFAULT: "2px",
-                        lg: "4px",
-                        xl: "8px",
-                        full: "9999px"
-                    },
-                    spacing: {
-                        xl: "32px",
-                        gutter: "24px",
-                        xxl: "48px",
-                        lg: "24px",
-                        "margin-desktop": "80px",
-                        "margin-mobile": "16px",
-                        display: "64px",
-                        md: "16px",
-                        sm: "8px",
-                        xs: "4px"
-                    }
-                }
-            }
-        }
-    </script>
+  <meta charset="UTF-8"/>
+  <link rel="icon" type="image/png" href="/assets/logo/logo-mark.png"/>
+  <link rel="apple-touch-icon" href="/assets/logo/logo-mark.png"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fragrance Consultation — NAFUME Artisan Luxe</title>
+  <meta name="description" content="Not sure which NAFUME perfume suits you? Share a few details and our team will recommend the right long-lasting fragrance for your taste, occasion and budget — over WhatsApp."/>
+  <link rel="canonical" href="https://www.nafume.com/pages/brand/consultation"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="NAFUME Artisan Luxe"/>
+  <meta property="og:title" content="Fragrance Consultation — NAFUME Artisan Luxe"/>
+  <meta property="og:description" content="Get a personal NAFUME fragrance recommendation over WhatsApp — tailored to your taste, occasion and budget."/>
+  <meta property="og:url" content="https://www.nafume.com/pages/brand/consultation"/>
+  <meta property="og:image" content="https://www.nafume.com/assets/images/products/seduction/01.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.nafume.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Fragrance Consultation", "item": "https://www.nafume.com/pages/brand/consultation"}
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/launch.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── Consultation page (scoped) ── */
+    .cs-hero { text-align: center; max-width: 700px; margin: 0 auto; padding: 8px 0 40px; }
+    .cs-eyebrow { display: inline-flex; align-items: center; gap: 14px; font-family: var(--font-heading); font-size: 11px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: #C5A059; margin-bottom: 16px; }
+    .cs-eyebrow::before, .cs-eyebrow::after { content: ""; width: 26px; height: 1px; background: #C5A059; display: inline-block; }
+    .cs-h1 { font-family: var(--font-heading); font-size: clamp(26px, 4.2vw, 42px); letter-spacing: 0.07em; text-transform: uppercase; color: #141414; line-height: 1.12; margin-bottom: 16px; }
+    .cs-lead { font-size: 15px; line-height: 1.9; color: #5a5550; font-weight: 300; }
+
+    .cs-grid { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: start; }
+    @media (min-width: 900px) { .cs-grid { grid-template-columns: 0.85fr 1.15fr; gap: 44px; } }
+
+    .cs-visual { position: relative; overflow: hidden; background: #F0EBE2; aspect-ratio: 4 / 5; box-shadow: 0 24px 60px -28px rgba(20,14,6,0.28); }
+    .cs-visual-img, .cs-visual-img--hover { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.6s ease, transform 0.9s cubic-bezier(0.22,0.61,0.36,1); }
+    .cs-visual-img--hover { position: absolute; inset: 0; opacity: 0; pointer-events: none; }
+    @media (hover:hover) and (pointer:fine) {
+      .cs-visual:hover .cs-visual-img--hover { opacity: 1; }
+      .cs-visual:hover .cs-visual-img, .cs-visual:hover .cs-visual-img--hover { transform: scale(1.04); }
+    }
+    .cs-steps { margin-top: 24px; }
+    .cs-step { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid #E5DED2; }
+    .cs-step:last-child { border-bottom: none; }
+    .cs-step-num { font-family: var(--font-heading); font-size: 12px; color: #C5A059; font-weight: 600; min-width: 18px; }
+    .cs-step-t { font-family: var(--font-heading); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: #1a1a1a; margin-bottom: 4px; }
+    .cs-step-d { font-size: 13px; line-height: 1.7; color: #6b665f; font-weight: 300; }
+
+    .cs-form-card { background: #fff; border: 1px solid #EAE3D8; border-radius: 6px; padding: 28px 24px; box-shadow: 0 1px 2px rgba(20,14,6,0.03); }
+    @media (min-width: 600px) { .cs-form-card { padding: 36px 32px; } }
+    .cs-form-title { font-family: var(--font-heading); font-size: 16px; letter-spacing: 0.08em; text-transform: uppercase; color: #141414; margin-bottom: 6px; }
+    .cs-form-note { font-size: 12.5px; color: #8a8378; line-height: 1.7; margin-bottom: 22px; font-weight: 300; }
+    .cs-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .cs-row { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 560px) { .cs-row { grid-template-columns: 1fr 1fr; } }
+    .cs-label { font-family: var(--font-body); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #666; }
+    .cs-input, .cs-select, .cs-textarea { border: 1px solid #ddd; padding: 12px 14px; font-size: 14px; border-radius: 2px; font-family: var(--font-body); color: #222; background: #fff; outline: none; transition: border-color 0.2s ease; width: 100%; }
+    .cs-input:focus, .cs-select:focus, .cs-textarea:focus { border-color: #C5A059; }
+    .cs-textarea { resize: vertical; min-height: 96px; }
+    .cs-submit { display: inline-flex; align-items: center; justify-content: center; gap: 9px; width: 100%; margin-top: 6px; padding: 15px 28px; background: #111; color: #fff; border: none; font-family: var(--font-heading); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: background 0.25s ease; }
+    .cs-submit:hover { background: #C5A059; }
+    .cs-submit .material-symbols-outlined { font-size: 18px; }
+    .cs-alt { text-align: center; font-size: 12px; color: #888; margin-top: 16px; font-weight: 300; }
+    .cs-alt a { color: #111; font-weight: 600; text-decoration: underline; }
+    .cs-alt a:hover { color: #C5A059; }
+  </style>
 </head>
-<body class="antialiased min-h-screen flex flex-col bg-surface text-primary">
+<body>
 
-    <!-- 1. DRAWER OVERLAYS -->
-    <div class="fixed inset-0 bg-black/40 z-[150] hidden opacity-0 drawer-overlay transition-opacity duration-300" id="search-overlay" onclick="toggleSearch(true)"></div>
-    <div class="fixed inset-0 bg-black/40 z-[150] hidden opacity-0 drawer-overlay transition-opacity duration-300" id="mobile-menu-overlay" onclick="toggleMobileMenu(true)"></div>
-    <div class="fixed inset-0 bg-black/40 z-[150] hidden opacity-0 drawer-overlay transition-opacity duration-300" id="cart-overlay" onclick="toggleCart(true)"></div>
-
-    <!-- 2. ANNOUNCEMENT BAR -->
-    <div class="nf-ann">
-      <div class="nf-ann-track">SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUMMER SALE &nbsp;•&nbsp; &#8377;799 EACH &nbsp;•&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;•&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;•&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-    </div>
-
-    <!-- 3. HEADER (logo row + nav row) -->
-    <header class="nf-header" id="main-header">
-      <!-- Logo Row -->
-      <div class="nf-logo-row">
-        <div class="nf-header-left">
-          <button class="nf-icon-btn nf-hamburger-btn" onclick="toggleMobileMenu()" aria-label="Open menu">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-          </button>
-          <button class="nf-icon-btn nf-search-btn" onclick="toggleSearch()" aria-label="Search">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          </button>
-        </div>
-        <a href="/" class="nf-logo">NAFUME</a>
-        <div class="nf-header-right">
-          <a href="../account/account" class="nf-icon-btn nf-account-btn" aria-label="Account">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/></svg>
-          </a>
-          <button class="nf-icon-btn" onclick="toggleCart()" aria-label="View cart">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-            <span class="nf-cart-badge cart-count hidden">0</span>
-          </button>
-        </div>
+  <div id="launch-overlay" class="lp-overlay" onclick="closeCart()"></div>
+  <div id="launch-toast" class="lp-toast" role="alert" aria-live="polite"></div>
+  <div id="launch-cart-drawer" class="lp-cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+    <div class="cart-drawer-head">
+      <div>
+        <p class="cart-drawer-title">Your Cart</p>
+        <p class="cart-drawer-count" id="cart-drawer-count">0 items</p>
       </div>
-      <!-- Nav Row -->
-      <nav class="nf-nav-row" aria-label="Main navigation">
-        <a href="/" class="nf-nav-link">HOME</a>
-        <a href="../collections/shop" class="nf-nav-link">NEW LAUNCHES</a>
-        <a href="../products/seduction" class="nf-nav-link">SEDUCTION</a>
-        <a href="../products/dark-oud" class="nf-nav-link">DARK OUD</a>
-        <a href="../products/red-spirit" class="nf-nav-link">RED SPIRIT</a>
-        <a href="../products/aqua-manthan" class="nf-nav-link">AQUA MANTHAN</a>
-        <a href="../products/all-day-misfit" class="nf-nav-link">ALL DAY</a>
-        <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
-      </nav>
-    </header>
+      <button class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="cart-drawer-items no-scrollbar" id="launch-cart-items"></div>
+    <div class="cart-drawer-footer" id="launch-cart-footer"></div>
+  </div>
 
-    <!-- 4. MOBILE MENU DRAWER (ids kept for app.js compatibility) -->
-    <div class="nf-mobile-drawer drawer-container -translate-x-full" id="mobile-drawer">
-      <div class="nf-drawer-head">
-        <a href="/" class="nf-logo" style="font-size:17px;letter-spacing:0.22em;">NAFUME</a>
-        <button class="nf-icon-btn" onclick="toggleMobileMenu(true)" aria-label="Close menu">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  <div class="nf-mobile-drawer" id="nf-mobile-drawer">
+    <div class="nf-drawer-head">
+      <a href="/" class="nf-logo" style="font-size:16px;letter-spacing:0.22em;">NAFUME</a>
+      <button class="nf-icon-btn" onclick="nfMenuClose()" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="nf-drawer-nav">
+      <a href="/" class="nf-drawer-link">Home</a>
+      <a href="../collections/shop.html" class="nf-drawer-link">New Launches</a>
+      <a href="../products/seduction.html" class="nf-drawer-link">Seduction</a>
+      <a href="../products/dark-oud.html" class="nf-drawer-link">Dark Oud</a>
+      <a href="../products/red-spirit.html" class="nf-drawer-link">Red Spirit</a>
+      <a href="../products/aqua-manthan.html" class="nf-drawer-link">Aqua Manthan</a>
+      <a href="../products/all-day-misfit.html" class="nf-drawer-link">All Day</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram &#8599;</a>
+    </nav>
+  </div>
+  <div class="nf-drawer-overlay" id="nf-drawer-overlay" onclick="nfMenuClose()"></div>
+
+  <div class="nf-ann">
+    <div class="nf-ann-track">SUMMER SALE &nbsp;&bull;&nbsp; &#8377;799 EACH &nbsp;&bull;&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;&bull;&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;&bull;&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUMMER SALE &nbsp;&bull;&nbsp; &#8377;799 EACH &nbsp;&bull;&nbsp; FREE SHIPPING ABOVE &#8377;999 &nbsp;&bull;&nbsp; ORDERS CONFIRMED ON WHATSAPP &nbsp;&bull;&nbsp; FOLLOW NAFUME ON INSTAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </div>
+
+  <header class="nf-header" id="main-header">
+    <div class="nf-logo-row">
+      <div class="nf-header-left">
+        <button class="nf-icon-btn nf-hamburger-btn" onclick="nfMenuOpen()" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <a href="/" class="nf-icon-btn nf-search-btn" aria-label="Browse website">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </a>
+      </div>
+      <a href="/" class="nf-logo">NAFUME</a>
+      <div class="nf-header-right">
+        <button class="nf-icon-btn" onclick="openCart()" aria-label="View cart">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="nf-cart-badge lp-cart-badge">0</span>
         </button>
       </div>
-      <nav class="nf-drawer-nav">
-        <a href="/" class="nf-drawer-link">Home</a>
-        <a href="../collections/shop" class="nf-drawer-link">New Launches</a>
-        <a href="../products/seduction" class="nf-drawer-link">Seduction</a>
-        <a href="../products/dark-oud" class="nf-drawer-link">Dark Oud</a>
-        <a href="../products/red-spirit" class="nf-drawer-link">Red Spirit</a>
-        <a href="../products/aqua-manthan" class="nf-drawer-link">Aqua Manthan</a>
-        <a href="../products/all-day-misfit" class="nf-drawer-link">All Day</a>
-        <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram &#8599;</a>
-      </nav>
     </div>
-    <!-- 5. SEARCH DRAWER -->
-    <div class="fixed inset-y-0 right-0 w-full md:w-[420px] bg-surface z-[200] transform translate-x-full drawer-container border-l border-border-muted flex flex-col" id="search-drawer">
-        <div class="p-6 border-b border-border-muted flex justify-between items-center bg-surface-container/30">
-            <h2 class="text-headline-sm font-semibold text-primary">Search</h2>
-            <button class="text-text-secondary hover:text-accent-bronze p-2" onclick="toggleSearch(true)">
-                <span class="material-symbols-outlined">close</span>
-            </button>
-        </div>
-        <div class="p-6 flex-grow overflow-y-auto">
-            <div class="relative w-full mb-8">
-                <input class="w-full bg-transparent border-b border-border-muted py-3 pl-10 pr-4 text-[12px] font-semibold uppercase tracking-widest text-primary focus:outline-none focus:border-accent-bronze transition-colors placeholder:text-text-secondary/60" placeholder="SEARCH FRAGRANCES..." type="text"/>
-                <span class="material-symbols-outlined absolute left-0 top-3 text-text-secondary">search</span>
+    <nav class="nf-nav-row" aria-label="Main navigation">
+      <a href="/" class="nf-nav-link">HOME</a>
+      <a href="../collections/shop.html" class="nf-nav-link">NEW LAUNCHES</a>
+      <a href="../products/seduction.html" class="nf-nav-link">SEDUCTION</a>
+      <a href="../products/dark-oud.html" class="nf-nav-link">DARK OUD</a>
+      <a href="../products/red-spirit.html" class="nf-nav-link">RED SPIRIT</a>
+      <a href="../products/aqua-manthan.html" class="nf-nav-link">AQUA MANTHAN</a>
+      <a href="../products/all-day-misfit.html" class="nf-nav-link">ALL DAY</a>
+      <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="legal-page">
+
+      <p class="coll-breadcrumb"><a href="/">Home</a> &rsaquo; Fragrance Consultation</p>
+
+      <!-- Hero -->
+      <section class="cs-hero">
+        <p class="cs-eyebrow">Personal Guidance</p>
+        <h1 class="cs-h1">Fragrance Consultation</h1>
+        <p class="cs-lead">Not sure which NAFUME perfume suits you? Tell us a little about your taste, the occasion and your budget — and our team will recommend the right long-lasting fragrance for you, personally over WhatsApp.</p>
+      </section>
+
+      <div class="cs-grid">
+
+        <!-- Left: visual + how it works -->
+        <div>
+          <div class="cs-visual">
+            <img class="cs-visual-img" src="../../assets/images/products/thumbnails/Seduction/image-1.jpg" alt="NAFUME premium perfume" loading="lazy" decoding="async"/>
+            <img class="cs-visual-img--hover" src="../../assets/images/products/thumbnails/Seduction/image-2.jpg" alt="" loading="lazy" aria-hidden="true" decoding="async"/>
+          </div>
+          <div class="cs-steps">
+            <div class="cs-step">
+              <span class="cs-step-num">01</span>
+              <div>
+                <p class="cs-step-t">Share Your Taste</p>
+                <p class="cs-step-d">Tell us the scents and occasions you love — fresh, oud, floral, daily or evening.</p>
+              </div>
             </div>
-            <h3 class="text-[11px] font-semibold text-text-secondary mb-4 tracking-widest uppercase">Suggested Scents</h3>
-            <div class="space-y-4"></div>
+            <div class="cs-step">
+              <span class="cs-step-num">02</span>
+              <div>
+                <p class="cs-step-t">Get a Recommendation</p>
+                <p class="cs-step-d">We suggest the NAFUME fragrances that best match your preference and budget.</p>
+              </div>
+            </div>
+            <div class="cs-step">
+              <span class="cs-step-num">03</span>
+              <div>
+                <p class="cs-step-t">Order on WhatsApp</p>
+                <p class="cs-step-d">Confirm your pick directly on WhatsApp — simple, personal, and Pan-India delivery in 3&ndash;7 days.</p>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Right: consultation request form (opens WhatsApp — no backend) -->
+        <div class="cs-form-card">
+          <p class="cs-form-title">Request a Recommendation</p>
+          <p class="cs-form-note">There is no backend connected to this form. Submitting opens WhatsApp with your details pre-filled so our team can reply personally.</p>
+
+          <div class="cs-field">
+            <label class="cs-label" for="cs-name">Your Name</label>
+            <input class="cs-input" type="text" id="cs-name" placeholder="Full name"/>
+          </div>
+          <div class="cs-row">
+            <div class="cs-field">
+              <label class="cs-label" for="cs-pref">Preferred Scent</label>
+              <select class="cs-select" id="cs-pref">
+                <option>Fresh &amp; Aquatic</option>
+                <option>Oud &amp; Intense</option>
+                <option>Floral &amp; Romantic</option>
+                <option>Spicy &amp; Bold</option>
+                <option>Office &amp; Everyday</option>
+                <option>Not sure — surprise me</option>
+              </select>
+            </div>
+            <div class="cs-field">
+              <label class="cs-label" for="cs-occasion">Occasion</label>
+              <select class="cs-select" id="cs-occasion">
+                <option>Everyday Wear</option>
+                <option>Office &amp; Work</option>
+                <option>Date Night &amp; Evenings</option>
+                <option>Gifting</option>
+                <option>Special Occasion</option>
+              </select>
+            </div>
+          </div>
+          <div class="cs-field">
+            <label class="cs-label" for="cs-msg">Anything else? (optional)</label>
+            <textarea class="cs-textarea" id="cs-msg" placeholder="e.g. I want something long-lasting for Indian summers, on a budget of around ₹799."></textarea>
+          </div>
+
+          <button class="cs-submit" onclick="sendConsultationWA()">
+            <span class="material-symbols-outlined">chat</span>
+            Get My Recommendation on WhatsApp
+          </button>
+          <p class="cs-alt">Prefer email? Write to <a href="mailto:nafume.official@gmail.com">nafume.official@gmail.com</a></p>
+        </div>
+
+      </div>
+
     </div>
+  </main>
 
-    <!-- 6. CART DRAWER (Kept empty for consistency) -->
-    <div class="fixed inset-y-0 right-0 w-full md:w-[420px] bg-surface z-[200] transform translate-x-full drawer-container border-l border-border-muted flex flex-col" id="cart-drawer">
-        <div class="p-6 border-b border-border-muted flex justify-between items-center bg-surface-container/30">
-            <h2 class="text-headline-sm font-semibold text-primary">Your Cart</h2>
-            <button class="text-text-secondary p-2" onclick="toggleCart(true)">
-                <span class="material-symbols-outlined">close</span>
-            </button>
-        </div>
-        <div class="flex-grow overflow-y-auto px-6 py-4" id="cart-drawer-items"></div>
-    </div>
+  <div id="global-footer"></div>
 
-    <!-- 7. MAIN BOOKING CANVAS -->
-    <main class="flex-grow max-w-[1000px] mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-20 w-full">
-        
-        <!-- Header blocks -->
-        <div class="text-center mb-16 max-w-xl mx-auto">
-            <span class="text-[10px] font-semibold text-accent-bronze uppercase tracking-[0.2em] mb-2 block">Private Sensory Vault Blending</span>
-            <h1 class="text-display-lg-mobile md:text-headline-md font-semibold text-primary mb-4 italic">Bespoke Consultations</h1>
-            <p class="text-body-md text-text-secondary font-light leading-relaxed">
-                Unlock our highest tier of concierge access. Schedule a private custom blending consultation with our master nose to compound your completely exclusive bespoke formula.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start" id="bespoke-page-grid">
-            
-            <!-- Left Info Panel (5/12) -->
-            <div class="md:col-span-5 space-y-6">
-                <div class="aspect-[4/5] rounded overflow-hidden shadow border border-border-muted bg-white p-2">
-                    <img alt="Perfumer Desk" class="w-full h-full object-cover rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtz3N2rv7G5n-1VySFIEHB75yc4QVz7x9e2UzMidwawbljZ4dWWevlgViA0O3Tr85e_kuyO3f_gqZedu8U8fs5ahjSlDpO8Zy8TzniSBYp3z9QHvssMgWj_qJRVAgBrsIYjhjJWCBcfyrKozHLjep3pPs-vAWq0axvXV1NvUeU1bgR986tEe5jaUhf8o8RxS-zO-ecNj0HpVJB6bncPUJ0TBLPciHqbG6b84uKrbQzE6AVRVbpmvwfvrbMj18pIU3nkzC2-2kcvn7t"/>
-                </div>
-                <div class="space-y-3 font-light text-xs text-text-secondary leading-relaxed">
-                    <h4 class="text-label-sm font-bold uppercase tracking-widest text-primary">The Bespoke Experience</h4>
-                    <p>• 60-Minute private sensory testing clinic session.</p>
-                    <p>• Access to private reserve raw distillates and vintage resins.</p>
-                    <p>• Your custom formula is archived in our secure vault for lifetime reorders.</p>
-                    <p>• Session fee is 100% redeemable against your finished 100ml bespoke vessel.</p>
-                </div>
-            </div>
-
-            <!-- Right Form Panel (7/12) -->
-            <div class="md:col-span-7 bg-white border border-border-muted p-6 md:p-10 rounded shadow-sm">
-                
-                <form id="bespoke-booking-form" class="space-y-6 animate-fade-in">
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="flex flex-col">
-                            <label class="text-[9px] font-semibold uppercase tracking-wider text-text-secondary mb-1">Full Name *</label>
-                            <input type="text" required class="border border-border-muted p-3 text-sm focus:ring-0 focus:border-accent-bronze bg-surface/10"/>
-                        </div>
-                        <div class="flex flex-col">
-                            <label class="text-[9px] font-semibold uppercase tracking-wider text-text-secondary mb-1">Email Address *</label>
-                            <input type="email" required class="border border-border-muted p-3 text-sm focus:ring-0 focus:border-accent-bronze bg-surface/10"/>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="flex flex-col">
-                            <label class="text-[9px] font-semibold uppercase tracking-wider text-text-secondary mb-1">Phone Number *</label>
-                            <input type="tel" required class="border border-border-muted p-3 text-sm focus:ring-0 focus:border-accent-bronze bg-surface/10" placeholder="+91 XXXXX XXXXX"/>
-                        </div>
-                        <div class="flex flex-col">
-                            <label class="text-[9px] font-semibold uppercase tracking-wider text-text-secondary mb-1">Consultation Venue *</label>
-                            <select class="border border-border-muted p-3 text-sm focus:ring-0 focus:border-accent-bronze bg-white">
-                                <option>Mumbai Blending Suite (In-Person)</option>
-                                <option>Virtual Sensory Consultation (Online)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="flex flex-col">
-                            <label class="text-[9px] font-semibold uppercase tracking-wider text-text-secondary mb-1">Preferred Scent Family</label>
-                            <select class="border border-border-muted p-3 text-sm focus:ring-0 focus:border-accent-bronze bg-white">
-                                <option>Woody & Resinous</option>
-                                <option>Oud & Majestic Smoke</option>
-                                <option>Floral & Powdery Rose</option>
-                                <option>Citrus orchards & Orange Bloom</option>
-                                <option>Fresh Marine Sea Salts</option>
-                                <option>Gourmand Sweet Vanilla Tobacco</option>
-                            </select>
-                        </div>
-                        <div class="flex flex-col">
-                            <label class="text-[9px] font-semibold uppercase tracking-wider text-text-secondary mb-1">Sensory Goal / Occasion</label>
-                            <select class="border border-border-muted p-3 text-sm focus:ring-0 focus:border-accent-bronze bg-white">
-                                <option>Exclusive Lifetime Signature</option>
-                                <option>Wedding / Milestone Ceremony</option>
-                                <option>Daily Corporate Command</option>
-                                <option>Special Private Collection Addition</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label class="text-[9px] font-semibold uppercase tracking-wider text-text-secondary mb-1">Preferred Blending Date</label>
-                        <input type="date" class="border border-border-muted p-3 text-sm focus:ring-0 focus:border-accent-bronze bg-surface/10"/>
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label class="text-[9px] font-semibold uppercase tracking-wider text-text-secondary mb-1">Olfactory Profile Wishes / Special Notes</label>
-                        <textarea rows="4" class="border border-border-muted p-3 text-sm focus:ring-0 focus:border-accent-bronze bg-surface/10" placeholder="e.g. 'I desire sandalwood base notes paired with heavy tobacco smoke and a touch of saffron...'"></textarea>
-                    </div>
-
-                    <button type="submit" class="w-full py-4 bg-primary text-white text-label-sm font-semibold uppercase tracking-widest hover:bg-[#222] transition-colors shadow">
-                        Book Blending Session
-                    </button>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </main>
-
-    <!-- 8. FOOTER -->
-    <footer class="bg-surface-container w-full py-xxl border-t border-border-muted">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
-            <div class="col-span-1 pr-0 md:pr-8">
-                <h4 class="text-headline-sm font-bold text-primary mb-4">NAFUME</h4>
-                <p class="text-body-md text-text-secondary mb-6 text-sm font-light">Artisan fragrances crafted for the modern connoisseur. Minimalist luxury, maximum longevity.</p>
-                <div class="text-label-sm text-text-secondary/70 mt-8 uppercase tracking-widest text-[9px]">
-                    © 2026 NAFUME Fragrance House. All Rights Reserved.
-                </div>
-            </div>
-            <div class="col-span-1">
-                <h5 class="text-label-sm font-bold text-primary uppercase tracking-widest mb-6">Explore</h5>
-                <ul class="space-y-3">
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="about">Our Craft</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../collections/shop">Shop Catalog</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../collections/build-your-own-box">Discovery Box</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="consultation">Bespoke Appointment</a></li>
-                </ul>
-            </div>
-            <div class="col-span-1">
-                <h5 class="text-label-sm font-bold text-primary uppercase tracking-widest mb-6">Support</h5>
-                <ul class="space-y-3">
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../support/faq">Shipping & Returns</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../order/track-order">Track Order Status</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../support/faq">Fragrance Care FAQ</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="404">Concierge Contact</a></li>
-                </ul>
-            </div>
-            <div class="col-span-1">
-                <h5 class="text-label-sm font-bold text-primary uppercase tracking-widest mb-6">The Nafume Club</h5>
-                <p class="text-body-md text-text-secondary text-sm mb-4 font-light">Subscribe for exclusive private vaults, secret batches, and VIP pre-launches.</p>
-                <form class="relative flex border-b border-primary group py-1">
-                    <input class="w-full bg-transparent border-none focus:ring-0 px-0 py-2 text-label-sm placeholder:text-text-secondary/50 placeholder:font-normal uppercase tracking-wider" placeholder="EMAIL ADDRESS" type="email" required/>
-                    <button class="p-2 text-primary hover:text-accent-bronze transition-transform hover:translate-x-1" type="submit">
-                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </footer>
-
-    <!-- GLOBAL SCRIPTS -->
-    <script src="../../js/state.js"></script>
-    <script src="../../js/app.js"></script>
+  <script src="../../js/commerce/customer-service.js"></script>
+  <script src="../../js/launch.js"></script>
+  <script>
+    function sendConsultationWA() {
+      var name = (document.getElementById('cs-name').value || '').trim();
+      var pref = document.getElementById('cs-pref').value || '';
+      var occ  = document.getElementById('cs-occasion').value || '';
+      var msg  = (document.getElementById('cs-msg').value || '').trim();
+      var text = 'Hi NAFUME, I would like a fragrance recommendation.';
+      if (name) text += '\nName: ' + name;
+      text += '\nPreferred scent: ' + pref;
+      text += '\nOccasion: ' + occ;
+      if (msg) text += '\nNotes: ' + msg;
+      window.open('https://wa.me/918595862227?text=' + encodeURIComponent(text), '_blank');
+    }
+  </script>
 </body>
 </html>

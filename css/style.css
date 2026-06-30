@@ -1190,6 +1190,284 @@ a.home-product-title:hover { color: #C5A059; }
 }
 .home-add-cart-btn:hover { background: #000; color: #fff; }
 
+/* ── Premium card hover (desktop pointer only — preserves touch-peek) ── */
+@media (hover: hover) and (pointer: fine) {
+    .home-product-card {
+        transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .home-product-image-wrap {
+        transition: box-shadow 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .home-product-card:hover {
+        transform: translateY(-6px);
+    }
+    .home-product-card:hover .home-product-image-wrap {
+        box-shadow: 0 20px 44px -16px rgba(20, 14, 6, 0.22);
+    }
+}
+/* Smoother zoom for both base + hover-swap image so they move together */
+.home-product-image {
+    transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.home-product-image--hover {
+    transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.home-product-image-wrap:hover .home-product-image--hover,
+.home-product-card.touch-peek .home-product-image--hover {
+    transform: scale(1.05);
+}
+.home-product-image-wrap:hover .home-product-image {
+    transform: scale(1.05);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SHOP BY MOOD — premium category cards
+───────────────────────────────────────────────────────────── */
+.mood-divider {
+    display: block;
+    width: 48px; height: 2px;
+    background: #C5A059;
+    border-radius: 2px;
+    margin: 6px auto 0;
+}
+.mood-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+@media (min-width: 560px) {
+    .mood-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+}
+@media (min-width: 900px) {
+    .mood-grid { grid-template-columns: repeat(4, 1fr); gap: 22px; }
+}
+.mood-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    gap: 14px;
+    padding: 34px 18px 30px;
+    background: #FFFFFF;
+    border: 1px solid #EAE3D8;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #141414;
+    box-shadow: 0 1px 2px rgba(20, 14, 6, 0.03);
+    transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+                box-shadow 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+                border-color 0.3s ease;
+}
+.mood-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: #F7F2EA;
+    border: 1px solid #EFE8DB;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+.mood-icon svg {
+    width: 28px; height: 28px;
+    color: #1a1a1a;
+    transition: color 0.3s ease;
+}
+.mood-title {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #141414;
+    line-height: 1.2;
+}
+.mood-sub {
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: #8a8378;
+    font-weight: 300;
+}
+@media (hover: hover) and (pointer: fine) {
+    .mood-card:hover {
+        transform: translateY(-6px);
+        border-color: #D9C39A;
+        box-shadow: 0 18px 40px -20px rgba(20, 14, 6, 0.22);
+    }
+    .mood-card:hover .mood-icon {
+        background: #F1E7D4;
+        border-color: #E3D3AF;
+    }
+    .mood-card:hover .mood-icon svg { color: #B8893D; }
+    .mood-card:hover .mood-title { color: #000; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   WHY NAFUME — editorial 2-column
+───────────────────────────────────────────────────────────── */
+.why-nafume-section {
+    background: #FAF7F2;
+    border-top: 1px solid #EBE6DE;
+    padding: 64px 24px;
+}
+@media (min-width: 768px) {
+    .why-nafume-section { padding: 96px 48px; }
+}
+.why-nafume-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 36px;
+    align-items: stretch;
+}
+@media (min-width: 900px) {
+    .why-nafume-inner {
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 64px;
+    }
+}
+.why-visual {
+    position: relative;
+    overflow: hidden;
+    background: #F0EBE2;
+    aspect-ratio: 4 / 5;
+    box-shadow: 0 24px 60px -28px rgba(20, 14, 6, 0.28);
+}
+/* On desktop the image stretches to match the content column —
+   flush top and bottom edges for a clean, architectural alignment. */
+@media (min-width: 900px) {
+    .why-visual {
+        aspect-ratio: auto;
+        height: 100%;
+        min-height: 480px;
+    }
+}
+.why-visual-img,
+.why-visual-img--hover {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    display: block;
+    transition: opacity 0.6s ease, transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.why-visual-img--hover {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+/* Hover image swap + subtle zoom (desktop pointer only) */
+@media (hover: hover) and (pointer: fine) {
+    .why-visual:hover .why-visual-img--hover { opacity: 1; }
+    .why-visual:hover .why-visual-img,
+    .why-visual:hover .why-visual-img--hover { transform: scale(1.045); }
+}
+.why-content {
+    max-width: 580px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4px 0;
+}
+.why-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: #C5A059;
+    margin: 0 0 18px;
+}
+.why-eyebrow-rule {
+    width: 30px; height: 1px;
+    background: #C5A059;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.why-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(30px, 3.8vw, 46px);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #141414;
+    line-height: 1.05;
+    margin: 0 0 20px;
+}
+.why-intro {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.85;
+    color: #5a5550;
+    font-weight: 300;
+    margin: 0 0 14px;
+    max-width: 520px;
+}
+.why-benefits {
+    margin-top: 22px;
+    border-top: 1px solid #E5DED2;
+}
+.why-benefit {
+    padding: 20px 0;
+    border-bottom: 1px solid #E5DED2;
+    transition: padding-left 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.why-benefit-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    margin: 0 0 8px;
+    transition: color 0.25s ease;
+}
+.why-benefit-num {
+    min-width: 16px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: #C5A059;
+    font-weight: 600;
+}
+.why-benefit-text {
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #6b665f;
+    font-weight: 300;
+    margin: 0;
+    padding-left: 28px;
+}
+@media (hover: hover) and (pointer: fine) {
+    .why-benefit:hover { padding-left: 8px; }
+    .why-benefit:hover .why-benefit-title { color: #C5A059; }
+}
+.why-cta {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    margin-top: 34px;
+    padding-bottom: 5px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    border-bottom: 1px solid #C5A059;
+    transition: gap 0.3s cubic-bezier(0.22, 0.61, 0.36, 1), color 0.2s ease;
+}
+.why-cta:hover { gap: 17px; color: #C5A059; }
+.why-cta svg { width: 16px; height: 16px; flex-shrink: 0; }
+
 /* ─────────────────────────────────────────────────────────────
    TRUST MARQUEE
 ───────────────────────────────────────────────────────────── */

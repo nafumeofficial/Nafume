@@ -1526,6 +1526,12 @@ body.has-bar { padding-bottom: 0; }
     transition: transform 0.4s ease; display: block;
 }
 .instagram-item:hover img { transform: scale(1.06); }
+.instagram-item { position: relative; }
+.ig-video-badge {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+}
+.ig-video-badge svg { filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5)); }
 .instagram-arrow {
     position: absolute; top: 50%; transform: translateY(-50%);
     width: 36px; height: 36px; border-radius: 50%;
@@ -2355,26 +2361,67 @@ body.has-bar { padding-bottom: 0; }
   .byob-product-grid { grid-template-columns: 1fr; }
 }
 
+/* ── Browse-all CTA (shop / collections) ───────────────────────────────────── */
+.shop-browse-cta {
+  border-top: 1px solid #ebe6df;
+  padding-top: 44px;
+  text-align: center;
+}
+.shop-browse-eyebrow {
+  font-family: var(--font-heading);
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: #a39a8d; margin-bottom: 16px;
+}
+.shop-browse-link {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--font-heading);
+  font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: #1a1a1a; text-decoration: none;
+  padding-bottom: 5px; border-bottom: 1px solid #C5A059;
+  transition: gap 0.3s cubic-bezier(0.22, 0.61, 0.36, 1), color 0.2s ease;
+}
+.shop-browse-link svg { width: 15px; height: 15px; flex-shrink: 0; }
+.shop-browse-link:hover { gap: 15px; color: #C5A059; }
+
 /* ── SEO content blocks (Upgrade 8) ────────────────────────────────────────── */
 /* Collection / shop SEO buying-guide block */
-.coll-seo-block { max-width: 760px; margin: 36px auto 0; }
+.coll-seo-block { max-width: 820px; margin: 36px auto 0; }
 .coll-seo-title {
-  font-family: var(--font-head); font-size: 15px; letter-spacing: 0.06em;
-  color: #111; margin-bottom: 12px;
+  position: relative;
+  font-family: var(--font-heading);
+  font-size: clamp(17px, 2vw, 21px); letter-spacing: 0.1em; text-transform: uppercase;
+  color: #1a1a1a; margin-bottom: 22px; padding-bottom: 14px;
 }
-.coll-seo-text { font-size: 14px; color: #555; line-height: 1.8; margin: 0; }
+.coll-seo-title::after {
+  content: ""; position: absolute; left: 0; bottom: 0;
+  width: 40px; height: 2px; background: #C5A059; border-radius: 2px;
+}
+.coll-seo-text { font-size: 14px; color: #5a5550; line-height: 1.9; margin: 0; font-weight: 300; }
 
-/* Related collections links */
-.coll-related { max-width: 760px; margin: 36px auto 0; }
-.coll-related-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+/* Related collections links — premium uppercase pills */
+.coll-related { max-width: 820px; margin: 36px auto 0; }
+.coll-related-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
 .coll-related-link {
-  display: inline-flex; align-items: center; gap: 6px;
-  border: 1px solid #e0dbd5; border-radius: 999px;
-  padding: 7px 14px; font-size: 12px; color: #555;
-  text-decoration: none; transition: border-color 0.15s, color 0.15s;
+  display: inline-flex; align-items: center;
+  border: 1px solid #e3ddd4; border-radius: 999px;
+  padding: 10px 20px;
+  font-family: var(--font-heading);
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #555; background: #fff; text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+              border-color 0.25s ease, color 0.25s ease,
+              background 0.25s ease, box-shadow 0.3s ease;
 }
-.coll-related-link span { font-size: 14px; }
+.coll-related-link span { display: none; }
 .coll-related-link:hover { border-color: #C5A059; color: #111; }
+@media (hover: hover) and (pointer: fine) {
+  .coll-related-link:hover {
+    transform: translateY(-2px);
+    border-color: #D9C39A;
+    background: #FBF8F2;
+    box-shadow: 0 8px 20px -12px rgba(20, 14, 6, 0.28);
+  }
+}
 
 /* Product page SEO sections (How to wear / Best for / About / FAQ) */
 .pdp-seo-section { max-width: 1100px; margin: 8px auto 0; padding: 0 24px; }

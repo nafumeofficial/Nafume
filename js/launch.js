@@ -8,9 +8,9 @@ function nfPath(path) {
   var loc = (window.location.pathname || '').replace(/\\/g, '/');
   var depth = loc.indexOf('/pages/') !== -1 ? '../../' :
               loc.indexOf('/admin/')  !== -1 ? '../'    : '';
-  if (path === '/' || path === '/index') return depth + 'index';
+  if (path === '/' || path === '/index') return depth + 'index.html';
   if (path.startsWith('/#') || path.startsWith('/index#')) {
-    return depth + 'index' + path.slice(path.indexOf('#'));
+    return depth + 'index.html' + path.slice(path.indexOf('#'));
   }
   return depth + path.replace(/^\/+/, '');
 }
@@ -26,7 +26,10 @@ function nfPath(path) {
       if (h && h.charAt(0) === '/' && h.charAt(1) !== '/') el.setAttribute('href', nfPath(h));
     } else if (tag === 'IMG' || tag === 'VIDEO' || tag === 'SOURCE') {
       var s = el.getAttribute('src');
-      if (s && s.charAt(0) === '/' && s.charAt(1) !== '/') el.setAttribute('src', nfPath(s));
+      if (s && s.charAt(0) === '/' && s.charAt(1) !== '/') {
+        el.setAttribute('src', nfPath(s));
+        if (tag === 'IMG') el.style.visibility = '';
+      }
     }
   }
   function fixAll(root) {
@@ -69,7 +72,7 @@ window.LAUNCH_CONFIG = LAUNCH_CONFIG;
 const LAUNCH_PRODUCTS = [
   {
     id:          "seduction",
-    slug: "/pages/products/seduction",
+    slug: "/pages/products/seduction.html",
     name:        "Seduction",
     displayName: "SEDUCTION 50ML",
     edp:         "Long-lasting Perfume",
@@ -125,7 +128,7 @@ const LAUNCH_PRODUCTS = [
   },
   {
     id:          "dark-oud",
-    slug: "/pages/products/dark-oud",
+    slug: "/pages/products/dark-oud.html",
     name:        "Dark Oud",
     displayName: "DARK OUD 50ML",
     edp:         "Long-lasting Perfume",
@@ -177,7 +180,7 @@ const LAUNCH_PRODUCTS = [
   },
   {
     id:          "red-spirit",
-    slug: "/pages/products/red-spirit",
+    slug: "/pages/products/red-spirit.html",
     name:        "Red Spirit",
     displayName: "RED SPIRIT 50ML",
     edp:         "Long-lasting Perfume",
@@ -228,7 +231,7 @@ const LAUNCH_PRODUCTS = [
   },
   {
     id:          "aqua-manthan",
-    slug: "/pages/products/aqua-manthan",
+    slug: "/pages/products/aqua-manthan.html",
     name:        "Aqua Manthan",
     displayName: "AQUA MANTHAN 50ML",
     edp:         "Long-lasting Perfume",
@@ -279,7 +282,7 @@ const LAUNCH_PRODUCTS = [
   },
   {
     id:          "all-day-misfit",
-    slug: "/pages/products/all-day-misfit",
+    slug: "/pages/products/all-day-misfit.html",
     name:        "All Day",
     displayName: "ALL DAY 50ML",
     edp:         "Long-lasting Perfume",
@@ -548,7 +551,7 @@ function renderCartDrawer() {
       '<div class="cart-row-total"><span>Total</span><span>' + curr + finalTotal.toLocaleString("en-IN") + '</span></div>' +
       '<p class="cart-gst-note">GST inclusive · offers applied at checkout</p>' +
     '</div>' +
-    '<a href="/pages/order/shipping" class="btn-to-shipping">Proceed to Checkout →</a>' +
+    '<a href="/pages/order/shipping.html" class="btn-to-shipping">Proceed to Checkout →</a>' +
     '<button onclick="launchClearCart()" class="btn-clear-cart">Clear Cart</button>';
 }
 
@@ -599,7 +602,7 @@ function cartUpsellHtml() {
   return '<div class="cart-upsell-wrap">' +
     '<p class="cart-upsell-title">Complete Your Fragrance Wardrobe</p>' +
     cards +
-    '<a href="/pages/collections/collection?collection=discovery-set" class="cart-discovery-cta" onclick="closeCart()">Not sure? Try the Discovery Set first →</a>' +
+    '<a href="/pages/collections/collection.html?collection=discovery-set" class="cart-discovery-cta" onclick="closeCart()">Not sure? Try the Discovery Set first →</a>' +
   '</div>';
 }
 
@@ -807,9 +810,9 @@ function initProductPage(productId) {
           '<li>Unboxing photo/video required for return requests</li>' +
         '</ul>' +
         '<p class="acc-body-text" style="margin-top:10px">' +
-          '<a href="/pages/legal/shipping-policy" style="color:#555;text-decoration:underline">Read full Shipping Policy</a>' +
+          '<a href="/pages/legal/shipping-policy.html" style="color:#555;text-decoration:underline">Read full Shipping Policy</a>' +
           ' &nbsp;·&nbsp; ' +
-          '<a href="/pages/legal/return-refund-policy" style="color:#555;text-decoration:underline">Return &amp; Refund Policy</a>' +
+          '<a href="/pages/legal/return-refund-policy.html" style="color:#555;text-decoration:underline">Return &amp; Refund Policy</a>' +
         '</p>'
     },
     {
@@ -832,9 +835,9 @@ function initProductPage(productId) {
         '</div>' +
         '<p class="acc-legal-verify-note">⚠ Ingredients, batch details, MFG/EXP dates and manufacturer declaration must be verified and printed on packaging before launch.</p>' +
         '<div class="acc-legal-links">' +
-          '<a href="/pages/legal/privacy-policy">Privacy Policy</a>' +
-          '<a href="/pages/legal/terms-conditions">Terms &amp; Conditions</a>' +
-          '<a href="/pages/legal/return-refund-policy">Returns Policy</a>' +
+          '<a href="/pages/legal/privacy-policy.html">Privacy Policy</a>' +
+          '<a href="/pages/legal/terms-conditions.html">Terms &amp; Conditions</a>' +
+          '<a href="/pages/legal/return-refund-policy.html">Returns Policy</a>' +
         '</div>'
     }
   ];
@@ -903,7 +906,7 @@ function initProductPage(productId) {
     }
     if (buy3Off && buy3Off.enabled) {
       stripInner +=
-        '<a href="/pages/collections/build-your-own-box" class="pdp-offer-bundle-btn">' +
+        '<a href="/pages/collections/build-your-own-box.html" class="pdp-offer-bundle-btn">' +
           '<span>' + (buy3Off.label || 'Buy any 3 × 50ml') + '</span>' +
           '<span class="material-symbols-outlined">arrow_forward</span>' +
         '</a>';
@@ -938,7 +941,7 @@ function initProductPage(productId) {
           '</div>' +
           '<button class="product-btn-atc" id="pdp-btn-atc" onclick="pdpAddToCart()">Add to Cart</button>' +
         '</div>' +
-        '<a href="/pages/order/shipping" class="product-btn-ship">' +
+        '<a href="/pages/order/shipping.html" class="product-btn-ship">' +
           '<span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>' +
           'Continue to Shipping' +
         '</a>' +
@@ -1061,7 +1064,7 @@ function initProductPage(productId) {
           }).join("") +
         '</div>' +
         '<div class="other-launches-actions">' +
-          '<a href="/pages/collections/collections" class="other-launches-browse">Browse All Collections →</a>' +
+          '<a href="/pages/collections/collections.html" class="other-launches-browse">Browse All Collections →</a>' +
         '</div>' +
       '</div>';
   }
@@ -1231,7 +1234,7 @@ function renderProductPairings(p) {
       '<h2 class="pdp-pairings-title">Pairs Well With · Make It a Bundle</h2>' +
       '<p class="pdp-pairings-sub">Build your fragrance wardrobe — add any 3 × 50ml to unlock our bundle offer.</p>' +
       '<div class="other-grid">' + cards + '</div>' +
-      '<a href="/pages/collections/collection?collection=discovery-set" class="pdp-discovery-cta">Not sure? Try the Discovery Set first →</a>' +
+      '<a href="/pages/collections/collection.html?collection=discovery-set" class="pdp-discovery-cta">Not sure? Try the Discovery Set first →</a>' +
     '</div>';
   anchor.parentNode.insertBefore(section, anchor);
 }
@@ -1325,10 +1328,10 @@ function renderProductSeoSections(p) {
       '</div>' +
       // Internal links
       '<div class="pdp-seo-links">' +
-        '<a href="/pages/collections/collection?collection=' + (p.primaryCollection || 'best-sellers') + '">More like this</a>' +
-        '<a href="/pages/collections/shop">Shop all perfumes</a>' +
-        (p.isGiftable ? '<a href="/pages/collections/gifting">Gifting</a>' : '') +
-        '<a href="/pages/collections/collections">Explore Collections</a>' +
+        '<a href="/pages/collections/collection.html?collection=' + (p.primaryCollection || 'best-sellers') + '">More like this</a>' +
+        '<a href="/pages/collections/shop.html">Shop all perfumes</a>' +
+        (p.isGiftable ? '<a href="/pages/collections/gifting.html">Gifting</a>' : '') +
+        '<a href="/pages/collections/collections.html">Explore Collections</a>' +
       '</div>' +
     '</div>';
 
@@ -1359,7 +1362,7 @@ function applyProductSeo(p) {
     window.SEO.injectJsonLd(window.SEO.createProductSchema(productForSeo, summary), "ld-product");
     window.SEO.injectJsonLd(window.SEO.createBreadcrumbSchema([
       { name: "Home", url: "/" },
-      { name: "New Launches", url: "/pages/collections/shop" },
+      { name: "New Launches", url: "/pages/collections/shop.html" },
       { name: p.name, url: p.slug }
     ]), "ld-breadcrumb");
     var faqSchema = window.SEO.createFAQSchema(buildProductFaqs(p));
@@ -1946,7 +1949,7 @@ function submitShippingForm(event) {
     var idEl = document.getElementById("confirm-order-id");
     if (idEl) idEl.textContent = "Order ID: " + orderId;
     var viewEl = document.getElementById("confirm-view-link");
-    if (viewEl) viewEl.href = nfPath("/pages/order/confirmation") + "?orderId=" + encodeURIComponent(orderId);
+    if (viewEl) viewEl.href = nfPath("/pages/order/confirmation.html") + "?orderId=" + encodeURIComponent(orderId);
   }
 }
 
@@ -1959,23 +1962,79 @@ window.igCarouselMove = function(dir) {
   strip.scrollBy({ left: dir * (item.offsetWidth + 4), behavior: 'smooth' });
 };
 
+// ─── Instagram feed helpers ────────────────────────────────────────────────
+var IG_PROFILE_URL = 'https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5';
+
+// Fallback static images — shown immediately and kept if live API unavailable
+var IG_FALLBACK = [
+  { src: '/assets/images/products/seduction/01.jpg',      link: IG_PROFILE_URL, alt: 'Seduction by NAFUME',      type: 'IMAGE' },
+  { src: '/assets/images/products/dark-oud/01.jpg',       link: IG_PROFILE_URL, alt: 'Dark Oud by NAFUME',       type: 'IMAGE' },
+  { src: '/assets/images/products/red-spirit/01.jpg',     link: IG_PROFILE_URL, alt: 'Red Spirit by NAFUME',     type: 'IMAGE' },
+  { src: '/assets/images/products/aqua-manthan/01.jpg',   link: IG_PROFILE_URL, alt: 'Aqua Manthan by NAFUME',   type: 'IMAGE' },
+  { src: '/assets/images/products/all-day-misfit/01.jpg', link: IG_PROFILE_URL, alt: 'All Day Misfit by NAFUME', type: 'IMAGE' }
+];
+
+function igEscAttr(str) {
+  return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function buildIgItem(src, link, alt, type) {
+  var safeAlt  = igEscAttr(alt);
+  var safeLink = igEscAttr(link);
+  var videoBadge = (type === 'VIDEO')
+    ? '<span class="ig-video-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="#fff" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg></span>'
+    : '';
+  return '<a href="' + safeLink + '" target="_blank" rel="noopener noreferrer" class="instagram-item" aria-label="' + safeAlt + '">' +
+         '<img src="' + igEscAttr(src) + '" alt="' + safeAlt + '" loading="lazy" onerror="this.closest(\'a\').style.display=\'none\'">' +
+         videoBadge +
+         '</a>';
+}
+
+function renderIgStrip(posts) {
+  var strip = document.getElementById('gf-ig-strip');
+  if (!strip) return;
+  strip.innerHTML = posts.map(function(p) {
+    return buildIgItem(p.src, p.link, p.alt, p.type);
+  }).join('');
+}
+
+function fetchInstagramFeed() {
+  if (typeof fetch === 'undefined') return;
+  try {
+    var ctrl    = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+    var timer   = ctrl ? setTimeout(function() { ctrl.abort(); }, 6000) : null;
+    var options = ctrl ? { cache: 'default', signal: ctrl.signal } : { cache: 'default' };
+    fetch('/api/instagram/feed', options)
+      .then(function(r) {
+        if (timer) clearTimeout(timer);
+        return r.ok ? r.json() : null;
+      })
+      .then(function(data) {
+        if (!data || !Array.isArray(data.posts) || data.posts.length === 0) return;
+        var posts = data.posts
+          .filter(function(p) { return p && p.media_url; })
+          .map(function(p) {
+            return {
+              src:  p.media_url,
+              link: p.permalink || IG_PROFILE_URL,
+              alt:  p.caption   ? p.caption.slice(0, 80) : 'NAFUME on Instagram',
+              type: p.media_type || 'IMAGE'
+            };
+          });
+        if (posts.length) renderIgStrip(posts);
+      })
+      .catch(function() { /* network error or timeout — fallback stays */ });
+  } catch (e) { /* fetchInstagramFeed must never throw */ }
+}
+
 // ─── Global Footer Renderer ───────────────────────────────────────────────
 function renderGlobalFooter() {
   var container = document.getElementById('global-footer');
   if (!container) return;
 
-  var igUrl = 'https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5';
-  var igImages = [
-    '/assets/images/products/seduction/01.jpg',
-    '/assets/images/products/dark-oud/01.jpg',
-    '/assets/images/products/red-spirit/01.jpg',
-    '/assets/images/products/aqua-manthan/01.jpg',
-    '/assets/images/products/all-day-misfit/01.jpg'
-  ];
-
-  var igItems = igImages.map(function(src) {
-    return '<a href="' + igUrl + '" target="_blank" rel="noopener" class="instagram-item">' +
-           '<img src="' + src + '" alt="NAFUME on Instagram" loading="lazy"></a>';
+  // Render fallback immediately (no layout shift)
+  var igItems = IG_FALLBACK.map(function(f) {
+    return buildIgItem(f.src, f.link, f.alt, f.type);
   }).join('');
 
   function buildLogos(hidden) {
@@ -2070,41 +2129,41 @@ function renderGlobalFooter() {
     '    <div class="footer-column">',
     '      <h5 class="footer-title">NAFUME</h5>',
     '      <p class="footer-subscribe-text" style="margin-bottom:16px">Premium fragrances crafted for everyday luxury.</p>',
-    '      <a href="/pages/support/contact" class="footer-link">Contact Us</a>',
+    '      <a href="/pages/support/contact.html" class="footer-link">Contact Us</a>',
     '      <a href="mailto:nafume.official@gmail.com" class="footer-link">nafume.official@gmail.com</a>',
-    '      <a href="/pages/brand/about" class="footer-link">About NAFUME</a>',
+    '      <a href="/pages/brand/about.html" class="footer-link">About NAFUME</a>',
     '      <h5 class="footer-title" style="margin-top:24px;">Fragrances</h5>',
-    '      <a href="/pages/products/seduction" class="footer-link">Seduction</a>',
-    '      <a href="/pages/products/dark-oud" class="footer-link">Dark Oud</a>',
-    '      <a href="/pages/products/red-spirit" class="footer-link">Red Spirit</a>',
-    '      <a href="/pages/products/aqua-manthan" class="footer-link">Aqua Manthan</a>',
-    '      <a href="/pages/products/all-day-misfit" class="footer-link">All Day</a>',
+    '      <a href="/pages/products/seduction.html" class="footer-link">Seduction</a>',
+    '      <a href="/pages/products/dark-oud.html" class="footer-link">Dark Oud</a>',
+    '      <a href="/pages/products/red-spirit.html" class="footer-link">Red Spirit</a>',
+    '      <a href="/pages/products/aqua-manthan.html" class="footer-link">Aqua Manthan</a>',
+    '      <a href="/pages/products/all-day-misfit.html" class="footer-link">All Day</a>',
     '    </div>',
     /* Column 2 — Shop by collection */
     '    <div class="footer-column">',
     '      <h5 class="footer-title">Shop</h5>',
-    '      <a href="/pages/collections/shop" class="footer-link">Shop All Perfumes</a>',
-    '      <a href="/pages/collections/perfumes-for-men" class="footer-link">Perfumes for Men</a>',
-    '      <a href="/pages/collections/perfumes-for-women" class="footer-link">Perfumes for Women</a>',
-    '      <a href="/pages/collections/unisex-perfumes" class="footer-link">Unisex Perfumes</a>',
-    '      <a href="/pages/collections/office-everyday-perfumes" class="footer-link">Office &amp; Everyday</a>',
-    '      <a href="/pages/collections/date-night-perfumes" class="footer-link">Date Night Perfumes</a>',
-    '      <a href="/pages/collections/fresh-aquatic-perfumes" class="footer-link">Fresh &amp; Aquatic</a>',
-    '      <a href="/pages/collections/oud-intense-perfumes" class="footer-link">Oud &amp; Intense</a>',
-    '      <a href="/pages/collections/gifting" class="footer-link">Perfume Gifts</a>',
-    '      <a href="/pages/collections/build-your-own-box" class="footer-link">Build Your Own Box</a>',
+    '      <a href="/pages/collections/shop.html" class="footer-link">Shop All Perfumes</a>',
+    '      <a href="/pages/collections/perfumes-for-men.html" class="footer-link">Perfumes for Men</a>',
+    '      <a href="/pages/collections/perfumes-for-women.html" class="footer-link">Perfumes for Women</a>',
+    '      <a href="/pages/collections/unisex-perfumes.html" class="footer-link">Unisex Perfumes</a>',
+    '      <a href="/pages/collections/office-everyday-perfumes.html" class="footer-link">Office &amp; Everyday</a>',
+    '      <a href="/pages/collections/date-night-perfumes.html" class="footer-link">Date Night Perfumes</a>',
+    '      <a href="/pages/collections/fresh-aquatic-perfumes.html" class="footer-link">Fresh &amp; Aquatic</a>',
+    '      <a href="/pages/collections/oud-intense-perfumes.html" class="footer-link">Oud &amp; Intense</a>',
+    '      <a href="/pages/collections/gifting.html" class="footer-link">Perfume Gifts</a>',
+    '      <a href="/pages/collections/build-your-own-box.html" class="footer-link">Build Your Own Box</a>',
     '    </div>',
     /* Column 3 — Fragrance Guides */
     '    <div class="footer-column">',
     '      <h5 class="footer-title">Fragrance Guides</h5>',
-    '      <a href="/pages/guides" class="footer-link">All Guides</a>',
-    '      <a href="/pages/guides/perfume-for-indian-weather" class="footer-link">Perfume for Indian Weather</a>',
-    '      <a href="/pages/guides/best-perfume-for-office" class="footer-link">Office Perfume Guide</a>',
-    '      <a href="/pages/guides/fresh-perfume-for-summer" class="footer-link">Fresh Summer Perfumes</a>',
-    '      <a href="/pages/guides/date-night-perfume-guide" class="footer-link">Date Night Perfume Guide</a>',
-    '      <a href="/pages/guides/oud-perfume-guide" class="footer-link">Oud Perfume Guide</a>',
-    '      <a href="/pages/guides/how-to-choose-perfume" class="footer-link">How to Choose a Perfume</a>',
-    '      <a href="/pages/guides/perfume-gifting-guide" class="footer-link">Perfume Gifting Guide</a>',
+    '      <a href="/pages/guides/index.html" class="footer-link">All Guides</a>',
+    '      <a href="/pages/guides/perfume-for-indian-weather.html" class="footer-link">Perfume for Indian Weather</a>',
+    '      <a href="/pages/guides/best-perfume-for-office.html" class="footer-link">Office Perfume Guide</a>',
+    '      <a href="/pages/guides/fresh-perfume-for-summer.html" class="footer-link">Fresh Summer Perfumes</a>',
+    '      <a href="/pages/guides/date-night-perfume-guide.html" class="footer-link">Date Night Perfume Guide</a>',
+    '      <a href="/pages/guides/oud-perfume-guide.html" class="footer-link">Oud Perfume Guide</a>',
+    '      <a href="/pages/guides/how-to-choose-perfume.html" class="footer-link">How to Choose a Perfume</a>',
+    '      <a href="/pages/guides/perfume-gifting-guide.html" class="footer-link">Perfume Gifting Guide</a>',
     '    </div>',
     /* Column 4 — Subscribe + Orders */
     '    <div class="footer-column">',
@@ -2122,23 +2181,23 @@ function renderGlobalFooter() {
     '        <a href="https://www.facebook.com/profile.php?id=61590903942862" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Facebook">',
     '          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>',
     '        </a>',
-    '        <a href="' + igUrl + '" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram">',
+    '        <a href="' + IG_PROFILE_URL + '" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram">',
     '          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>',
     '        </a>',
     '      </div>',
     '      <h5 class="footer-title" style="margin-top:24px;">Orders &amp; Support</h5>',
-    '      <a href="/pages/legal/shipping-policy" class="footer-link">Shipping Policy</a>',
-    '      <a href="/pages/legal/return-refund-policy" class="footer-link">Return &amp; Refund Policy</a>',
-    '      <a href="/pages/order/track-order" class="footer-link">Track My Order</a>',
-    '      <a href="/pages/support/contact" class="footer-link">Contact Support</a>',
-    '      <a href="/pages/support/faq" class="footer-link">FAQs</a>',
+    '      <a href="/pages/legal/shipping-policy.html" class="footer-link">Shipping Policy</a>',
+    '      <a href="/pages/legal/return-refund-policy.html" class="footer-link">Return &amp; Refund Policy</a>',
+    '      <a href="/pages/order/track-order.html" class="footer-link">Track My Order</a>',
+    '      <a href="/pages/support/contact.html" class="footer-link">Contact Support</a>',
+    '      <a href="/pages/support/faq.html" class="footer-link">FAQs</a>',
     '    </div>',
     '  </div>',
     '  <div class="footer-bottom">',
     '    <p class="footer-copy">&copy; 2026 NAFUME Artisan Luxe. All rights reserved. &nbsp;|&nbsp;',
-    '      <a href="/pages/legal/privacy-policy" style="color:inherit;opacity:0.7;text-decoration:underline">Privacy</a> &nbsp;',
-    '      <a href="/pages/legal/terms-conditions" style="color:inherit;opacity:0.7;text-decoration:underline">Terms</a> &nbsp;',
-    '      <a href="/pages/legal/return-refund-policy" style="color:inherit;opacity:0.7;text-decoration:underline">Returns</a>',
+    '      <a href="/pages/legal/privacy-policy.html" style="color:inherit;opacity:0.7;text-decoration:underline">Privacy</a> &nbsp;',
+    '      <a href="/pages/legal/terms-conditions.html" style="color:inherit;opacity:0.7;text-decoration:underline">Terms</a> &nbsp;',
+    '      <a href="/pages/legal/return-refund-policy.html" style="color:inherit;opacity:0.7;text-decoration:underline">Returns</a>',
     '    </p>',
     '  </div>',
     '</footer>'
@@ -2163,13 +2222,16 @@ function renderGlobalFooter() {
       if (success) { success.style.display = 'block'; form.reset(); }
     });
   }
+
+  // Async: swap fallback images with live Instagram posts (no-op if API unavailable)
+  fetchInstagramFeed();
 }
 
 // ─── Collection nav injection (Upgrade 6) ─────────────────────────
 function injectCollectionNav() {
   var collectionLinks = [
-    { href: '/pages/collections/collections', label: 'COLLECTIONS' },
-    { href: '/pages/collections/gifting',     label: 'GIFTING' }
+    { href: '/pages/collections/collections.html', label: 'COLLECTIONS' },
+    { href: '/pages/collections/gifting.html',     label: 'GIFTING' }
   ];
   // Desktop nav row
   var navRow = document.querySelector('.nf-nav-row');
@@ -2217,6 +2279,14 @@ document.addEventListener("DOMContentLoaded", function() {
   if (document.getElementById("launch-grid")) {
     renderLaunchGrid("launch-grid", LAUNCH_PRODUCTS);
   }
+
+  // Collection/category page grids — any .launch-grid with data-products attr
+  document.querySelectorAll('.launch-grid[data-products]').forEach(function(el) {
+    var ids = el.getAttribute('data-products').split(',').map(function(s){ return s.trim(); });
+    var prods = LAUNCH_PRODUCTS.filter(function(p){ return ids.indexOf(p.id) !== -1; });
+    prods.sort(function(a, b){ return ids.indexOf(a.id) - ids.indexOf(b.id); });
+    if (prods.length && el.id) renderLaunchGrid(el.id, prods, 'collection');
+  });
 
   // Homepage reviews (Upgrade 4): featured testimonials + product-card ratings.
   renderFeaturedHomeReviews();
@@ -2424,7 +2494,7 @@ function initCheckoutAccountUI() {
     note.style.background = "#faf6ef";
     note.style.color = "#7a5b1e";
     note.innerHTML = 'Login to save your address and view order history. ' +
-      '<a href="/pages/account/account" style="color:#111;text-decoration:underline;">Login to your account</a> ' +
+      '<a href="/pages/account/account.html" style="color:#111;text-decoration:underline;">Login to your account</a> ' +
       '(optional — you can still check out as a guest).';
   }
 

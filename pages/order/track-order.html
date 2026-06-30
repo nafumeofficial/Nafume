@@ -8,12 +8,16 @@
     <title>Track Your Order — NAFUME Artisan Luxe</title>
     <meta name="description" content="Track your NAFUME order using your order ID, phone number or AWB number. Check your fragrance delivery status anytime."/>
     <!-- noindex: order-specific page with user data -->
+    <meta name="robots" content="noindex, nofollow"/>
     <link rel="canonical" href="https://www.nafume.com/pages/order/track-order"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="NAFUME Artisan Luxe"/>
     <meta property="og:title" content="Track Your Order — NAFUME Artisan Luxe"/>
     <meta property="og:description" content="Track your NAFUME order using your order ID, phone number or AWB number."/>
     <meta property="og:url" content="https://www.nafume.com/pages/order/track-order"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Track Your Order — NAFUME Artisan Luxe"/>
+    <meta name="twitter:description" content="Track your NAFUME order using your order ID, phone number or AWB number."/>
     <!-- Tailwind CSS v3 CDN -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <!-- Google Fonts -->
@@ -21,6 +25,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <!-- Central Styles -->
     <link href="../../css/style.css" rel="stylesheet"/>
+    <!-- Pin NAFUME footer typography so Tailwind preflight cannot degrade it (matches main site) -->
+    <style>
+      #global-footer .footer-title { font-family: var(--font-heading); font-weight: 500; font-size: 12px; line-height: 1.1; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; margin: 0 0 20px; }
+      #global-footer .footer-link { display: block; font-family: var(--font-body); font-weight: 300; font-size: 14px; line-height: 1.4; color: rgba(255,255,255,0.72); text-decoration: none; margin-bottom: 11px; transition: color 0.2s; }
+      #global-footer .footer-link:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+    </style>
     <script id="tailwind-config">
         tailwind.config = {
             theme: {
@@ -83,7 +93,7 @@
         </div>
         <a href="/" class="nf-logo">NAFUME</a>
         <div class="nf-header-right">
-          <a href="../account/account" class="nf-icon-btn nf-account-btn" aria-label="Account">
+          <a href="../account/account.html" class="nf-icon-btn nf-account-btn" aria-label="Account">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/></svg>
           </a>
           <button class="nf-icon-btn" onclick="toggleCart()" aria-label="View cart">
@@ -95,12 +105,12 @@
       <!-- Nav Row -->
       <nav class="nf-nav-row" aria-label="Main navigation">
         <a href="/" class="nf-nav-link">HOME</a>
-        <a href="../collections/shop" class="nf-nav-link">NEW LAUNCHES</a>
-        <a href="../products/seduction" class="nf-nav-link">SEDUCTION</a>
-        <a href="../products/dark-oud" class="nf-nav-link">DARK OUD</a>
-        <a href="../products/red-spirit" class="nf-nav-link">RED SPIRIT</a>
-        <a href="../products/aqua-manthan" class="nf-nav-link">AQUA MANTHAN</a>
-        <a href="../products/all-day-misfit" class="nf-nav-link">ALL DAY</a>
+        <a href="../collections/shop.html" class="nf-nav-link">NEW LAUNCHES</a>
+        <a href="../products/seduction.html" class="nf-nav-link">SEDUCTION</a>
+        <a href="../products/dark-oud.html" class="nf-nav-link">DARK OUD</a>
+        <a href="../products/red-spirit.html" class="nf-nav-link">RED SPIRIT</a>
+        <a href="../products/aqua-manthan.html" class="nf-nav-link">AQUA MANTHAN</a>
+        <a href="../products/all-day-misfit.html" class="nf-nav-link">ALL DAY</a>
         <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-nav-link">INSTAGRAM</a>
       </nav>
     </header>
@@ -115,12 +125,12 @@
       </div>
       <nav class="nf-drawer-nav">
         <a href="/" class="nf-drawer-link">Home</a>
-        <a href="../collections/shop" class="nf-drawer-link">New Launches</a>
-        <a href="../products/seduction" class="nf-drawer-link">Seduction</a>
-        <a href="../products/dark-oud" class="nf-drawer-link">Dark Oud</a>
-        <a href="../products/red-spirit" class="nf-drawer-link">Red Spirit</a>
-        <a href="../products/aqua-manthan" class="nf-drawer-link">Aqua Manthan</a>
-        <a href="../products/all-day-misfit" class="nf-drawer-link">All Day</a>
+        <a href="../collections/shop.html" class="nf-drawer-link">New Launches</a>
+        <a href="../products/seduction.html" class="nf-drawer-link">Seduction</a>
+        <a href="../products/dark-oud.html" class="nf-drawer-link">Dark Oud</a>
+        <a href="../products/red-spirit.html" class="nf-drawer-link">Red Spirit</a>
+        <a href="../products/aqua-manthan.html" class="nf-drawer-link">Aqua Manthan</a>
+        <a href="../products/all-day-misfit.html" class="nf-drawer-link">All Day</a>
         <a href="https://www.instagram.com/nafume.official?igsh=djk0OHY0dnlmeXJ5" target="_blank" rel="noopener noreferrer" class="nf-drawer-link">Instagram &#8599;</a>
       </nav>
     </div>
@@ -189,57 +199,17 @@
 
         <!-- 16. Support & policy links -->
         <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center mt-10 pt-6 border-t border-border-muted/60 text-[11px] text-text-secondary/70 w-full">
-            <a href="../legal/shipping-policy" class="hover:text-accent-bronze transition-colors underline">Shipping Policy</a>
-            <a href="../legal/return-refund-policy" class="hover:text-accent-bronze transition-colors underline">Return &amp; Refund Policy</a>
-            <a href="../support/contact" class="hover:text-accent-bronze transition-colors underline">Contact Support</a>
+            <a href="../legal/shipping-policy.html" class="hover:text-accent-bronze transition-colors underline">Shipping Policy</a>
+            <a href="../legal/return-refund-policy.html" class="hover:text-accent-bronze transition-colors underline">Return &amp; Refund Policy</a>
+            <a href="../support/contact.html" class="hover:text-accent-bronze transition-colors underline">Contact Support</a>
             <button onclick="trackWhatsAppSupport()" class="hover:text-accent-bronze transition-colors underline">WhatsApp Support</button>
-            <a href="../support/grievance-officer" class="hover:text-accent-bronze transition-colors underline">Grievance Officer</a>
+            <a href="../support/grievance-officer.html" class="hover:text-accent-bronze transition-colors underline">Grievance Officer</a>
         </div>
 
     </main>
 
     <!-- 8. FOOTER -->
-    <footer class="bg-surface-container w-full py-xxl border-t border-border-muted">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
-            <div class="col-span-1 pr-0 md:pr-8">
-                <h4 class="text-headline-sm font-bold text-primary mb-4">NAFUME</h4>
-                <p class="text-body-md text-text-secondary mb-6 text-sm font-light">Artisan fragrances crafted for the modern connoisseur. Minimalist luxury, maximum longevity.</p>
-                <div class="text-label-sm text-text-secondary/70 mt-8 uppercase tracking-widest text-[9px]">
-                    © 2026 NAFUME Fragrance House. All Rights Reserved.
-                </div>
-            </div>
-            <div class="col-span-1">
-                <h5 class="text-label-sm font-bold text-primary uppercase tracking-widest mb-6">Explore</h5>
-                <ul class="space-y-3">
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../brand/about">Our Craft</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../collections/shop">Shop Catalog</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../collections/build-your-own-box">Discovery Box</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../brand/consultation">Bespoke Appointment</a></li>
-                </ul>
-            </div>
-            <div class="col-span-1">
-                <h5 class="text-label-sm font-bold text-primary uppercase tracking-widest mb-6">Support &amp; Legal</h5>
-                <ul class="space-y-3">
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../support/contact">Contact Us</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../legal/shipping-policy">Shipping Policy</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../legal/return-refund-policy">Return &amp; Refund Policy</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../legal/privacy-policy">Privacy Policy</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../legal/terms-conditions">Terms &amp; Conditions</a></li>
-                    <li><a class="text-body-md text-text-secondary hover:text-accent-bronze transition-colors text-sm font-light" href="../support/grievance-officer">Grievance Officer</a></li>
-                </ul>
-            </div>
-            <div class="col-span-1">
-                <h5 class="text-label-sm font-bold text-primary uppercase tracking-widest mb-6">The Nafume Club</h5>
-                <p class="text-body-md text-text-secondary text-sm mb-4 font-light">Subscribe for exclusive private vaults, secret batches, and VIP pre-launches.</p>
-                <form class="relative flex border-b border-primary group py-1">
-                    <input class="w-full bg-transparent border-none focus:ring-0 px-0 py-2 text-label-sm placeholder:text-text-secondary/50 placeholder:font-normal uppercase tracking-wider" placeholder="EMAIL ADDRESS" type="email" required/>
-                    <button class="p-2 text-primary hover:text-accent-bronze transition-transform hover:translate-x-1" type="submit">
-                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </footer>
+    <div id="global-footer"></div>
 
     <!-- GLOBAL SCRIPTS (state.js + app.js power the shared header/drawers) -->
     <script src="../../js/state.js"></script>
@@ -427,7 +397,7 @@
                 '<div class="mt-5 pt-4 border-t border-border-muted/40 flex flex-wrap gap-3 items-center">' +
                     '<button onclick="contactSupportAboutOrder(\'' + tEsc(order.orderId) + '\')" class="inline-flex items-center gap-2 px-5 py-3 bg-transparent border border-primary text-primary text-label-sm font-semibold uppercase tracking-widest hover:bg-primary hover:text-white transition-all rounded-sm">' +
                     '<span class="material-symbols-outlined text-[18px]">support_agent</span> Contact Support About This Order</button>' +
-                    '<a href="../support/contact" class="text-[11px] text-text-secondary underline hover:text-accent-bronze">Contact Support</a>' +
+                    '<a href="../support/contact.html" class="text-[11px] text-text-secondary underline hover:text-accent-bronze">Contact Support</a>' +
                 '</div>' +
             '</div>';
         }
@@ -555,5 +525,6 @@
             }
         });
     </script>
+    <script src="../../js/launch.js"></script>
 </body>
 </html>
