@@ -291,6 +291,11 @@
       "url": SITE.domain + "/",
       "logo": SITE.defaultImage,
       "description": SITE.description,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ashok Vihar, Delhi",
+        "addressCountry": "IN"
+      },
       "sameAs": [SITE.instagram, SITE.facebook],
       "contactPoint": [{
         "@type": "ContactPoint",

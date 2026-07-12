@@ -150,7 +150,7 @@
       seoDescription: "Shop NAFUME's intense oud fragrances. Premium Oud Eau De Parfum with saffron, leather, and frankincense.",
       faqItems: [
         { q: "Is oud too strong for everyday wear?", a: "Dark Oud is designed as a statement fragrance — 2–3 sprays is all you need. Best for evenings, formal events, and winter." },
-        { q: "Does NAFUME oud contain real oud?", a: "Dark Oud uses aged oud accords crafted to replicate the character of premium agarwood. Ingredient verification recommended with supplier before launch." }
+        { q: "Does NAFUME oud contain real oud?", a: "Dark Oud uses aged oud accords crafted to replicate the character of premium agarwood." }
       ]
     },
     {

@@ -77,14 +77,14 @@ const LAUNCH_PRODUCTS = [
     displayName: "SEDUCTION 50ML",
     edp:         "Long-lasting Perfume",
     family:      "Floral | Oriental",
-    notes:       ["Rose", "Jasmine", "Amber"],
-    topNotes:    "Bergamot, Pink Pepper, Red Berries",
-    heartNotes:  "Bulgarian Rose, Jasmine, Tuberose",
-    baseNotes:   "Warm Amber, Sandalwood, Musk",
+    notes:       ["Bergamot", "Red Fruits", "Musk"],
+    topNotes:    "Bergamot, Pink Pepper",
+    heartNotes:  "Red Fruits, Ambrette (Musk Mallow), Magnolia, Peach Blossom, Jasmine",
+    baseNotes:   "Musk, Orris Root, White Woods, Vanilla",
     feelings:    ["Sensual", "Romantic", "Magnetic"],
     occasions:   ["Date Night", "Evening", "Special Occasions"],
-    description: "A deep, captivating scent that commands attention. Seduction opens with bright bergamot and spicy pink pepper before unfolding into a lush heart of Bulgarian rose and jasmine. The base of warm amber and sandalwood lingers long after you've entered the room.",
-    behindPerfume: "Crafted for those who believe fragrance is an invisible accessory. Seduction is the scent of anticipation — the quiet confidence before an evening that matters.",
+    description: "Crafted for those who embrace confidence and charm, SEDUCTION is a signature fragrance designed to leave an unforgettable impression from day to night.",
+    behindPerfume: "Inspired by the irresistible harmony of vibrant fruits and sensual musk, SEDUCTION is a fragrance that celebrates elegance with a playful edge. It opens with a radiant burst of juicy red berries, creating a bright and captivating first impression. As the fragrance unfolds, delicate floral nuances add softness and refinement, while the base reveals a luxurious blend of velvety musk, warm amber, and creamy woods that lingers with effortless sophistication.",
     whyLove:     "Rich yet wearable, the rose-amber harmony feels both classic and modern. A true signature scent that people will ask about.",
     usage:       "Apply to pulse points — wrists, neck, and behind ears. Best applied right after showering on warm skin for maximum longevity.",
     image:       "/assets/images/products/seduction/01.jpg",
@@ -133,13 +133,13 @@ const LAUNCH_PRODUCTS = [
     displayName: "DARK OUD 50ML",
     edp:         "Long-lasting Perfume",
     family:      "Woody | Oud",
-    notes:       ["Oud", "Leather", "Incense"],
-    topNotes:    "Saffron, Black Pepper, Cardamom",
-    heartNotes:  "Aged Oud, Dark Leather, Rose Absolute",
-    baseNotes:   "Amber, Frankincense, Patchouli, Vetiver",
+    notes:       ["Sandalwood", "Tobacco", "Agarwood (Oud)"],
+    topNotes:    "Sandalwood, Amber",
+    heartNotes:  "Tobacco, Jasmine",
+    baseNotes:   "Agarwood (Oud)",
     feelings:    ["Mysterious", "Commanding", "Luxurious"],
     occasions:   ["Formal Events", "Winter Evenings", "Celebrations"],
-    description: "An ode to the ancient art of oud. Dark Oud blends the richness of aged agarwood with dark leather and saffron, creating a fragrance that is both modern and timeless. Heavy, bold, and deeply unforgettable.",
+    description: "An ode to the ancient art of oud. Dark Oud blends the richness of aged agarwood with dark leather, creating a fragrance that is both modern and timeless. Heavy, bold, and deeply unforgettable.",
     behindPerfume: "Inspired by the ancient incense routes of Arabia and India, Dark Oud captures the soul of royal oud rituals in a modern bottle.",
     whyLove:     "Extrait-level richness at an accessible price. Dark Oud speaks before you do — intense, long-lasting, and unmistakably premium.",
     usage:       "2–3 sprays is all you need. Apply to chest and wrists. The concentration is powerful — less is more.",
@@ -185,14 +185,14 @@ const LAUNCH_PRODUCTS = [
     displayName: "RED SPIRIT 50ML",
     edp:         "Long-lasting Perfume",
     family:      "Spicy | Aromatic",
-    notes:       ["Spice", "Cedar", "Tonka"],
-    topNotes:    "Cinnamon, Ginger, Clove Bud",
-    heartNotes:  "Cedarwood, Vetiver, Bulgarian Rose",
-    baseNotes:   "Tonka Bean, Dark Musk, Vanilla",
+    notes:       ["Blood Orange", "Absinthe", "Musk"],
+    topNotes:    "Blood Orange, Bergamot, Pink Pepper",
+    heartNotes:  "Absinthe, Lavender, Orris",
+    baseNotes:   "Musk, Cedar, Opoponax",
     feelings:    ["Confident", "Bold", "Fiery"],
     occasions:   ["Power Meetings", "Night Out", "Adventure"],
-    description: "Red Spirit ignites the senses with a fiery blend of cinnamon and ginger, softened into warmth by cedarwood and tonka bean. A fragrance for those who dare to stand out and leave an impression.",
-    behindPerfume: "Born from the idea that confidence has a scent. Red Spirit is the fragrance of someone who walks into a room and owns it — before saying a word.",
+    description: "Crafted for those who move with purpose, RED SPIRIT is a signature scent designed to ignite confidence and leave a striking impression wherever you go.",
+    behindPerfume: "Inspired by the energy of speed, fire, and fearless ambition, RED SPIRIT is a fragrance that embodies boldness and modern confidence. It opens with a dynamic burst of fresh citrus and vibrant red fruits, creating an instant rush of energy and confidence. The heart reveals a warm blend of aromatic spices, rich woods, and coffee, adding depth and character to its powerful personality. As it settles, smoky undertones, amber, and smooth musk create a strong, lasting trail that feels both intense and refined.",
     whyLove:     "Spicy without being harsh, warm without being sweet. Red Spirit wears close to the skin yet fills every room you walk into.",
     usage:       "Spray 2–3 times on the chest and wrists. The warmth of your pulse points amplifies the spice notes beautifully throughout the day.",
     image:       "/assets/images/products/red-spirit/01.jpg",
@@ -236,10 +236,10 @@ const LAUNCH_PRODUCTS = [
     displayName: "AQUA MANTHAN 50ML",
     edp:         "Long-lasting Perfume",
     family:      "Fresh | Aquatic",
-    notes:       ["Marine", "Citrus", "Cedar"],
-    topNotes:    "Sea Salt, Bergamot, Mandarin Orange",
-    heartNotes:  "Marine Accord, Green Tea, White Jasmine",
-    baseNotes:   "Cedarwood, Ambergris, Clean Musk",
+    notes:       ["Mandarin Oil", "Jasmine Accord", "Upcycled Oakwood"],
+    topNotes:    "Mandarin Oil, Cardamom Oil, Pink Pepper",
+    heartNotes:  "Jasmine Accord",
+    baseNotes:   "Upcycled Oakwood, Olibanum Oil, Patchouli Heart",
     feelings:    ["Fresh", "Clean", "Energetic"],
     occasions:   ["Daily Wear", "Office", "Gym", "Summer"],
     description: "Aqua Manthan captures the essence of the ocean at dawn — crisp sea air, fresh citrus, and a whisper of green tea. Light enough for everyday wear, distinctive enough to remember.",
@@ -287,14 +287,14 @@ const LAUNCH_PRODUCTS = [
     displayName: "ALL DAY 50ML",
     edp:         "Long-lasting Perfume",
     family:      "Gourmand | Woody",
-    notes:       ["Coffee", "Tobacco", "Vanilla"],
-    topNotes:    "Dark Coffee, Cacao, Bergamot",
-    heartNotes:  "Tobacco Leaf, Bourbon Vanilla, Caramel",
-    baseNotes:   "Sandalwood, Patchouli, Warm Musk",
+    notes:       ["Lavender", "Akigalawood", "Patchouli"],
+    topNotes:    "Lavender, Calabrian Bergamot, Angelica, Carrot Seeds",
+    heartNotes:  "Akigalawood, Ambrette (Musk Mallow), Styrax, Bulgarian Rose",
+    baseNotes:   "Patchouli, Tolu Balsam, Labdanum, Tonka Bean",
     feelings:    ["Carefree", "Warm", "Unique"],
     occasions:   ["Everyday", "Casual Hangouts", "Late Nights", "Travel"],
-    description: "All Day is for those who refuse to fit in. A rich blend of dark coffee and cacao on a base of tobacco leaf and warm musk — a fragrance as complex and unpredictable as you are.",
-    behindPerfume: "Inspired by late-night coffee shops and creative misfits who live by their own rules. This is not a fragrance for everyone — it's a fragrance for you.",
+    description: "Crafted for those who appreciate lasting elegance, ALL DAY is a signature fragrance designed to make every moment unforgettable.",
+    behindPerfume: "Inspired by the art of timeless perfumery, ALL DAY is a fragrance that embodies confidence, depth, and effortless sophistication. It opens with vibrant spices and fresh citrus, unfolding into a rich heart of elegant woods and earthy accords. As it settles, warm amber, smooth sandalwood, smoky woods, and soft musk leave a refined trail that lingers throughout the day.",
     whyLove:     "A conversation-starter in a bottle. The coffee-tobacco accord is rare and uniquely addictive. Those who love it obsess over it.",
     usage:       "Apply on pulse points and the back of the neck. The gourmand notes develop beautifully over time — let it breathe and evolve on your skin.",
     image:       "/assets/images/products/all-day-misfit/01.jpg",
@@ -816,24 +816,21 @@ function initProductPage(productId) {
         '</p>'
     },
     {
-      /* TODO[legal]: Verify ingredients, manufacturer, marketer, batch, MFG/EXP and all
-         legal declarations with your formulation supplier before production launch. */
       title: 'Legal Information',
       body: '<div class="acc-legal-grid">' +
           '<div class="acc-legal-row"><span class="acc-legal-label">Product Type</span><span class="acc-legal-val">Perfume</span></div>' +
           '<div class="acc-legal-row"><span class="acc-legal-label">Net Quantity</span><span class="acc-legal-val">50 ml</span></div>' +
           '<div class="acc-legal-row"><span class="acc-legal-label">MRP (Incl. taxes)</span><span class="acc-legal-val">₹' + LAUNCH_CONFIG.mrp + '</span></div>' +
           '<div class="acc-legal-row"><span class="acc-legal-label">Country of Origin</span><span class="acc-legal-val">India</span></div>' +
-          '<div class="acc-legal-row"><span class="acc-legal-label">Manufacturer / Marketer</span><span class="acc-legal-val">To be updated before launch</span></div>' +
+          '<div class="acc-legal-row"><span class="acc-legal-label">Manufacturer / Marketer</span><span class="acc-legal-val">NAFUME Artisan Luxe, Ashok Vihar, Delhi, India</span></div>' +
           '<div class="acc-legal-row"><span class="acc-legal-label">Customer Care</span><span class="acc-legal-val">nafume.official@gmail.com</span></div>' +
         '</div>' +
         '<div class="acc-legal-row" style="margin-bottom:10px"><span class="acc-legal-label">Ingredients</span>' +
-          '<span class="acc-legal-val">Alcohol Denat., Fragrance (Parfum), Aqua — <em style="color:#aaa;font-size:12px">Verify with supplier before launch</em></span>' +
+          '<span class="acc-legal-val">Alcohol Denat., Fragrance (Parfum), Aqua (Water)</span>' +
         '</div>' +
         '<div class="acc-legal-caution">' +
           '<p><strong>Caution:</strong> For external use only. Avoid contact with eyes. Keep away from flame and heat sources. Keep out of reach of children. Patch test recommended for sensitive skin. Store in a cool, dry place away from direct sunlight.</p>' +
         '</div>' +
-        '<p class="acc-legal-verify-note">⚠ Ingredients, batch details, MFG/EXP dates and manufacturer declaration must be verified and printed on packaging before launch.</p>' +
         '<div class="acc-legal-links">' +
           '<a href="/pages/legal/privacy-policy.html">Privacy Policy</a>' +
           '<a href="/pages/legal/terms-conditions.html">Terms &amp; Conditions</a>' +
@@ -868,11 +865,11 @@ function initProductPage(productId) {
   // so a new product needs no PDP code change — just a catalogue entry.
   var isEnhancedPdp = true;
 
-  // Eyebrow + gender badge (enhanced only) — uses existing product data only.
+  // Eyebrow (enhanced only) — uses existing product data only.
+  // NOTE: gender-specific PDP badge intentionally removed — all NAFUME
+  // perfumes are unisex. The underlying p.gender field is kept as-is since
+  // it still drives the real "For Him"/"For Her" collection pages.
   var pdpEyebrow = isEnhancedPdp ? '<p class="pdp-eyebrow">New Arrival</p>' : '';
-  var genderMap  = { him: 'For Him', her: 'For Her', unisex: 'Unisex' };
-  var pdpGenderBadge = (isEnhancedPdp && p.gender && genderMap[p.gender])
-    ? '<span class="pdp-gender-badge">' + genderMap[p.gender] + '</span>' : '';
 
   // Rating row (enhanced only) — real review summary / fallback rating; the site
   // already surfaces ratings on cards, so this reuses the same data + star style.
@@ -918,7 +915,7 @@ function initProductPage(productId) {
     '<div class="product-info-panel">' +
       '<div class="product-sticky-panel">' +
         (isEnhancedPdp ? pdpEyebrow : '<span class="product-badge">New Launch</span>') +
-        '<h1 class="product-name">' + p.displayName + pdpGenderBadge + '</h1>' +
+        '<h1 class="product-name">' + p.displayName + '</h1>' +
         pdpRatingRow +
         '<p class="product-edp-type">' + p.edp + ' · 50ml · ' + p.family + '</p>' +
         '<div class="product-notes-preview">' +

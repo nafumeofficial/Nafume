@@ -192,7 +192,7 @@ function updateCartUI() {
                             <span class="material-symbols-outlined text-[18px]">delete</span>
                         </button>
                     </div>
-                    <p class="text-label-sm font-label-sm text-accent-bronze uppercase tracking-widest mb-2">${item.size} / Eau de Parfum</p>
+                    <p class="text-label-sm font-label-sm text-accent-bronze uppercase tracking-widest mb-2">${item.size} / Parfum</p>
                     <div class="flex justify-between items-center mt-auto">
                         <div class="flex items-center border border-border-muted bg-white">
                             <button class="px-2 py-1 text-primary hover:bg-surface-container transition-colors text-sm font-semibold" onclick="window.stateManager.updateCartQty('${item.id}', '${item.size}', ${item.qty - 1})">-</button>
@@ -205,21 +205,6 @@ function updateCartUI() {
             </div>
         `;
     });
-
-    // B. Discovery Set Upsell recommendation (AOV Booster)
-    const isDiscoverySetInCart = cartItems.some(i => i.id === 'discovery-set');
-    if (!isDiscoverySetInCart) {
-        itemsHtml += `
-            <div class="mt-6 border border-accent-bronze/20 bg-surface-container/30 p-4 rounded animate-fade-in">
-                <span class="text-[9px] font-semibold text-accent-bronze uppercase tracking-widest block mb-1">Olfactory Exploration Add-on</span>
-                <h4 class="font-bold text-sm text-primary mb-1">Add The Discovery Box</h4>
-                <p class="text-[10px] text-text-secondary leading-relaxed font-light mb-3">Sample 5 signature scents for just ₹999. Fully redeemable as store credit!</p>
-                <button class="w-full py-2.5 bg-transparent border border-primary text-primary hover:bg-primary hover:text-white transition-colors text-[10px] font-semibold uppercase tracking-widest" onclick="window.stateManager.addToCart('discovery-set', '50ml', 1)">
-                    + Add to Cart (₹999)
-                </button>
-            </div>
-        `;
-    }
 
     cartContainer.innerHTML = itemsHtml;
     
@@ -277,15 +262,15 @@ function initGlobalEventListeners() {
         searchInput.addEventListener("input", (e) => {
             const query = e.target.value.toLowerCase().trim();
             if (query.length < 2) {
-                // Restore default suggestion items (Vanilla Wood standard)
+                // Restore default suggestion (real bestseller — Seduction)
                 searchResultsContainer.innerHTML = `
-                    <a class="flex gap-4 items-center group hover:bg-surface-variant p-2 rounded transition-colors -ml-2" href="/pages/collections/shop">
+                    <a class="flex gap-4 items-center group hover:bg-surface-variant p-2 rounded transition-colors -ml-2" href="/pages/products/seduction">
                         <div class="w-16 h-20 bg-surface-container rounded overflow-hidden flex-shrink-0">
-                            <img alt="Vanilla Smoke" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEodOsItWYqQZbxIAZYjLEgWC7RCYEkMQp-beWTFnXha8tRyJp2MLkHFYFvhACsRFE9z3TnWzbg3rka-zFxL3wbvV0_IBZ8Z6DTdJopHr6erhjPn7vKqQrLC2X25Nxzg_mtzFdzNLVnSXyPQHjjcDjfyOxnDIE0hPi9BYoo9tvm-h6wXEzr_yEyaqRvksyPDC2YVqEvRPLkx-6OdUoqbOHoLro-3RrBOQP6GO3SG6ATn84Gzuypj-FfW4LedcKIgg6tqRJgO_Rj08y"/>
+                            <img alt="Seduction" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="/assets/images/products/seduction/01.jpg"/>
                         </div>
                         <div>
-                            <h4 class="text-body-md font-body-md text-primary mb-1 group-hover:text-accent-bronze transition-colors">Vanilla Smoke</h4>
-                            <p class="text-label-sm font-label-sm text-on-surface-variant">₹1,699</p>
+                            <h4 class="text-body-md font-body-md text-primary mb-1 group-hover:text-accent-bronze transition-colors">Seduction</h4>
+                            <p class="text-label-sm font-label-sm text-on-surface-variant">₹799</p>
                         </div>
                     </a>
                 `;
@@ -293,17 +278,13 @@ function initGlobalEventListeners() {
             }
 
             const allProducts = window.stateManager.getAllProducts();
-            
+
             const bestForTags = {
-                "italian-bloom": ["evening wear", "date night", "summer freshness"],
-                "mystical-oud": ["evening wear", "date night", "winter depth"],
-                "vanilla-smoke": ["intimate dinners", "cozy evenings", "date night"],
-                "aqua-noir": ["office luxury", "active mornings", "summer freshness"],
-                "sacred-ash": ["ceremonial rituals", "kyoto stillness", "evening luxury"],
-                "velvet-moss": ["earthy mornings", "office luxury", "daytime freshness"],
-                "noir-fig": ["intimate evenings", "date night", "sensual nights"],
-                "solar-neroli": ["bright mornings", "summer freshness", "gifting"],
-                "discovery-set": ["olfactory exploration", "premium gift", "scent testing"]
+                "seduction":     ["date night", "evening wear", "romantic", "gifting"],
+                "dark-oud":      ["formal events", "winter evenings", "celebrations", "gifting"],
+                "red-spirit":    ["power meetings", "night out", "adventure", "bold"],
+                "aqua-manthan":  ["daily wear", "office", "gym", "summer", "fresh"],
+                "all-day-misfit":["everyday", "casual hangouts", "late nights", "travel"]
             };
 
             const matched = allProducts.filter(p => {
@@ -321,7 +302,7 @@ function initGlobalEventListeners() {
             if (matched.length === 0) {
                 searchResultsContainer.innerHTML = `
                     <div class="py-8 text-center text-text-secondary text-xs select-none">
-                        No matching scent found. <br/><span class="text-[10px] font-semibold text-accent-bronze uppercase tracking-widest mt-2 block">Try woody, floral, oud, fresh, vanilla, or citrus</span>
+                        No matching scent found. <br/><span class="text-[10px] font-semibold text-accent-bronze uppercase tracking-widest mt-2 block">Try woody, oud, floral, fresh, spicy, or gourmand</span>
                     </div>
                 `;
                 return;
