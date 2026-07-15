@@ -2195,10 +2195,25 @@ a.home-product-title:hover { color: #C5A059; }
 @media (max-width: 600px) {
     .wb-modal-inner { gap: 0; padding: 0; }
     .wb-arrow       { display: none; }
-    .wb-video-wrap  { height: 100vh; border-radius: 0; }
+    /* Fill the exact viewport instead of a fixed 9:16 box — the old
+       aspect-ratio + 100vh combo made the wrap WIDER than the screen on
+       most phones (e.g. ~479px on a 393px-wide viewport), so it overflowed
+       instead of centering. 100dvh accounts for mobile browser chrome
+       show/hide; the plain 100vh above it is the fallback for browsers
+       that don't support dvh. */
+    .wb-video-wrap  {
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        aspect-ratio: unset;
+        border-radius: 0;
+    }
     .wb-close-btn   { top: max(12px, env(safe-area-inset-top)); right: 12px; }
     /* The video fills the full screen here, so the mute button (normally
        top-right on the video) would sit under the fixed close button.
        Move it to the top-left instead — same pattern as reel-style players. */
     .wb-mute-btn    { top: max(12px, env(safe-area-inset-top)); left: 12px; right: auto; }
+    /* Clear the home-indicator / gesture-bar safe area so the product card
+       isn't flush against (or hidden under) the bottom edge. */
+    .wb-product-bar { bottom: max(16px, calc(env(safe-area-inset-bottom) + 12px)); }
 }
