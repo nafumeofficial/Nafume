@@ -282,7 +282,7 @@
                     <div class="watch-buy-carousel" id="watchCarousel">
 
                         <div class="watch-video-card">
-                            <video class="watch-video" src="assets/videos/video-seduction.mp4"
+                            <video class="watch-video" src="assets/videos/video-seduction%20(2).mp4"
                                 muted playsinline loop autoplay preload="metadata"
                                 aria-label="Seduction fragrance video"></video>
                             <div class="watch-product-mini">
@@ -340,6 +340,23 @@
                                 <img class="watch-product-mini-thumb" src="assets/images/products/thumbnails/Aqua%20Manthan/image-1.jpg" alt="NAFUME Aqua Manthan perfume" loading="lazy" decoding="async" width="1254" height="1254"/>
                                 <div class="watch-product-mini-info">
                                     <span class="watch-product-name">Aqua Manthan</span>
+                                    <div class="watch-price-row">
+                                        <span class="watch-product-price">&#8377;799</span>
+                                        <span class="watch-product-mrp">&#8377;1299</span>
+                                    </div>
+                                    <span class="watch-product-badge">38% off</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="watch-video-card">
+                            <video class="watch-video" src="assets/videos/video-red-spirit.mp4"
+                                muted playsinline loop autoplay preload="metadata"
+                                aria-label="Red Spirit fragrance video"></video>
+                            <div class="watch-product-mini">
+                                <img class="watch-product-mini-thumb" src="assets/images/products/thumbnails/Red%20Spirit/image-1.jpg" alt="NAFUME Red Spirit perfume" loading="lazy" decoding="async" width="1254" height="1254"/>
+                                <div class="watch-product-mini-info">
+                                    <span class="watch-product-name">Red Spirit</span>
                                     <div class="watch-price-row">
                                         <span class="watch-product-price">&#8377;799</span>
                                         <span class="watch-product-mrp">&#8377;1299</span>
@@ -1328,10 +1345,11 @@
         // ── Watch & Buy Modal ────────────────────────────────
         document.addEventListener('DOMContentLoaded', function () {
             var WB_DATA = [
-                { src: 'assets/videos/video-seduction.mp4',      id: 'seduction',      name: 'Seduction',    slug: 'pages/products/seduction.html',    thumb: 'assets/images/products/thumbnails/Seduction/image-1.jpg' },
+                { src: 'assets/videos/video-seduction%20(2).mp4', id: 'seduction',      name: 'Seduction',    slug: 'pages/products/seduction.html',    thumb: 'assets/images/products/thumbnails/Seduction/image-1.jpg' },
                 { src: 'assets/videos/video-DARK%20OUD.mp4',     id: 'dark-oud',       name: 'Dark Oud',     slug: 'pages/products/dark-oud.html',      thumb: 'assets/images/products/thumbnails/Dark%20Oud/image-1.jpg' },
                 { src: 'assets/videos/video-ALL%20DAY.mp4',      id: 'all-day-misfit', name: 'All Day',      slug: 'pages/products/all-day-misfit.html', thumb: 'assets/images/products/thumbnails/All%20Day%20Misfit/image-1.jpg' },
-                { src: 'assets/videos/video-AQUA%20MANTHAN.mp4', id: 'aqua-manthan',   name: 'Aqua Manthan', slug: 'pages/products/aqua-manthan.html',  thumb: 'assets/images/products/thumbnails/Aqua%20Manthan/image-1.jpg' }
+                { src: 'assets/videos/video-AQUA%20MANTHAN.mp4', id: 'aqua-manthan',   name: 'Aqua Manthan', slug: 'pages/products/aqua-manthan.html',  thumb: 'assets/images/products/thumbnails/Aqua%20Manthan/image-1.jpg' },
+                { src: 'assets/videos/video-red-spirit.mp4',     id: 'red-spirit',     name: 'Red Spirit',   slug: 'pages/products/red-spirit.html',    thumb: 'assets/images/products/thumbnails/Red%20Spirit/image-1.jpg' }
             ];
 
             var modal     = document.getElementById('wb-modal');
