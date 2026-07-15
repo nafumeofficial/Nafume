@@ -2196,5 +2196,9 @@ a.home-product-title:hover { color: #C5A059; }
     .wb-modal-inner { gap: 0; padding: 0; }
     .wb-arrow       { display: none; }
     .wb-video-wrap  { height: 100vh; border-radius: 0; }
-    .wb-close-btn   { top: 12px; right: 12px; }
+    .wb-close-btn   { top: max(12px, env(safe-area-inset-top)); right: 12px; }
+    /* The video fills the full screen here, so the mute button (normally
+       top-right on the video) would sit under the fixed close button.
+       Move it to the top-left instead — same pattern as reel-style players. */
+    .wb-mute-btn    { top: max(12px, env(safe-area-inset-top)); left: 12px; right: auto; }
 }

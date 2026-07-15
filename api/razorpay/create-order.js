@@ -181,6 +181,13 @@ module.exports = async function handler(req, res) {
   const items = Array.isArray(body.items) ? body.items : [];
   const giftingAddOnRequested = body.giftingAddOn === true;
   const clientAmount = Number(body.amount);
+  // Optional: use the frontend's own order id as the Razorpay receipt, so a
+  // payment in the Razorpay Dashboard can be traced back to the local order.
+  // Razorpay's receipt field is opaque (max 40 chars) — no injection risk,
+  // but we still sanitise to a safe character set and fall back to a random
+  // receipt if it's missing or malformed.
+  const clientOrderId = typeof body.orderId === "string" ? body.orderId.trim() : "";
+  const validOrderId = /^[A-Za-z0-9\-_]{1,40}$/.test(clientOrderId) ? clientOrderId : null;
 
   if (items.length === 0) {
     return res.status(400).json({ error: "empty_cart", message: "Your cart is empty." });
@@ -206,7 +213,7 @@ module.exports = async function handler(req, res) {
   }
 
   const amountPaise = calc.total * 100;
-  const receipt = "NF-" + Date.now().toString().slice(-8) + "-" + Math.floor(100 + Math.random() * 900);
+  const receipt = validOrderId || ("NF-" + Date.now().toString().slice(-8) + "-" + Math.floor(100 + Math.random() * 900));
 
   try {
     const ctrl  = new AbortController();
@@ -223,7 +230,8 @@ module.exports = async function handler(req, res) {
         amount:   amountPaise,
         currency: "INR",
         receipt:  receipt,
-        payment_capture: 1
+        payment_capture: 1,
+        notes: validOrderId ? { nafumeOrderId: validOrderId } : undefined
       }),
       signal: ctrl.signal
     });

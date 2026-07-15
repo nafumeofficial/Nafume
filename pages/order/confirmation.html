@@ -282,6 +282,17 @@
                         Your payment has been verified. We'll dispatch your order within 24 hours — no further action needed.
                         ${order.razorpay ? `<br/><span class="text-text-secondary">Payment ID: ${order.razorpay.paymentId || "—"}</span>` : ""}
                     </div>
+                </div>
+
+                <div class="bg-[#25D366]/10 border border-[#25D366]/30 p-4 rounded text-left mb-6 text-xs text-primary leading-relaxed font-light flex items-start gap-3">
+                    <span class="material-symbols-outlined text-[#25D366] text-[18px] flex-shrink-0 mt-0.5">notifications_active</span>
+                    <div class="flex-grow">
+                        <strong class="font-semibold text-[#128C4A] uppercase tracking-wider block mb-1">One More Step</strong>
+                        We tried to notify our team on WhatsApp automatically — if nothing opened, please tap below so we can start packing your order right away.
+                        <button onclick="notifyNafumeOnWhatsApp()" class="mt-3 inline-flex items-center gap-2 px-5 py-2.5 bg-[#25D366] text-white text-label-sm font-semibold uppercase tracking-widest rounded-sm hover:bg-[#1ebe5d] transition-colors">
+                            <span class="material-symbols-outlined text-[16px]">chat</span> Notify NAFUME on WhatsApp
+                        </button>
+                    </div>
                 </div>` : `
                 <span class="material-symbols-outlined text-4xl text-accent-bronze mb-4">verified</span>
                 <span class="text-[10px] font-semibold text-accent-bronze uppercase tracking-[0.2em] mb-2 block">Order Received</span>
@@ -438,6 +449,17 @@
         }
         function contactSupport() {
             const msg = "Hello NAFUME, I need help with my order.";
+            window.open("https://wa.me/" + waNumber() + "?text=" + encodeURIComponent(msg), "_blank");
+        }
+        // Guaranteed manual fallback for the auto-open attempted right after
+        // Razorpay verification (browsers often block that one since it fires
+        // from an async callback, not a direct click). This click IS a direct
+        // user gesture, so it always works. Reuses the exact same message via
+        // window.buildRazorpayOrderMessage(), defined in js/launch.js below.
+        function notifyNafumeOnWhatsApp() {
+            const msg = (window.buildRazorpayOrderMessage && currentActiveOrder)
+                ? window.buildRazorpayOrderMessage(currentActiveOrder)
+                : "Hello NAFUME, confirming my paid order. Order ID: " + (currentActiveOrder ? currentActiveOrder.orderId : "—");
             window.open("https://wa.me/" + waNumber() + "?text=" + encodeURIComponent(msg), "_blank");
         }
     </script>

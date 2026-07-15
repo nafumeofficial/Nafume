@@ -2601,7 +2601,10 @@ function payWithRazorpay() {
     body: JSON.stringify({
       items: launchCart.map(function (it) { return { id: it.id, qty: it.qty }; }),
       giftingAddOn: giftingRequested,
-      amount: total
+      amount: total,
+      // Lets Razorpay's order "receipt" match our own order id, so a payment
+      // in the Razorpay Dashboard can be traced straight back to this order.
+      orderId: orderId
     })
   })
     .then(function (r) { return r.json().catch(function () { return {}; }).then(function (data) { return { ok: r.ok, data: data }; }); })
@@ -2657,6 +2660,36 @@ function payWithRazorpay() {
    endpoint returns success:true). On success: updates the local order,
    clears the cart, and redirects to the confirmation page. On failure: never
    touches the cart, shows a clear message, and keeps WhatsApp available. */
+/* Builds the WhatsApp message NAFUME receives once a Razorpay payment is
+   verified. Exposed on window so confirmation.html's "Notify NAFUME on
+   WhatsApp" button can reuse the exact same message. */
+function buildRazorpayOrderMessage(order) {
+  if (!order) return "";
+  var c    = order.customer || {};
+  var t    = order.totals || {};
+  var curr = LAUNCH_CONFIG.currency;
+  var address = (c.address || "—") + ", " + (c.city || "") + " " + (c.state || "") +
+    (c.pincode ? " - " + c.pincode : "");
+  var itemLines = (order.items || []).map(function (it, i) {
+    var qty = it.quantity || it.qty || 1;
+    return (i + 1) + ". " + it.name + " x " + qty + " = " + curr + ((it.price || 0) * qty).toLocaleString("en-IN");
+  }).join("\n");
+  var paymentId = (order.razorpay && order.razorpay.paymentId) || "—";
+
+  return "✅ NAFUME Order — Paid Online (Razorpay)\n\n" +
+    "Order ID: " + order.orderId + "\n" +
+    "Razorpay Payment ID: " + paymentId + "\n\n" +
+    "─── Customer Details ───\n" +
+    "Name: " + (c.name || "—") + "\n" +
+    "Phone: " + (c.phone || "—") + "\n" +
+    "Email: " + (c.email || "—") + "\n\n" +
+    "─── Delivery Address ───\n" + address + "\n\n" +
+    "─── Order Items ───\n" + itemLines + "\n\n" +
+    "Total Paid: " + curr + (t.total || 0).toLocaleString("en-IN") + "\n\n" +
+    "Payment has been verified — please process and dispatch this order.";
+}
+window.buildRazorpayOrderMessage = buildRazorpayOrderMessage;
+
 function verifyRazorpayPayment(response, orderId, rzpBtn, originalLabel) {
   rzpBtn.disabled = true;
   rzpBtn.innerHTML = "Verifying payment…";
@@ -2687,6 +2720,7 @@ function verifyRazorpayPayment(response, orderId, rzpBtn, originalLabel) {
       }
 
       // Verified server-side — now (and only now) mark the local order paid.
+      var updatedOrder = null;
       try {
         var all = window.Commerce.getAllOrders();
         for (var i = 0; i < all.length; i++) {
@@ -2700,6 +2734,7 @@ function verifyRazorpayPayment(response, orderId, rzpBtn, originalLabel) {
               signature:  response.razorpay_signature,
               verifiedAt: new Date().toISOString()
             };
+            updatedOrder = all[i];
             break;
           }
         }
@@ -2710,6 +2745,19 @@ function verifyRazorpayPayment(response, orderId, rzpBtn, originalLabel) {
         try {
           window.OperationsService.recordAnalyticsEvent("order_created", { orderId: orderId, total: launchTotal(), checkoutType: "razorpay" });
           window.OperationsService.recordAnalyticsEvent("razorpay_payment_verified", { orderId: orderId });
+        } catch (e) {}
+      }
+
+      // Best-effort: try to auto-open WhatsApp to NAFUME's own number with the
+      // full order so the team sees it immediately. Browsers frequently block
+      // window.open() at this point (it's inside an async fetch callback, not
+      // a direct click) — that's expected, not an error. The confirmation
+      // page always shows a guaranteed manual "Notify NAFUME on WhatsApp"
+      // button as the reliable fallback for exactly this case.
+      if (updatedOrder) {
+        try {
+          var notifyMsg = buildRazorpayOrderMessage(updatedOrder);
+          window.open("https://wa.me/" + LAUNCH_CONFIG.whatsappNumber + "?text=" + encodeURIComponent(notifyMsg), "_blank");
         } catch (e) {}
       }
 
