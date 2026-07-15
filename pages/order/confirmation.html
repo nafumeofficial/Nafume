@@ -265,7 +265,24 @@
                     </div>`;
             });
 
-            box.innerHTML = `
+            // Razorpay-verified orders get a distinct "Payment Successful" view.
+            // Never trust checkoutType alone — paymentStatus must also be "paid",
+            // which is only ever set after api/razorpay/verify-payment.js succeeds.
+            const isRazorpayPaid = order.checkoutType === "razorpay" && order.paymentStatus === "paid";
+
+            const headerHtml = isRazorpayPaid ? `
+                <span class="material-symbols-outlined text-4xl text-[#2e7d32] mb-4">check_circle</span>
+                <span class="text-[10px] font-semibold text-[#2e7d32] uppercase tracking-[0.2em] mb-2 block">Payment Successful</span>
+                <h2 class="text-headline-sm font-semibold text-primary mb-4 italic">Thank You — Your Order is Confirmed</h2>
+
+                <div class="bg-[#2e7d32]/10 border border-[#2e7d32]/20 p-4 rounded text-left mb-6 text-xs text-primary leading-relaxed font-light flex items-start gap-3">
+                    <span class="material-symbols-outlined text-[#2e7d32] text-[18px] flex-shrink-0 mt-0.5">verified</span>
+                    <div>
+                        <strong class="font-semibold text-[#2e7d32] uppercase tracking-wider block mb-1">Paid Online via Razorpay</strong>
+                        Your payment has been verified. We'll dispatch your order within 24 hours — no further action needed.
+                        ${order.razorpay ? `<br/><span class="text-text-secondary">Payment ID: ${order.razorpay.paymentId || "—"}</span>` : ""}
+                    </div>
+                </div>` : `
                 <span class="material-symbols-outlined text-4xl text-accent-bronze mb-4">verified</span>
                 <span class="text-[10px] font-semibold text-accent-bronze uppercase tracking-[0.2em] mb-2 block">Order Received</span>
                 <h2 class="text-headline-sm font-semibold text-primary mb-4 italic">Thank You — Confirm on WhatsApp</h2>
@@ -276,12 +293,36 @@
                         <strong class="font-semibold text-accent-bronze uppercase tracking-wider block mb-1">Action Needed</strong>
                         Your order is saved. Please send the pre-filled message on WhatsApp to confirm and we'll dispatch within 24 hours.
                     </div>
-                </div>
+                </div>`;
+
+            const actionsHtml = isRazorpayPaid ? `
+                <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+                    <a href="track-order.html?order=${encodeURIComponent(order.orderId)}" class="flex-grow inline-flex justify-center items-center gap-2 px-6 py-4 bg-primary text-white text-label-sm font-semibold uppercase tracking-widest hover:bg-[#222] transition-colors rounded-sm shadow-md">
+                        <span class="material-symbols-outlined text-[18px]">local_shipping</span> Track this Order
+                    </a>
+                    <a href="/" class="flex-grow inline-flex justify-center items-center px-6 py-4 bg-transparent border border-border-muted text-text-secondary text-label-sm font-semibold uppercase tracking-widest hover:bg-surface-container transition-all rounded-sm">
+                        Continue Shopping
+                    </a>
+                </div>` : `
+                <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+                    <button onclick="openWhatsAppAgain()" class="flex-grow inline-flex justify-center items-center gap-2 px-6 py-4 bg-primary text-white text-label-sm font-semibold uppercase tracking-widest hover:bg-[#222] transition-colors rounded-sm shadow-md">
+                        <span class="material-symbols-outlined text-[18px]">chat</span> Open WhatsApp Again
+                    </button>
+                    <a href="track-order.html?order=${encodeURIComponent(order.orderId)}" class="flex-grow inline-flex justify-center items-center gap-2 px-6 py-4 bg-transparent border border-primary text-primary text-label-sm font-semibold uppercase tracking-widest hover:bg-primary hover:text-white transition-all rounded-sm">
+                        <span class="material-symbols-outlined text-[18px]">local_shipping</span> Track this Order
+                    </a>
+                    <a href="/" class="flex-grow inline-flex justify-center items-center px-6 py-4 bg-transparent border border-border-muted text-text-secondary text-label-sm font-semibold uppercase tracking-widest hover:bg-surface-container transition-all rounded-sm">
+                        Continue Shopping
+                    </a>
+                </div>`;
+
+            box.innerHTML = `
+                ${headerHtml}
 
                 <div class="w-full text-left text-xs mb-6 text-text-secondary border border-border-muted/50 p-4 rounded bg-surface/30">
                     <div class="flex justify-between border-b border-border-muted/30 pb-2 mb-2 font-semibold">
                         <span>Order ID: <strong class="text-primary font-bold">${order.orderId}</strong></span>
-                        <span class="text-accent-bronze uppercase font-bold">${humanOrderStatus(order.status)}</span>
+                        <span class="${isRazorpayPaid ? "text-[#2e7d32]" : "text-accent-bronze"} uppercase font-bold">${isRazorpayPaid ? "Confirmed" : humanOrderStatus(order.status)}</span>
                     </div>
                     <div class="space-y-1">
                         <p><strong>Customer:</strong> ${c.name || "—"}</p>
@@ -308,17 +349,7 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
-                    <button onclick="openWhatsAppAgain()" class="flex-grow inline-flex justify-center items-center gap-2 px-6 py-4 bg-primary text-white text-label-sm font-semibold uppercase tracking-widest hover:bg-[#222] transition-colors rounded-sm shadow-md">
-                        <span class="material-symbols-outlined text-[18px]">chat</span> Open WhatsApp Again
-                    </button>
-                    <a href="track-order.html?order=${encodeURIComponent(order.orderId)}" class="flex-grow inline-flex justify-center items-center gap-2 px-6 py-4 bg-transparent border border-primary text-primary text-label-sm font-semibold uppercase tracking-widest hover:bg-primary hover:text-white transition-all rounded-sm">
-                        <span class="material-symbols-outlined text-[18px]">local_shipping</span> Track this Order
-                    </a>
-                    <a href="/" class="flex-grow inline-flex justify-center items-center px-6 py-4 bg-transparent border border-border-muted text-text-secondary text-label-sm font-semibold uppercase tracking-widest hover:bg-surface-container transition-all rounded-sm">
-                        Continue Shopping
-                    </a>
-                </div>
+                ${actionsHtml}
                 ${trackingNoteHtml(order)}
                 ${accountNoteHtml(order)}
                 <!-- Order support CTA (Upgrade 10) -->

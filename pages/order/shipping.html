@@ -221,6 +221,15 @@
             <!-- Dev/fallback notice (e.g. "online checkout is being connected") -->
             <p class="checkout-warning-note" id="checkout-warning-note" style="display:none;"></p>
 
+            <!-- Razorpay "Pay Online" — visibility set by initRazorpayCheckoutUI() in
+                 launch.js. Not a submit button: it validates the form itself, opens
+                 Razorpay Checkout, then verifies payment server-side before redirecting. -->
+            <button type="button" class="btn-secure-checkout" id="btn-razorpay-checkout" style="display:none;">
+              <span class="material-symbols-outlined" style="font-size:20px;">lock</span>
+              Pay Online (Razorpay)
+            </button>
+            <p class="checkout-warning-note" id="razorpay-status-note" style="display:none;"></p>
+
             <button type="submit" class="btn-place-order" id="btn-place-order">
               <span class="material-symbols-outlined" style="font-size:20px;">whatsapp</span>
               Confirm Order on WhatsApp
@@ -303,6 +312,11 @@
   </main>
 
   <div id="global-footer"></div>
+
+  <!-- Razorpay Standard Checkout SDK (official, hosted by Razorpay — no npm package
+       required). Only exposes the publishable key_id returned by create-order.js;
+       the secret key is never present in this page or any frontend file. -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
   <!-- Commerce foundation (Upgrade 1) + Shopify checkout (Upgrade 2) — load
        before launch.js so window.Commerce / window.ShopifyService are ready. -->

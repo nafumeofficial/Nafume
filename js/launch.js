@@ -2312,6 +2312,7 @@ document.addEventListener("DOMContentLoaded", function() {
       initCheckoutModeUI();      // Upgrade 2: adapt CTAs to local vs Shopify mode
       initCheckoutAccountUI();   // Upgrade 3: prefill from account / login prompt
       initCheckoutOffersUI();    // Upgrade 9: prepaid / gift / bundle / sample
+      initRazorpayCheckoutUI();  // Razorpay: show "Pay Online" button when configured
       // Analytics (Upgrade 10): reached checkout with items.
       if (window.OperationsService) {
         try { window.OperationsService.recordAnalyticsEvent("begin_checkout", { itemCount: launchCount() }); } catch (e) {}
@@ -2457,6 +2458,274 @@ function startSecureCheckout() {
         warnNote.textContent = "Secure checkout could not start right now. Please order on WhatsApp or try again.";
       }
       if (secureBtn) { secureBtn.disabled = false; secureBtn.innerHTML = originalLabel; }
+    });
+}
+
+/* ─── Razorpay "Pay Online" checkout ────────────────────────────────────────
+   Adds a real payment option alongside the existing WhatsApp flow — never
+   replaces it. Order creation + signature verification happen server-side
+   (api/razorpay/create-order.js, api/razorpay/verify-payment.js); this file
+   only ever sees the publishable key_id returned by create-order.js.        */
+function initRazorpayCheckoutUI() {
+  var rzpBtn = document.getElementById("btn-razorpay-checkout");
+  if (!rzpBtn) return;
+  var cfg = (window.COMMERCE_CONFIG && window.COMMERCE_CONFIG.razorpay) || {};
+  if (!cfg.enabled || typeof window.Razorpay === "undefined") {
+    rzpBtn.style.display = "none";
+    return;
+  }
+  if (cfg.buttonLabel) {
+    var labelNode = rzpBtn.childNodes[rzpBtn.childNodes.length - 1];
+    if (labelNode && labelNode.nodeType === 3) labelNode.textContent = " " + cfg.buttonLabel;
+  }
+  rzpBtn.style.display = "";
+  rzpBtn.addEventListener("click", payWithRazorpay);
+}
+
+function razorpayShowStatus(msg, isError) {
+  var note = document.getElementById("razorpay-status-note");
+  if (!note) return;
+  note.style.display = "";
+  note.textContent = msg;
+  note.style.background   = isError ? "#fdecea" : "#fdf6e3";
+  note.style.borderColor  = isError ? "#f3c6c3" : "#f0e2b8";
+  note.style.color        = isError ? "#a4342d" : "#8a6d1f";
+}
+function razorpayHideStatus() {
+  var note = document.getElementById("razorpay-status-note");
+  if (note) note.style.display = "none";
+}
+
+function payWithRazorpay() {
+  var rzpBtn = document.getElementById("btn-razorpay-checkout");
+  var form   = document.getElementById("shipping-form");
+  if (!rzpBtn || !form) return;
+
+  if (launchCart.length === 0) {
+    razorpayShowStatus("Your cart is empty. Please add products before placing an order.", true);
+    return;
+  }
+
+  // Collect + validate shipping fields (same required fields as the WhatsApp
+  // flow, kept as a separate copy so submitShippingForm() stays untouched).
+  var name  = (form.querySelector('[name="name"]').value  || "").trim();
+  var phone = (form.querySelector('[name="phone"]').value || "").trim();
+  var email = (form.querySelector('[name="email"]').value || "").trim();
+  var addr1 = (form.querySelector('[name="addr1"]').value || "").trim();
+  var addr2 = (form.querySelector('[name="addr2"]').value || "").trim();
+  var city  = (form.querySelector('[name="city"]').value  || "").trim();
+  var state = (form.querySelector('[name="state"]').value || "").trim();
+  var pin   = (form.querySelector('[name="pin"]').value   || "").trim();
+
+  if (!name || !phone || !addr1 || !city || !pin) {
+    razorpayShowStatus("Please fill in all required fields (Name, Phone, Address, City, PIN) before paying online.", true);
+    return;
+  }
+  razorpayHideStatus();
+
+  // Offer-aware total — matches exactly what's shown in the Order Summary.
+  // "online" makes this eligible for the prepaid discount if configured.
+  var paymentLabel = "Razorpay (Online Payment)";
+  var total = launchTotal();
+  var appliedOffers = [];
+  if (window.Offers) {
+    try {
+      var s = window.Offers.getCartOfferSummary(launchCart, paymentLabel);
+      total = s.total;
+      appliedOffers = s.appliedOffers || [];
+    } catch (e) {}
+  }
+  if (!(total > 0)) {
+    razorpayShowStatus("Order amount is invalid. Please refresh and try again.", true);
+    return;
+  }
+
+  var orderId = "NF-" + Date.now().toString().slice(-6) + "-" + Math.floor(100 + Math.random() * 900);
+
+  // Snapshot a local order now (paymentStatus: "pending") — same pattern the
+  // WhatsApp flow uses, so confirmation.html / track-order.html can read it
+  // even if the customer abandons payment. Never marked "paid" here.
+  var createdOrder = null;
+  if (window.Commerce && typeof window.Commerce.createLocalOrder === "function") {
+    try {
+      var notesEl  = form.querySelector('[name="notes"]');
+      var acctCust = (window.CustomerService && window.CustomerService.getCurrentCustomer)
+        ? window.CustomerService.getCurrentCustomer() : null;
+      createdOrder = window.Commerce.createLocalOrder({
+        orderId: orderId,
+        customer: {
+          name: name, phone: phone, email: email,
+          address: addr1 + (addr2 ? ", " + addr2 : ""),
+          city: city, state: state, pincode: pin
+        },
+        customerId: acctCust ? acctCust.customerId : null,
+        customerSnapshot: { name: name, phone: phone, email: email },
+        paymentMethod: paymentLabel,
+        offers: appliedOffers,
+        notes: notesEl ? (notesEl.value || "").trim() : "",
+        whatsappMessage: ""
+      });
+      if (createdOrder && window.Commerce.getAllOrders && window.Commerce.saveAllOrders) {
+        var all = window.Commerce.getAllOrders();
+        for (var i = 0; i < all.length; i++) {
+          if (all[i].orderId === orderId) { all[i].checkoutType = "razorpay_pending"; break; }
+        }
+        window.Commerce.saveAllOrders(all);
+      }
+    } catch (e) { createdOrder = null; }
+  }
+  if (!createdOrder) {
+    razorpayShowStatus("Could not start payment right now. Please try again or use WhatsApp.", true);
+    return;
+  }
+
+  var cfg = (window.COMMERCE_CONFIG && window.COMMERCE_CONFIG.razorpay) || {};
+  var createEndpoint = cfg.createOrderEndpoint || "/api/razorpay/create-order";
+
+  var originalLabel = rzpBtn.innerHTML;
+  rzpBtn.disabled = true;
+  rzpBtn.innerHTML = "Starting payment…";
+
+  if (window.OperationsService) {
+    try { window.OperationsService.recordAnalyticsEvent("razorpay_checkout_started", { orderId: orderId, total: total }); } catch (e) {}
+  }
+
+  // Gifting add-on is a local opt-in checkbox (js/commerce/offer-service.js);
+  // only the boolean intent is sent — the server applies its own fixed price
+  // for it so the exact-match total calculation stays fully server-trusted.
+  var giftingRequested = !!(window.Offers && window.Offers.getGiftingAddOn().applied);
+
+  fetch(createEndpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      items: launchCart.map(function (it) { return { id: it.id, qty: it.qty }; }),
+      giftingAddOn: giftingRequested,
+      amount: total
+    })
+  })
+    .then(function (r) { return r.json().catch(function () { return {}; }).then(function (data) { return { ok: r.ok, data: data }; }); })
+    .then(function (res) {
+      rzpBtn.disabled = false;
+      rzpBtn.innerHTML = originalLabel;
+
+      if (!res.ok || !res.data || !res.data.order_id) {
+        razorpayShowStatus((res.data && res.data.message) || "Could not start payment right now. Please try again or use WhatsApp.", true);
+        return;
+      }
+
+      var rp = res.data;
+      var rzp = new Razorpay({
+        key:         rp.key_id,
+        amount:      rp.amount,
+        currency:    rp.currency,
+        order_id:    rp.order_id,
+        name:        "NAFUME Artisan Luxe",
+        description: "Order " + orderId,
+        image:       "/assets/logo/logo-mark.png",
+        prefill:     { name: name, email: email, contact: phone },
+        theme:       { color: cfg.themeColor || "#C5A059" },
+        notes:       { orderId: orderId },
+        handler: function (response) {
+          verifyRazorpayPayment(response, orderId, rzpBtn, originalLabel);
+        },
+        modal: {
+          ondismiss: function () {
+            razorpayShowStatus("Payment was cancelled. Your cart and details are still saved — retry payment above or confirm on WhatsApp.", true);
+          }
+        }
+      });
+
+      rzp.on("payment.failed", function () {
+        razorpayShowStatus("Payment failed. Your cart and details are still saved — retry payment above or confirm on WhatsApp.", true);
+        if (window.OperationsService) {
+          try { window.OperationsService.recordAnalyticsEvent("razorpay_payment_failed", { orderId: orderId }); } catch (e) {}
+        }
+      });
+
+      rzp.open();
+    })
+    .catch(function () {
+      rzpBtn.disabled = false;
+      rzpBtn.innerHTML = originalLabel;
+      razorpayShowStatus("Payment service is temporarily unavailable. Please try again or use WhatsApp.", true);
+    });
+}
+
+/* Server-side signature verification (Razorpay Standard Checkout callback is
+   NOT proof of payment on its own — only mark an order "paid" after this
+   endpoint returns success:true). On success: updates the local order,
+   clears the cart, and redirects to the confirmation page. On failure: never
+   touches the cart, shows a clear message, and keeps WhatsApp available. */
+function verifyRazorpayPayment(response, orderId, rzpBtn, originalLabel) {
+  rzpBtn.disabled = true;
+  rzpBtn.innerHTML = "Verifying payment…";
+
+  var cfg = (window.COMMERCE_CONFIG && window.COMMERCE_CONFIG.razorpay) || {};
+  var verifyEndpoint = cfg.verifyPaymentEndpoint || "/api/razorpay/verify-payment";
+
+  fetch(verifyEndpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      razorpay_order_id:   response.razorpay_order_id,
+      razorpay_payment_id: response.razorpay_payment_id,
+      razorpay_signature:  response.razorpay_signature
+    })
+  })
+    .then(function (r) { return r.json().catch(function () { return {}; }).then(function (data) { return { ok: r.ok, data: data }; }); })
+    .then(function (res) {
+      if (!res.ok || !res.data || res.data.success !== true) {
+        rzpBtn.disabled = false;
+        rzpBtn.innerHTML = originalLabel;
+        razorpayShowStatus(
+          (res.data && res.data.message) ||
+          ("Payment could not be verified. If money was deducted, please contact support with payment ID " + response.razorpay_payment_id + "."),
+          true
+        );
+        return;
+      }
+
+      // Verified server-side — now (and only now) mark the local order paid.
+      try {
+        var all = window.Commerce.getAllOrders();
+        for (var i = 0; i < all.length; i++) {
+          if (all[i].orderId === orderId) {
+            all[i].paymentStatus = "paid";
+            all[i].status        = "confirmed";
+            all[i].checkoutType  = "razorpay";
+            all[i].razorpay = {
+              orderId:    response.razorpay_order_id,
+              paymentId:  response.razorpay_payment_id,
+              signature:  response.razorpay_signature,
+              verifiedAt: new Date().toISOString()
+            };
+            break;
+          }
+        }
+        window.Commerce.saveAllOrders(all);
+      } catch (e) {}
+
+      if (window.OperationsService) {
+        try {
+          window.OperationsService.recordAnalyticsEvent("order_created", { orderId: orderId, total: launchTotal(), checkoutType: "razorpay" });
+          window.OperationsService.recordAnalyticsEvent("razorpay_payment_verified", { orderId: orderId });
+        } catch (e) {}
+      }
+
+      // Clear cart + one-time local offers, same as the WhatsApp flow.
+      launchCart = []; saveLaunchCart();
+      if (window.Offers) { try { window.Offers.removeLocalOfferFromCart(window.Offers.GIFT_OFFER_ID); } catch (e) {} }
+
+      window.location.href = nfPath("/pages/order/confirmation.html") + "?orderId=" + encodeURIComponent(orderId);
+    })
+    .catch(function () {
+      rzpBtn.disabled = false;
+      rzpBtn.innerHTML = originalLabel;
+      razorpayShowStatus(
+        "Payment verification failed. If money was deducted, please contact support with payment ID " + response.razorpay_payment_id + ".",
+        true
+      );
     });
 }
 

@@ -77,6 +77,29 @@
       whatsappCheckoutLabel:  "Order on WhatsApp"            // assisted / fallback option
     },
 
+    /* ── Razorpay online payment ─────────────────────────────────────────────
+       Real payment gateway (Standard Checkout). Order creation + signature
+       verification happen server-side in api/razorpay/create-order.js and
+       api/razorpay/verify-payment.js — RAZORPAY_KEY_SECRET never appears here
+       or anywhere else in frontend code. Only the publishable key_id (safe to
+       expose) is returned by create-order.js at checkout time; nothing is
+       hardcoded in this file.
+
+       ┌─────────────────────────────────────────────────────────────────────┐
+       │  🔒 SECURITY                                                          │
+       │  • NEVER put RAZORPAY_KEY_SECRET or RAZORPAY_WEBHOOK_SECRET in any    │
+       │    frontend file. They live only in Vercel → Environment Variables.  │
+       │  • WhatsApp checkout stays available as a fallback — Razorpay never  │
+       │    replaces it, only adds an additional "Pay Online" option.         │
+       └─────────────────────────────────────────────────────────────────────┘ */
+    razorpay: {
+      enabled:                true,   // master switch — false hides "Pay Online", WhatsApp/COD only
+      createOrderEndpoint:    "/api/razorpay/create-order",
+      verifyPaymentEndpoint:  "/api/razorpay/verify-payment",
+      buttonLabel:            "Pay Online (Razorpay)",
+      themeColor:             "#C5A059"   // NAFUME gold — passed to Razorpay Checkout UI
+    },
+
     /* ── Order tracking (Upgrade 7: Shiprocket-ready foundation) ────────────
        Controls how the Track Order page behaves. Default is fully LOCAL:
        it shows the order's local status timeline only. No live courier API is
